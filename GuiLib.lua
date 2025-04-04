@@ -5,7 +5,7 @@ local Configs_HUB = {
   Cor_Text = Color3.fromRGB(240, 240, 240),
   Cor_DarkText = Color3.fromRGB(140, 140, 140),
   Corner_Radius = UDim.new(0, 4),
-  Text_Font = Enum.Font.SourceSansBold
+  Text_Font = Enum.Font.BuilderSansBold
 }
 
 local CoreGui = game:GetService("CoreGui")
@@ -217,7 +217,7 @@ function MakeWindow(Configs)
       Position = UDim2.new(1, -10, 0, 5),
       AnchorPoint = Vector2.new(1, 0),
       Text = "X",
-      Font = Enum.Font.SourceSansBold,
+      Font = Enum.Font.BuilderSansBold,
       TextScaled = true,
       TextColor3 = Color3.fromRGB(240, 0, 0),
       BackgroundTransparency = 1,
@@ -1577,7 +1577,7 @@ function MakeWindow(Configs)
       BackgroundTransparency = 1,
       Position = UDim2.new(0, 12, 0, 0),
       TextColor3 = Color3.fromRGB(0, 120, 255),
-      Font = Enum.Font.SourceSansBold,
+      Font = Enum.Font.BuilderSansBold,
       TextSize = 14
     })
     
@@ -1588,7 +1588,7 @@ function MakeWindow(Configs)
       BackgroundTransparency = 1,
       Position = UDim2.new(0, 60, 0, 25),
       TextColor3 = Color3.fromRGB(200, 200, 200),
-      Font = Enum.Font.SourceSansBold,
+      Font = Enum.Font.BuilderSansBold,
       TextSize = 14
     })
     
@@ -1604,7 +1604,7 @@ function MakeWindow(Configs)
       AnchorPoint = Vector2.new(0.5, 1),
       Position = UDim2.new(0.5, 0, 1, -8),
       Text = "Join",
-      Font = Enum.Font.SourceSansBold,
+      Font = Enum.Font.BuilderSansBold,
       TextSize = 15,
       TextColor3 = Color3.fromRGB(220, 220, 220),
       BackgroundColor3 = Color3.fromRGB(50, 200, 50)
