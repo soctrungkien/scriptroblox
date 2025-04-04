@@ -85,6 +85,14 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/DexExplorerLite.lua"))()
   end
   })
+
+
+        AddButton(Tab1o, {
+     Name = "Banana Hub ⟦Key⟧",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/BananaHubKey.lua"))()
+  end
+  })
     
 
         AddButton(Tab1o, {
