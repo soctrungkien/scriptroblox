@@ -45,7 +45,7 @@ CloseButton.Parent = Frame
 CloseButton.BackgroundColor3 = Color3.fromRGB(65, 65, 65)
 CloseButton.Position = UDim2.new(0.8, 0, 0, 0) -- Góc trên bên phải
 CloseButton.Size = UDim2.new(0.1, 0, 0.1, 0)
-CloseButton.Text = "X"
+CloseButton.Text = "❌"
 CloseButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 
 -- Chức năng nút GetKey
