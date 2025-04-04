@@ -191,3 +191,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord
 loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "Anh Đẹp Zai Hub",
+    Callback = function()
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer loadstring(game:HttpGet("https://raw.githubusercontent.com/AnDepZaiHub/AnDepZaiHubBeta/refs/heads/main/AnDepZaiHubNewUpdated.lua"))()
+  end
+  })
