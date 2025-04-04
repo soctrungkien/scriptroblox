@@ -178,9 +178,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
                 AddButton(Tab1o, {
-     Name = "Server hop",
+     Name = "May mắn 10000%🍀",
     Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/ServerHop.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Luck.lua"))()
   end
   })
 
