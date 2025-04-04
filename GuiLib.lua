@@ -520,10 +520,10 @@ function MakeWindow(Configs)
   })
   
   function MinimizeButton(Configs)
-    local image = Configs.Image or ""
+    local image = Configs.Image or "rbxassetid://81249639738070"
     local size = Configs.Size or {30, 30}
     local color = Configs.Color or Configs_HUB.Cor_Hub
-    local corner = Configs.Corner or true
+    local corner = Configs.Corner or false
     local stroke = Configs.Stroke or false
     local strokecolor = Configs.StrokeColor or Configs_HUB.Cor_Stroke
     
