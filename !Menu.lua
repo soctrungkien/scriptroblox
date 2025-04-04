@@ -167,3 +167,27 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/ServerHop.lua"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "Server hop",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/ServerHop.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "RIP",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/Loader.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "HOHO HUB",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
+  end
+  })
