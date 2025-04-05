@@ -31,7 +31,15 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
       
 ------ Tab
      local Tab1o = MakeTab({Name = "Main"})
-     
+
+-------KEYBYPASS
+local settingskey = {
+    autoRun = false  -- Có thể chỉnh thành true/false để bật/tắt script
+}
+
+if settingskey.autoRun then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/AutoRunScript.lua"))()
+end
 ------- BUTTON
     
     AddButton(Tab1o, {
