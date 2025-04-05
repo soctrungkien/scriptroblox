@@ -1,45 +1,54 @@
 local TeleportService = game:GetService("TeleportService")
 local Players = game:GetService("Players")
 local HttpService = game:GetService("HttpService")
-local placeId = game.PlaceId -- ID của trò chơi hiện tại
-local currentJobId = game.JobId -- ID của server hiện tại
+local placeId = game.PlaceId
+local currentJobId = game.JobId
 
--- Hàm nhảy sang server khác
 local function serverHop()
     print("Đang tìm server mới...")
     
-    -- Lấy danh sách server từ API Roblox (không chính thức, cần điều chỉnh)
-    local success, serverList = pcall(function()
+    -- Thử lấy danh sách server
+    local success, response = pcall(function()
         local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Asc&limit=100"
         return HttpService:GetAsync(url)
     end)
     
-    if success then
-        local servers = HttpService:JSONDecode(serverList)
-        for _, server in pairs(servers.data) do
-            -- Kiểm tra server không phải server hiện tại
-            if server.id ~= currentJobId and server.playing < server.maxPlayers then
-                print("Nhảy sang server: " .. server.id)
-                TeleportService:TeleportToPlaceInstance(placeId, server.id, Players.LocalPlayer)
-                return
+    if success and response then
+        local servers = HttpService:JSONDecode(response)
+        if servers and servers.data then
+            for _, server in pairs(servers.data) do
+                if server.id ~= currentJobId and server.playing < server.maxPlayers then
+                    print("Nhảy sang server: " .. server.id)
+                    TeleportService:TeleportToPlaceInstance(placeId, server.id, Players.LocalPlayer)
+                    return
+                end
             end
+            print("Không tìm thấy server phù hợp, teleport ngẫu nhiên...")
+        else
+            print("Danh sách server trống hoặc lỗi định dạng!")
         end
-        print("Không tìm thấy server phù hợp, thử teleport ngẫu nhiên...")
     else
-        print("Không thể lấy danh sách server, dùng teleport mặc định...")
+        print("Lỗi khi lấy danh sách server: " .. tostring(response))
     end
     
-    -- Nếu không tìm được server, teleport ngẫu nhiên
+    -- Fallback: Teleport ngẫu nhiên nếu thất bại
     TeleportService:Teleport(placeId, Players.LocalPlayer)
 end
 
--- Gọi hàm nhảy server
-serverHop()
+-- Thực thi với xử lý lỗi
+local success, error = pcall(function()
+    serverHop()
+end)
 
--- Xử lý lỗi teleport
+if not success then
+    warn("Lỗi khi chạy server hop: " .. error)
+end
+
+-- Xử lý teleport thất bại
 Players.LocalPlayer.OnTeleport:Connect(function(teleportState)
     if teleportState == Enum.TeleportState.Failed then
-        wait(5) -- Đợi 5 giây trước khi thử lại
-        serverHop() -- Thử nhảy server lại
+        print("Teleport thất bại, thử lại sau 5 giây...")
+        wait(5)
+        serverHop()
     end
 end)
