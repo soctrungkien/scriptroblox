@@ -38,7 +38,7 @@ local settingskey = {
 }
 
 if settingskey.autoRun then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/AutoRunScript.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
 end
 ------- BUTTON
     
