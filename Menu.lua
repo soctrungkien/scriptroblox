@@ -1,4 +1,4 @@
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/GuiLib.lua")))()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
 
        local Window = MakeWindow({
          Hub = {
