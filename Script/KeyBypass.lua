@@ -13,4 +13,7 @@ end
 
 if checkKeySystem() then
     loadstring(game:HttpGet(targetScript))()
+    print("🗿") -- Thông báo khi hoàn tất
+else
+    print("Bạn rất liêm") -- Thông báo khi không chạy
 end
