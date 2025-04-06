@@ -22,10 +22,10 @@ PC executor
 []()
 
 Android
-[]()
-[]()
-[]()
-[]()
+[Delta](https://delta-executor.com/deltaexploit/)
+[Krnl](https://wearedevs.net/d/Krnl)
+[CodeX](https://codexexecutor.net/)
+[Fluxus](https://fluxus-team.net/download/)
 []()
 []()
 []()
@@ -44,22 +44,14 @@ Android
 []()
 
 IOS
+[Delta](https://delta-executor.com/ios/)
+[CodeX](https://codexexecutor.net/)
+[Fluxus](https://fluxus-team.net/download/)
 []()
 []()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
-[]()
+
+Linux
+[Fluxus](https://fluxus-team.net/download/)
 []()
 []()
 []()
