@@ -2,7 +2,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
 
        local Window = MakeWindow({
          Hub = {
-         Title = "Script",
+         Title = "Hihi Hub by @98ᴏ0ᴏ39 ☑️",
          Animation = "Loading..."
          },
         Key = {
