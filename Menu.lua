@@ -14,10 +14,9 @@ local function getLastLineFromUrl()
         for line in result:gmatch("[^\n]+") do
             table.insert(lines, line)
         end
-        return lines[#lines] or "Không có key"
+        return lines[#lines] or "free"
     else
-        warn("Lỗi khi lấy key.txt: " .. tostring(result))
-        return "Lỗi khi tải key"
+        return "free"
     end
 end
 
