@@ -3,16 +3,16 @@ local gui = Instance.new("ScreenGui")
 gui.Name = "TeleportGUI"
 gui.Parent = player.PlayerGui
 
--- Frame chính với phong cách mờ, tím, bo tròn
+-- Frame chính
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0, 200, 0, 200)
 frame.Position = UDim2.new(0.5, -100, 0.5, -100)
-frame.BackgroundColor3 = Color3.fromRGB(147, 112, 219) -- Màu tím nhạt
-frame.BackgroundTransparency = 0.5 -- Độ mờ
+frame.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
+frame.BackgroundTransparency = 0.5
 frame.Parent = gui
 
 local frameCorner = Instance.new("UICorner")
-frameCorner.CornerRadius = UDim.new(0, 10) -- Bo tròn 10px
+frameCorner.CornerRadius = UDim.new(0, 10)
 frameCorner.Parent = frame
 
 -- Nút chọn người chơi 1
@@ -22,7 +22,7 @@ player1Button.Position = UDim2.new(0, 25, 0, 20)
 player1Button.Text = "Chọn Người chơi 1"
 player1Button.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 player1Button.BackgroundTransparency = 0.3
-player1Button.TextColor3 = Color3.new(1, 1, 1) -- Chữ trắng
+player1Button.TextColor3 = Color3.new(1, 1, 1)
 player1Button.Parent = frame
 
 local player1ButtonCorner = Instance.new("UICorner")
@@ -40,6 +40,10 @@ player1Dropdown.Parent = frame
 local player1DropdownCorner = Instance.new("UICorner")
 player1DropdownCorner.CornerRadius = UDim.new(0, 8)
 player1DropdownCorner.Parent = player1Dropdown
+
+local player1ListLayout = Instance.new("UIListLayout")
+player1ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+player1ListLayout.Parent = player1Dropdown
 
 -- Nút chọn người chơi 2
 local player2Button = Instance.new("TextButton")
@@ -66,6 +70,10 @@ player2Dropdown.Parent = frame
 local player2DropdownCorner = Instance.new("UICorner")
 player2DropdownCorner.CornerRadius = UDim.new(0, 8)
 player2DropdownCorner.Parent = player2Dropdown
+
+local player2ListLayout = Instance.new("UIListLayout")
+player2ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+player2ListLayout.Parent = player2Dropdown
 
 -- Hàm cập nhật danh sách người chơi
 local selectedPlayer1, selectedPlayer2
@@ -99,7 +107,6 @@ local function updatePlayerList(dropdown, button, playerVar)
             end)
         end
     end
-    dropdown.Size = UDim2.new(0, 150, 0, #dropdown:GetChildren() * 30)
 end
 
 player1Button.MouseButton1Click:Connect(function()
@@ -156,5 +163,43 @@ closeButtonCorner.CornerRadius = UDim.new(0, 8)
 closeButtonCorner.Parent = closeButton
 
 closeButton.MouseButton1Click:Connect(function()
-    gui:Destroy() -- Xóa GUI khi nhấp
+    gui:Destroy()
+end)
+
+-- Thêm tính năng kéo cho Frame
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+frame.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = frame.Position
+        
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+frame.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement then
+        dragInput = input
+    end
+end)
+
+game:GetService("UserInputService").InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        local delta = input.Position - dragStart
+        frame.Position = UDim2.new(
+            startPos.X.Scale,
+            startPos.X.Offset + delta.X,
+            startPos.Y.Scale,
+            startPos.Y.Offset + delta.Y
+        )
+    end
 end)
