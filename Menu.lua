@@ -1,39 +1,16 @@
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
 
--- Khai báo HttpService
-local HttpService = game:GetService("HttpService")
-local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/key.txt"
-
--- Hàm lấy dòng cuối từ URL
-local function getLastLineFromUrl()
-    local success, result = pcall(function()
-        return HttpService:GetAsync(url)
-    end)
-    if success then
-        local lines = {}
-        for line in result:gmatch("[^\n]+") do
-            table.insert(lines, line)
-        end
-        return lines[#lines] or "free"
-    else
-        return "free"
-    end
-end
-
--- Lấy dòng cuối và gán vào biến
-local lastLine = getLastLineFromUrl()
-
        local Window = MakeWindow({
          Hub = {
          Title = "Dragon Hub by @98ᴏ0ᴏ39",
          Animation = "Loading..."
          },
         Key = {
-        KeySystem = true,
+        KeySystem = false,
         Title = "Key System",
-        Description = "",
+        Description = "Key is "1234"",
         KeyLink = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/key.txt",
-        Keys = {lastLine},
+        Keys = {"1234"},
         Notifi = {
         Notifications = true,
         CorrectKey = "Running the Script...",
@@ -57,7 +34,7 @@ local lastLine = getLastLineFromUrl()
 
 -------KEYBYPASS
 local settingskey = {
-    autoRun = true  -- Có thể chỉnh thành true/false để bật/tắt script
+    autoRun = false  -- Có thể chỉnh thành true/false để bật/tắt script
 }
 
 if settingskey.autoRun then
