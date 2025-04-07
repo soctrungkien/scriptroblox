@@ -2,7 +2,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
 
        local Window = MakeWindow({
          Hub = {
-         Title = "Hihi Hub by @98ᴏ0ᴏ39",
+         Title = "Dragon Hub by @98ᴏ0ᴏ39",
          Animation = "Loading..."
          },
         Key = {
@@ -10,7 +10,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
         Title = "Key System",
         Description = "",
         KeyLink = "",
-        Keys = {"1234"},
+        Keys = {lastLine},
         Notifi = {
         Notifications = true,
         CorrectKey = "Running the Script...",
@@ -25,7 +25,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
        Size = {50, 50},
        Color = Color3.fromRGB(10, 10, 10),
        Corner = true,
-       Stroke = true,
+       Stroke = false,
        StrokeColor = Color3.fromRGB(255, 0, 0)
       })
       
@@ -39,6 +39,24 @@ local settingskey = {
 
 if settingskey.autoRun then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
+end
+-------GETKEY
+local HttpService = game:GetService("HttpService")
+local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/key.txt"
+local lastLine
+
+local success, result = pcall(function()
+    return HttpService:GetAsync(url)
+end)
+
+if success then
+    local lines = {}
+    for line in result:gmatch("[^\n]+") do
+        table.insert(lines, line)
+    end
+    lastLine = lines[#lines] or ""
+else
+    lastLine = ""
 end
 ------- BUTTON
     
