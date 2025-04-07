@@ -267,3 +267,59 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/hea
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/heads/main/MinDeadRails"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "test",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/%3F%3F%3F.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "BTools",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/BTools.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Ez Hub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ez%20Hub.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Ko tên ESP",
+    Callback = function()
+pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/UnnamedESP.lua'))() end)
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "FPSBoost",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/fpsboost.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Fly2",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Fly.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "ClickTP",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Click%20Teleport.lua"))()
+  end
+  })
