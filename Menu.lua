@@ -226,7 +226,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
                 AddButton(Tab1o, {
-     Name = "liêm🗿",
+     Name = "Kiểm tra bảo mật",
     Callback = function()
 if settingskey.autoRun then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
