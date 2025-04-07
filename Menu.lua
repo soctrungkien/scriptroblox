@@ -2,12 +2,12 @@ local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctr
 
        local Window = redzlib:MakeWindow({
          Title = "Hihi Hub",
-         SubTitle = "by @98ᴏ0ᴏ39 ☑️"
+         SubTitle = "by @98ᴏ0ᴏ39"
   })
 
        Window:AddMinimizeButton({
     Button = { Image = "rbxassetid://81249639738070", BackgroundTransparency = 0 },
-    Corner = { CornerRadius = UDim.new(35, 1) }
+    Corner = { CornerRadius = UDim.new(5, 1) }
       })
       
 ------ Tab
