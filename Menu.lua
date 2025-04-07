@@ -6,8 +6,7 @@ local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctr
   })
 
        Window:AddMinimizeButton({
-    Button = { Image = "rbxassetid://81249639738070", BackgroundTransparency = 0 },
-    Corner = { CornerRadius = UDim.new(5, 1) }
+    Button = { Image = "rbxassetid://81249639738070", BackgroundTransparency = 1},
       })
       
 ------ Tab
