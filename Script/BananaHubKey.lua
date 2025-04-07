@@ -86,22 +86,6 @@ CloseButton.TextScaled = true -- Tự động điều chỉnh kích thước ch�
 UICorner:Clone().Parent = CloseButton
 UIStroke:Clone().Parent = CloseButton
 
--- Bảo mật: Kiểm tra tính toàn vẹn hàm HttpGet
-local OriginalHttpGet = game.HttpGet
-local function CheckIntegrity()
-    if game.HttpGet ~= OriginalHttpGet then
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "Cảnh báo ⚠️",
-            Text = "Phát hiện can thiệp trái phép! GUI sẽ tắt.",
-            Duration = 5
-        })
-        ScreenGui:Destroy()
-        Blur:Destroy()
-        return false
-    end
-    return true
-end
-
 -- Chức năng nút "Lấy Key 📋"
 GetKeyButton.MouseButton1Click:Connect(function()
     if not CheckIntegrity() then return end
@@ -147,16 +131,3 @@ CloseButton.MouseButton1Click:Connect(function()
     Blur.Enabled = false -- Tắt hiệu ứng mờ khi đóng
 end)
 
--- Chống bypass: Theo dõi thay đổi ScreenGui
-ScreenGui.Changed:Connect(function(property)
-    if property == "Enabled" and not ScreenGui.Enabled then return end
-    if property ~= "Enabled" then
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "Cảnh báo ⚠️",
-            Text = "Phát hiện thay đổi GUI trái phép!",
-            Duration = 5
-        })
-        ScreenGui:Destroy()
-        Blur:Destroy()
-    end
-end)
