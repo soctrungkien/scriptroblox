@@ -6,7 +6,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
          Animation = "Loading..."
          },
         Key = {
-        KeySystem = false,
+        KeySystem = true,
         Title = "Key System",
         Description = "",
         KeyLink = "",
@@ -24,8 +24,8 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
        Image = "rbxassetid://81249639738070",
        Size = {50, 50},
        Color = Color3.fromRGB(10, 10, 10),
-       Corner = false,
-       Stroke = false,
+       Corner = true,
+       Stroke = true,
        StrokeColor = Color3.fromRGB(255, 0, 0)
       })
       
@@ -34,7 +34,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
 
 -------KEYBYPASS
 local settingskey = {
-    autoRun = false  -- Có thể chỉnh thành true/false để bật/tắt script
+    autoRun = true  -- Có thể chỉnh thành true/false để bật/tắt script
 }
 
 if settingskey.autoRun then
