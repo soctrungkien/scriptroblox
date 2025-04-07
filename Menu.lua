@@ -43,7 +43,7 @@ end
 ------- BUTTON
     
     AddButton(Tab1o, {
-     Name = "Redz Hub",
+     Name = "Redz Hub - Blox Fruit",
     Callback = function()
 	  local Settings = {
   JoinTeam = "Pirates"; -- Pirates/Marines
@@ -231,5 +231,39 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 if settingskey.autoRun then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
 end
+  end
+  })
+
+                AddButton(Tab1o, {
+     Name = "Lion Hub",
+    Callback = function()
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
+getgenv().team = "Pirates" -- Marines
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e0c7fcf6c077fc23475cf4ce4db58e42.lua"))()
+  end
+  })
+
+
+
+                AddButton(Tab1o, {
+     Name = "Tbao Hub - Dead Rails",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/refs/heads/main/TbaoHubDeadRails"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "MinXoV - Blox Fruit ※ Menu 132",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/heads/main/MinXoV"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "MinDeadRails",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/heads/main/MinDeadRails"))()
   end
   })
