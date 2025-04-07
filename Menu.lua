@@ -8,7 +8,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
         Key = {
         KeySystem = false,
         Title = "Key System",
-        Description = "Key is "1234"",
+        Description = "Key is 1234",
         KeyLink = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/key.txt",
         Keys = {"1234"},
         Notifi = {
