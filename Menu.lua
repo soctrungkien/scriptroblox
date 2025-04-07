@@ -96,7 +96,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
         AddButton(Tab1o, {
-     Name = "Banana Hub ⟦Key⟧",
+     Name = "Banana Hub ⟦Key⟧ ⟦❗Ko hỗ trợ 1 số client❗⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/BananaHubKey.lua"))()
   end
