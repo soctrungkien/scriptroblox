@@ -22,7 +22,7 @@ PC executor
 []()
 
 Android
-[Delta](https://delta-executor.com/deltaexploit/)
+[Delta](https://delta-executor.com/download/)
 [Krnl](https://wearedevs.net/d/Krnl)
 [CodeX](https://codexexecutor.net/)
 [Fluxus](https://fluxus-team.net/download/)
