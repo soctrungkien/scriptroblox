@@ -2,7 +2,7 @@ local redzlib = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctr
 
        local Window = redzlib:MakeWindow({
          Title = "Hihi Hub",
-         SubTitle = by @98ᴏ0ᴏ39 ☑️"
+         SubTitle = "by @98ᴏ0ᴏ39 ☑️"
   })
 
        Window:AddMinimizeButton({
