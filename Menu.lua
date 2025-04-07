@@ -9,7 +9,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
         KeySystem = true,
         Title = "Key System",
         Description = "",
-        KeyLink = "",
+        KeyLink = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/key.txt",
         Keys = {lastLine},
         Notifi = {
         Notifications = true,
