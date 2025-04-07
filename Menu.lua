@@ -1,5 +1,29 @@
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
 
+-- Khai báo HttpService
+local HttpService = game:GetService("HttpService")
+local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/key.txt"
+
+-- Hàm lấy dòng cuối từ URL
+local function getLastLineFromUrl()
+    local success, result = pcall(function()
+        return HttpService:GetAsync(url)
+    end)
+    if success then
+        local lines = {}
+        for line in result:gmatch("[^\n]+") do
+            table.insert(lines, line)
+        end
+        return lines[#lines] or "Không có key"
+    else
+        warn("Lỗi khi lấy key.txt: " .. tostring(result))
+        return "Lỗi khi tải key"
+    end
+end
+
+-- Lấy dòng cuối và gán vào biến
+local lastLine = getLastLineFromUrl()
+
        local Window = MakeWindow({
          Hub = {
          Title = "Dragon Hub by @98ᴏ0ᴏ39",
@@ -39,24 +63,6 @@ local settingskey = {
 
 if settingskey.autoRun then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
-end
--------GETKEY
-local HttpService = game:GetService("HttpService")
-local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/key.txt"
-local lastLine
-
-local success, result = pcall(function()
-    return HttpService:GetAsync(url)
-end)
-
-if success then
-    local lines = {}
-    for line in result:gmatch("[^\n]+") do
-        table.insert(lines, line)
-    end
-    lastLine = lines[#lines] or ""
-else
-    lastLine = ""
 end
 ------- BUTTON
     
