@@ -318,7 +318,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
                 AddButton(Tab1o, {
-     Name = "ClickTP",
+     Name = "ClickTP ⟦CTRL+Click⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Click%20Teleport.lua"))()
   end
