@@ -21,7 +21,7 @@ local function onDisconnect()
         TeleportService:TeleportToPlaceInstance(PlaceId, JobId, Player)
     end)
     if not success then
-        print("Không thể vào lại server cũ, vào server mới sau 5 giây...")
+        print("Không thể vào lại server cũ, vào server mới ...")
         TeleportService:Teleport(PlaceId, Player) -- Vào server ngẫu nhiên
     end
 end
