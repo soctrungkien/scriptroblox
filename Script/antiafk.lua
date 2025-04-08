@@ -20,10 +20,14 @@ while true do
     HumanoidRootPart.CFrame = CFrame.new(newPosition)
     print("Đã di chuyển " .. offset .. " studs")
 
+    wait(0.001)
+    
+        -- Quay về vị trí ban đầu
+    HumanoidRootPart.CFrame = CFrame.new(originalPosition)
+    print("Đã trở về vị trí ban đầu")
+
     -- Đợi 10 phút (600 giây)
     wait(600)
 
-    -- Quay về vị trí ban đầu
-    HumanoidRootPart.CFrame = CFrame.new(originalPosition)
-    print("Đã trở về vị trí ban đầu")
+
 end
