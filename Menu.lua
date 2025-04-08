@@ -42,7 +42,9 @@ if settingskey.autoRun then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
 end
 -------ANTIAFK
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antiafk.lua"))()
+-------TAG
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/tag.lua"))()
 ------- BUTTON
     
     AddButton(Tab1o, {
