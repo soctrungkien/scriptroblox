@@ -5,7 +5,7 @@ gui.Parent = player.PlayerGui
 
 -- Frame chính
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 200, 0, 220) -- Tăng chiều cao để chứa nút mới
+frame.Size = UDim2.new(0, 200, 0, 220)
 frame.Position = UDim2.new(0.5, -100, 0.5, -110)
 frame.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 frame.BackgroundTransparency = 0.5
@@ -29,12 +29,12 @@ local selectButtonCorner = Instance.new("UICorner")
 selectButtonCorner.CornerRadius = UDim.new(0, 8)
 selectButtonCorner.Parent = selectButton
 
--- Dropdown với ScrollingFrame
+-- Dropdown với ScrollingFrame (bên phải)
 local dropdown = Instance.new("ScrollingFrame")
-dropdown.Size = UDim2.new(0, 150, 0, 100)
-dropdown.Position = UDim2.new(0, 25, 0, 50)
+dropdown.Size = UDim2.new(0, 150, 0, 350)
+dropdown.Position = UDim2.new(0, 215, 0, 20) -- Sang bên phải của selectButton
 dropdown.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
-dropdown.BackgroundTransparency = 0.5
+dropdown.BackgroundTransparency = 01.
 dropdown.BorderSizePixel = 0
 dropdown.CanvasSize = UDim2.new(0, 0, 0, 0)
 dropdown.ScrollBarThickness = 6
@@ -87,7 +87,7 @@ selectButton.MouseButton1Click:Connect(function()
     updatePlayerList()
 end)
 
--- Nút bay từ từ
+-- Nút bay từ từ (tốc độ 200 studs/giây)
 local flyButton = Instance.new("TextButton")
 flyButton.Size = UDim2.new(0, 150, 0, 30)
 flyButton.Position = UDim2.new(0, 25, 0, 80)
@@ -110,7 +110,7 @@ flyButton.MouseButton1Click:Connect(function()
             local startPos = playerChar.HumanoidRootPart.Position
             local endPos = targetChar.HumanoidRootPart.Position
             local distance = (endPos - startPos).Magnitude
-            local speed = 16
+            local speed = 200 -- Tốc độ 200 studs/giây
             local time = distance / speed
             
             local tweenService = game:GetService("TweenService")
@@ -165,7 +165,7 @@ teleportButton.MouseButton1Click:Connect(function()
     end
 end)
 
--- Nút tới gần và bay từ từ
+-- Nút tới gần và bay từ từ (tốc độ 200 studs/giây)
 local approachFlyButton = Instance.new("TextButton")
 approachFlyButton.Size = UDim2.new(0, 150, 0, 30)
 approachFlyButton.Position = UDim2.new(0, 25, 0, 160)
@@ -185,19 +185,19 @@ approachFlyButton.MouseButton1Click:Connect(function()
         local targetChar = selectedPlayer.Character
         
         if playerChar and targetChar and playerChar:FindFirstChild("HumanoidRootPart") and targetChar:FindFirstChild("HumanoidRootPart") then
-            -- Tính vị trí ngẫu nhiên cách 20-40 studs
+            -- Tính vị trí ngẫu nhiên cách 70-100 studs
             local targetPos = targetChar.HumanoidRootPart.Position
-            local distance = math.random(20, 40) -- Ngẫu nhiên từ 20 đến 40 studs
-            local angle = math.random() * 2 * math.pi -- Góc ngẫu nhiên
+            local distance = math.random(70, 100)
+            local angle = math.random() * 2 * math.pi
             local offset = Vector3.new(math.cos(angle) * distance, 0, math.sin(angle) * distance)
             local approachPos = targetPos + offset
             
             -- Dịch chuyển tới vị trí gần
-            playerChar.HumanoidRootPart.CFrame = CFrame.new(approachPos, targetPos) -- Hướng về mục tiêu
+            playerChar.HumanoidRootPart.CFrame = CFrame.new(approachPos, targetPos)
             
             -- Bay từ từ đến vị trí chính xác
             local newDistance = (targetPos - approachPos).Magnitude
-            local speed = 16
+            local speed = 200 -- Tốc độ 200 studs/giây
             local time = newDistance / speed
             
             local tweenService = game:GetService("TweenService")
@@ -226,10 +226,10 @@ end)
 -- Nút tắt bằng emoji
 local closeButton = Instance.new("TextButton")
 closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Position = UDim2.new(1, -35, 0, 5)
+closeButton.Position = UDim2.new(1, -30, 0, 0)
 closeButton.Text = "❌"
 closeButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
-closeButton.BackgroundTransparency = 0.3
+closeButton.BackgroundTransparency = 1.
 closeButton.TextColor3 = Color3.new(1, 1, 1)
 closeButton.Parent = frame
 
