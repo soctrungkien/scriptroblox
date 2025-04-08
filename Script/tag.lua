@@ -2,7 +2,7 @@ local Players = game:GetService("Players")
 local localPlayer = Players.LocalPlayer
 
 -- Bảng lưu trữ "tag" cục bộ trên client (thay vì CollectionService)
-local taggedPlayers = {}
+local taggedPlayers = {5218681448}
 
 -- Hàm tạo BillboardGui với chữ "😀"
 local function createEmojiOverhead(character)
