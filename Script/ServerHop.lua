@@ -58,8 +58,8 @@ end
 -- Xử lý teleport thất bại
 Players.LocalPlayer.OnTeleport:Connect(function(teleportState)
     if teleportState == Enum.TeleportState.Failed then
-        print("Teleport thất bại, thử lại sau 5 giây...")
-        wait(5)
+        print("Teleport thất bại, thử lại sau 1 giây...")
+        wait(1)
         serverHop()
     end
 end)
