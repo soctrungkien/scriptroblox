@@ -9,7 +9,6 @@ local JobId = game.JobId
 local function runAfterReconnect()
     print("Đã vào lại server! Chạy script mong muốn ở đây...")
     -- Thêm mã bạn muốn chạy sau khi reconnect vào đây
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/reconnect.lua"))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua"))()
     -- ```
 end
