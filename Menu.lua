@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/reconnect.lua"))()
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
 
        local Window = MakeWindow({
@@ -40,6 +41,8 @@ local settingskey = {
 if settingskey.autoRun then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
 end
+-------ANTIAFK
+
 ------- BUTTON
     
     AddButton(Tab1o, {
