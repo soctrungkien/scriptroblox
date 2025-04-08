@@ -32,7 +32,7 @@ Windows
 
 Android
 [Delta](https://deltaexecutor.gg/)
-[Krnl](https://wearedevs.net/d/Krnl)
+[Krnl](https://krnl.cat/)
 [CodeX](https://codexexecutor.net/)
 [Fluxus](https://fluxus-team.net/download/)
 [Trigon](https://trigonevo.com/android/)
