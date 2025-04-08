@@ -2,7 +2,7 @@
 --Copy vào chỗ nhập script hack
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua"))()
 ```
-PC executor
+Windows
 [Xeno](https://wearedevs.net/d/Xeno)
 [Solara](https://wearedevs.net/d/Solara)
 [Swift](https://getswift.gg/)
@@ -10,11 +10,20 @@ PC executor
 [Delta](https://delta-executor.com/delta-executor-pc/)
 [Ronix](https://wearedevs.net/d/Ronix)
 [JJSploit](https://wearedevs.net/d/JJSploit)
-[]()
-[]()
-[]()
-[]()
-[]()
+[Atlantis](https://atlantisexecutor.com/)
+[Nezur](https://nezur.io/)
+[Velocity](https://www.getvelocity.live/)
+[Ember](https://emberexecutor.com/download/)
+[Argon](https://getargon.xyz/)
+[Mono](https://getmono.netlify.app/)
+[Arcadia](https://arcadiaexecutor.com/)
+[Wave](https://buywave.xyz/)
+[AWP](https://awpx.net/)
+[Trigon](https://trigonevo.com/download/)
+[Zorara](https://zorara.org/)
+[TDTv8](https://mega.nz/file/NsZWDQgQ#UoHCU684yqbfKMfu5J73CyNkaTrtDJ4cD_1KI8JnXmw)
+[TDT](https://mega.nz/file/F9QQEQCY#xPGoHyX3biAMxq6tQ8MS-1SO3SGtMJTUlgH_8O4zKSI)
+[DuckXh4101](https://mega.nz/file/FpYXXRZC#CMGT7tUGwcw_ObiPeMY9iqCYsPW2QU0M4sWWl9CnbHs)
 []()
 []()
 []()
@@ -22,11 +31,11 @@ PC executor
 []()
 
 Android
-[Delta](https://delta-executor.com/download/)
+[Delta](https://deltaexecutor.gg/)
 [Krnl](https://wearedevs.net/d/Krnl)
 [CodeX](https://codexexecutor.net/)
 [Fluxus](https://fluxus-team.net/download/)
-[]()
+[Trigon](https://trigonevo.com/android/)
 []()
 []()
 []()
@@ -56,3 +65,13 @@ Linux
 []()
 []()
 []()
+
+https://www.hackbloxfruitpc.com/
+
+https://www.taihackbloxfruit.com/
+
+https://www.hackbloxfruit.vn/
+
+https://www.cachhackbloxfruit.com/p/sitemap.html
+
+https://www.hackroblox.vn/
