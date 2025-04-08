@@ -359,7 +359,7 @@ function MakeWindow(Configs)
   local Minimize_BTN = Create("TextButton", ButtonsFrame, {
     Text = "-",
     TextColor3 = Configs_HUB.Cor_Text,
-    Size = UDim2.new(0.5, 0, 1, 0),
+    Size = UDim2.new(1, 0, 1, 0),
     BackgroundTransparency = 1,
     Font = Configs_HUB.Text_Font,
     TextYAlignment = "Bottom",
@@ -382,7 +382,7 @@ function MakeWindow(Configs)
     Text = "×",
     TextYAlignment = "Bottom",
     TextColor3 = Configs_HUB.Cor_Text,
-    Size = UDim2.new(0.5, 0, 1, 0),
+    Size = UDim2.new(1, 0, 1, 0),
     AnchorPoint = Vector2.new(1, 0),
     Position = UDim2.new(1, 0, 0, 0),
     BackgroundTransparency = 1,
