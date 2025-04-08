@@ -22,7 +22,6 @@ local function onDisconnect()
     end)
     if not success then
         print("Không thể vào lại server cũ, vào server mới sau 5 giây...")
-        wait(5)
         TeleportService:Teleport(PlaceId, Player) -- Vào server ngẫu nhiên
     end
 end
