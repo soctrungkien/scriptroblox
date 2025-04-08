@@ -352,7 +352,7 @@ function MakeWindow(Configs)
     Font = Configs_HUB.Text_Font,
     TextXAlignment = "Left",
     Text = title,
-    TextSize = 20,
+    TextSize = 15,
     BackgroundTransparency = 1
   })
   
