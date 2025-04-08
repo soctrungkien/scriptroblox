@@ -328,3 +328,38 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Click%20Teleport.lua"))()
   end
   })
+
+
+
+                AddButton(Tab1o, {
+     Name = "VapeV4",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+  end
+  })
+
+
+
+                AddButton(Tab1o, {
+     Name = "All Script ⟦TBoyRoblox⟧",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TBoyRoblox727/TBoyRobloxYTB/refs/heads/main/AllScriptBF.txt"))()
+  end
+  })
+
+
+
+                AddButton(Tab1o, {
+     Name = "Vxeze Hub",
+    Callback = function()
+local placeId = game. PlaceId
+if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
+--Blox Fruits
+getgenv().Team = "Pirates"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/Skidlamcho.txt"))()
+elseif placeId == 116495829188952 or placeId == 70876832253163 then
+--DeadRails
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/VxezeHubDeadRails"))()
+end
+  end
+  })
