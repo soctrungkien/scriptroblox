@@ -46,10 +46,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 -------TAG
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/tag.lua"))()
 -------MOUSE
-local Servicio = game:GetService("Players")
-local Player = Servicio.LocalPlayer
-local Mouse = Player:GetMouse()
-Mouse.Icon = "http://www.roblox.com/asset/?id=118074316147407"
+-- Get the local player and their mouse
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+
+-- Set the mouse cursor to a custom image (replace with your own asset ID)
+mouse.Icon = "rbxassetid://118074316147407" -- Replace with a valid Roblox asset ID
 ------- BUTTON
     
     AddButton(Tab1o, {
