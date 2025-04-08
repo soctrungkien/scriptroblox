@@ -45,6 +45,11 @@ end
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antiafk.lua"))()
 -------TAG
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/tag.lua"))()
+-------MOUSE
+local Servicio = game:GetService("Players")
+local Player = Servicio.LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.Icon = "http://www.roblox.com/asset/?id=118074316147407"
 ------- BUTTON
     
     AddButton(Tab1o, {
