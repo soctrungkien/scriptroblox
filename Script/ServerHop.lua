@@ -39,8 +39,8 @@ local success, error = pcall(function()
     if hopped then
         Players.LocalPlayer.OnTeleport:Connect(function(teleportState)
             if teleportState == Enum.TeleportState.Failed then
-                print("Teleport thất bại, thử lại sau 1 giây...")
-                wait(1)
+                print("Teleport thất bại, thử lại sau 0.002 giây...")
+                wait(0.002)
                 serverHop()
             elseif teleportState == Enum.TeleportState.Invulnerability detectedInGame then
                 -- Đợi game và nhân vật tải xong sau khi vào server
