@@ -4,9 +4,9 @@ local Player = Players.LocalPlayer
 local Character = Player.Character or Player.CharacterAdded:Wait()
 local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
 
--- Hàm tạo số ngẫu nhiên từ 0.02 đến 0.07
+-- Hàm tạo số ngẫu nhiên từ 1 đến 3
 local function getRandomOffset()
-    return math.random(2, 7) / 100 -- Chuyển từ 0.02 đến 0.07 studs
+    return math.random(1, 3) / 1 -- Chuyển từ 1 đến 3 studs
 end
 
 -- Hàm di chuyển và quay về
@@ -25,8 +25,8 @@ local function moveLoop()
         HumanoidRootPart.CFrame = CFrame.new(originalPosition)
         print("Đã trở về vị trí ban đầu")
 
-        -- Đợi 10 phút (600 giây)
-        wait(600)
+        -- Đợi 5 phút (600 giây)
+        wait(30)
     end
 end
 
