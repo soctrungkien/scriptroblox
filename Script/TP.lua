@@ -87,7 +87,7 @@ selectButton.MouseButton1Click:Connect(function()
     updatePlayerList()
 end)
 
--- Nút bay từ từ (tốc độ 200 studs/giây)
+-- Nút bay từ từ (tốc độ 50 studs/giây)
 local flyButton = Instance.new("TextButton")
 flyButton.Size = UDim2.new(0, 150, 0, 30)
 flyButton.Position = UDim2.new(0, 25, 0, 80)
@@ -110,7 +110,7 @@ flyButton.MouseButton1Click:Connect(function()
             local startPos = playerChar.HumanoidRootPart.Position
             local endPos = targetChar.HumanoidRootPart.Position
             local distance = (endPos - startPos).Magnitude
-            local speed = 200 -- Tốc độ 200 studs/giây
+            local speed = 50 -- Tốc độ 50 studs/giây
             local time = distance / speed
             
             local tweenService = game:GetService("TweenService")
@@ -197,7 +197,7 @@ approachFlyButton.MouseButton1Click:Connect(function()
             
             -- Bay từ từ đến vị trí chính xác
             local newDistance = (targetPos - approachPos).Magnitude
-            local speed = 200 -- Tốc độ 200 studs/giây
+            local speed = 50 -- Tốc độ 50 studs/giây
             local time = newDistance / speed
             
             local tweenService = game:GetService("TweenService")
