@@ -36,7 +36,7 @@ Android
 [CodeX](https://codexexecutor.net/)
 [Fluxus](https://fluxus-team.net/download/)
 [Trigon](https://trigonevo.com/android/)
-[]()
+[Ronix](https://discord.com/invite/ronix)
 []()
 []()
 []()
