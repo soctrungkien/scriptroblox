@@ -1,6 +1,21 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/reconnect.lua"))()
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
 
+-------KEYBYPASS
+local settingskey = {
+    autoRun = false  -- Có thể chỉnh thành true/false để bật/tắt script
+}
+
+if settingskey.autoRun then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
+end
+-------ANTIAFK
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antiafk.lua"))()
+-------TAG
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/tag.lua"))()
+-------MOUSE
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/mouse.lua"))()
+------MAIN
        local Window = MakeWindow({
          Hub = {
          Title = "Dragon Hub by @98ᴏ0ᴏ39",
@@ -33,20 +48,7 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptr
 ------ Tab
      local Tab1o = MakeTab({Name = "Main"})
 
--------KEYBYPASS
-local settingskey = {
-    autoRun = false  -- Có thể chỉnh thành true/false để bật/tắt script
-}
 
-if settingskey.autoRun then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
-end
--------ANTIAFK
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antiafk.lua"))()
--------TAG
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/tag.lua"))()
--------MOUSE
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/mouse.lua"))()
 ------- BUTTON
     
     AddButton(Tab1o, {
