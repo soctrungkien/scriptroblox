@@ -4,38 +4,60 @@ local Player = Players.LocalPlayer
 
 local PlaceId = game.PlaceId
 local JobId = game.JobId
+local hasDisconnected = false
 
--- Hàm chạy script sau khi reconnect
+-- Hàm chạy sau khi reconnect
 local function runAfterReconnect()
-    print("Đã vào lại server! Chạy script mong muốn ở đây...")
-    -- Thêm mã bạn muốn chạy sau khi reconnect vào đây
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua"))()
-    -- ```
+    if hasDisconnected then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua"))()
+        print("Đã vào lại server thành công! Chạy script mong muốn ở đây...")
+        local message = Instance.new("Message")
+        message.Text = "Chào mừng quay lại server!"
+        message.Parent = workspace
+        wait(5)
+        message:Destroy()
+    end
 end
 
 -- Hàm reconnect
-local function onDisconnect()
-    print("Bạn đã bị ngắt kết nối! Đang thử vào lại server...")
+local function attemptReconnect()
+    hasDisconnected = true
+    print("Đang thử vào lại server...")
     local success, error = pcall(function()
         TeleportService:TeleportToPlaceInstance(PlaceId, JobId, Player)
     end)
     if not success then
-        print("Không thể vào lại server cũ, vào server mới ...")
-        TeleportService:Teleport(PlaceId, Player) -- Vào server ngẫu nhiên
+        warn("Không thể vào server cũ: " .. tostring(error))
+        print("Thử vào server mới sau 0.002 giây...")
+        wait(0.002)
+        local newSuccess, newError = pcall(function()
+            TeleportService:Teleport(PlaceId, Player)
+        end)
+        if not newSuccess then
+            warn("Không thể vào server mới: " .. tostring(newError))
+        end
     end
 end
 
--- Kiểm tra khi bị ngắt kết nối
+-- Phát hiện ngắt kết nối
 game:GetService("Players").PlayerRemoving:Connect(function(player)
     if player == Player then
-        onDisconnect()
+        print("Phát hiện bạn rời server!")
+        attemptReconnect()
     end
 end)
 
--- Chạy script khi vào game lần đầu
+-- Kiểm tra khi nhân vật tải lại
 Players.LocalPlayer.CharacterAdded:Connect(function(character)
-    print("Nhân vật đã tải, chạy script ban đầu...")
-    runAfterReconnect() -- Chạy script mỗi khi nhân vật xuất hiện (bao gồm sau reconnect)
+    runAfterReconnect()
 end)
 
-print("Script reconnect và auto-run đã được kích hoạt!")
+-- Kiểm tra mất kết nối mạng (không hoàn hảo nhưng hữu ích)
+game:GetService("RunService").Heartbeat:Connect(function()
+    if not game:IsLoaded() or Players.LocalPlayer == nil then
+        print("Mất kết nối, đang thử reconnect...")
+        attemptReconnect()
+    end
+end)
+
+print("Script reconnect đã được kích hoạt!")
