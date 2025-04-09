@@ -11,11 +11,6 @@ local function runAfterReconnect()
     if hasDisconnected then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua"))()
         print("Đã vào lại server thành công! Chạy script mong muốn ở đây...")
-        local message = Instance.new("Message")
-        message.Text = "Chào mừng quay lại server!"
-        message.Parent = workspace
-        wait(5)
-        message:Destroy()
     end
 end
 
