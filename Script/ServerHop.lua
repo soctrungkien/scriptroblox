@@ -1,57 +1,112 @@
-local TeleportService = game:GetService("TeleportService")
-local Players = game:GetService("Players")
-local placeId = game.PlaceId
+local AllIDs = {}
+local foundAnything = ""
+local actualHour = os.date("!*t").hour
+local Deleted = false
+local S_T = game:GetService("TeleportService")
+local S_H = game:GetService("HttpService")
 
--- Hàm nhảy sang server ngẫu nhiên
-local function serverHop()
-    print("Đang nhảy sang server ngẫu nhiên...")
-    local success, error = pcall(function()
-        TeleportService:Teleport(placeId, Players.LocalPlayer)
+local File = pcall(function()
+    AllIDs = S_H:JSONDecode(readfile("server-hop-temp.json"))
+end)
+if not File then
+    table.insert(AllIDs, actualHour)
+    pcall(function()
+        writefile("server-hop-temp.json", S_H:JSONEncode(AllIDs))
     end)
-    if not success then
-        warn("Lỗi khi teleport: " .. error)
-        return false
-    end
-    return true
 end
 
--- Hàm chạy sau khi vào server
-local function onServerJoined()
+-- Function to run after joining new server
+local function OnServerJoin()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua"))()
-    print("Đã vào server mới thành công!")
-    -- Thêm mã bạn muốn chạy sau khi vào server ở đây
-    wait(2) -- Đợi 2 giây để server ổn định
-    print("Bạn đang ở server mới, JobId: " .. game.JobId)
-    -- Ví dụ: serverHop() để nhảy tiếp nếu muốn
+    -- Add your custom script here that you want to run when joining a new server
+    spawn(function()
+            
+        -- Example: Print a message
+        print("Successfully joined new server!")
+        
+        -- You can add more code here that you want to execute
+        -- For example:
+        -- game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 32
+        -- or any other script you want to run
+    end)
 end
 
--- Đợi nhân vật của người chơi tải xong
-local function waitForCharacter()
-    if not Players.LocalPlayer.Character then
-        Players.LocalPlayer.CharacterAdded:Wait()
+local function TPReturner(placeId)
+    local Site;
+    if foundAnything == "" then
+        Site = S_H:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. placeId .. '/servers/Public?sortOrder=Asc&limit=100'))
+    else
+        Site = S_H:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. placeId .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
     end
-    return Players.LocalPlayer.Character
+    local ID = ""
+    if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
+        foundAnything = Site.nextPageCursor
+    end
+    local num = 0;
+    for i,v in pairs(Site.data) do
+        local Possible = true
+        ID = tostring(v.id)
+        if tonumber(v.maxPlayers) > tonumber(v.playing) then
+            for _,Existing in pairs(AllIDs) do
+                if num ~= 0 then
+                    if ID == tostring(Existing) then
+                        Possible = false
+                    end
+                else
+                    if tonumber(actualHour) ~= tonumber(Existing) then
+                        local delFile = pcall(function()
+                            delfile("server-hop-temp.json")
+                            AllIDs = {}
+                            table.insert(AllIDs, actualHour)
+                        end)
+                    end
+                end
+                num = num + 1
+            end
+            if Possible == true then
+                table.insert(AllIDs, ID)
+                wait()
+                pcall(function()
+                    writefile("server-hop-temp.json", S_H:JSONEncode(AllIDs))
+                    wait()
+                    -- Connect the teleport event
+                    local teleportConnection
+                    teleportConnection = S_T.TeleportInitFailed:Connect(function(player, teleportResult, errorMessage)
+                        teleportConnection:Disconnect()
+                        print("Teleport failed: " .. errorMessage)
+                    end)
+                    
+                    -- Teleport and setup success handler
+                    local success, error = pcall(function()
+                        S_T:TeleportToPlaceInstance(placeId, ID, game.Players.LocalPlayer)
+                    end)
+                    
+                    if success then
+                        -- Connect to character added event to run script after joining
+                        local player = game.Players.LocalPlayer
+                        local charConnection
+                        charConnection = player.CharacterAdded:Connect(function()
+                            OnServerJoin()
+                            charConnection:Disconnect()
+                        end)
+                    end
+                end)
+                wait(4)
+            end
+        end
+    end
 end
 
--- Logic chính
-local success, error = pcall(function()
-    local hopped = serverHop() -- Thử nhảy server
-    if hopped then
-        Players.LocalPlayer.OnTeleport:Connect(function(teleportState)
-            if teleportState == Enum.TeleportState.Failed then
-                print("Teleport thất bại, thử lại sau 0.002 giây...")
-                wait(0.002)
-                serverHop()
-            elseif teleportState == Enum.TeleportState.Invulnerability detectedInGame then
-                -- Đợi game và nhân vật tải xong sau khi vào server
-                game.Loaded:Wait()
-                waitForCharacter()
-                onServerJoined()
+local module = {}
+function module:Teleport(placeId)
+    while wait() do
+        pcall(function()
+            TPReturner(placeId)
+            if foundAnything ~= "" then
+                TPReturner(placeId)
             end
         end)
     end
-end)
-
-if not success then
-    warn("Lỗi khi chạy script: " .. error)
 end
+
+return module
