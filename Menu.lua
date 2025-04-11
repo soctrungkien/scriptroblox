@@ -367,3 +367,24 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/ref
 end
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "Chú Roblox Hub",
+    Callback = function()
+local Settings = {
+JoinTeam = "Pirates"; -- Pirates/Marines
+Translator = true; -- true/false
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/scripts/refs/heads/main/ChuRobloxHub"))(Settings)
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Relz Hub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/farghii/relzhub/refs/heads/main/v2.bloxfruits.lua"))()
+  end
+  })
