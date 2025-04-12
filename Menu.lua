@@ -1,20 +1,11 @@
+-------MATUIA
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/reconnect.lua"))()
+-------GUILIB
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
-
--------KEYBYPASS
-local settingskey = {
-    autoRun = false  -- Có thể chỉnh thành true/false để bật/tắt script
-}
-
-if settingskey.autoRun then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
-end
 -------ANTIAFK
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antiafk.lua"))()
 -------TAG
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/tag.lua"))()
--------MOUSE
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/mouse.lua"))()
 ------MAIN
        local Window = MakeWindow({
          Hub = {
@@ -103,22 +94,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   end
   })
 
-
-        AddButton(Tab1o, {
-     Name = "Banana Hub ⟦Key⟧ ⟦❗Ko hỗ trợ 1 số client❗⟧",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/BananaHubKey.lua"))()
-  end
-  })
     
-
-        AddButton(Tab1o, {
-     Name = "Chat Bypass",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/ChatBypasser-AZY/refs/heads/main/ChatBypasser(New).lua"))()
-  end
-  })
-
           AddButton(Tab1o, {
      Name = "Orca",
     Callback = function()
@@ -187,7 +163,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
                 AddButton(Tab1o, {
-     Name = "Server hop ⟦❗❗ĐANG BỊ LỖI CRACK❗❗⟧",
+     Name = "Server hop",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/ServerHop.lua"))()
   end
@@ -227,21 +203,12 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer loadstring(game
 
 
                 AddButton(Tab1o, {
-     Name = "AB",
+     Name = "ezESP",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/AB.lua"))()
   end
   })
 
-
-                AddButton(Tab1o, {
-     Name = "Kiểm tra bảo mật",
-    Callback = function()
-if settingskey.autoRun then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/KeyBypass.lua"))()
-end
-  end
-  })
 
                 AddButton(Tab1o, {
      Name = "Lion Hub",
@@ -279,14 +246,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/hea
 
 
                 AddButton(Tab1o, {
-     Name = "test",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/%3F%3F%3F.lua"))()
-  end
-  })
-
-
-                AddButton(Tab1o, {
      Name = "BTools",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/BTools.lua"))()
@@ -314,14 +273,6 @@ pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/soct
      Name = "FPSBoost",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/fpsboost.lua"))()
-  end
-  })
-
-
-                AddButton(Tab1o, {
-     Name = "Fly2",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Fly.lua"))()
   end
   })
 
