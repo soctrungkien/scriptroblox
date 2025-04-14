@@ -207,17 +207,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
                 AddButton(Tab1o, {
-     Name = "Lion Hub",
-    Callback = function()
-repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
-getgenv().team = "Pirates" -- Marines
-loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e0c7fcf6c077fc23475cf4ce4db58e42.lua"))()
-  end
-  })
-
-
-
-                AddButton(Tab1o, {
      Name = "Tbao Hub - Dead Rails",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/refs/heads/main/TbaoHubDeadRails"))()
@@ -226,17 +215,18 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/refs/
 
 
                 AddButton(Tab1o, {
-     Name = "MinXoV - Blox Fruit ※ Menu 132",
+     Name = "MinXoV ※ Menu 132",
     Callback = function()
+local placeId = game. PlaceId
+if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
+--Blox Fruits
+getgenv().Team = "Pirates"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/heads/main/MinXoV"))()
-  end
-  })
-
-
-                AddButton(Tab1o, {
-     Name = "MinDeadRails",
-    Callback = function()
+elseif placeId == 116495829188952 or placeId == 70876832253163 then
+--DeadRails
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/heads/main/MinDeadRails"))()
+end
+  end
   end
   })
 
