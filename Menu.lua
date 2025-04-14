@@ -4,8 +4,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
 -------ANTIAFK
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antiafk.lua"))()
--------TAG
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/tag.lua"))()
 ------MAIN
        local Window = MakeWindow({
          Hub = {
