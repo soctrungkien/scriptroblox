@@ -1,6 +1,5 @@
 ```lua
---Copy vào chỗ nhập script hack
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua"))()
+loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
 ```
 Windows
 [Xeno](https://wearedevs.net/d/Xeno)
