@@ -333,3 +333,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/farghii/relzhub/refs/
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/C00lGui%20for%20Rc7(2).luau"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "Universal Sorry Gui",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/UniversalSorryGui-w40R3.lua"))()
+  end
+  })
