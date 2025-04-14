@@ -359,3 +359,11 @@ loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "Dark Dex",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Cynacol/Dark-Dex-V3/refs/heads/main/Dark%20Dex%20V3.txt"))()
+  end
+  })
