@@ -341,3 +341,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/UniversalSorryGui-w40R3.lua"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "FRUITS FINDER by ALCHEMY",
+    Callback = function()
+-- Put it in [auto-exec]
+fruits_finder = true;
+loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
+  end
+  })
