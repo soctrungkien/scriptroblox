@@ -143,7 +143,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkDoorsKing/Doors/m
 
 
               AddButton(Tab1o, {
-     Name = "Quản lí đơn ⟦Fake⟧",
+     Name = "Quản lí đơn ⟦ChatGPT⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/QuanLiDon_Fake.lua"))()
   end
@@ -320,7 +320,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/scri
 
 
                 AddButton(Tab1o, {
-     Name = "Relz Hub",
+     Name = "Relz Hub ⟦Key⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/farghii/relzhub/refs/heads/main/v2.bloxfruits.lua"))()
   end
