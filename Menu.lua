@@ -367,3 +367,38 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Cynacol/Dark-Dex-V3/refs/heads/main/Dark%20Dex%20V3.txt"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "PShade Ultimate",
+    Callback = function()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/cd.lua'))()
+--PShade Ultimate web : https://randomstring0.github.io/pshade.github.io/
+            
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Chat bypass ⟦Rủi đo cao⟧",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "WA Universal ESP",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/wa0101/Roblox-ESP/refs/heads/main/esp.lua",true))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "SimpleSpy",
+    Callback = function()
+loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
+  end
+  })
