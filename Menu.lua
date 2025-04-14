@@ -351,3 +351,11 @@ fruits_finder = true;
 loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "INFINITE YIELD",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+  end
+  })
