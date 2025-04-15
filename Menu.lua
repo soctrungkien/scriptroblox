@@ -407,3 +407,27 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/wa0101/Roblox-ESP/ref
 loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "F3X Tool",
+    Callback = function()
+loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Auto Bond - Dead Rails",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/autobond"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Rift",
+    Callback = function()
+loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/Rift/loader.lua"))()
+  end
+  })
