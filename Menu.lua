@@ -426,8 +426,48 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs
 
 
                 AddButton(Tab1o, {
+     Name = "Rift - Dead Rails",
+    Callback = function()
+loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/Rift/loader.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Dex",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Dex%20V5%20(1).lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
      Name = "Rift",
     Callback = function()
 loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/Rift/loader.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Auto part - Lag Test 2025",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Script_Free_Part.txt"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Hiện thông tin",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/info.lua"))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "UNC Test",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/unc%20test.lua"))()
   end
   })
