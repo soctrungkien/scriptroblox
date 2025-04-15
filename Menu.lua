@@ -5,7 +5,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Icon = "rbxassetid://81249639738070"
 })
 -------GUILIB
-loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua"))()
 -------ANTIAFK
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antiafk.lua"))()
 ------MAIN
