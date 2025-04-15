@@ -57,7 +57,7 @@ if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
 }
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)
-elseif placeId == 10260193230 then
+elseif placeId == 3756501373 then
 --Mini Sea
 loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs/heads/main/Source.lua"))()
   end
