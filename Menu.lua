@@ -232,7 +232,6 @@ elseif placeId == 116495829188952 or placeId == 70876832253163 then
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/Min/refs/heads/main/MinDeadRails"))()
 end
   end
-  end
   })
 
 
