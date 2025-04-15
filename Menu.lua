@@ -1,3 +1,9 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Dragon Hub", 
+	Text = "đã khởi động", 
+	Duration = 5,
+	Icon = "rbxassetid://81249639738070"
+})
 -------GUILIB
 loadstring(game:HttpGet(("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib.lua")))()
 -------ANTIAFK
