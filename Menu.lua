@@ -59,7 +59,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/re
 elseif placeId == 10260193230 then
 --Mini Sea
 loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs/heads/main/Source.lua"))()
-end
   end
   end
   })
