@@ -335,7 +335,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/farghii/relzhub/refs/
                 AddButton(Tab1o, {
      Name = "c00lgui Reborn Rc7 bởi v3rx",
     Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/C00lGui%20for%20Rc7(2).luau"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/C00lGui%20for%20Rc7(2).lua"))()
   end
   })
 
