@@ -442,14 +442,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
                 AddButton(Tab1o, {
-     Name = "Rift",
-    Callback = function()
-loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/Rift/loader.lua"))()
-  end
-  })
-
-
-                AddButton(Tab1o, {
      Name = "Auto part - Lag Test 2025",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Script_Free_Part.txt"))()
