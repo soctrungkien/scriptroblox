@@ -1,11 +1,4 @@
 ```lua
-game:GetService("StarterGui"):SetCore("SendNotification",{
-	Title = "Dragon Hub", 
-	Text = "please wait", 
-    Duration = 5,
-	Icon = "rbxassetid://81249639738070"
-})
-
 --Copy vào chỗ nhập script hack
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua"))()
 ```
