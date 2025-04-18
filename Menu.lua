@@ -495,9 +495,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScrip
     Callback = function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "🔥 Example Script Hub | Game 🔫 by 1_F0 - 🔫 Gun Simulator 💥", 
-	Text = "", 
-	Duration = 15
+	Text = "Key is: 12345678", 
+	Duration = 10,
+	Icon = "rbxassetid://13047715178"
 })
-loadstring(game:HttpGet("https://pastebin.com/raw/MJeeZXXn"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/%F0%9F%94%A5%20Example%20Script%20Hub%20%7C%20Game%20%F0%9F%94%AB%20by%201_F0%20-%20%F0%9F%94%AB%20Gun%20Simulator%20%F0%9F%92%A5.lua"))()
   end
   })
