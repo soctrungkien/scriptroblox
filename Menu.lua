@@ -493,6 +493,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScrip
                 AddButton(Tab1o, {
      Name = "🔥 Example Script Hub | Game 🔫 by 1_F0 - 🔫 Gun Simulator 💥",
     Callback = function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "🔥 Example Script Hub | Game 🔫 by 1_F0 - 🔫 Gun Simulator 💥", 
+	Text = "", 
+	Duration = 15
+})
 loadstring(game:HttpGet("https://pastebin.com/raw/MJeeZXXn"))()
   end
   })
