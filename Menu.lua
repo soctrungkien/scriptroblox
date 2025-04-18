@@ -482,3 +482,19 @@ print(game.PlaceId)
 setclipboard(game.PlaceId)
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "Rin Hub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RinHubv4/RealRin/refs/heads/main/rinv4",true))()
+  end
+  })
+
+
+                AddButton(Tab1o, {
+     Name = "Quartyz",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/Loader.lua", true))()
+  end
+  })
