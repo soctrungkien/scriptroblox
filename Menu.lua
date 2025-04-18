@@ -455,3 +455,21 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/unc%20test.lua"))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "Speed Hub X",
+    Callback = function()
+local placeId = game. PlaceId
+if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
+--Blox Fruits
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+elseif placeId == 85896571713843 then
+--Bubble Gum Simulator Vô hạn
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+elseif placeId == 116495829188952 or placeId == 70876832253163 then
+--DeadRails
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/VxezeHubDeadRails"))()
+  end
+  end
+  })
