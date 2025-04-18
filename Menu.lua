@@ -473,3 +473,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/ref
   end
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "Lấy PlaceID",
+    Callback = function()
+print(game.PlaceId)
+setclipboard(game.PlaceId)
+  end
+  })
