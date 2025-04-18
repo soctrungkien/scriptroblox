@@ -386,7 +386,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/randomstring0/pshade-
 
 
                 AddButton(Tab1o, {
-     Name = "Chat bypass ⟦Rủi đo cao⟧",
+     Name = "Chat bypass ⟦Rủi đo cao - Key⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
   end
@@ -437,14 +437,6 @@ loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/R
      Name = "Dex",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Dex%20V5%20(1).lua"))()
-  end
-  })
-
-
-                AddButton(Tab1o, {
-     Name = "Auto part - Lag Test 2025",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Script_Free_Part.txt"))()
   end
   })
 
