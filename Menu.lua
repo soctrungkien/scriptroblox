@@ -458,7 +458,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
                 AddButton(Tab1o, {
-     Name = "Speed Hub X",
+     Name = "Speed Hub X ⟦Ads⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
   end
@@ -475,7 +475,7 @@ setclipboard(game.PlaceId)
 
 
                 AddButton(Tab1o, {
-     Name = "Rin Hub",
+     Name = "Rin Hub ⟦Rủi đo cao - Ads⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RinHubv4/RealRin/refs/heads/main/rinv4",true))()
   end
