@@ -488,3 +488,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RinHubv4/RealRin/refs
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/Loader.lua", true))()
   end
   })
+
+
+                AddButton(Tab1o, {
+     Name = "🔥 Example Script Hub | Game 🔫 by 1_F0 - 🔫 Gun Simulator 💥",
+    Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/MJeeZXXn"))()
+  end
+  })
