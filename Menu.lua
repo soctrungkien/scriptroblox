@@ -28,7 +28,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
       
 --- FLUENT PLUS SETTINGS ---
 local Show_Button = false -- Shows the button for toggle fluent ui manually. If "false", works only on mobile, if "true", works everytime.
-local Button_Icon = "" -- Icon of the button for toggle fluent ui
+local Button_Icon = "rbxassetid://81249639738070" -- Icon of the button for toggle fluent ui
 ----------------------------
 
 ------
@@ -96,7 +96,7 @@ Button.BackgroundColor3 = Color3.fromRGB(128, 128, 128) -- Màu xám
 Button.AutoButtonColor = false -- Tắt hiệu ứng đổi màu khi nhấp
 
 -- Thêm ảnh vào nút
-Button.Image = "rbxassetid://812496397380709" -- Asset ID bạn cung cấp
+Button.Image = "rbxassetid://81249639738070" -- Asset ID bạn cung cấp
 Button.ImageTransparency = 0
 
 -- Thêm bo góc (UICorner) với cấu hình yêu cầu
