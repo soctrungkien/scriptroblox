@@ -8,8 +8,8 @@ local player = Players.LocalPlayer
 -- 🔔 Thông báo mở bảng
 pcall(function()
 	StarterGui:SetCore("SendNotification", {
-		Title = "LocalScript",
-		Text = "Đã mở bảng",
+Title = "Thống Kê",
+Text = "Đã mở bảng thống kê Ping/FPS",
 		Duration = 3,
 	})
 end)
@@ -18,7 +18,7 @@ end)
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "MinimalStats"
 screenGui.ResetOnSpawn = false
-screenGui.Parent = player:WaitForChild("PlayerGui")
+screenGui.Parent = game:GetService("CoreGui")
 
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0, 250, 0, 100)
