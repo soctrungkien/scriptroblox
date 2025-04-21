@@ -1,3 +1,13 @@
+local placeId = game. PlaceId
+if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 or placeId == 116495829188952 or placeId == 70876832253163 or placeId == 85896571713843 then
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "Dragon Hub", 
+	Text = "Game ko hỗ trợ", 
+	Duration = 5,
+	Icon = "rbxassetid://81249639738070"
+})
+  end
+
 local player = game.Players.LocalPlayer
 local guiService = game:GetService("GuiService")
 local userInputService = game:GetService("UserInputService")
