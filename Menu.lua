@@ -615,3 +615,74 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/%F0%9F%94%A5%20Example%20Script%20Hub%20%7C%20Game%20%F0%9F%94%AB%20by%201_F0%20-%20%F0%9F%94%AB%20Gun%20Simulator%20%F0%9F%92%A5.lua"))()
   end
   })
+
+
+                Tabs.Main:AddButton({
+     Title = "Zinner Hub",
+    Callback = function()
+getgenv().Team = "Pirates"
+loadstring(game:HttpGet('https://raw.githubusercontent.com/HoangNguyenk8/Scripts/refs/heads/main/Loader.lua'))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "Maru Hub ⟦Fake⟧",
+    Callback = function()
+getgenv().Team = "Pirates"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/KimP/refs/heads/main/MaruHub"))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "Tsuo Hub ⟦Free⟧",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/Tsuoscripts"))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "Troll Menu",
+    Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "Rubu Hub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/RubuRoblox/refs/heads/main/RuBuRzVn"))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "Ro-Hub",
+    Callback = function()
+_G.settings = {
+    autoLoadConfig = true, -- self explanatory
+    joinTeam = "Pirates" -- "Pirates" or "Marines"
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/RO-HUB-CODEX/RO-HUB/refs/heads/main/bloxfruits.lua"))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "Annie hub",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/1st-Mars/Annie/main/1st.lua'))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "POROXO",
+    Callback = function()
+loadstring(game:HttpGet"https://raw.githubusercontent.com/sinnx32/bloxfruit/main/proxo")()
+  end
+  })
