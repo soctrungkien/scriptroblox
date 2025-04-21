@@ -1,7 +1,13 @@
 local player = game.Players.LocalPlayer
+local guiService = game:GetService("GuiService")
+local userInputService = game:GetService("UserInputService")
+local tweenService = game:GetService("TweenService")
+
+-- Tạo ScreenGui trong CoreGui
 local gui = Instance.new("ScreenGui")
 gui.Name = "TeleportGUI"
-gui.Parent = player.PlayerGui
+gui.Parent = game.CoreGui -- Sử dụng CoreGui để tích hợp với hệ thống UI Roblox
+gui.ResetOnSpawn = false -- Không reset khi người chơi tái sinh
 
 -- Frame chính
 local frame = Instance.new("Frame")
@@ -23,15 +29,16 @@ selectButton.Text = "Chọn Người chơi"
 selectButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 selectButton.BackgroundTransparency = 0.3
 selectButton.TextColor3 = Color3.new(1, 1, 1)
+selectButton.Font = Enum.Font.SourceSansBold -- Font chuyên nghiệp từ CoreUI
 selectButton.Parent = frame
 
 local selectButtonCorner = Instance.new("UICorner")
 selectButtonCorner.CornerRadius = UDim.new(0, 8)
 selectButtonCorner.Parent = selectButton
 
--- Dropdown với ScrollingFrame (bên phải)
+-- Dropdown với ScrollingFrame (bên phải, điều chỉnh động)
 local dropdown = Instance.new("ScrollingFrame")
-dropdown.Size = UDim2.new(0, 150, 0, 350)
+dropdown.Size = UDim2.new(0, 150, 0, 350) -- Chiều cao mặc định
 dropdown.Position = UDim2.new(0, 215, 0, 20) -- Sang bên phải của selectButton
 dropdown.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 dropdown.BackgroundTransparency = 01.
@@ -49,7 +56,7 @@ local listLayout = Instance.new("UIListLayout")
 listLayout.SortOrder = Enum.SortOrder.LayoutOrder
 listLayout.Parent = dropdown
 
--- Hàm cập nhật danh sách người chơi
+-- Hàm cập nhật danh sách người chơi và điều chỉnh dropdown
 local selectedPlayer
 local function updatePlayerList()
     for _, child in pairs(dropdown:GetChildren()) do
@@ -67,6 +74,7 @@ local function updatePlayerList()
             option.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
             option.BackgroundTransparency = 0.3
             option.TextColor3 = Color3.new(1, 1, 1)
+            option.Font = Enum.Font.SourceSans
             option.Parent = dropdown
             local optionCorner = Instance.new("UICorner")
             optionCorner.CornerRadius = UDim.new(0, 8)
@@ -79,7 +87,21 @@ local function updatePlayerList()
             playerCount = playerCount + 1
         end
     end
+    
+    -- Điều chỉnh kích thước và vị trí dropdown
+    local screenSize = guiService:GetScreenSize()
+    local maxDropdownHeight = math.min(playerCount * 30, screenSize.Y - 100) -- Giới hạn chiều cao
     dropdown.CanvasSize = UDim2.new(0, 0, 0, playerCount * 30)
+    dropdown.Size = UDim2.new(0, 150, 0, math.min(100, maxDropdownHeight))
+    
+    -- Kiểm tra để dropdown không ra ngoài màn hình
+    local frameAbsPos = frame.AbsolutePosition
+    local dropdownX = frameAbsPos.X + 175
+    if dropdownX + 150 > screenSize.X then
+        dropdown.Position = UDim2.new(0, -150, 0, 20) -- Chuyển sang bên trái nếu vượt mép phải
+    else
+        dropdown.Position = UDim2.new(0, 175, 0, 20) -- Giữ bên phải nếu đủ chỗ
+    end
 end
 
 selectButton.MouseButton1Click:Connect(function()
@@ -87,7 +109,7 @@ selectButton.MouseButton1Click:Connect(function()
     updatePlayerList()
 end)
 
--- Nút bay từ từ (tốc độ 50 studs/giây)
+-- Nút bay từ từ (tốc độ 60 studs/giây)
 local flyButton = Instance.new("TextButton")
 flyButton.Size = UDim2.new(0, 150, 0, 30)
 flyButton.Position = UDim2.new(0, 25, 0, 80)
@@ -95,6 +117,7 @@ flyButton.Text = "Bay từ từ"
 flyButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 flyButton.BackgroundTransparency = 0.3
 flyButton.TextColor3 = Color3.new(1, 1, 1)
+flyButton.Font = Enum.Font.SourceSansBold
 flyButton.Parent = frame
 
 local flyButtonCorner = Instance.new("UICorner")
@@ -110,10 +133,9 @@ flyButton.MouseButton1Click:Connect(function()
             local startPos = playerChar.HumanoidRootPart.Position
             local endPos = targetChar.HumanoidRootPart.Position
             local distance = (endPos - startPos).Magnitude
-            local speed = 50 -- Tốc độ 50 studs/giây
+            local speed = 600
             local time = distance / speed
             
-            local tweenService = game:GetService("TweenService")
             local tweenInfo = TweenInfo.new(
                 time,
                 Enum.EasingStyle.Linear,
@@ -144,6 +166,7 @@ teleportButton.Text = "Dịch chuyển"
 teleportButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 teleportButton.BackgroundTransparency = 0.3
 teleportButton.TextColor3 = Color3.new(1, 1, 1)
+teleportButton.Font = Enum.Font.SourceSansBold
 teleportButton.Parent = frame
 
 local teleportButtonCorner = Instance.new("UICorner")
@@ -165,7 +188,7 @@ teleportButton.MouseButton1Click:Connect(function()
     end
 end)
 
--- Nút tới gần và bay từ từ (tốc độ 200 studs/giây)
+-- Nút tới gần và bay từ từ (tốc độ 60 studs/giây)
 local approachFlyButton = Instance.new("TextButton")
 approachFlyButton.Size = UDim2.new(0, 150, 0, 30)
 approachFlyButton.Position = UDim2.new(0, 25, 0, 160)
@@ -173,6 +196,7 @@ approachFlyButton.Text = "Tới gần và bay từ từ"
 approachFlyButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 approachFlyButton.BackgroundTransparency = 0.3
 approachFlyButton.TextColor3 = Color3.new(1, 1, 1)
+approachFlyButton.Font = Enum.Font.SourceSansBold
 approachFlyButton.Parent = frame
 
 local approachFlyButtonCorner = Instance.new("UICorner")
@@ -185,22 +209,18 @@ approachFlyButton.MouseButton1Click:Connect(function()
         local targetChar = selectedPlayer.Character
         
         if playerChar and targetChar and playerChar:FindFirstChild("HumanoidRootPart") and targetChar:FindFirstChild("HumanoidRootPart") then
-            -- Tính vị trí ngẫu nhiên cách 70-100 studs
             local targetPos = targetChar.HumanoidRootPart.Position
-            local distance = math.random(70, 100)
+            local distance = math.random(40, 100)
             local angle = math.random() * 2 * math.pi
             local offset = Vector3.new(math.cos(angle) * distance, 0, math.sin(angle) * distance)
             local approachPos = targetPos + offset
             
-            -- Dịch chuyển tới vị trí gần
             playerChar.HumanoidRootPart.CFrame = CFrame.new(approachPos, targetPos)
             
-            -- Bay từ từ đến vị trí chính xác
             local newDistance = (targetPos - approachPos).Magnitude
-            local speed = 50 -- Tốc độ 50 studs/giây
+            local speed = 600
             local time = newDistance / speed
             
-            local tweenService = game:GetService("TweenService")
             local tweenInfo = TweenInfo.new(
                 time,
                 Enum.EasingStyle.Linear,
@@ -226,11 +246,12 @@ end)
 -- Nút tắt bằng emoji
 local closeButton = Instance.new("TextButton")
 closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Position = UDim2.new(1, -30, 0, 0)
+closeButton.Position = UDim2.new(1, -35, 0, 5)
 closeButton.Text = "❌"
 closeButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 closeButton.BackgroundTransparency = 1.
 closeButton.TextColor3 = Color3.new(1, 1, 1)
+closeButton.Font = Enum.Font.SourceSansBold
 closeButton.Parent = frame
 
 local closeButtonCorner = Instance.new("UICorner")
@@ -267,7 +288,7 @@ frame.InputChanged:Connect(function(input)
     end
 end)
 
-game:GetService("UserInputService").InputChanged:Connect(function(input)
+userInputService.InputChanged:Connect(function(input)
     if input == dragInput and dragging then
         local delta = input.Position - dragStart
         frame.Position = UDim2.new(
