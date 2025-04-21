@@ -91,17 +91,17 @@ local Button = Instance.new("ImageButton")
 Button.Parent = GUI
 Button.Size = UDim2.fromOffset(35, 35)
 Button.Position = UDim2.fromScale(0.15, 0.15)
-Button.BackgroundTransparency = 1 -- Nền trong suốt
+Button.BackgroundTransparency = 0
 Button.BackgroundColor3 = Color3.fromRGB(128, 128, 128) -- Màu xám
 Button.AutoButtonColor = false -- Tắt hiệu ứng đổi màu khi nhấp
 
 -- Thêm ảnh vào nút
-Button.Image = "rbxassetid://71014873973869" -- Asset ID bạn cung cấp
-Button.ImageTransparency = 0 -- Ảnh không trong suốt
+Button.Image = "rbxassetid://812496397380709" -- Asset ID bạn cung cấp
+Button.ImageTransparency = 0
 
 -- Thêm bo góc (UICorner) với cấu hình yêu cầu
 local Corner = Instance.new("UICorner")
-Corner.CornerRadius = UDim.new(35, 1) -- Bo góc theo yêu cầu
+Corner.CornerRadius = UDim.new(15, 1) -- Bo góc theo yêu cầu
 Corner.Parent = Button
 
 -- Làm nút có thể kéo thả
