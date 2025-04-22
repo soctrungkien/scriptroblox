@@ -17,7 +17,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
         Title = "Dragon Hub " .. Fluent.Version,
         SubTitle = "by @98ᴏ0ᴏ39",
         TabWidth = 160,
-        Size = UDim2.new(0, 580, 0, 460),
+        Size = UDim2.new(0, 500, 0, 300),
         UseAcrylic = true,
         Transparency = true,
         Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
@@ -89,10 +89,10 @@ end
 -- Tạo ImageButton mới
 local Button = Instance.new("ImageButton")
 Button.Parent = GUI
-Button.Size = UDim2.fromOffset(35, 35)
+Button.Size = UDim2.fromOffset(40, 40)
 Button.Position = UDim2.fromScale(0.15, 0.15)
-Button.BackgroundTransparency = 0
-Button.BackgroundColor3 = Color3.fromRGB(128, 128, 128) -- Màu xám
+Button.BackgroundTransparency = 0.1
+Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Button.AutoButtonColor = false -- Tắt hiệu ứng đổi màu khi nhấp
 
 -- Thêm ảnh vào nút
@@ -101,7 +101,7 @@ Button.ImageTransparency = 0
 
 -- Thêm bo góc (UICorner) với cấu hình yêu cầu
 local Corner = Instance.new("UICorner")
-Corner.CornerRadius = UDim.new(15, 1) -- Bo góc theo yêu cầu
+Corner.CornerRadius = UDim.new(0, 4) -- Bo góc theo yêu cầu
 Corner.Parent = Button
 
 -- Làm nút có thể kéo thả
@@ -118,7 +118,7 @@ end)
 
 ------ Tab
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "house" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
