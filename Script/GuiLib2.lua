@@ -30,7 +30,7 @@ else
 end
 
 if Show_Button then
-	Mobile = true
+	Mobile = false
 end
 
 local fischbypass
@@ -3214,6 +3214,11 @@ Components.Window = (function()
 		end
 
 		function Window:Destroy()
+for _, child in ipairs(GUI:GetChildren()) do
+    if child:IsA("ImageButton") then
+        child:Destroy()
+    end
+end
 			if Library.UseAcrylic then
 				Window.AcrylicPaint.Model:Destroy()
 			end
