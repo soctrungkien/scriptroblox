@@ -39,7 +39,7 @@ selectButton.Text = "Chọn Người chơi"
 selectButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 selectButton.BackgroundTransparency = 0.3
 selectButton.TextColor3 = Color3.new(1, 1, 1)
-selectButton.Font = Enum.Font.SourceSansBold -- Font chuyên nghiệp từ CoreUI
+selectButton.Font = Enum.Font.Arimo -- Font chuyên nghiệp từ CoreUI
 selectButton.Parent = frame
 
 local selectButtonCorner = Instance.new("UICorner")
@@ -127,7 +127,7 @@ flyButton.Text = "Bay từ từ"
 flyButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 flyButton.BackgroundTransparency = 0.3
 flyButton.TextColor3 = Color3.new(1, 1, 1)
-flyButton.Font = Enum.Font.SourceSansBold
+flyButton.Font = Enum.Font.Arimo
 flyButton.Parent = frame
 
 local flyButtonCorner = Instance.new("UICorner")
@@ -176,7 +176,7 @@ teleportButton.Text = "Dịch chuyển"
 teleportButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 teleportButton.BackgroundTransparency = 0.3
 teleportButton.TextColor3 = Color3.new(1, 1, 1)
-teleportButton.Font = Enum.Font.SourceSansBold
+teleportButton.Font = Enum.Font.Arimo
 teleportButton.Parent = frame
 
 local teleportButtonCorner = Instance.new("UICorner")
@@ -206,7 +206,7 @@ approachFlyButton.Text = "Tới gần và bay từ từ"
 approachFlyButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 approachFlyButton.BackgroundTransparency = 0.3
 approachFlyButton.TextColor3 = Color3.new(1, 1, 1)
-approachFlyButton.Font = Enum.Font.SourceSansBold
+approachFlyButton.Font = Enum.Font.Arimo
 approachFlyButton.Parent = frame
 
 local approachFlyButtonCorner = Instance.new("UICorner")
@@ -256,12 +256,12 @@ end)
 -- Nút tắt bằng emoji
 local closeButton = Instance.new("TextButton")
 closeButton.Size = UDim2.new(0, 30, 0, 30)
-closeButton.Position = UDim2.new(1, -35, 0, 5)
+closeButton.Position = UDim2.new(1, -30, 0, 0)
 closeButton.Text = "❌"
 closeButton.BackgroundColor3 = Color3.fromRGB(147, 112, 219)
 closeButton.BackgroundTransparency = 1.
 closeButton.TextColor3 = Color3.new(1, 1, 1)
-closeButton.Font = Enum.Font.SourceSansBold
+closeButton.Font = Enum.Font.Arimo
 closeButton.Parent = frame
 
 local closeButtonCorner = Instance.new("UICorner")
