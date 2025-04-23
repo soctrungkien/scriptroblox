@@ -6,7 +6,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Icon = "rbxassetid://81249639738070"
 })
 -------GUILIB
-local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/discoart/FluentPlus/refs/heads/main/Beta.lua"))()
+local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib2.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
 local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/im.lua"))()
 -------ANTIAFK
@@ -684,5 +684,13 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/1st-Mars/Annie/main/1
      Title = "POROXO",
     Callback = function()
 loadstring(game:HttpGet"https://raw.githubusercontent.com/sinnx32/bloxfruit/main/proxo")()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "Monster Hub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/MonsterHub/refs/heads/main/MonsterHub"))()
   end
   })
