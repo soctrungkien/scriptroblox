@@ -6,8 +6,8 @@ dsc.gg/hydrahub  |   31.01 - added Show_Assets toggle. Soon ill make normal bypa
 ]]--    
 
 --- FLUENT PLUS SETTINGS ---
-
-
+local Show_Button = false -- Shows the button for toggle fluent ui manually. If "false", works only on mobile, if "true", works everytime.
+local Button_Icon = "" -- Icon of the button for toggle fluent ui
 ----------------------------
 
 local Lighting = game:GetService("Lighting")
@@ -21,6 +21,17 @@ local Mouse = LocalPlayer:GetMouse()
 local httpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
+
+local Mobile
+if RunService:IsStudio() then
+	Mobile = false
+else
+	Mobile = table.find({Enum.Platform.IOS, Enum.Platform.Android}, UserInputService:GetPlatform()) ~= nil
+end
+
+if Show_Button then
+	Mobile = true
+end
 
 local fischbypass
 
@@ -3184,7 +3195,7 @@ Components.Window = (function()
 			if not MinimizeNotif then
 				MinimizeNotif = true
 				local Key = Library.MinimizeKeybind and Library.MinimizeKeybind.Value or Library.MinimizeKey.Name
-				if not Mobile then Library:Notify({
+				if not  then Library:Notify({
 					Title = "Interface",
 					Content = "Press " .. Key .. " to toggle the interface.",
 					Duration = 6
@@ -3203,11 +3214,6 @@ Components.Window = (function()
 		end
 
 		function Window:Destroy()
-for _, child in ipairs(GUI:GetChildren()) do
-    if child:IsA("ImageButton") then
-        child:Destroy()
-    end
-end
 			if Library.UseAcrylic then
 				Window.AcrylicPaint.Model:Destroy()
 			end
@@ -6298,10 +6304,6 @@ end
 
 function Library:Destroy()
 	if Library.Window then
-for _, child in ipairs(GUI:GetChildren()) do
-    if child:IsA("ImageButton") then
-        child:Destroy()
-    end
 		Library.Unloaded = true
 		if Library.UseAcrylic then
 			Library.Window.AcrylicPaint.Model:Destroy()
@@ -6369,16 +6371,17 @@ local Minimizer
 if Mobile then
 	Minimizer = New("Frame", {
 		Parent = GUI,
-		Size = UDim2.new(0.08, 1, 0.1642, 1),
+		Size = UDim2.new(0, 0, 0, 0),
 		Position = UDim2.new(0.45, 0, 0.025, 0),
 		BackgroundTransparency = 1,
 		ZIndex = 999999999,
+		Visible = false
 	},
 	{
 		New("Frame", {
 			BackgroundColor3 = Color3.fromRGB(0, 0, 0),
-			Size = UDim2.new(1, 0, 1, 0),
-			BackgroundTransparency = 0.5,
+			Size = UDim2.new(0, 0, 0, 0),
+			BackgroundTransparency = 0,
 			BorderSizePixel = 0
 		}, {
 			New("UICorner", {
