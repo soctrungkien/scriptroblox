@@ -3195,18 +3195,18 @@ Components.Window = (function()
 			if not MinimizeNotif then
 				MinimizeNotif = true
 				local Key = Library.MinimizeKeybind and Library.MinimizeKeybind.Value or Library.MinimizeKey.Name
-				if not  then Library:Notify({
+				Library:Notify({
 					Title = "Interface",
 					Content = "Press " .. Key .. " to toggle the interface.",
 					Duration = 6
 					})
-				else 
+				
 					Library:Notify({
 						Title = "Interface",
 						Content = "Tap to the button to toggle the interface.",
 						Duration = 6
 					})
-				end
+				
 			end
 			if not RunService:IsStudio() then
 				pcall(SwapIco)
