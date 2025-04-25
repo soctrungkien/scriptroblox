@@ -6304,6 +6304,10 @@ end
 
 function Library:Destroy()
 	if Library.Window then
+for _, child in ipairs(GUI:GetChildren()) do
+    if child:IsA("ImageButton") then
+        child:Destroy()
+    end
 		Library.Unloaded = true
 		if Library.UseAcrylic then
 			Library.Window.AcrylicPaint.Model:Destroy()
