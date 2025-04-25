@@ -6,8 +6,8 @@ dsc.gg/hydrahub  |   31.01 - added Show_Assets toggle. Soon ill make normal bypa
 ]]--    
 
 --- FLUENT PLUS SETTINGS ---
-local Show_Button = false -- Shows the button for toggle fluent ui manually. If "false", works only on mobile, if "true", works everytime.
-local Button_Icon = "" -- Icon of the button for toggle fluent ui
+
+
 ----------------------------
 
 local Lighting = game:GetService("Lighting")
@@ -21,12 +21,6 @@ local Mouse = LocalPlayer:GetMouse()
 local httpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
-
-local Mobile = false
-
-if Show_Button then
-	Mobile = false
-end
 
 local fischbypass
 
