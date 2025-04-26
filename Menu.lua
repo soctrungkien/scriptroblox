@@ -26,10 +26,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
         MinimizeKeybind = Enum.KeyCode.K -- Phím tắt để thu nhỏ
       }
       
---- FLUENT PLUS SETTINGS ---
-local Show_Button = false -- Shows the button for toggle fluent ui manually. If "false", works only on mobile, if "true", works everytime.
-local Button_Icon = "rbxassetid://81249639738070" -- Icon of the button for toggle fluent ui
-----------------------------
+
 
 ------
 -- Giả định script này chạy trong một LocalScript bên trong StarterPlayerScripts
