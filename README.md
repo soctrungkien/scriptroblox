@@ -2,10 +2,6 @@
 --Copy vào chỗ nhập script hack
 loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
 ```
-
-```luau
-loadstring(game:HttpGet("https://pastefy.app/0EJnXzd0/raw"))()
-```
 Windows
 [Xeno](https://wearedevs.net/d/Xeno)
 [Solara](https://wearedevs.net/d/Solara)
