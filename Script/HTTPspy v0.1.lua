@@ -3,9 +3,10 @@
 local RevenueGG = loadstring(game:HttpGet("https://raw.githubusercontent.com/LR7n2p/-/refs/heads/main/RevenueGG.txt"))() -- My notification
 local NotificationLibrary = loadstring(game:HttpGet("https://pastebin.com/raw/wiPVTwLB"))() -- Notification
 
-RevenueGG:Notification({
-Text = "HTTPspy executed!",  Duration = 1, 
-Color = Color3.fromRGB(85, 170, 255) })
+game:GetService("StarterGui"):SetCore("SendNotification", {
+Title = "",
+Text = "HTTPspy executed!",  Duration = 1
+})
 
 local az = tick()
 local ba = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
@@ -69,9 +70,9 @@ elseif request then
         return bu(bv)
     end)
 else
-    RevenueGG:Notification({
-        Text = "Exploit not supported", Duration = 15,
-        Color = Color3.fromRGB(85, 170, 255)
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "",
+        Text = "Exploit not supported", Duration = 15
     })
 end
 local bw
@@ -130,7 +131,8 @@ ck:AddButton({
     Description = "                                                                                Original Script",
     Callback = function()
         setclipboard('loadstring(game:HttpGet("https://raw.githubusercontent.com/Blocky69/boblus-scriptz/refs/heads/main/UO-HttpSpy"))()')
-        RevenueGG:Notification({
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "",
             Text = "Notice: This bugs!",
             Duration = 3
         })
@@ -201,9 +203,9 @@ cr.MouseButton1Click:Connect(function()
     db:SendKeyEvent(false, Enum.KeyCode.C, false, game)
 end)
 
-RevenueGG:Notification({
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "",
     Text = "HTTPspy script loaded in" .. string.format("%.1f", tick() - az) .. " seconds",
-    Duration = 2,
-    Color = Color3.fromRGB(255, 0, 0)
+    Duration = 2
 })
 task.wait(0.3) print("Test")
