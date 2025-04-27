@@ -36,7 +36,7 @@ end
 
 ------ Tab
 local Tabs = {
-    Main = Window:AddTab({ Title = "Tổng hợp", Icon = "home" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -163,14 +163,6 @@ loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75c
   })
 
 
-          Tabs.Main:AddButton({
-     Title = "Teleport",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/TP.lua"))()
-  end
-  })
-
-
             Tabs.Main:AddButton({
      Title = "DarkDoorsKing",
     Callback = function()
@@ -243,18 +235,19 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
+if placeId == 116495829188952 or placeId == 70876832253163 then
                 Tabs.Main:AddButton({
-     Title = "Tbao Hub - Dead Rails",
+     Title = "Tbao Hub", --DeadRails
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/refs/heads/main/TbaoHubDeadRails"))()
   end
   })
-
+end
 
                 Tabs.Main:AddButton({
      Title = "MinXoV ※ Menu 132",
     Callback = function()
-local placeId = game. PlaceId
+local placeId = game.PlaceId
 if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
 --Blox Fruits
 getgenv().Team = "Pirates"
@@ -448,16 +441,18 @@ loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
   })
 
 
+if placeId == 116495829188952 or placeId == 70876832253163 then
                 Tabs.Main:AddButton({
-     Title = "Auto Bond - Dead Rails",
+     Title = "Auto Bond",--DeadRails
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/autobond"))()
   end
   })
+end
 
 
                 Tabs.Main:AddButton({
-     Title = "Rift - Dead Rails",
+     Title = "Rift",
     Callback = function()
 loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/Rift/loader.lua"))()
   end
