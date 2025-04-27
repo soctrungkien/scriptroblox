@@ -1,6 +1,6 @@
 --[[
-
-local MinButtonToggle = loadstring(scriptCode)()
+    
+local MinButtonToggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MinButtonToggle.lua"))()
 local button = MinButtonToggle.Create()
 if button then
     button.Image = "rbxassetid://81249639738070"
