@@ -4,12 +4,6 @@ loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
 --]]
 
 print("𝙳𝚛𝚊𝚐𝚘𝚗 𝙷𝚞𝚋 𝚋𝚢 @𝟿𝟾𝚘0𝚘𝟹𝟿 ☑️")
-game:GetService("StarterGui"):SetCore("SendNotification",{
-	Title = "Dragon Hub", 
-	Text = "đã khởi động", 
-	Duration = 5,
-	Icon = "rbxassetid://81249639738070"
-})
 -------GUILIB
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib2.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
@@ -33,90 +27,12 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
       
 
 
-------
--- Giả định script này chạy trong một LocalScript bên trong StarterPlayerScripts
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local UserInputService = game:GetService("UserInputService")
-local LocalPlayer = Players.LocalPlayer
-
--- Hàm làm nút có thể kéo thả
-local function MakeDrag(button)
-    local dragging = false
-    local dragStart = nil
-    local startPos = nil
-
-    button.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
-            dragStart = input.Position
-            startPos = button.Position
-        end
-    end)
-
-    button.InputEnded:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = false
-        end
-    end)
-
-    UserInputService.InputChanged:Connect(function(input)
-        if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-            local delta = input.Position - dragStart
-            local newPos = UDim2.new(
-                startPos.X.Scale,
-                startPos.X.Offset + delta.X,
-                startPos.Y.Scale,
-                startPos.Y.Offset + delta.Y
-            )
-            button.Position = newPos
-        end
-    end)
-
-    return button
+------MinButtonToggle
+local MinButtonToggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MinButtonToggle.lua"))()
+local button = MinButtonToggle.Create()
+if button then
+    button.Image = "rbxassetid://81249639738070"
 end
-
--- Tạo hoặc tìm ScreenGui
-local GUI = game:GetService("CoreGui"):FindFirstChild("CustomButtonGui") or Instance.new("ScreenGui")
-GUI.Name = "CustomButtonGui"
-GUI.Parent = game:GetService("CoreGui") -- Sử dụng CoreGui như yêu cầu
-
--- Xóa các ImageButton cũ trong ScreenGui
-for _, child in ipairs(GUI:GetChildren()) do
-    if child:IsA("ImageButton") then
-        child:Destroy()
-    end
-end
-
--- Tạo ImageButton mới
-local Button = Instance.new("ImageButton")
-Button.Parent = GUI
-Button.Size = UDim2.fromOffset(40, 40)
-Button.Position = UDim2.fromScale(0.15, 0.15)
-Button.BackgroundTransparency = 0.1
-Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-Button.AutoButtonColor = false -- Tắt hiệu ứng đổi màu khi nhấp
-
--- Thêm ảnh vào nút
-Button.Image = "rbxassetid://81249639738070" -- Asset ID bạn cung cấp
-Button.ImageTransparency = 0
-
--- Thêm bo góc (UICorner) với cấu hình yêu cầu
-local Corner = Instance.new("UICorner")
-Corner.CornerRadius = UDim.new(0, 4) -- Bo góc theo yêu cầu
-Corner.Parent = Button
-
--- Làm nút có thể kéo thả
-MakeDrag(Button)
-
--- Thêm sự kiện nhấp để chạy Window:Minimize()
-Button.Activated:Connect(function()
-    if Window and Window.Minimize then
-        Window:Minimize()
-    else
-        warn("Window or Window:Minimize is not defined!")
-    end
-end)
 
 ------ Tab
 local Tabs = {
