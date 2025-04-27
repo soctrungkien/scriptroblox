@@ -621,3 +621,19 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/Mons
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/HTTPspy%20v0.1.lua"))()
   end
   })
+
+
+                Tabs.Main:AddButton({
+     Title = "NO-LAG HUB",
+    Callback = function()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/NoLag-id/No-Lag-HUB/refs/heads/main/Loader/LoaderV1.lua"))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "vertex",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring"))()
+  end
+  })
