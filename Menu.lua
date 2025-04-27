@@ -28,7 +28,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
 ------MinButtonToggle
-local MinButtonToggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MinButtonToggle.lua"))()
+local MinButtonToggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MinButtonToggle.lua"))(Fluent, Window)
 local button = MinButtonToggle.Create()
 if button then
     button.Image = "rbxassetid://81249639738070"
