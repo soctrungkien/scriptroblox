@@ -84,7 +84,7 @@ Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Button.AutoButtonColor = false -- Tắt hiệu ứng đổi màu khi nhấp
 
 -- Thêm ảnh vào nút (mặc định, sẽ được Script 1 ghi đè)
-Button.Image = "rbxassetid://118074316147407" -- Để trống vì Script 1 sẽ đặt
+button.Image = "rbxassetid://118074316147407" -- Để trống vì Script 1 sẽ đặt
 Button.ImageTransparency = 0
 
 -- Thêm bo góc (UICorner)
@@ -96,13 +96,11 @@ Corner.Parent = Button
 MakeDrag(Button)
 
 -- Thêm sự kiện nhấp để chạy Window:Minimize()
-Button.Activated:Connect(function()
-    if Window and Window.Minimize then
-        Window:Minimize()
-    else
-        warn("Window or Window:Minimize is not defined!")
-    end
-end)
+    button.Activated:Connect(function()
+            local success, err = pcall(function()
+                warn(error no Window:Minimize())
+            end)
+        end)
 
 -- Hàm xóa OpenUI và tất cả nội dung
 local function DestroyGui()
