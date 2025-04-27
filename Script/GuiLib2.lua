@@ -2875,6 +2875,7 @@ Components.TitleBar = (function()
 					{
 						Title = "Yes",
 						Callback = function()
+							RemoveGui()
 							Library:Destroy()
 						end,
 					},
