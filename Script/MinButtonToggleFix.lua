@@ -84,7 +84,7 @@ Button.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Button.AutoButtonColor = false -- Tắt hiệu ứng đổi màu khi nhấp
 
 -- Thêm ảnh vào nút (mặc định, sẽ được Script 1 ghi đè)
-button.Image = "rbxassetid://118074316147407" -- Để trống vì Script 1 sẽ đặt
+Button.Image = "rbxassetid://118074316147407" -- Để trống vì Script 1 sẽ đặt
 Button.ImageTransparency = 0
 
 -- Thêm bo góc (UICorner)
@@ -96,9 +96,9 @@ Corner.Parent = Button
 MakeDrag(Button)
 
 -- Thêm sự kiện nhấp để chạy Window:Minimize()
-    button.Activated:Connect(function()
+    Button.Activated:Connect(function()
             local success, err = pcall(function()
-                warn(error no Window:Minimize())
+                warn("error no Window:Minimize()")
             end)
         end)
 
