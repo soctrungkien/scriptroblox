@@ -608,3 +608,11 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/sinnx32/bloxfruit/main
 loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/MonsterHub/refs/heads/main/MonsterHub"))()
   end
   })
+
+
+                Tabs.Main:AddButton({
+     Title = "HTTPspy",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/HTTPspy%20v0.1.lua"))()
+  end
+  })
