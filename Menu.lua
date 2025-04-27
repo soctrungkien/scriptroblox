@@ -3,7 +3,6 @@
 loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
 --]]
 local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MoreUNC.lua"))()
-MoreUNC()
 print("𝙳𝚛𝚊𝚐𝚘𝚗 𝙷𝚞𝚋 𝚋𝚢 @𝟿𝟾𝚘0𝚘𝟹𝟿 ☑️")
 -------GUILIB
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib2.lua"))()
