@@ -1,3 +1,8 @@
+--[[luau
+--Copy vào chỗ nhập script hack
+loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
+--]]
+
 print("𝙳𝚛𝚊𝚐𝚘𝚗 𝙷𝚞𝚋 𝚋𝚢 @𝟿𝟾𝚘0𝚘𝟹𝟿 ☑️")
 game:GetService("StarterGui"):SetCore("SendNotification",{
 	Title = "Dragon Hub", 
