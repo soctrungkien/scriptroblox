@@ -4,6 +4,11 @@ local MinButtonToggle = loadstring(game:HttpGet("https://raw.githubusercontent.c
 local button = MinButtonToggle.Create()
 if button then
     button.Image = "rbxassetid://81249639738070"
+    button.Activated:Connect(function()
+            local success, err = pcall(function()
+                Window:Minimize()
+            end)
+        end)
 end
 
 local CoreGui = game:GetService("CoreGui")
