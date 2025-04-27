@@ -21,6 +21,17 @@ local Mouse = LocalPlayer:GetMouse()
 local httpService = game:GetService("HttpService")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
+local CoreGui = game:GetService("CoreGui")
+
+local function RemoveGui()
+    local OpenUI = CoreGui:FindFirstChild("OpenUI")
+    if OpenUI then
+        OpenUI:Destroy()
+        print("OpenUI removed")
+    else
+        warn("OpenUI not found")
+    end
+end
 
 local Mobile
 if RunService:IsStudio() then
