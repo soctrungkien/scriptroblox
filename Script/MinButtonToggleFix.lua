@@ -1,6 +1,6 @@
 --[[luau
     
-local MinButtonToggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MinButtonToggleFix.lua"))(Fluent, Window)
+local MinButtonToggle = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MinButtonToggleFix.lua"))()
 local button = MinButtonToggle.Create()
 if button then
     button.Image = "rbxassetid://81249639738070"
@@ -26,7 +26,6 @@ local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
 
-return function(Fluent, Window)
 -- Hàm làm nút có thể kéo thả, hỗ trợ chuột và cảm ứng
 local function MakeDrag(button)
     local dragging = false
