@@ -33,6 +33,13 @@ local function RemoveGui()
     end
 end
 
+local hasRun = false
+
+if not hasRun then
+	hasRun = true
+	Library:Destroy()
+end
+
 local Mobile
 if RunService:IsStudio() then
 	Mobile = false
