@@ -36,7 +36,7 @@ end
 
 ------ Tab
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
+    Main = Window:AddTab({ Title = "Tổng hợp", Icon = "home" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
