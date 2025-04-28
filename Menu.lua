@@ -5,7 +5,6 @@ loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
 local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MoreUNC.lua"))()
 print("𝙳𝚛𝚊𝚐𝚘𝚗 𝙷𝚞𝚋 𝚋𝚢 @𝟿𝟾𝚘0𝚘𝟹𝟿 ☑️")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Unlock%20Workspace%20Baseparts.lua"))()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antikick.lua"))()
 -------GUILIB
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib2.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
