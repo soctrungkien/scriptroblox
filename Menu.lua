@@ -290,9 +290,9 @@ pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/soct
 
 
                 Tabs.Main:AddButton({
-     Title = "FPSBoost",
+     Title = "Antilag",
     Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/fpsboost.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/fpsboost.lua",true))()
   end
   })
 
