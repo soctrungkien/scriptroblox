@@ -86,6 +86,25 @@ getgenv().Combined_AntiKick = {
 
 local kicknum = 0
 
+-- Additional Kick Hook
+local kickHook = nil
+kickHook = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
+    if tostring(getnamecallmethod()) == "Kick" and getgenv().Combined_AntiKick.Enabled then
+        kicknum = kicknum + 1
+        if getgenv().Combined_AntiKick.SendNotifications then
+            SetCore(StarterGui, "SendNotification", {
+                Title = "Combined Anti-Kick",
+                Text = "Blocked kick attempt " .. kicknum .. " (via kickHook)",
+                Icon = "rbxassetid://6238540373",
+                Duration = 2
+            })
+        end
+        warn("Blocked client-kick attempt " .. kicknum .. " (via kickHook)")
+        return wait(9e9) -- Delay indefinitely to block the kick
+    end
+    return kickHook(self, ...)
+end))
+
 -- Hook __namecall via getrawmetatable
 if getrawmetatable then
     local game_meta = getrawmetatable(game)
@@ -207,7 +226,7 @@ end)
 if getgenv().Combined_AntiKick.SendNotifications then
     StarterGui:SetCore("SendNotification", {
         Title = "Combined Anti-Kick",
-        Text = "Anti-Kick and Remote Protection loaded!",
+        Text = "Anti-Kick and Remote Protection loaded with enhanced kick hook!",
         Icon = "rbxassetid://6238537240",
         Duration = 3
     })
