@@ -1,6 +1,7 @@
 local Player = game.Players.LocalPlayer
 local Http = game:GetService("HttpService")
 local TPS = game:GetService("TeleportService")
+local StatsService = game:GetService("Stats")
 local PlaceID = game.PlaceId
 local time_to_wait = 1 -- seconds (dùng cho đoạn mã 2 và tổng thể)
 
@@ -131,6 +132,60 @@ function TryTeleport2()
     return false
 end
 
+-- Script mới: Chọn server có ping thấp nhất
+function fetchServersData(placeId, limit)
+    local url = string.format("https://games.roblox.com/v1/games/%d/servers/Public?limit=%d", placeId, limit)
+    local success, response = pcall(function()
+        return Http:JSONDecode(game:HttpGet(url))
+    end)
+    if success and response and response.data then
+        return response.data
+    end
+    warn("fetchServersData failed: " .. tostring(response))
+    return nil
+end
+
+function TryTeleportNew()
+    local serverLimit = 100
+    local servers = fetchServersData(PlaceID, serverLimit)
+    if not servers then
+        return false
+    end
+    local lowestPingServer = servers[1]
+    for _, server in pairs(servers) do
+        if server["ping"] and lowestPingServer["ping"] and server["ping"] < lowestPingServer["ping"] then
+            lowestPingServer = server
+        end
+    end
+    local commonLoadTime = 5
+    task.wait(commonLoadTime)
+    local pingThreshold = 100
+    local success, pingValue = pcall(function()
+        local serverStats = StatsService.Network.ServerStatsItem
+        local dataPing = serverStats["Data Ping"]:GetValueString()
+        return tonumber(dataPing:match("(%d+)"))
+    end)
+    if not success or not pingValue then
+        warn("Failed to get ping value: " .. tostring(pingValue))
+        return false
+    end
+    if pingValue >= pingThreshold then
+        local teleportSuccess, errorMessage = pcall(function()
+            if Player.Character and Player.Character:FindFirstChild("HumanoidRootPart") then
+                Player.Character.HumanoidRootPart.Anchored = true
+            end
+            TPS:TeleportToPlaceInstance(PlaceID, lowestPingServer.id, Player)
+        end)
+        if teleportSuccess then
+            return true
+        else
+            warn("Teleport new failed: " .. tostring(errorMessage))
+            return false
+        end
+    end
+    return false -- Không dịch chuyển nếu ping hiện tại tốt
+end
+
 -- Đoạn mã 3: Dịch chuyển ngẫu nhiên không kiểm soát server
 function TryTeleport3()
     local success, errorMessage = pcall(function()
@@ -152,8 +207,11 @@ while wait(time_to_wait) do
     if not TryTeleport1() then
         warn("Switching to Teleport 2...")
         if not TryTeleport2() then
-            warn("Switching to Teleport 3...")
-            TryTeleport3()
+            warn("Switching to Teleport New...")
+            if not TryTeleportNew() then
+                warn("Switching to Teleport 3...")
+                TryTeleport3()
+            end
         end
     end
 end
