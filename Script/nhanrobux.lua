@@ -16,3 +16,5 @@ if not success then
     end
 end
 ]]--
+
+print("Script ko còn hoạt động")
