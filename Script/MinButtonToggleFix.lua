@@ -95,13 +95,6 @@ Corner.Parent = Button
 -- Làm nút có thể kéo thả
 MakeDrag(Button)
 
--- Thêm sự kiện nhấp để chạy Window:Minimize()
-    Button.Activated:Connect(function()
-            local success, err = pcall(function()
-                warn("error no Window:Minimize()")
-            end)
-        end)
-
 -- Hàm xóa OpenUI và tất cả nội dung
 local function DestroyGui()
     if OpenUI then
