@@ -1,4 +1,4 @@
---[[
+
 local function mainScript()
 return loadstring(game:HttpGet("https://raw.githubusercontent.com/zdkjaime/PlsDonateHub/refs/heads/main/RobuxHub"))()
 end
@@ -15,6 +15,6 @@ if not success then
         print("Script dự phòng lỗi: " .. errorMsg)
     end
 end
-]]--
 
-print("Script ko còn hoạt động")
+
+print("💀")
