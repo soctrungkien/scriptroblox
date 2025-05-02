@@ -2,9 +2,7 @@
 --Copy vào chỗ nhập script hack
 loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
 --]]
---local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MoreUNC.lua"))()
 print("𝙳𝚛𝚊𝚐𝚘𝚗 𝙷𝚞𝚋 𝚋𝚢 @𝟿𝟾𝚘0𝚘𝟹𝟿 ☑️")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Unlock%20Workspace%20Baseparts.lua"))()
 -------GUILIB
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib2.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
@@ -636,5 +634,21 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/NoLag-id/No-Lag-
      Title = "vertex",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring"))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "Unlock Workspace",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Unlock%20Workspace%20Baseparts.lua"))()
+  end
+  })
+
+
+                Tabs.Main:AddButton({
+     Title = "MoreUNC",
+    Callback = function()
+local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MoreUNC.lua"))()
   end
   })
