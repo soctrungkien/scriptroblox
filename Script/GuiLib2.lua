@@ -28,8 +28,6 @@ local function RemoveGui()
     if OpenUI then
         OpenUI:Destroy()
         print("OpenUI removed")
-    else
-        warn("OpenUI not found")
     end
 end
 
