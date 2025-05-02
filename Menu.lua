@@ -652,3 +652,11 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MoreUNC.lua"))()
   end
   })
+
+
+                Tabs.Main:AddButton({
+     Title = "Teleport",
+    Callback = function()
+local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/TP.lua"))()
+  end
+  })
