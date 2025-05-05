@@ -1,4 +1,4 @@
 local old;
 old = hookfunction(workspace.Parts.GetChildren, function() -- safe way not get banned
-  return table.create(10000000, Instance.new("Part")) -- replace the number at what you want better using not more than 2 Million if u dont want get banned off the game Lol from the owner
+  return table.create(1, Instance.new("Part")) -- replace the number at what you want better using not more than 2 Million if u dont want get banned off the game Lol from the owner
 end)
