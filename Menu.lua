@@ -490,7 +490,15 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
                 Tabs.Main:AddButton({
      Title = "Speed Hub X ⟦Ads⟧",
     Callback = function()
+print("UNCCheckEnv - Edit")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
+print("sUNC")
+getgenv().sUNCDebug = {
+    ["printcheckpoints"] = false,
+    ["delaybetweentests"] = 0
+}
+
+loadstring(game:HttpGet("https://script.sunc.su/"))()
   end
   })
 
