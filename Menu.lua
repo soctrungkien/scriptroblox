@@ -41,6 +41,7 @@ end
 ------ Tab
 local Tabs = {
     Main = Window:AddTab({ Title = "Main", Icon = "home" }),
+    Script = Window:AddTab({ Title = "Script", Icon = "terminal" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
 
@@ -79,8 +80,8 @@ Window:SelectTab(1)
 SaveManager:LoadAutoloadConfig()
 
 ------- BUTTON
-    
-    Tabs.Main:AddButton({
+
+    Tabs.Script:AddButton({
      Title = "Redz Hub",
     Callback = function()
 local placeId = game. PlaceId
@@ -100,7 +101,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs
   })
 
 
-      Tabs.Main:AddButton({
+      Tabs.Script:AddButton({
      Title = "Ping/FPS",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua"))()
@@ -108,7 +109,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-      Tabs.Main:AddButton({
+      Tabs.Script:AddButton({
      Title = "Fly GUI",
     Callback = function()
 loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
@@ -116,7 +117,7 @@ loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\
   })
 
 
-      Tabs.Main:AddButton({
+      Tabs.Script:AddButton({
      Title = "DatTHGV1",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/DatThg/refs/heads/main/DatThgV1"))()
@@ -124,7 +125,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/DatThg/refs/
   })
 
 
-        Tabs.Main:AddButton({
+        Tabs.Script:AddButton({
      Title = "Dex Explorer",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/DexExplorerLite.lua"))()
@@ -132,7 +133,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
   
 
-        Tabs.Main:AddButton({
+        Tabs.Script:AddButton({
      Title = "Banana Hub ⟦Fake⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/kimprobloxdz/Banana-Free/refs/heads/main/Protected_5609200582002947.lua.txt"))()
@@ -140,7 +141,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/kimprobloxdz/Banana-F
   })
 
     
-          Tabs.Main:AddButton({
+          Tabs.Script:AddButton({
      Title = "Orca",
     Callback = function()
 loadstring(
@@ -150,7 +151,7 @@ loadstring(
   })
 
 
-        Tabs.Main:AddButton({
+        Tabs.Script:AddButton({
      Title = "Universal Aim Bot",
     Callback = function()
 loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Aimbot_179"))()
@@ -159,7 +160,7 @@ loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Aimbot_179"))()
 
 
   
-        Tabs.Main:AddButton({
+        Tabs.Script:AddButton({
      Title = "QuirkyCMD",
     Callback = function()
 loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw"))()
@@ -167,7 +168,7 @@ loadstring(game:HttpGet("https://gist.github.com/someunknowndude/38cecea5be9d75c
   })
 
 
-            Tabs.Main:AddButton({
+            Tabs.Script:AddButton({
      Title = "DarkDoorsKing",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkDoorsKing/Doors/main/Main"))()
@@ -175,7 +176,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkDoorsKing/Doors/m
   })
 
 
-              Tabs.Main:AddButton({
+              Tabs.Script:AddButton({
      Title = "Quản lí đơn ⟦ChatGPT⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/QuanLiDon_Fake.lua"))()
@@ -183,7 +184,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Vào lại server",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/VaoLaiServer.lua"))()
@@ -191,7 +192,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Server hop",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/ServerHop.lua"))()
@@ -199,7 +200,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "May mắn 10000%🍀",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Luck.lua"))()
@@ -207,7 +208,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "RIP",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/Loader.lua"))()
@@ -215,7 +216,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/CasperFlyModz/discord
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "HOHO HUB ⟦Key⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
@@ -223,7 +224,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/L
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Anh Đẹp Zai Hub",
     Callback = function()
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer loadstring(game:HttpGet("https://raw.githubusercontent.com/AnDepZaiHub/AnDepZaiHubBeta/refs/heads/main/AnDepZaiHubNewUpdated.lua"))()
@@ -231,7 +232,7 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer loadstring(game
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "ezESP",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/AB.lua"))()
@@ -240,7 +241,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
 if placeId == 116495829188952 or placeId == 70876832253163 then
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Tbao Hub", --DeadRails
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/refs/heads/main/TbaoHubDeadRails"))()
@@ -248,7 +249,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/refs/
   })
 end
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "MinXoV ※ Menu 132",
     Callback = function()
 local placeId = game.PlaceId
@@ -264,7 +265,7 @@ end
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "BTools",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/BTools.lua"))()
@@ -272,7 +273,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Ez Hub",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ez%20Hub.lua"))()
@@ -280,7 +281,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Ko tên ESP",
     Callback = function()
 pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/UnTitledESP.lua'))() end)
@@ -288,7 +289,7 @@ pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/soct
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Antilag",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/fpsboost.lua",true))()
@@ -296,7 +297,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "ClickTP ⟦CTRL+Click⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Click%20Teleport.lua"))()
@@ -305,7 +306,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "VapeV4",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
@@ -314,7 +315,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4Fo
 
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "All Script ⟦TBoyRoblox⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/TBoyRoblox727/TBoyRobloxYTB/refs/heads/main/AllScriptBF.txt"))()
@@ -323,7 +324,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/TBoyRoblox727/TBoyRob
 
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Vxeze Hub",
     Callback = function()
 local placeId = game. PlaceId
@@ -339,7 +340,7 @@ end
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Chú Roblox Hub",
     Callback = function()
 local Settings = {
@@ -352,7 +353,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/scri
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Relz Hub ⟦Key⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/farghii/relzhub/refs/heads/main/v2.bloxfruits.lua"))()
@@ -360,7 +361,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/farghii/relzhub/refs/
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "c00lgui Reborn Rc7 bởi v3rx",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/C00lGui%20for%20Rc7(2).lua"))()
@@ -368,7 +369,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Universal Sorry Gui",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/UniversalSorryGui-w40R3.lua"))()
@@ -376,7 +377,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "FRUITS FINDER by ALCHEMY",
     Callback = function()
 -- Put it in [auto-exec]
@@ -386,7 +387,7 @@ loadstring(game:HttpGet("https://scripts.alchemyhub.xyz"))()
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "INFINITE YIELD",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
@@ -394,7 +395,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Dark Dex",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Cynacol/Dark-Dex-V3/refs/heads/main/Dark%20Dex%20V3.txt"))()
@@ -402,7 +403,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Cynacol/Dark-Dex-V3/r
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "PShade Ultimate",
     Callback = function()
 
@@ -413,7 +414,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/randomstring0/pshade-
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Chat bypass ⟦Rủi đo cao - Key⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
@@ -421,7 +422,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/prod
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "WA Universal ESP",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/wa0101/Roblox-ESP/refs/heads/main/esp.lua",true))()
@@ -429,7 +430,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/wa0101/Roblox-ESP/ref
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "SimpleSpy",
     Callback = function()
 loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/master/SimpleSpy.lua"))()
@@ -437,7 +438,7 @@ loadstring(game:HttpGet("https://github.com/exxtremestuffs/SimpleSpySource/raw/m
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "F3X Tool",
     Callback = function()
 loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
@@ -446,7 +447,7 @@ loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 
 
 if placeId == 116495829188952 or placeId == 70876832253163 then
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Auto Bond",--DeadRails
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs/heads/main/autobond"))()
@@ -455,7 +456,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/thiennrb7/Script/refs
 end
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Rift",
     Callback = function()
 loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/Rift/loader.lua"))()
@@ -463,7 +464,7 @@ loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/R
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Dex",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Dex%20V5%20(1).lua"))()
@@ -471,7 +472,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Hiện thông tin",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/info.lua"))()
@@ -479,7 +480,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "UNC Test",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/unc%20test.lua"))()
@@ -487,7 +488,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Speed Hub X ⟦Ads⟧",
     Callback = function()
 print("UNCCheckEnv - Edit")
@@ -503,7 +504,7 @@ loadstring(game:HttpGet("https://script.sunc.su/"))()
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Lấy PlaceID",
     Callback = function()
 print(game.PlaceId)
@@ -512,7 +513,7 @@ setclipboard(game.PlaceId)
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Rin Hub ⟦Rủi đo cao - Ads⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/RinHubv4/RealRin/refs/heads/main/rinv4",true))()
@@ -520,7 +521,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RinHubv4/RealRin/refs
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Quartyz",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/Loader.lua", true))()
@@ -528,7 +529,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScrip
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "🔥 Example Script Hub | Game 🔫 by 1_F0 - 🔫 Gun Simulator 💥",
     Callback = function()
 game:GetService("StarterGui"):SetCore("SendNotification",{
@@ -542,7 +543,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Zinner Hub",
     Callback = function()
 getgenv().Team = "Pirates"
@@ -551,7 +552,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/HoangNguyenk8/Scripts
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Maru Hub ⟦Fake⟧",
     Callback = function()
 getgenv().Team = "Pirates"
@@ -560,7 +561,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/KimP/refs/he
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Tsuo Hub ⟦Free⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/Tsuoscripts"))()
@@ -568,7 +569,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Tsuo7/TsuoHub/main/Ts
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Troll Menu",
     Callback = function()
 loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
@@ -576,7 +577,7 @@ loadstring(game:HttpGet("https://pastebin.com/raw/FWwdST5Y"))()
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Rubu Hub",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/RubuRoblox/refs/heads/main/RuBuRzVn"))()
@@ -584,7 +585,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/RubuRoblox/r
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Ro-Hub",
     Callback = function()
 _G.settings = {
@@ -597,7 +598,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RO-HUB-CODEX/RO-HUB/r
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Annie hub",
     Callback = function()
 loadstring(game:HttpGet('https://raw.githubusercontent.com/1st-Mars/Annie/main/1st.lua'))()
@@ -605,7 +606,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/1st-Mars/Annie/main/1
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "POROXO",
     Callback = function()
 print("byvn.net/y77i")
@@ -614,7 +615,7 @@ loadstring(game:HttpGet"https://raw.githubusercontent.com/sinnx32/bloxfruit/main
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Monster Hub",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/MonsterHub/refs/heads/main/MonsterHub"))()
@@ -622,7 +623,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/Mons
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "HTTPspy",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/HTTPspy%20v0.1.lua"))()
@@ -630,7 +631,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "NO-LAG HUB",
     Callback = function()
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/NoLag-id/No-Lag-HUB/refs/heads/main/Loader/LoaderV1.lua"))()
@@ -638,7 +639,7 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/NoLag-id/No-Lag-
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "vertex",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring"))()
@@ -646,7 +647,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/re
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Unlock Workspace",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Unlock%20Workspace%20Baseparts.lua"))()
@@ -654,7 +655,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "MoreUNC",
     Callback = function()
 local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MoreUNC.lua"))()
@@ -662,7 +663,7 @@ local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctr
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "Teleport",
     Callback = function()
 local Tele = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/TP.lua"))()
@@ -670,7 +671,7 @@ local Tele = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrung
   })
 
 
-                Tabs.Main:AddButton({
+                Tabs.Script:AddButton({
      Title = "NatHub",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
