@@ -134,7 +134,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   
 
         Tabs.Script:AddButton({
-     Title = "Banana Hub ⟦Fake⟧",
+     Title = "Banana Cat Hub ⟦Fake⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/kimprobloxdz/Banana-Free/refs/heads/main/Protected_5609200582002947.lua.txt"))()
   end
@@ -522,7 +522,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/RinHubv4/RealRin/refs
 
 
                 Tabs.Script:AddButton({
-     Title = "Quartyz",
+     Title = "Mukuro Hub ⟦Key⟧",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/xQuartyx/QuartyzScript/main/Loader.lua", true))()
   end
@@ -675,5 +675,13 @@ local Tele = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrung
      Title = "NatHub",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs/heads/master/NatHub.lua"))()
+  end
+  })
+
+
+                Tabs.Script:AddButton({
+     Title = "Volcano Hub",
+    Callback = function()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/indexeduu/BF-NewVer/refs/heads/main/V3New.lua"))()
   end
   })
