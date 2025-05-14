@@ -92,7 +92,7 @@ if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
   Translator = true; -- true/false
 }
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)
+loadstring(game:HttpGet("https://pastefy.app/ACOX6D6h/raw"))()
 elseif placeId == 10260193230 then
 --Mini Sea
 loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs/heads/main/Source.lua"))()
