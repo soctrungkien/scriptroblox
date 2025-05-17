@@ -101,7 +101,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs
   })
 
 
-      Main.Script:AddButton({
+      Tabs.Main:AddButton({
      Title = "Ping/FPS",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua"))()
@@ -184,7 +184,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Main.Script:AddButton({
+                Tabs.Main:AddButton({
      Title = "Vào lại server",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/VaoLaiServer.lua"))()
@@ -192,7 +192,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Main.Script:AddButton({
+                Tabs.Main:AddButton({
      Title = "Server hop",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/ServerHop.lua"))()
@@ -225,7 +225,7 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer loadstring(game
   })
 
 
-                Main.Script:AddButton({
+                Tabs.Main:AddButton({
      Title = "ezESP",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/AB.lua"))()
@@ -450,7 +450,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Main.Script:AddButton({
+                Tabs.Main:AddButton({
      Title = "Hiện thông tin",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/info.lua"))()
