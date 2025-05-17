@@ -92,7 +92,7 @@ if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
   Translator = true; -- true/false
 }
 
-loadstring(game:HttpGet("https://pastefy.app/ACOX6D6h/raw"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/newredz/BloxFruits/refs/heads/main/Source.luau"))(Settings)
 elseif placeId == 10260193230 then
 --Mini Sea
 loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs/heads/main/Source.lua"))()
@@ -101,7 +101,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs
   })
 
 
-      Tabs.Script:AddButton({
+      Main.Script:AddButton({
      Title = "Ping/FPS",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua"))()
@@ -184,7 +184,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Script:AddButton({
+                Main.Script:AddButton({
      Title = "Vào lại server",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/VaoLaiServer.lua"))()
@@ -192,20 +192,13 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Script:AddButton({
+                Main.Script:AddButton({
      Title = "Server hop",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/ServerHop.lua"))()
   end
   })
 
-
-                Tabs.Script:AddButton({
-     Title = "May mắn 10000%🍀",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Luck.lua"))()
-  end
-  })
 
 
                 Tabs.Script:AddButton({
@@ -232,7 +225,7 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer loadstring(game
   })
 
 
-                Tabs.Script:AddButton({
+                Main.Script:AddButton({
      Title = "ezESP",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/AB.lua"))()
@@ -265,13 +258,6 @@ end
   })
 
 
-                Tabs.Script:AddButton({
-     Title = "BTools",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/BTools.lua"))()
-  end
-  })
-
 
                 Tabs.Script:AddButton({
      Title = "Ez Hub",
@@ -285,14 +271,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
      Title = "Ko tên ESP",
     Callback = function()
 pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/UnTitledESP.lua'))() end)
-  end
-  })
-
-
-                Tabs.Script:AddButton({
-     Title = "Antilag",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/fpsboost.lua",true))()
   end
   })
 
@@ -472,7 +450,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
   })
 
 
-                Tabs.Script:AddButton({
+                Main.Script:AddButton({
      Title = "Hiện thông tin",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/info.lua"))()
@@ -482,17 +460,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
                 Tabs.Script:AddButton({
      Title = "UNC Test",
-    Callback = function()
+    Callback = function()print("UNCCheckEnv - Edit")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/unc%20test.lua"))()
-  end
-  })
-
-
-                Tabs.Script:AddButton({
-     Title = "Speed Hub X ⟦Ads⟧",
-    Callback = function()
-print("UNCCheckEnv - Edit")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
 print("sUNC")
 getgenv().sUNCDebug = {
     ["printcheckpoints"] = false,
@@ -500,6 +469,14 @@ getgenv().sUNCDebug = {
 }
 
 loadstring(game:HttpGet("https://script.sunc.su/"))()
+  end
+  })
+
+
+                Tabs.Script:AddButton({
+     Title = "Speed Hub X ⟦Ads⟧",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", true))()
   end
   })
 
@@ -624,14 +601,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/Mons
 
 
                 Tabs.Script:AddButton({
-     Title = "HTTPspy",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/HTTPspy%20v0.1.lua"))()
-  end
-  })
-
-
-                Tabs.Script:AddButton({
      Title = "NO-LAG HUB",
     Callback = function()
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/NoLag-id/No-Lag-HUB/refs/heads/main/Loader/LoaderV1.lua"))()
@@ -643,22 +612,6 @@ loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/NoLag-id/No-Lag-
      Title = "vertex",
     Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/refs/heads/main/loadstring"))()
-  end
-  })
-
-
-                Tabs.Script:AddButton({
-     Title = "Unlock Workspace",
-    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Unlock%20Workspace%20Baseparts.lua"))()
-  end
-  })
-
-
-                Tabs.Script:AddButton({
-     Title = "MoreUNC",
-    Callback = function()
-local MoreUNC = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/MoreUNC.lua"))()
   end
   })
 
