@@ -84,7 +84,7 @@ SaveManager:LoadAutoloadConfig()
     Tabs.Script:AddButton({
      Title = "Redz Hub",
     Callback = function()
-local placeId = game. PlaceId
+local placeId = game.PlaceId
 if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
 --Blox Fruits
 	  local Settings = {
@@ -321,12 +321,7 @@ end
                 Tabs.Script:AddButton({
      Title = "Chú Roblox Hub",
     Callback = function()
-local Settings = {
-JoinTeam = "Pirates"; -- Pirates/Marines
-Translator = true; -- true/false
-}
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/scripts/refs/heads/main/ChuRobloxHub"))(Settings)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/giahuy2511-coder/scripts/refs/heads/main/ChuRobloxHubV2.lua"))()
   end
   })
 
@@ -462,13 +457,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
      Title = "UNC Test",
     Callback = function()print("UNCCheckEnv - Edit")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/unc%20test.lua"))()
-print("sUNC")
-getgenv().sUNCDebug = {
-    ["printcheckpoints"] = false,
-    ["delaybetweentests"] = 0
-}
-
-loadstring(game:HttpGet("https://script.sunc.su/"))()
   end
   })
 
@@ -633,8 +621,16 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/ArdyBotzz/NatHub/refs
 
 
                 Tabs.Script:AddButton({
-     Title = "Volcano Hub",
+     Title = "Volcano Hub v3",
     Callback = function()
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/indexeduu/BF-NewVer/refs/heads/main/V3New.lua"))()
+  end
+  })
+
+
+                Tabs.Script:AddButton({
+     Title = "Kiciahook Hub",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kiciahook/kiciahook/refs/heads/main/loader.lua"))()
   end
   })
