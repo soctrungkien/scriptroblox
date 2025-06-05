@@ -305,15 +305,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/TBoyRoblox727/TBoyRob
                 Tabs.Script:AddButton({
      Title = "Vxeze Hub",
     Callback = function()
-local placeId = game. PlaceId
-if placeId == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
---Blox Fruits
-getgenv().Team = "Pirates"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/Skidlamcho.txt"))()
-elseif placeId == 116495829188952 or placeId == 70876832253163 then
---DeadRails
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/VxezeHubDeadRails"))()
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dex-Bear/Vxezehub/refs/heads/main/VxezeHubMain"))()
   end
   })
 
