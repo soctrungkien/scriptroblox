@@ -5,15 +5,6 @@ local StarterGui = game:GetService("StarterGui")
 
 local player = Players.LocalPlayer
 
--- 🔔 Thông báo mở bảng
-pcall(function()
-	StarterGui:SetCore("SendNotification", {
-Title = "Thống Kê",
-Text = "Đã mở bảng thống kê Ping/FPS",
-		Duration = 3,
-	})
-end)
-
 -- 🖼️ Tạo GUI
 local screenGui = Instance.new("ScreenGui")
 screenGui.Name = "MinimalStats"
@@ -103,15 +94,5 @@ closeButton.MouseButton1Click:Connect(function()
 	end
 	if updateConn then
 		updateConn:Disconnect()
-	end
-end)
-
--- ⏳ Tự động ẩn sau 3 giây (vẫn giữ để tùy chọn)
-task.delay(3, function()
-	if screenGui and screenGui.Parent then
-		print(fix1)
-	end
-	if updateConn then
-		print(fix2)
 	end
 end)
