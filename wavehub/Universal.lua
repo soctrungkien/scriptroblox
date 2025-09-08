@@ -213,6 +213,29 @@ local humanoid = char and char:FindFirstChildOfClass("Humanoid")
   		end
   	end
   })
+
+noclipfasttoggle = false
+game:GetService("RunService").Stepped:Connect(function()
+    if noclipfasttoggle then
+        local char = LocalPlayer.Character
+        if char then
+            for _, v in pairs(char:GetDescendants()) do
+                if v:IsA("BasePart") and v.CanCollide then
+                    v.CanCollide = false
+                end
+            end
+        end
+    end
+end)
+  local fastnoclip = Player:Toggle({
+  	Title = "[⚡] Noclip",
+  	Desc = "[FastNoClip] ⚠️ Có khả năng sung đột với ClickTP",
+  	Type = "Checkbox",
+  	Default = false,
+  	Callback = function(state)
+        noclipfasttoggle = state
+  	end
+  })
   
   local Players = game:GetService("Players")
   local UserInputService = game:GetService("UserInputService")
