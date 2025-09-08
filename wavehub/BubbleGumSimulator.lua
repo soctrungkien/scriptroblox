@@ -419,6 +419,63 @@ local humanoid = char and char:FindFirstChildOfClass("Humanoid")
   TeleportService:TeleportToPlaceInstance(placeId, jobId, player)
       end
   })
+
+local TeleportService = game:GetService("TeleportService")
+local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
+local API = "https://games.roblox.com/v1/games/"..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100"
+local function ListServers(cursor)
+    local raw = game:HttpGet(API .. ((cursor and "&cursor="..cursor) or ""))
+    return HttpService:JSONDecode(raw)
+end
+local function RandomServer()
+    local nextCursor
+    repeat
+        local data = ListServers(nextCursor)
+        if #data.data > 0 then
+            local srv = data.data[math.random(1, #data.data)]
+            if srv.playing < srv.maxPlayers and srv.id ~= game.JobId then
+                TeleportService:TeleportToPlaceInstance(game.PlaceId, srv.id, Players.LocalPlayer)
+                return
+            end
+        end
+        nextCursor = data.nextPageCursor
+    until not nextCursor
+end
+local function SmallestServer()
+    local nextCursor
+    local smallest
+    repeat
+        local data = ListServers(nextCursor)
+        for _, srv in ipairs(data.data) do
+            if srv.playing < srv.maxPlayers and srv.id ~= game.JobId then
+                if not smallest or srv.playing < smallest.playing then
+                    smallest = srv
+                end
+            end
+        end
+        nextCursor = data.nextPageCursor
+    until not nextCursor
+    if smallest then
+        TeleportService:TeleportToPlaceInstance(game.PlaceId, smallest.id, Players.LocalPlayer)
+    end
+end
+  local hoprandom = Server:Button({
+      Title = "Random server",
+      Desc = "Chuyến sang máy chủ ngẫu nhiên",
+      Locked = false,
+      Callback = function()
+            RandomServer()
+      end
+  })
+  local hopitnhat = Server:Button({
+      Title = "Server ít nhất",
+      Desc = "Vào server ít nhất",
+      Locked = false,
+      Callback = function()
+            SmallestServer()
+      end
+  })
   
   local rejoin = Server:Button({
       Title = "Rejoin",
