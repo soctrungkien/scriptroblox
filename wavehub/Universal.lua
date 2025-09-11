@@ -17,7 +17,7 @@ local maxHeight = math.min(desiredHeight, screenSize.Y * 0.9)
 local Window = WindUI:CreateWindow({
     Title = "Wave Hub" .. " ",
     Icon = "waves",
-    Author = info.Name,
+    Author = "Universal - " .. info.Name,
     Folder = "WaveHub",
     
     Size = UDim2.fromOffset(maxWidth, maxHeight),
@@ -38,10 +38,7 @@ local Window = WindUI:CreateWindow({
     }
 })
 
-Window:Tag({
-    Title = "Universal",
-    Color = Color3.fromHex("#30ff69")
-})
+
 
 Window:EditOpenButton({
     Title = "Wave Hub",
