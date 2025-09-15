@@ -6,6 +6,8 @@ print(" \ \  \  __\ \  \ \   __  \ \  \/  / / \ \  \_|/_\ \   __  \ \  \\\  \ \ 
 print("  \ \  \|\__\_\  \ \  \ \  \ \    / /   \ \  \_|\ \ \  \ \  \ \  \\\  \ \  \|\  \ ")
 print("   \ \____________\ \__\ \__\ \__/ /     \ \_______\ \__\ \__\ \_______\ \_______\")
 print("    \|____________|\|__|\|__|\|__|/       \|_______|\|__|\|__|\|_______|\|_______|")
+local _ENV = (getgenv or getrenv or getfenv)()
+local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 local PlaceId = game.PlaceId
 if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then --Blox Fruits
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Universal.lua"))() --chưa làm
