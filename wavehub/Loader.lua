@@ -15,6 +15,8 @@ if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then 
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Universal.lua"))() --chưa làm
 elseif PlaceId == 126884695634066 then --[🧚‍♀️] Trồng một khu vườn 🌶️
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Universal.lua"))() --cũng chưa luôn
+elseif PlaceId == 70743305607680 then 
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/BuildBlox.lua"))()
 elseif PlaceId == 85896571713843 then --☯️Bong bóng Gum Simulator INFINITY
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/BubbleGumSimulator.lua"))()
 else --Universal
