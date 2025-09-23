@@ -96,6 +96,9 @@ local autocode = Auto:Button({
     Locked = false,
     Callback = function()
         local codes = {
+    "obby",
+    "milestones",
+    "season7",
     "update18",
     "update17",
     "update16",
@@ -551,6 +554,8 @@ end
   btp("Poison Jungle", "-19332.5586, 13.7693138, 18962.832")
   btp("Infernite Volcano", "-17226.0273, 10.4870262, -20442.7285")
   btp("Lost Atlantis", "-13991.0713, 9.91697502, -20410.2285")
+  btp("Dream Island", "-21817.9, 6.31724, -20524")
+  btp("Classic Island", "-41525.7, 6.41706, -20508.7")
   
   local Players = game:GetService("Players")
   local VirtualUser = game:GetService("VirtualUser")
