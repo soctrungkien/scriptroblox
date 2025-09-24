@@ -928,24 +928,28 @@ local function scaffoldStep()
 	local char = player.Character
 	if not char or not char:FindFirstChild("HumanoidRootPart") then return end
 	local hrp = char.HumanoidRootPart
-	local pos = hrp.Position - Vector3.new(0, hrp.Size.Y/2 + 1, 0)
-	local region = Region3.new(
-		pos - Vector3.new(1, 1, 1),
-		pos + Vector3.new(1, 1, 1)
-	)
-	local parts = workspace:FindPartsInRegion3(region, nil, math.huge)
-	local hasBlock = false
-	for _, p in ipairs(parts) do
-		if p.Name == "Block" then
-			hasBlock = true
-			break
+	local basePos = hrp.Position - Vector3.new(0, hrp.Size.Y/2 + 1.5, 0)
+	for x = -1, 1 do
+		for z = -1, 1 do
+			local pos = basePos + Vector3.new(x * 2, 0, z * 2)
+			local region = Region3.new(
+				pos - Vector3.new(1, 1, 1),
+				pos + Vector3.new(1, 1, 1)
+			)
+			local parts = workspace:FindPartsInRegion3(region, nil, math.huge)
+			local hasBlock = false
+			for _, p in ipairs(parts) do
+				if p.Name == "Block" then
+					hasBlock = true
+					break
+				end
+			end
+			if not hasBlock then
+				placeEvent:FireServer(pos)
+			end
 		end
 	end
-	if not hasBlock then
-		placeEvent:FireServer(pos)
-	end
 end
-RunService.Heartbeat:Connect(scaffoldStep)
 RunService.RenderStepped:Connect(scaffoldStep)
   local scaffoldt = Block:Toggle({
       Title = "Scaffold",
@@ -1006,12 +1010,110 @@ end)
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local player = Players.LocalPlayer
-local function giveBox()
 	local item = ReplicatedStorage:FindFirstChild("📦")
 	if item then
 		local clone = item:Clone()
 		clone.Parent = player.Backpack
 	end
-end
       end
   })
+
+local cauth = RemoteEvent:Button({
+    Title = "Check Auth",
+    Locked = false,
+    Callback = function()
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+local workspace = workspace
+local function hasMyPart()
+    if not player then return false end
+    local partName = "a_" .. player.Name
+    return workspace:FindFirstChild(partName) ~= nil
+end
+WindUI:Notify({
+    Title = "check",
+    Content = "hasMyPart()",
+    Duration = 3, -- 3 seconds
+})
+    end
+})
+
+local player = game.Players.LocalPlayer
+local Code = RemoteEvent:Code({
+    Title = "Script Auth - Run On Server",
+    Code = "local part = Instance.new(\"Part\")\n" ..
+           "part.Anchored = true\n" ..
+           "part.Name = \"a_" .. player.Name .. "\"\n" ..
+           "part.Parent = workspace"
+})
+
+local hd = RemoteEvent:Button({
+    Title = "HD Admin",
+    Locked = false,
+    Callback = function()
+        local targets = game.Players.LocalPlayer
+			local ReplicatedStorage = game:GetService("ReplicatedStorage")
+			local MarketplaceService = game:GetService("MarketplaceService")
+			local hd = ReplicatedStorage:WaitForChild("RemoteEvents"):WaitForChild("hdadmin")
+			local placeId = game.PlaceId
+			local success, info = pcall(function()
+				return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
+			end)
+			if success and info then
+				local authKey = tostring(info.AssetId) .. tostring(info.Updated)
+				hd:FireServer(authKey, targets)
+			else
+				warn("Không thể lấy thông tin để auth!")
+			end
+    end
+})
+
+local amount = 138
+local InputRain = RemoteEvent:Input({
+    Title = "Số lượng block mưa",
+    Value = "138",
+    Type = "Input", -- or "Textarea"
+    Placeholder = "138",
+    Callback = function(soluong) 
+local amount = soluong
+    end
+})
+local rainblock = RemoteEvent:Button({
+    Title = "RainBlock",
+    Locked = false,
+    Callback = function()
+			local ReplicatedStorage = game:GetService("ReplicatedStorage")
+			local MarketplaceService = game:GetService("MarketplaceService")
+			local rb = ReplicatedStorage:WaitForChild("RemoteEvents"):WaitForChild("rainblock")
+			local placeId = game.PlaceId
+			local success, info = pcall(function()
+				return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
+			end)
+			if success and info then
+				local authKey = tostring(info.AssetId) .. tostring(info.Updated)
+				rb:FireServer(authKey, amount)
+			else
+				warn("Không thể lấy thông tin để auth!")
+			end
+    end
+})
+
+local clearblockfire = RemoteEvent:Button({
+    Title = "ClearBlock",
+    Locked = false,
+    Callback = function()
+			local ReplicatedStorage = game:GetService("ReplicatedStorage")
+			local MarketplaceService = game:GetService("MarketplaceService")
+			local cb = ReplicatedStorage:WaitForChild("RemoteEvents"):WaitForChild("clearblock")
+			local placeId = game.PlaceId
+			local success, info = pcall(function()
+				return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
+			end)
+			if success and info then
+				local authKey = tostring(info.AssetId) .. tostring(info.Updated)
+				cb:FireServer(authKey)
+			else
+				warn("Không thể lấy thông tin để auth!")
+			end
+    end
+})
