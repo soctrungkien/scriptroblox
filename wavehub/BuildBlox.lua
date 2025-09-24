@@ -88,8 +88,8 @@ local CS = Window:Tab({
 Window:SelectTab(1)
 
 local fly = Player:Button({
-    Title = "Bay",
-    Desc = "like XNEO",
+    Title = "FLYUI",
+    Desc = "like Fly ui XNEO",
     Locked = false,
     Callback = function()
 			local main = Instance.new("ScreenGui")
@@ -986,7 +986,7 @@ local function teleportAndRemove()
 end
 task.spawn(function()
     while true do
-        task.wait(0.6)
+        task.wait(0.1)
         if cab then
             teleportAndRemove()
         end
