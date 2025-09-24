@@ -1032,7 +1032,7 @@ local function hasMyPart()
 end
 WindUI:Notify({
     Title = "check",
-    Content = "hasMyPart()",
+    Content = hasMyPart(),
     Duration = 3, -- 3 seconds
 })
     end
@@ -1075,7 +1075,7 @@ local InputRain = RemoteEvent:Input({
     Type = "Input", -- or "Textarea"
     Placeholder = "138",
     Callback = function(soluong) 
-local amount = soluong
+local amount = tonumber(soluong) or amount
     end
 })
 local rainblock = RemoteEvent:Button({
