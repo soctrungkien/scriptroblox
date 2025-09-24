@@ -1026,9 +1026,9 @@ local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local workspace = workspace
 local function hasMyPart()
-    if not player then return false end
+    if not player then return "false" end
     local partName = "a_" .. player.Name
-    return workspace:FindFirstChild(partName) ~= nil
+    return "true"
 end
 WindUI:Notify({
     Title = "check",
@@ -1075,7 +1075,7 @@ local InputRain = RemoteEvent:Input({
     Type = "Input", -- or "Textarea"
     Placeholder = "138",
     Callback = function(soluong) 
-local amount = tonumber(soluong) or amount
+amount = tonumber(soluong) or amount
     end
 })
 local rainblock = RemoteEvent:Button({
