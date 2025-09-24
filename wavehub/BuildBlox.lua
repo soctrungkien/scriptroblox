@@ -919,37 +919,33 @@ end
 
 local player = game.Players.LocalPlayer
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local placeEvent = ReplicatedStorage:WaitForChild("RemoteEvents"):WaitForChild("PlaceBlock")
+local RemoteEvents = ReplicatedStorage:WaitForChild("RemoteEvents")
+local placeEvent = RemoteEvents:WaitForChild("PlaceBlock")
 local RunService = game:GetService("RunService")
-local gridSize = 2
 local scaffold = false
-local function roundToGrid(pos)
-	return Vector3.new(
-		math.floor(pos.X / gridSize + 0.5) * gridSize,
-		math.floor(pos.Y / gridSize + 0.5) * gridSize,
-		math.floor(pos.Z / gridSize + 0.5) * gridSize
-	)
-end
 local function scaffoldStep()
 	if not scaffold then return end
 	local char = player.Character
 	if not char or not char:FindFirstChild("HumanoidRootPart") then return end
 	local hrp = char.HumanoidRootPart
-	local basePos = roundToGrid(hrp.Position - Vector3.new(0, hrp.Size.Y/2 + gridSize/2, 0))
-	for x = -1, 1 do
-		for z = -1, 1 do
-			local pos = basePos + Vector3.new(x * gridSize, 0, z * gridSize)
-			local region = Region3.new(
-				pos - Vector3.new(gridSize/2, gridSize/2, gridSize/2),
-				pos + Vector3.new(gridSize/2, gridSize/2, gridSize/2)
-			)
-			local parts = workspace:FindPartsInRegion3(region, nil, 1)
-			if #parts == 0 then
-				placeEvent:FireServer(pos)
-			end
+	local pos = hrp.Position - Vector3.new(0, hrp.Size.Y/2 + 1, 0)
+	local region = Region3.new(
+		pos - Vector3.new(1, 1, 1),
+		pos + Vector3.new(1, 1, 1)
+	)
+	local parts = workspace:FindPartsInRegion3(region, nil, math.huge)
+	local hasBlock = false
+	for _, p in ipairs(parts) do
+		if p.Name == "Block" then
+			hasBlock = true
+			break
 		end
 	end
+	if not hasBlock then
+		placeEvent:FireServer(pos)
+	end
 end
+RunService.Heartbeat:Connect(scaffoldStep)
 RunService.RenderStepped:Connect(scaffoldStep)
   local scaffoldt = Block:Toggle({
       Title = "Scaffold",
@@ -963,7 +959,7 @@ RunService.RenderStepped:Connect(scaffoldStep)
 
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
-local removeEvent = game.ReplicatedStorage:WaitForChild("removeEvent")
+local removeEvent = game.ReplicatedStorage:WaitForChild("RemoteEvents"):WaitForChild("RemoveBlock")
 local cab = false
 local function getRandomBlock()
     local candidates = {}
@@ -1002,7 +998,7 @@ end)
       end
   })
 
-  local datblockttt = Server:Button({
+  local datblockttt = Block:Button({
       Title = "SafeZone place",
       Desc = "Đặt block trong safezone",
       Locked = false,
