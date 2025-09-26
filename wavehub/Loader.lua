@@ -13,11 +13,13 @@ local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 local PlaceId = game.PlaceId
 if PlaceId == 2753915549 or PlaceId == 4442272183 or PlaceId == 7449423635 then --Blox Fruits
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Universal.lua"))() --chưa làm
-elseif PlaceId == 126884695634066 then --[🧚‍♀️] Trồng một khu vườn 🌶️
+elseif PlaceId == 126884695634066 then --Trồng một khu vườn
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Universal.lua"))() --cũng chưa luôn
-elseif PlaceId == 70743305607680 then 
+elseif PlaceId == 70743305607680 then --BuildBlox
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/BuildBlox.lua"))()
-elseif PlaceId == 85896571713843 then --☯️Bong bóng Gum Simulator INFINITY
+elseif PlaceId == 127742093697776 then --Plants Vs Brainrots
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/PvB.lua"))()
+elseif PlaceId == 85896571713843 then --Bong bóng Gum Simulator INFINITY
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/BubbleGumSimulator.lua"))()
 else --Universal
     loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Universal.lua"))()
