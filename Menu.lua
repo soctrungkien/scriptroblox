@@ -2,7 +2,7 @@
 --Copy vào chỗ nhập script hack
 loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
 --]]
-print("𝙳𝚛𝚊𝚐𝚘𝚗 𝙷𝚞𝚋 𝚋𝚢 @𝟿𝟾𝚘0𝚘𝟹𝟿 ☑️")
+print("𝙳𝚛𝚊𝚐𝚘𝚗 𝙷𝚞𝚋  ☑️")
 -------GUILIB
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib2.lua"))()
 local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
@@ -13,7 +13,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
 
        local Window = Fluent:CreateWindow{
         Title = "Dragon Hub " .. Fluent.Version,
-        SubTitle = "by @98ᴏ0ᴏ39",
+        SubTitle = "",
         TabWidth = 160,
         Size = UDim2.new(0, 500, 0, 300),
         UseAcrylic = true,
