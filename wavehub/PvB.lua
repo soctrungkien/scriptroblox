@@ -41,7 +41,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("BridgeNet2"):WaitForChild("da
         "\020"
     }
     )
-game:GetService("Players").LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer:WaitForChild("Backpack"):FindFirstChild("Bat"))
+game:GetService("Players").LocalPlayer.Character.Humanoid:EquipTool(game:GetService("Players").LocalPlayer:WaitForChild("Backpack"):FindFirstChild("Basic Bat"))
 game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = CFrame.new(Vector3.new(firstBrainrot.BrainrotHitbox.Position.X, game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart").Position.Y, firstBrainrot.BrainrotHitbox.Position.Z))
     local args = {
 	{
