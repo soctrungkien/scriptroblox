@@ -21,8 +21,8 @@ local scripts = {
     [126884695634066] = "Universal", -- Trồng một khu vườn
     [70743305607680] = "BuildBlox",  -- BuildBlox
     [127742093697776] = "PvB",       -- Plants Vs Brainrots
-    [85896571713843] = "BubbleGumSimulator" -- BubbleGumSimulator
-    [87067157937644] = "blocc" --blocc (idk)
+    [85896571713843] = "BubbleGumSimulator", -- BubbleGumSimulator
+    [87067157937644] = "blocc", --blocc (idk)
 }
 
 local scriptName = scripts[PlaceId] or "Universal"
