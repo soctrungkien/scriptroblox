@@ -14,7 +14,7 @@ Window:Checkbox({
 	Value = false,
 	Label = "Free Blocc",
 	Callback = function(self, Value: boolean)
-		bd = Value
+		bf = Value
 	end
 })
 task.spawn(function()
