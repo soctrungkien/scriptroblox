@@ -20,7 +20,16 @@ Window:Checkbox({
 task.spawn(function()
 while true do
 if bf then
-workspace:WaitForChild("FreePad"):WaitForChild("F2PSpawnRequest"):FireServer()
+local pos = Vector3.new(113, 62, -271.5)
+for _, v in ipairs(workspace:GetChildren()) do
+    if v.Name == "FreePad" and v:IsA("Part") then
+        if v and v.Position == pos then
+            local ev = v:FindFirstChild("F2PSpawnRequest")
+            if ev then ev:FireServer() end
+            break
+        end
+    end
+end
 end
 task.wait(0.06)
 end
