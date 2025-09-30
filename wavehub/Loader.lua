@@ -15,17 +15,18 @@ local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 local PlaceId = game.PlaceId
 
 local scripts = {
-    [2753915549] = "Universal.lua", -- Blox Fruits
-    [4442272183] = "Universal.lua", --sea 2 
-    [7449423635] = "Universal.lua", --sea 3 
-    [126884695634066] = "Universal.lua", -- Trồng một khu vườn
-    [70743305607680] = "BuildBlox.lua",  -- BuildBlox
-    [127742093697776] = "PvB.lua",       -- Plants Vs Brainrots
-    [85896571713843] = "BubbleGumSimulator.lua" -- BubbleGumSimulator
+    [2753915549] = "Universal", -- Blox Fruits
+    [4442272183] = "Universal", --sea 2 
+    [7449423635] = "Universal", --sea 3 
+    [126884695634066] = "Universal", -- Trồng một khu vườn
+    [70743305607680] = "BuildBlox",  -- BuildBlox
+    [127742093697776] = "PvB",       -- Plants Vs Brainrots
+    [85896571713843] = "BubbleGumSimulator" -- BubbleGumSimulator
+    [87067157937644] = "blocc" --blocc (idk)
 }
 
-local scriptName = scripts[PlaceId] or "Universal.lua"
-local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/" .. scriptName 
+local scriptName = scripts[PlaceId] or "Universal"
+local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/" .. scriptName .. ".lua"
 
 local success, result = pcall(function()
     return loadstring(game:HttpGet(url))()
