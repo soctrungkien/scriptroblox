@@ -426,3 +426,15 @@ lat = state
 ishowspeed = state
       end
   })
+
+local carts = {}
+for i, v in ipairs(game:GetService("ReplicatedStorage"):WaitForChild("NewCarts"):GetChildren()) do
+    table.insert(carts, v.Name)
+end
+local Dropdown = xe:Dropdown({
+    Title = "Spawn cart",
+    Callback = function(option) 
+game:GetService("ReplicatedStorage"):WaitForChild("GetEquipped"):InvokeServer(option)
+    end
+})
+Dropdown:Refresh(carts)
