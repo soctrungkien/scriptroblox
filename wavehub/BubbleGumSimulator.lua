@@ -1,3 +1,8 @@
+if loadername == nil then
+	game.Players.LocalPlayer:Kick("run loader to use")
+	return
+end
+
 local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThundarZ/Welcome/refs/heads/main/Main/UI/WindUI.lua"))()
 
 local MarketplaceService = game:GetService("MarketplaceService")
