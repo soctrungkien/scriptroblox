@@ -1,3 +1,8 @@
+if loadername == nil then
+	print("Run a Loader.lua")
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Loader.lua"))()
+end
+
 local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThundarZ/Welcome/refs/heads/main/Main/UI/WindUI.lua"))()
 
 local MarketplaceService = game:GetService("MarketplaceService")
