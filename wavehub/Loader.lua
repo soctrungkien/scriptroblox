@@ -26,7 +26,7 @@ local PlaceId = game.PlaceId
 local loadername = "Wave Hub Loader"
 
 local function Loadstring(httpurl) 
-_ENV.loadername
+_ENV.loadername = loadername
 loadstring(game:HttpGet(httpurl, true))(_ENV.loadername, BETA_VERSION, _ENV, PlaceId, Executor ,httpurl) 
 end
 
