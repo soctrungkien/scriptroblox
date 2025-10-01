@@ -39,6 +39,7 @@ local scripts = {
     [127742093697776] = "PvB",       -- Plants Vs Brainrots
     [85896571713843] = "BubbleGumSimulator", -- BubbleGumSimulator
     [87067157937644] = "blocc", --blocc (idk)
+    [124398083342642] = "rideacartdownaslide", --rideacartdownaslide
 }
 
 local scriptName = scripts[PlaceId] or "Universal"
