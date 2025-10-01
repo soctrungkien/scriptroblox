@@ -12,7 +12,14 @@ print([[
  
 ]])
 
-local Executor = identifyexecutor() or getexecutorname()
+local Executor = nil
+if typeof(identifyexecutor) == "function" then
+    Executor = identifyexecutor()
+elseif typeof(getexecutorname) == "function" then
+    Executor = getexecutorname()
+else
+    Executor = "Unknown"
+end
 local _ENV = (getgenv or getrenv or getfenv)()
 local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 local PlaceId = game.PlaceId
@@ -59,7 +66,7 @@ local scripts = {
 local scriptName = scripts[PlaceId] or "Universal"
 local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/" .. scriptName .. ".lua"
 
-if Executor == nil or false or "" or "Unknown" or "MoreUNC" or "JJSploit" or "Roblox/WinInetRobloxApp/0.688.1.6880864 (GlobalDist; RobloxDirectDownload)" or "Solara" or "Xeno" or "TNG" or "WaveHub" or "Rain" or "Quack"
+if Executor == nil or false or "" or "Unknown" or "MoreUNC" or "JJSploit" or "Roblox/WinInetRobloxApp/0.688.1.6880864 (GlobalDist; RobloxDirectDownload)" or "Solara" or "Xeno" or "TNG" or "WaveHub" or "Rain" or "Quack" then
 Loadstring("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/moreunc.lua")
 end
 
