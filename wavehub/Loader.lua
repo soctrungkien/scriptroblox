@@ -16,14 +16,15 @@ local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 local PlaceId = game.PlaceId
 local loadername = "Wave Hub Loader"
 
-local function Loadstring(httpurl)
-    local ok, content = pcall(game.HttpGet, game, httpurl, true)
+local function Loadstring(httpUrl)
+    local ok, content = pcall(game.HttpGet, game, httpUrl, true)
     if not ok then
         warn("[ " .. loadername .. " ] HttpGet failed:", content)
         return false, content
     end
+
     if not content or content == "" then
-        warn("[ " .. loadername .. " ] Empty response)
+        warn("[ " .. loadername .. " ] Empty response")
         return false, "empty response"
     end
 
