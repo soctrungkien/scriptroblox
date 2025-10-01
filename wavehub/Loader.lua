@@ -13,6 +13,7 @@ print([[
 local _ENV = (getgenv or getrenv or getfenv)()
 local BETA_VERSION = BETA_VERSION or _ENV.BETA_VERSION
 local PlaceId = game.PlaceId
+local loadername = "Wave Hub Loader"
 
 local scripts = {
     [2753915549] = "Universal", -- Blox Fruits
@@ -29,9 +30,9 @@ local scriptName = scripts[PlaceId] or "Universal"
 local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/" .. scriptName .. ".lua"
 
 local success, result = pcall(function()
-    return loadstring(game:HttpGet(url))()
+    return loadstring(game:HttpGet(url, true))(loadername, BETA_VERSION, _ENV, PlaceId)
 end)
 
 if not success then
-    warn("[wavehub/Loader.lua] Failed to load script:", result)
+    warn("[ " .. loadername .. " ] Failed to load script:", result)
 end
