@@ -1,3 +1,8 @@
+if loadername == nil then
+	print("Run a Loader.lua")
+	return loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Loader.lua"))()
+end
+
 local camera = workspace.CurrentCamera
 local screenSize = camera.ViewportSize
 local desiredWidth = 200
