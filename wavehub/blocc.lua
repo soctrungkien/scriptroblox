@@ -1,6 +1,6 @@
 if loadername == nil then
-	print("Run a Loader.lua")
-	return loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/Loader.lua"))()
+	game.Players.LocalPlayer:Kick("run loader to use")
+	return
 end
 
 local camera = workspace.CurrentCamera
