@@ -22,7 +22,7 @@ local maxHeight = math.min(desiredHeight, screenSize.Y * 0.9)
 local Window = WindUI:CreateWindow({
     Title = "Wave Hub" .. " ",
     Icon = "waves",
-    Author = "Universal - " .. info.Name,
+    Author = info.Name,
     Folder = "WaveHub",
     
     Size = UDim2.fromOffset(maxWidth, maxHeight),
@@ -347,6 +347,8 @@ end
   })
   AntiAFKToggle:Set(false)
   AntiAFKToggle:Set(true)
+
+local norm = "norm"
   
     local gui = game.Players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("PlaytimeRewardsGui")
     local RemotePlaytime = game:GetService("ReplicatedStorage"):WaitForChild("PlaytimeRewards")
