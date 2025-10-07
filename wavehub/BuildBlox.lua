@@ -1122,3 +1122,24 @@ local clearblockfire = RemoteEvent:Button({
 			end
     end
 })
+
+local f3x = RemoteEvent:Button({
+    Title = "Fork3X",
+    Locked = false,
+    Callback = function()
+		local players = game.Players.LocalPlayer
+			local ReplicatedStorage = game:GetService("ReplicatedStorage")
+			local MarketplaceService = game:GetService("MarketplaceService")
+			local f3x = ReplicatedStorage:WaitForChild("RemoteEvents"):WaitForChild("f3x")
+			local placeId = game.PlaceId
+			local success, info = pcall(function()
+				return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
+			end)
+			if success and info then
+				local authKey = tostring(info.AssetId) .. tostring(info.Updated)
+				f3x:FireServer(authKey, players)
+			else
+				warn("Không thể lấy thông tin để auth!")
+			end
+    end
+})
