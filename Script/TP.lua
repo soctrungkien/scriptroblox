@@ -141,7 +141,7 @@ flyButton.MouseButton1Click:Connect(function()
             local startPos = playerChar.HumanoidRootPart.Position
             local endPos = targetChar.HumanoidRootPart.Position
             local distance = (endPos - startPos).Magnitude
-            local speed = 600
+            local speed = 300
             local time = distance / speed
             
             local tweenInfo = TweenInfo.new(
