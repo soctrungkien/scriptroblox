@@ -3,7 +3,7 @@ if loadername == nil then
 	return
 end
 
-local WindUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/ThundarZ/Welcome/refs/heads/main/Main/UI/WindUI.lua"))()
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
 
 local MarketplaceService = game:GetService("MarketplaceService")
 local placeId = game.PlaceId
