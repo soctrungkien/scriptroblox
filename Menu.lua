@@ -2,13 +2,11 @@
 --Copy vào chỗ nhập script hack
 loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
 --]]
-print("𝙳𝚛𝚊𝚐𝚘𝚗 𝙷𝚞𝚋  ☑️")
 -------GUILIB
-local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/GuiLib2.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/im.lua"))()
--------ANTIAFK
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/antiafk.lua"))()
+local Fluent = loadstring(game:HttpGetAsync("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau", true))()
+local SaveManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/SaveManager.luau"))()
+local InterfaceManager = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/ActualMasterOogway/Fluent-Renewed/master/Addons/InterfaceManager.luau"))()
+
 ------MAIN
 
        local Window = Fluent:CreateWindow{
@@ -19,9 +17,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptro
         UseAcrylic = true,
         Transparency = true,
         Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
-        Theme = "Dark",
-        MinimizeKey = Enum.KeyCode.K, -- Phím để thu nhỏ cửa sổ
-        MinimizeKeybind = Enum.KeyCode.K -- Phím tắt để thu nhỏ
+        Theme = "Dark Typewriter",
+        MinimizeKey = Enum.KeyCode.G, -- Phím để thu nhỏ cửa sổ
+        MinimizeKeybind = Enum.KeyCode.G -- Phím tắt để thu nhỏ
       }
       
 
