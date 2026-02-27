@@ -38,7 +38,7 @@ end
 
 ------ Tab
 local Tabs = {
-    Main = Window:AddTab({ Title = "Main", Icon = "home" }),
+    Main = Window:AddTab({ Title = "Main", Icon = "house" }),
     Script = Window:AddTab({ Title = "Script", Icon = "terminal" }),
     Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
 }
