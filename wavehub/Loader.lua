@@ -12,10 +12,6 @@ end
 
 if scriptName == nil then
 scripts = {
---  [2753915549] = "wavehub/Universal", -- Blox Fruits
---  [4442272183] = "wavehub/Universal", --sea 2 
---  [7449423635] = "wavehub/Universal", --sea 3 
---  [126884695634066] = "wavehub/Universal", -- Trồng một khu vườn
     [70743305607680] = "wavehub/BuildBlox",  -- BuildBlox
     [127742093697776] = "wavehub/PvB",       -- Plants Vs Brainrots
     [85896571713843] = "wavehub/BubbleGumSimulator", -- BubbleGumSimulator
