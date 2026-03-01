@@ -11,7 +11,7 @@ loadstring(game:HttpGet(httpurl, true))(loadername, PlaceId, scriptName)
 end
 
 if scriptName == nil then
-local scripts = {
+scripts = {
 --  [2753915549] = "wavehub/Universal", -- Blox Fruits
 --  [4442272183] = "wavehub/Universal", --sea 2 
 --  [7449423635] = "wavehub/Universal", --sea 3 
