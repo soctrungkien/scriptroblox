@@ -20,7 +20,7 @@ scripts = {
 }
 end
 
-local scriptName = scripts[PlaceId] or "Universal"
+local scriptName = scripts[PlaceId] or "wavehub/Universal"
 local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/" .. scriptName .. ".lua"
 
 local success, result = pcall(function()
