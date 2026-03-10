@@ -23,6 +23,8 @@ end
 local scriptName = scripts[PlaceId] or "wavehub/Universal"
 local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/" .. scriptName .. ".lua"
 
+_ENV.scriptName = nil
+
 local success, result = pcall(function()
     return Loadstring(url)
 end)
