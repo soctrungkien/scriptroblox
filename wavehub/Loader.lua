@@ -10,7 +10,6 @@ _ENV.loadername = loadername
 loadstring(game:HttpGet(httpurl, true))(loadername, PlaceId, scriptName) 
 end
 
-if scriptName == nil then
 scripts = {
     [70743305607680] = "wavehub/BuildBlox",  -- BuildBlox
     [127742093697776] = "wavehub/PvB",       -- Plants Vs Brainrots
@@ -18,9 +17,8 @@ scripts = {
     [87067157937644] = "wavehub/blocc", --blocc (idk)
     [124398083342642] = "wavehub/rideacartdownaslide", --rideacartdownaslide
 }
-end
 
-local scriptName = scripts[PlaceId] or "wavehub/Universal"
+local scriptName = scriptName or scripts[PlaceId] or "wavehub/Universal"
 local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/" .. scriptName .. ".lua"
 
 _ENV.scriptName = nil
