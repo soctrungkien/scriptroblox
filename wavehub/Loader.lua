@@ -1,5 +1,20 @@
 repeat wait() until game:IsLoaded()
 
+local function showNotification(title, message, duration, icon)
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = title,
+        Text = message,
+        Duration = duration or 3,
+        Icon = icon or ""
+    })
+end
+
+showNotification(
+    loadername, 
+    "ty bro đã chạy script ^_^", 
+    3
+)
+
 print([[67]])
 
 local _ENV = (getgenv or getrenv)()
@@ -23,6 +38,13 @@ local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/he
 
 _ENV.scriptName = nil
 
+showNotification(
+    loadername, 
+    "Loader" .. scriptName, 
+    3
+)
+
+task.spawn(function()
 local success, result = pcall(function()
     return Loadstring(url)
 end)
@@ -30,3 +52,4 @@ end)
 if not success then
     warn("[ " .. loadername .. " ] Failed to load script:", result)
 end
+end)
