@@ -20,16 +20,16 @@ scripts = {
     [124398083342642] = "wavehub/rideacartdownaslide", --rideacartdownaslide
 }
 
+if scriptName == "wavehub/Loader" then
+    warn("nah bro is loop")
+    scriptName = nil
+    return
+end
+
 local scriptName = scriptName or scripts[PlaceId] or "wavehub/Universal"
 local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/" .. scriptName .. ".lua"
 
 print("Loader " .. scriptName)
-
-if scriptName == "wavehub/Loader" then
-    warn("nah bro is loop")
-    scriptName = nill
-    return
-end
 
 task.spawn(function()
 local success, result = pcall(function()
