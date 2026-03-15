@@ -25,6 +25,12 @@ local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/he
 
 print("Loader " .. scriptName)
 
+if scriptName == "wavehub/Loader" then
+    warn("nah bro is loop")
+    scriptName = nill
+    return
+end
+
 task.spawn(function()
 local success, result = pcall(function()
     return Loadstring(url)
@@ -34,5 +40,3 @@ if not success then
     warn("[ " .. loadername .. " ] Failed to load script:", result)
 end
 end)
-
-_ENV.scriptName = nil
