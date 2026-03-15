@@ -25,8 +25,6 @@ local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/he
 
 print("Loader " .. scriptName)
 
-_ENV.scriptName = nil
-
 task.spawn(function()
 local success, result = pcall(function()
     return Loadstring(url)
@@ -36,3 +34,5 @@ if not success then
     warn("[ " .. loadername .. " ] Failed to load script:", result)
 end
 end)
+
+_ENV.scriptName = nil
