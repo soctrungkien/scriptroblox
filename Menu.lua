@@ -101,7 +101,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/MemeSea/refs
       Tabs.Main:AddButton({
      Title = "Ping/FPS",
     Callback = function()
-getgenv().scriptName = 'Script/Ping_FPS.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/Ping_FPS';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -125,7 +125,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LuaCrack/DatThg/refs/
         Tabs.Script:AddButton({
      Title = "Dex Explorer",
     Callback = function()
-getgenv().scriptName = 'Script/DexExplorerLite.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/DexExplorerLite';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
   
@@ -176,7 +176,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/DarkDoorsKing/Doors/m
               Tabs.Script:AddButton({
      Title = "Quản lí đơn ⟦ChatGPT⟧",
     Callback = function()
-getgenv().scriptName = 'Script/QuanLiDon_Fake.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/QuanLiDon_Fake';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -184,7 +184,7 @@ getgenv().scriptName = 'Script/QuanLiDon_Fake.lua';loadstring(game:HttpGet('http
                 Tabs.Main:AddButton({
      Title = "Vào lại server",
     Callback = function()
-getgenv().scriptName = 'Script/VaoLaiServer.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/VaoLaiServer';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -192,7 +192,7 @@ getgenv().scriptName = 'Script/VaoLaiServer.lua';loadstring(game:HttpGet('https:
                 Tabs.Main:AddButton({
      Title = "Server hop",
     Callback = function()
-getgenv().scriptName = 'Script/ServerHop.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/ServerHop';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -225,7 +225,7 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer loadstring(game
                 Tabs.Main:AddButton({
      Title = "ezESP",
     Callback = function()
-getgenv().scriptName = 'Script/AB.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/AB';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -259,7 +259,7 @@ end
                 Tabs.Script:AddButton({
      Title = "Ez Hub",
     Callback = function()
-getgenv().scriptName = 'Script/Ez%20Hub.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/Ez%20Hub';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -275,7 +275,7 @@ pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/soct
                 Tabs.Script:AddButton({
      Title = "ClickTP ⟦CTRL+Click⟧",
     Callback = function()
-getgenv().scriptName = 'Script/Click%20Teleport.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/Click%20Teleport';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -326,7 +326,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/farghii/relzhub/refs/
                 Tabs.Script:AddButton({
      Title = "c00lgui Reborn Rc7 bởi v3rx",
     Callback = function()
-getgenv().scriptName = 'Script/C00lGui%20for%20Rc7(2).lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/C00lGui%20for%20Rc7(2)';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -334,7 +334,7 @@ getgenv().scriptName = 'Script/C00lGui%20for%20Rc7(2).lua';loadstring(game:HttpG
                 Tabs.Script:AddButton({
      Title = "Universal Sorry Gui",
     Callback = function()
-getgenv().scriptName = 'Script/UniversalSorryGui-w40R3.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/UniversalSorryGui-w40R3';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -429,7 +429,7 @@ loadstring(game:HttpGet("https://github.com/Synergy-Networks/products/raw/main/R
                 Tabs.Script:AddButton({
      Title = "Dex",
     Callback = function()
-getgenv().scriptName = 'Script/Dex%20V5%20(1).lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/Dex%20V5%20(1)';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -437,7 +437,7 @@ getgenv().scriptName = 'Script/Dex%20V5%20(1).lua';loadstring(game:HttpGet('http
                 Tabs.Main:AddButton({
      Title = "Hiện thông tin",
     Callback = function()
-getgenv().scriptName = 'Script/info.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/info';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -445,7 +445,7 @@ getgenv().scriptName = 'Script/info.lua';loadstring(game:HttpGet('https://xhider
                 Tabs.Script:AddButton({
      Title = "UNC Test",
     Callback = function()print("UNCCheckEnv - Edit")
-getgenv().scriptName = 'Script/unc%20test.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/unc%20test';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
@@ -492,7 +492,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Duration = 10,
 	Icon = "rbxassetid://13047715178"
 })
-getgenv().scriptName = 'Script/%F0%9F%94%A5%20Example%20Script%20Hub%20%7C%20Game%20%F0%9F%94%AB%20by%201_F0%20-%20%F0%9F%94%AB%20Gun%20Simulator%20%F0%9F%92%A5.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+getgenv().scriptName = 'Script/%F0%9F%94%A5%20Example%20Script%20Hub%20%7C%20Game%20%F0%9F%94%AB%20by%201_F0%20-%20%F0%9F%94%AB%20Gun%20Simulator%20%F0%9F%92%A5';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   })
 
 
@@ -595,7 +595,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/re
                 Tabs.Main:AddButton({
      Title = "Teleport",
     Callback = function()
-local Tele = getgenv().scriptName = 'Script/TP.lua';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
+local Tele = getgenv().scriptName = 'Script/TP';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
   end
   })
 
