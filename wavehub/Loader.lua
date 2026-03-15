@@ -22,7 +22,7 @@ scripts = {
 
 if scriptName == "wavehub/Loader" then
     warn("nah bro is loop")
-    scriptName = nil
+    _ENV.scriptName = nil
     return
 end
 
