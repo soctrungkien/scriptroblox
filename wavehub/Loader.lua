@@ -1,19 +1,6 @@
 repeat wait() until game:IsLoaded()
 
-local function showNotification(title, message, duration, icon)
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = title,
-        Text = message,
-        Duration = duration or 3,
-        Icon = icon or ""
-    })
-end
-
-showNotification(
-    loadername, 
-    "ty bro đã chạy script ^_^", 
-    3
-)
+print("ty bro đã chạy script ^_^") 
 
 print([[67]])
 
@@ -38,11 +25,7 @@ local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/he
 
 _ENV.scriptName = nil
 
-showNotification(
-    loadername, 
-    "Loader" .. scriptName, 
-    3
-)
+print("Loader" .. scriptName)
 
 task.spawn(function()
 local success, result = pcall(function()
