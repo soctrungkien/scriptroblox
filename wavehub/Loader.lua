@@ -25,7 +25,7 @@ local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/he
 
 _ENV.scriptName = nil
 
-print("Loader" .. scriptName)
+print("Loader " .. scriptName)
 
 task.spawn(function()
 local success, result = pcall(function()
