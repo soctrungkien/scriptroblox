@@ -8,7 +8,6 @@ local _ENV = (getgenv or getrenv)()
 local PlaceId = game.PlaceId
 
 local function Loadstring(httpurl) 
-_ENV.loadername = loadername
 loadstring(game:HttpGet(httpurl, true))(loadername, PlaceId, scriptName) 
 end
 
