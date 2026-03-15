@@ -23,9 +23,9 @@ scripts = {
 local scriptName = scriptName or scripts[PlaceId] or "wavehub/Universal"
 local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/" .. scriptName .. ".lua"
 
-_ENV.scriptName = nil
-
 print("Loader " .. scriptName)
+
+_ENV.scriptName = nil
 
 task.spawn(function()
 local success, result = pcall(function()
