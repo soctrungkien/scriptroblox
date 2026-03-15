@@ -1,6 +1,5 @@
---[[luau
---Copy vào chỗ nhập script hack
-loadstring(game:HttpGet("https://pastefy.app/Tz3VReH1/raw"))()
+--[[
+getgenv().scriptName = 'Menu';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
 --]]
 -------GUILIB
 local Fluent = loadstring(game:HttpGet("https://github.com/ActualMasterOogway/Fluent-Renewed/releases/latest/download/Fluent.luau", true))()
@@ -493,7 +492,7 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Icon = "rbxassetid://13047715178"
 })
 getgenv().scriptName = 'Script/%F0%9F%94%A5%20Example%20Script%20Hub%20%7C%20Game%20%F0%9F%94%AB%20by%201_F0%20-%20%F0%9F%94%AB%20Gun%20Simulator%20%F0%9F%92%A5';loadstring(game:HttpGet('https://xhider.xyz/raw/a/a.a'))()
-  })
+  end})
 
 
                 Tabs.Script:AddButton({
@@ -501,7 +500,7 @@ getgenv().scriptName = 'Script/%F0%9F%94%A5%20Example%20Script%20Hub%20%7C%20Gam
     Callback = function()
 getgenv().Team = "Pirates"
 loadstring(game:HttpGet('https://raw.githubusercontent.com/HoangNguyenk8/Scripts/refs/heads/main/Loader.lua'))()
-  end
+			end
   })
 
 
