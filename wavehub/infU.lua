@@ -3,7 +3,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local Theme = {
 	TextColor = Color3.fromRGB(240, 240, 240),
 
-	Background = Color3.fromRGB(25, 25, 25),
+	Background = Color3.fromRGB(0, 0, 0),
 	Topbar = Color3.fromRGB(34, 34, 34),
 	Shadow = Color3.fromRGB(20, 20, 20),
 
