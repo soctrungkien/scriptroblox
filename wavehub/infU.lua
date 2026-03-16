@@ -52,15 +52,12 @@ end)
 local Window = Rayfield:CreateWindow({
    Name = "infU | " .. info.Name,
    Icon = "infinity",
-   LoadingTitle = "Rayfield Interface Suite",
-   LoadingSubtitle = "by Sirius",
+   LoadingTitle = "Đang mở Menu infU...",
+   LoadingSubtitle = "Đang tải dữ liệu...",
    ShowText = "infU",
    Theme = "Theme",
-
    ToggleUIKeybind = "G",
-
    DisableRayfieldPrompts = true,
-
    ConfigurationSaving = {
       Enabled = true,
       FileName = "infU"
@@ -78,3 +75,7 @@ task.spawn(function()
 		})
 	end
 end)
+
+local TabExec = Window:CreateTab("Chạy script", "play")
+local TabFixLag = Window:CreateTab("Fixlag", "wrench")
+local TabSet = Window:CreateTab("Cài đặt", "settings")
