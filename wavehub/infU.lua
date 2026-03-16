@@ -77,6 +77,8 @@ task.spawn(function()
 end)
 
 local TabExec = Window:CreateTab("Chạy script", "play")
+local TabScript = Window:CreateTab("Chung", "file-question-mark")
+local TabMusic = Window:CreateTab("Âm nhạc", "disc-3")
 local TabFixLag = Window:CreateTab("Tối ưu hoá", "wrench")
 local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
