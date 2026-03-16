@@ -55,7 +55,7 @@ local Window = Rayfield:CreateWindow({
 
    ConfigurationSaving = {
       Enabled = true,
-      FileName = "ConfigWaveHubScript"
+      FileName = "infU"
    }
 })
 
