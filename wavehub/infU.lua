@@ -46,7 +46,7 @@ local Window = Rayfield:CreateWindow({
    Name = "infU Wave Hub",
    LoadingTitle = "Rayfield Interface Suite",
    LoadingSubtitle = "by Sirius",
-   ShowText = "",
+   ShowText = "infU",
    Theme = "Theme",
 
    ToggleUIKeybind = "G",
@@ -63,8 +63,8 @@ task.spawn(function()
 	while true do
 		task.wait(math.random(180, 600))
 		RayfieldLibrary:Notify({
-			Title = "Rayfield Interface",
-			Content = "Enjoying this UI library? Find it at sirius.menu/discord",
+			Title = "infU Script",
+			Content = "Enjoying this script? Find it at sirius.menu/discord",
 			Duration = 7,
 			Image = 4370033185,
 		})
