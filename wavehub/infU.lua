@@ -42,8 +42,16 @@ local Theme = {
 	PlaceholderColor = Color3.fromRGB(178, 178, 178)
 }
 
+local MarketplaceService = game:GetService("MarketplaceService")
+local placeId = game.PlaceId
+
+local success, info = pcall(function()
+    return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
+end)
+
 local Window = Rayfield:CreateWindow({
-   Name = "infU Wave Hub",
+   Name = "infU | " .. info.Name,
+   Icon = "infinity",
    LoadingTitle = "Rayfield Interface Suite",
    LoadingSubtitle = "by Sirius",
    ShowText = "infU",
@@ -64,7 +72,7 @@ task.spawn(function()
 		task.wait(math.random(180, 600))
 		RayfieldLibrary:Notify({
 			Title = "infU Script",
-			Content = "Enjoying this script? Find it at sirius.menu/discord",
+			Content = "Nếu bn thấy script hay thì cho 1 like nhé^^",
 			Duration = 7,
 			Image = 4370033185,
 		})
