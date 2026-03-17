@@ -86,12 +86,18 @@ local TabServer = Window:CreateTab("Máy chủ", "server")
 local TabInfo = Window:CreateTab("Thông tin", "info")
 
 --Executor
-local InputExe = Tab:CreateInput({
+local InputExec = Tab:CreateInput({
    Name = "Script",
-   CurrentValue = "print("infU")",
+   CurrentValue = "--script",
    PlaceholderText = "--script",
    RemoveTextAfterFocusLost = false,
-   Flag = "FInputExe"
+   Flag = "FInputExec"
+})
+local ButtonExec = Tab:CreateButton({
+   Name = "Chạy",
+   Callback = function()
+		
+   end,
 })
 
 --Noti chào mừng
