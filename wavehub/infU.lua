@@ -96,7 +96,7 @@ local InputExec = Tab:CreateInput({
 local ButtonExec = Tab:CreateButton({
    Name = "Chạy",
    Callback = function()
-		
+		loadstring(InputExec.CurrentValue)
    end,
 })
 
