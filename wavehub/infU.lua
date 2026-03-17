@@ -86,18 +86,18 @@ local TabServer = Window:CreateTab("Máy chủ", "server")
 local TabInfo = Window:CreateTab("Thông tin", "info")
 
 --Executor
-local InputExec = Tab:CreateInput({
+local InputExec = TabExec:CreateInput({
    Name = "Script",
    CurrentValue = "--script",
    PlaceholderText = "--script",
    RemoveTextAfterFocusLost = false,
    Flag = "FInputExec"
 })
-local ButtonExec = Tab:CreateButton({
+local ButtonExec = TabExec:CreateButton({
    Name = "Chạy",
    Callback = function()
-		loadstring(InputExec.CurrentValue)
-   end,
+		loadstring(InputExec.CurrentValue)()
+   end
 })
 
 --Noti chào mừng
@@ -105,5 +105,5 @@ Rayfield:Notify({
    Title = "infU",
    Content = "🎉 Chào mừng bạn đến với infU",
    Duration = 4,
-   Image = "infinity",
+   Image = "infinity"
 })
