@@ -84,3 +84,9 @@ local TabFixLag = Window:CreateTab("Tối ưu hoá", "wrench")
 local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 local TabInfo = Window:CreateTab("Thông tin", "info")
+
+Rayfield:Notify({
+   Title = "infU",
+   Content = "🎉 Chào mừng bạn đến với infU",
+   Duration = 4
+})
