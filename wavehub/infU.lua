@@ -85,6 +85,16 @@ local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 local TabInfo = Window:CreateTab("Thông tin", "info")
 
+--Executor
+local InputExe = Tab:CreateInput({
+   Name = "Script",
+   CurrentValue = "print("infU")",
+   PlaceholderText = "--script",
+   RemoveTextAfterFocusLost = false,
+   Flag = "FInputExe"
+})
+
+--Noti chào mừng
 Rayfield:Notify({
    Title = "infU",
    Content = "🎉 Chào mừng bạn đến với infU",
