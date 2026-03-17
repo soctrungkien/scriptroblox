@@ -88,5 +88,6 @@ local TabInfo = Window:CreateTab("Thông tin", "info")
 Rayfield:Notify({
    Title = "infU",
    Content = "🎉 Chào mừng bạn đến với infU",
-   Duration = 4
+   Duration = 4,
+   Image = "infinity",
 })
