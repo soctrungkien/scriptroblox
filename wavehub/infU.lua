@@ -64,9 +64,9 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local TabScript = Window:CreateTab("Script", "play")
+local TabScriptGame = Window:CreateTab("Script", "play")
 local TabAI = Window:CreateTab("AI", "bot")
-local TabScript = Window:CreateTab("Chung", "user")
+local TabScriptAny = Window:CreateTab("Chung", "user")
 local TabMusic = Window:CreateTab("Âm nhạc", "disc-3")
 local TabFixLag = Window:CreateTab("Tối ưu hoá", "wrench")
 local TabSet = Window:CreateTab("Cài đặt", "settings")
@@ -81,40 +81,41 @@ Rayfield:Notify({
 })
 
 --Script
+
 if game.GameId == 994732206 then
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Hermanos Hub-PVP",
    Callback = function()
 getgenv().script_mode = "PVP"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Hermanos Hub-Farm",
    Callback = function()
 getgenv().script_mode = "Farm"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Banana Hub-Longhihi",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/longhihilonghihi-hub/main/refs/heads/main/BananaHub.lua"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Maru Hub-Longhihi",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/longhihilonghihi-hub/MaruHubV1/refs/heads/main/MainV1.Lua"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "DatTHGV5",
    Callback = function()
 loadstring(game:HttpGet("https://github.com/LuaCrack/DatThg/raw/refs/heads/main/DatThgV5English"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Redz Hub [Beta]",
    Callback = function()
 getgenv().BETA_VERSION = true
@@ -124,31 +125,31 @@ local Settings = {
 loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))(Settings)
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "TuanAnhIOS",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AnhTuanDzai-Hub/TuanAnhIOS/refs/heads/main/TuanAnhIOS-Main.Lua"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Gravity Hub",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Speed Hub",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Quantum Onyx",
    Callback = function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
    end
 })
-TabScript:CreateButton({
+TabScriptGame:CreateButton({
    Name = "Leaf Hub",
    Callback = function()
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer 
@@ -156,6 +157,5 @@ loadstring(game:HttpGet("https://leaf-zeta.onrender.com/api/script"))()
    end
 })
 else
-TabScript:CreateLabel("Label Example", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
-local Paragraph = TabScript:CreateParagraph({Title = "Paragraph Example", Content = "Paragraph Example"})
+TabScript:CreateParagraph({Title = "Game chưa hỗ trợ"})
 end
