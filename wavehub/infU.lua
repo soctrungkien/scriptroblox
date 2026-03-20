@@ -66,7 +66,6 @@ local Window = Rayfield:CreateWindow({
 })
 
 local TabScriptGame = Window:CreateTab("Script", "play")
-local TabSend = Window:CreateTab("Yêu cầu tính năng", "send")
 local TabScriptAny = Window:CreateTab("Chung", "user")
 local TabMusic = Window:CreateTab("Âm nhạc", "disc-3")
 local TabFixLag = Window:CreateTab("Tối ưu hoá", "wrench")
@@ -165,4 +164,58 @@ game:GetService("HttpService"):PostAsync("https://webhook.lewisakura.moe/api/web
 TabScript:CreateParagraph({Title = "Hiện tại game chưa hỗ trợ"})
 end
 
+--Script Chung
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
 
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
