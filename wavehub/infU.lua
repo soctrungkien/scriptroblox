@@ -75,9 +75,17 @@ local TabInfo = Window:CreateTab("Thông tin", "info")
 
 --Script
 TabScript:CreateButton({
-   Name = "",
+   Name = "Hermanos Hub-PVP",
    Callback = function()
-   
+getgenv().script_mode = "PVP"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
+   end
+})
+TabScript:CreateButton({
+   Name = "Hermanos Hub-Farm",
+   Callback = function()
+getgenv().script_mode = "Farm"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
    end
 })
 
