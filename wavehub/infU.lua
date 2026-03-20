@@ -204,10 +204,30 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/d
    end
 })
 TabScriptAny:CreateButton({
+   Name = "Motiona FE Animations",
+   Callback = function()
+notiscript()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/BeemTZy/Motiona/refs/heads/main/source.lua"))()
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "FE EMOTES",
+   Callback = function()
+notiscript()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua"))()
+   end
+})
+TabScriptAny:CreateButton({
    Name = "",
    Callback = function()
 notiscript()
 
    end
 })
+TabScriptAny:CreateButton({
+   Name = "",
+   Callback = function()
+notiscript()
 
+   end
+})
