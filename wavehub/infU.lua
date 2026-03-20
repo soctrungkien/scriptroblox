@@ -73,6 +73,13 @@ local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 local TabInfo = Window:CreateTab("Thông tin", "info")
 
+Rayfield:Notify({
+   Title = "infU",
+   Content = "🎉 Chào mừng bạn đến với infU",
+   Duration = 4,
+   Image = "infinity"
+})
+
 --Script
 TabScript:CreateButton({
    Name = "Hermanos Hub-PVP",
@@ -117,106 +124,33 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/h
    end
 })
 TabScript:CreateButton({
-   Name = "",
+   Name = "TuanAnhIOS",
    Callback = function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AnhTuanDzai-Hub/TuanAnhIOS/refs/heads/main/TuanAnhIOS-Main.Lua"))()
    end
 })
 TabScript:CreateButton({
-   Name = "",
+   Name = "Gravity Hub",
    Callback = function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua"))()
    end
 })
 TabScript:CreateButton({
-   Name = "",
+   Name = "Speed Hub",
    Callback = function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
    end
 })
 TabScript:CreateButton({
-   Name = "",
+   Name = "Quantum Onyx",
    Callback = function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
    end
 })
 TabScript:CreateButton({
-   Name = "",
+   Name = "Leaf Hub",
    Callback = function()
-
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer 
+loadstring(game:HttpGet("https://leaf-zeta.onrender.com/api/script"))()
    end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScript:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-
---Noti chào mừng
-Rayfield:Notify({
-   Title = "infU",
-   Content = "🎉 Chào mừng bạn đến với infU",
-   Duration = 4,
-   Image = "infinity"
 })
