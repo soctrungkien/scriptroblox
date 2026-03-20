@@ -64,7 +64,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local TabExec = Window:CreateTab("Script", "file-braces-corner")
+local TabScript = Window:CreateTab("Script", "file-braces-corner")
 local TabAI = Window:CreateTab("AI", "bot")
 local TabScript = Window:CreateTab("Chung", "file-question-mark")
 local TabMusic = Window:CreateTab("Âm nhạc", "disc-3")
@@ -74,7 +74,12 @@ local TabServer = Window:CreateTab("Máy chủ", "server")
 local TabInfo = Window:CreateTab("Thông tin", "info")
 
 --Script
-
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+   
+   end
+})
 
 --Noti chào mừng
 Rayfield:Notify({
