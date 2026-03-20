@@ -157,5 +157,5 @@ loadstring(game:HttpGet("https://leaf-zeta.onrender.com/api/script"))()
    end
 })
 else
-TabScript:CreateParagraph({Title = "Game chưa hỗ trợ"})
+TabScript:CreateParagraph({Title = "Hiện tại game chưa hỗ trợ"})
 end
