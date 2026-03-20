@@ -186,9 +186,9 @@ end
 
 --Script Chung
 TabScriptAny:CreateButton({
-   Name = "",
+   Name = "Infinite Yield FE",
    Callback = function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
    end
 })
 TabScriptAny:CreateButton({
