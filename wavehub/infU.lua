@@ -67,8 +67,6 @@ local Window = Rayfield:CreateWindow({
 
 local TabScriptGame = Window:CreateTab(info.Name  or "Script", "play")
 local TabScriptAny = Window:CreateTab("Chung", "user")
-local TabMusic = Window:CreateTab("Âm nhạc", "disc-3")
-local TabFixLag = Window:CreateTab("Tối ưu hoá", "wrench")
 local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 local TabInfo = Window:CreateTab("Thông tin", "info")
@@ -218,14 +216,14 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/B
    end
 })
 TabScriptAny:CreateButton({
-   Name = "",
+   Name = "FPS/PING",
    Callback = function()
 notiscript()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua"))()
    end
 })
 TabScriptAny:CreateButton({
-   Name = "",
+   Name = "FIXLAG",
    Callback = function()
 notiscript()
 
