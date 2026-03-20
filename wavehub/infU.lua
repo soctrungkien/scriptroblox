@@ -64,9 +64,9 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-local TabScript = Window:CreateTab("Script", "file-braces-corner")
+local TabScript = Window:CreateTab("Script", "play")
 local TabAI = Window:CreateTab("AI", "bot")
-local TabScript = Window:CreateTab("Chung", "file-question-mark")
+local TabScript = Window:CreateTab("Chung", "user")
 local TabMusic = Window:CreateTab("Âm nhạc", "disc-3")
 local TabFixLag = Window:CreateTab("Tối ưu hoá", "wrench")
 local TabSet = Window:CreateTab("Cài đặt", "settings")
