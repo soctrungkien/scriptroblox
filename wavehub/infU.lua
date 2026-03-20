@@ -80,11 +80,21 @@ Rayfield:Notify({
    Image = "infinity"
 })
 
+local function notiscript()
+Rayfield:Notify({
+   Title = "infU",
+   Content = "Đã chạy script",
+   Duration = 4,
+   Image = "infinity"
+})
+end
+
 --Script
 if game.GameId == 994732206 then
 TabScriptGame:CreateButton({
    Name = "Hermanos Hub-PVP",
    Callback = function()
+notiscript()
 getgenv().script_mode = "PVP"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
    end
@@ -92,6 +102,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos
 TabScriptGame:CreateButton({
    Name = "Hermanos Hub-Farm",
    Callback = function()
+notiscript()
 getgenv().script_mode = "Farm"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
    end
@@ -99,24 +110,28 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos
 TabScriptGame:CreateButton({
    Name = "Banana Hub-Longhihi",
    Callback = function()
+notiscript()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/longhihilonghihi-hub/main/refs/heads/main/BananaHub.lua"))()
    end
 })
 TabScriptGame:CreateButton({
    Name = "Maru Hub-Longhihi",
    Callback = function()
+notiscript()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/longhihilonghihi-hub/MaruHubV1/refs/heads/main/MainV1.Lua"))()
    end
 })
 TabScriptGame:CreateButton({
    Name = "DatTHGV5",
    Callback = function()
+notiscript()
 loadstring(game:HttpGet("https://github.com/LuaCrack/DatThg/raw/refs/heads/main/DatThgV5English"))()
    end
 })
 TabScriptGame:CreateButton({
    Name = "Redz Hub [Beta]",
    Callback = function()
+notiscript()
 getgenv().BETA_VERSION = true
 local Settings = {
     Translator = true;
@@ -127,30 +142,35 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/h
 TabScriptGame:CreateButton({
    Name = "TuanAnhIOS",
    Callback = function()
+notiscript()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AnhTuanDzai-Hub/TuanAnhIOS/refs/heads/main/TuanAnhIOS-Main.Lua"))()
    end
 })
 TabScriptGame:CreateButton({
    Name = "Gravity Hub",
    Callback = function()
+notiscript()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua"))()
    end
 })
 TabScriptGame:CreateButton({
    Name = "Speed Hub",
    Callback = function()
+notiscript()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua"))()
    end
 })
 TabScriptGame:CreateButton({
    Name = "Quantum Onyx",
    Callback = function()
+notiscript()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
    end
 })
 TabScriptGame:CreateButton({
    Name = "Leaf Hub",
    Callback = function()
+notiscript()
 repeat wait() until game:IsLoaded() and game.Players.LocalPlayer 
 loadstring(game:HttpGet("https://leaf-zeta.onrender.com/api/script"))()
    end
