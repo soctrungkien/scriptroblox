@@ -192,50 +192,22 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/
    end
 })
 TabScriptAny:CreateButton({
-   Name = "",
+   Name = "SimpleSpyV3",
    Callback = function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Dex",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
    end
 })
 TabScriptAny:CreateButton({
    Name = "",
    Callback = function()
+notiscript()
 
    end
 })
-TabScriptAny:CreateButton({
-   Name = "",
-   Callback = function()
 
-   end
-})
-TabScriptAny:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScriptAny:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScriptAny:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScriptAny:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
-TabScriptAny:CreateButton({
-   Name = "",
-   Callback = function()
-
-   end
-})
