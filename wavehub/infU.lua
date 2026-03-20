@@ -100,6 +100,114 @@ TabScript:CreateButton({
 loadstring(game:HttpGet("https://raw.githubusercontent.com/longhihilonghihi-hub/MaruHubV1/refs/heads/main/MainV1.Lua"))()
    end
 })
+TabScript:CreateButton({
+   Name = "DatTHGV5",
+   Callback = function()
+loadstring(game:HttpGet("https://github.com/LuaCrack/DatThg/raw/refs/heads/main/DatThgV5English"))()
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
+TabScript:CreateButton({
+   Name = "",
+   Callback = function()
+
+   end
+})
 
 --Noti chào mừng
 Rayfield:Notify({
