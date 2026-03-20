@@ -64,19 +64,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
-task.spawn(function()
-	while true do
-		task.wait(math.random(180, 600))
-		RayfieldLibrary:Notify({
-			Title = "infU Script",
-			Content = "Nếu bn thấy script hay thì cho 1 like nhé^^",
-			Duration = 7,
-			Image = 4370033185,
-		})
-	end
-end)
-
-local TabExec = Window:CreateTab("Chạy script", "play")
+local TabExec = Window:CreateTab("Script", "file-braces-corner")
 local TabAI = Window:CreateTab("AI", "bot")
 local TabScript = Window:CreateTab("Chung", "file-question-mark")
 local TabMusic = Window:CreateTab("Âm nhạc", "disc-3")
@@ -85,20 +73,8 @@ local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 local TabInfo = Window:CreateTab("Thông tin", "info")
 
---Executor
-local InputExec = TabExec:CreateInput({
-   Name = "Script",
-   CurrentValue = "--script",
-   PlaceholderText = "--script",
-   RemoveTextAfterFocusLost = false,
-   Flag = "FInputExec"
-})
-local ButtonExec = TabExec:CreateButton({
-   Name = "Chạy",
-   Callback = function()
-		loadstring(InputExec.CurrentValue)()
-   end
-})
+--Script
+
 
 --Noti chào mừng
 Rayfield:Notify({
