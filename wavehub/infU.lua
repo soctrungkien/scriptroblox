@@ -81,6 +81,7 @@ Rayfield:Notify({
 })
 
 --Script
+if game.GameId == 994732206 then
 TabScript:CreateButton({
    Name = "Hermanos Hub-PVP",
    Callback = function()
@@ -154,3 +155,7 @@ repeat wait() until game:IsLoaded() and game.Players.LocalPlayer
 loadstring(game:HttpGet("https://leaf-zeta.onrender.com/api/script"))()
    end
 })
+else
+TabScript:CreateLabel("Label Example", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
+local Paragraph = TabScript:CreateParagraph({Title = "Paragraph Example", Content = "Paragraph Example"})
+end
