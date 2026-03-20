@@ -1,8 +1,8 @@
 repeat wait() until game:IsLoaded()
 
-print("ty bro đã chạy script ^_^") 
+--print("ty bro đã chạy script ^_^") 
 
-print([[67]])
+--print([[67]])
 
 local _ENV = (getgenv or getrenv)()
 local PlaceId = game.PlaceId
@@ -28,7 +28,7 @@ end
 local scriptName = scriptName or scripts[PlaceId] or "wavehub/Universal"
 local url = "https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/" .. scriptName .. ".lua"
 
-print("Loader " .. scriptName)
+--print("Loader " .. scriptName)
 
 task.spawn(function()
 local success, result = pcall(function()
