@@ -107,9 +107,13 @@ loadstring(game:HttpGet("https://github.com/LuaCrack/DatThg/raw/refs/heads/main/
    end
 })
 TabScript:CreateButton({
-   Name = "",
+   Name = "Redz Hub [Beta]",
    Callback = function()
-
+getgenv().BETA_VERSION = true
+local Settings = {
+    Translator = true;
+}
+loadstring(game:HttpGet("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau"))(Settings)
    end
 })
 TabScript:CreateButton({
