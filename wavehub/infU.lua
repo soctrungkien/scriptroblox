@@ -88,6 +88,18 @@ getgenv().script_mode = "Farm"
 loadstring(game:HttpGet("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua"))()
    end
 })
+TabScript:CreateButton({
+   Name = "Banana Hub-Longhihi",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/longhihilonghihi-hub/main/refs/heads/main/BananaHub.lua"))()
+   end
+})
+TabScript:CreateButton({
+   Name = "Maru Hub-Longhihi",
+   Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/longhihilonghihi-hub/MaruHubV1/refs/heads/main/MainV1.Lua"))()
+   end
+})
 
 --Noti chào mừng
 Rayfield:Notify({
