@@ -1,4 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield-gen2'))()
 
 local Theme = {
 	TextColor = Color3.fromRGB(240, 240, 240),
@@ -173,7 +173,8 @@ loadstring(game:HttpGet("https://leaf-zeta.onrender.com/api/script"))()
    end
 })
 else
-local Khoga = TabScript:CreateParagraph({Title = "Paragraph Example", Content = "Paragraph Example"})
+local Label = TabScript:CreateLabel("Label Example", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
+local Paragraph = TabScript:CreateParagraph({Title = "Paragraph Example", Content = "Paragraph Example"})
 end
 
 --Script Chung
