@@ -41,7 +41,7 @@ local function getPing()
 	return 0
 end
 repeat wait() until game:GetService("CoreGui"):FindFirstChildWhichIsA("ScreenGui")
-game:GetService("RunService").RenderStepped:Connect(function()
+game:GetService("RunService").RenderStepped:Connect(function(dt)
 fps = math.floor(1 / dt)
 for _, v in pairs(game:GetService("CoreGui"):GetDescendants()) do
     if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
@@ -64,33 +64,68 @@ Rayfield:Notify({
 })
 
 local function loadsc(url, title, fast)
+   local fileName = "cache_" .. tostring(title):gsub("%W+", "") .. ".txt"
+
    Rayfield:Notify({
-   	Title = title,
-	Content = "Đang tải script",
-   	Duration = 3,
-	Image = 14595801355
+      Title = title,
+      Content = "Đang tải script",
+      Duration = 3,
+      Image = 14595801355
    })
-      local ok, err = pcall(function()
-         loadstring(game:HttpGet(url))()
-      end)
 
-      if ok then
-	   Rayfield:Notify({
-	   	Title = "Done",
-		Content = "Đã tải script thành công",
-	   	Duration = 3,
-		Image = 14595801355
-	   })
+   local function run(code)
+      local f = loadstring(code)
+      if f then
+         return f()
       end
+   end
 
-      if not ok then
-	   Rayfield:Notify({
-	   	Title = "ERROR",
-		Content = err,
-	   	Duration = 3,
-		Image = 6646234362
-	   })
+   local function getOnline()
+      return game:HttpGet(url)
+   end
+
+   local ok, err = pcall(function()
+      if isfile(fileName) then
+         local localData = readfile(fileName)
+
+         if fast then
+            task.spawn(function()
+               run(localData)
+            end)
+
+            task.spawn(function()
+               local onlineData = getOnline()
+               if onlineData and onlineData ~= localData then
+                  writefile(fileName, onlineData)
+               end
+            end)
+         else
+            local onlineData = getOnline()
+            run(onlineData)
+            end
+         end
+      else
+         local data = getOnline()
+         writefile(fileName, data)
+         run(data)
       end
+   end)
+
+   if ok then
+      Rayfield:Notify({
+         Title = "Done",
+         Content = "Đã tải script thành công",
+         Duration = 3,
+         Image = 14595801355
+      })
+   else
+      Rayfield:Notify({
+         Title = "ERROR",
+         Content = err,
+         Duration = 3,
+         Image = 6646234362
+      })
+   end
 end
 
 --Script
@@ -98,7 +133,7 @@ if game.GameId == 994732206 then
 TabScriptAny:CreateButton({
    Name = "Quantum Onyx" .. " for " .. info.Name,
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua", "Quantum Onyx", false)
+		loadsc("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua", "QuantumOnyx", false)
    end
 })
 end
