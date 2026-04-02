@@ -13,8 +13,6 @@ local Window = Rayfield:CreateWindow({
    Icon = "infinity",
    LoadingTitle = "Đang mở Menu infU...",
    LoadingSubtitle = "Đang tải dữ liệu...",
-   ShowText = "infU",
-   Theme = "Theme",
    ToggleUIKeybind = "G",
    DisableRayfieldPrompts = true,
    ConfigurationSaving = {
@@ -22,6 +20,36 @@ local Window = Rayfield:CreateWindow({
       FileName = "infU"
    }
 })
+
+task.spawn(function()
+local Stats = game:GetService("Stats")
+local fps = 0
+local ping = 0
+local function getPing()
+	local network = Stats:FindFirstChild("Network")
+	if not network then return 0 end
+	local serverStats = network:FindFirstChild("ServerStatsItem")
+	if not serverStats then return 0 end
+	local dataPing = serverStats:FindFirstChild("Data Ping")
+	if not dataPing then return 0 end
+	local ok, value = pcall(function()
+		return dataPing:GetValue()
+	end)
+	if ok and typeof(value) == "number" then
+		return math.floor(value)
+	end
+	return 0
+end
+repeat wait() until game:GetService("CoreGui"):FindFirstChildWhichIsA("ScreenGui")
+game:GetService("RunService").RenderStepped:Connect(function()
+fps = math.floor(1 / dt)
+for _, v in pairs(game:GetService("CoreGui"):GetDescendants()) do
+    if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
+        v.Prompt.Title.Text = string.format("『 %d ms | %d 』", getPing(), fps)
+    end
+end
+end)
+end)
 
 local TabScriptAny = Window:CreateTab("Chung", "user")
 local TabSet = Window:CreateTab("Cài đặt", "settings")
