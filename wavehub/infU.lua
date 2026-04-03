@@ -1,5 +1,76 @@
 repeat wait() until game:IsLoaded()
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local function loadsc(url, title, fast)
+   local fileName = "cache_" .. tostring(title):gsub("%W+", "") .. ".txt"
+	print("[infU] Đang tải " .. title)
+	if Rayfield then
+   Rayfield:Notify({
+      Title = title,
+      Content = "Đang tải script",
+      Duration = 3,
+      Image = 14595801355
+   })
+	end
+   local function run(code)
+      local f = loadstring(code)
+      if f then
+         return f()
+      end
+   end
+
+   local function getOnline()
+      return game:HttpGet(url)
+   end
+
+   local ok, err = pcall(function()
+      if isfile(fileName) then
+         local localData = readfile(fileName)
+
+         if fast then
+            task.spawn(function()
+               run(localData)
+            end)
+
+            task.spawn(function()
+               local onlineData = getOnline()
+               if onlineData and onlineData ~= localData then
+                  writefile(fileName, onlineData)
+               end
+            end)
+         else
+            local onlineData = getOnline()
+            run(onlineData)
+            end
+         end
+      else
+         local data = getOnline()
+         writefile(fileName, data)
+         run(data)
+      end
+   end)
+
+   if ok then
+	print("[infU] Đã tải thành công" .. title)
+	if Rayfield then
+      Rayfield:Notify({
+         Title = "Done",
+         Content = "Đã tải script " .. title .. " thành công",
+         Duration = 3,
+         Image = 14595801355
+      })
+	end
+   else
+	print("[infU] " .. title .. "Lỗi: " .. err)
+	if Rayfield then
+      Rayfield:Notify({
+         Title = title .. "ERROR",
+         Content = err,
+         Duration = 3,
+         Image = 6646234362
+      })
+	end
+   end
+end
+local Rayfield = loadsc("https://sirius.menu/rayfield", "Rayfield", true)
 local MarketplaceService = game:GetService("MarketplaceService")
 local placeId = game.PlaceId
 local success, info = pcall(function()
@@ -60,78 +131,6 @@ Rayfield:Notify({
    Image = "infinity"
 })
 
-local function loadsc(url, title, fast)
-   local fileName = "cache_" .. tostring(title):gsub("%W+", "") .. ".txt"
-	print("Đang tải " .. title)
-	if Rayfield then
-   Rayfield:Notify({
-      Title = title,
-      Content = "Đang tải script",
-      Duration = 3,
-      Image = 14595801355
-   })
-	end
-   local function run(code)
-      local f = loadstring(code)
-      if f then
-         return f()
-      end
-   end
-
-   local function getOnline()
-      return game:HttpGet(url)
-   end
-
-   local ok, err = pcall(function()
-      if isfile(fileName) then
-         local localData = readfile(fileName)
-
-         if fast then
-            task.spawn(function()
-               run(localData)
-            end)
-
-            task.spawn(function()
-               local onlineData = getOnline()
-               if onlineData and onlineData ~= localData then
-                  writefile(fileName, onlineData)
-               end
-            end)
-         else
-            local onlineData = getOnline()
-            run(onlineData)
-            end
-         end
-      else
-         local data = getOnline()
-         writefile(fileName, data)
-         run(data)
-      end
-   end)
-
-   if ok then
-	print("Đã tải thành công" .. title)
-	if Rayfield then
-      Rayfield:Notify({
-         Title = "Done",
-         Content = "Đã tải script " .. title .. " thành công",
-         Duration = 3,
-         Image = 14595801355
-      })
-	end
-   else
-	print(title .. "Lỗi: " .. err)
-	if Rayfield then
-      Rayfield:Notify({
-         Title = title .. "ERROR",
-         Content = err,
-         Duration = 3,
-         Image = 6646234362
-      })
-	end
-   end
-end
-
 --Script
 if game.GameId == 994732206 then
 TabScriptAny:CreateButton({
@@ -144,48 +143,44 @@ end
 
 --Script Chung
 TabScriptAny:CreateButton({
-   Name = "Infinite Yield FE",
+   Name = "Infinite Yield",
    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+loadsc("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", "iy", true)
    end
 })
 TabScriptAny:CreateButton({
-   Name = "SimpleSpyV3",
+   Name = "SimpleSpy",
    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua"))()
+loadsc("https://raw.githubusercontent.com/infyiff/backup/main/SimpleSpyV3/main.lua", "rspy", true)
    end
 })
 TabScriptAny:CreateButton({
    Name = "Dex",
    Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
+loadsc("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua", "dex", true)
    end
 })
 TabScriptAny:CreateButton({
    Name = "Motiona FE Animations",
    Callback = function()
-notiscript()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/BeemTZy/Motiona/refs/heads/main/source.lua"))()
+loadsc("https://raw.githubusercontent.com/BeemTZy/Motiona/refs/heads/main/source.lua", "animation", true)
    end
 })
 TabScriptAny:CreateButton({
    Name = "FE EMOTES",
    Callback = function()
-notiscript()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua"))()
+loadsc("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes.lua", "emotes", true)
    end
 })
 TabScriptAny:CreateButton({
-   Name = "FPS/PING",
+   Name = "FPS/PING Popup",
    Callback = function()
-notiscript()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua"))()
+loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua", "fpsping" false)
    end
 })
 TabScriptAny:CreateButton({
    Name = "FIXLAG",
    Callback = function()
-notiscript()
-
+loadsc("", "", nil)
    end
 })
