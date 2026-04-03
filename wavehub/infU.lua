@@ -211,6 +211,18 @@ local AntiAFK = TabSet:CreateToggle({
    CurrentValue = false,
    Flag = "AntiAFK",
    Callback = function(Value)
-	AntiAFKEnabled = Value
+AntiAFKEnabled = Value
    end,
+})
+TabSet:CreateButton({
+   Name = "Console",
+   Callback = function()
+StarterGui:SetCore("DevConsoleVisible", true)
+   end
+})
+TabSet:CreateButton({
+   Name = "infZoom",
+   Callback = function()
+game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 99999999
+   end
 })
