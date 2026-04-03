@@ -62,14 +62,15 @@ Rayfield:Notify({
 
 local function loadsc(url, title, fast)
    local fileName = "cache_" .. tostring(title):gsub("%W+", "") .. ".txt"
-
+	print("Đang tải " .. title)
+	if Rayfield then
    Rayfield:Notify({
       Title = title,
       Content = "Đang tải script",
       Duration = 3,
       Image = 14595801355
    })
-
+	end
    local function run(code)
       local f = loadstring(code)
       if f then
@@ -109,19 +110,25 @@ local function loadsc(url, title, fast)
    end)
 
    if ok then
+	print("Đã tải thành công" .. title)
+	if Rayfield then
       Rayfield:Notify({
          Title = "Done",
-         Content = "Đã tải script thành công",
+         Content = "Đã tải script " .. title .. " thành công",
          Duration = 3,
          Image = 14595801355
       })
+	end
    else
+	print(title .. "Lỗi: " .. err)
+	if Rayfield then
       Rayfield:Notify({
-         Title = "ERROR",
+         Title = title .. "ERROR",
          Content = err,
          Duration = 3,
          Image = 6646234362
       })
+	end
    end
 end
 
