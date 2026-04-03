@@ -180,8 +180,8 @@ loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/m
    end
 })
 TabScriptAny:CreateButton({
-   Name = "FIXLAG",
+   Name = "FLY",
    Callback = function()
-loadsc("", "", nil)
+loadsc("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt", "fly", true)
    end
 })
