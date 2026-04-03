@@ -77,6 +77,13 @@ local placeId = game.PlaceId
 local success, info = pcall(function()
     return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
 end)
+local AntiAFKEnabled = false
+game:GetService("Players").LocalPlayer.Idled:Connect(function()
+    if AntiAFKEnabled then
+        game:GetService("VirtualUser"):CaptureController()
+        game:GetService("VirtualUser"):ClickButton2(Vector2.new(0, 0))
+    end
+end)
 local Window = Rayfield:CreateWindow({
    Name = "「infU」| " .. info.Name,
    Icon = "infinity",
@@ -85,7 +92,7 @@ local Window = Rayfield:CreateWindow({
    ToggleUIKeybind = "G",
    DisableRayfieldPrompts = true,
    ConfigurationSaving = {
-      Enabled = true,
+      Enabled = false,
       FileName = "infU"
    }
 })
@@ -184,4 +191,26 @@ TabScriptAny:CreateButton({
    Callback = function()
 loadsc("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt", "fly", true)
    end
+})
+TabScriptAny:CreateButton({
+   Name = "Tp Tool",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/retpirato/Roblox-Scripts/refs/heads/master/Click%20TP%20Tool.lua", "tptool", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "F3X",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/Windows81/Personal-Roblox-Client-Scripts/refs/heads/main/f3x.lua", "f3x", true)
+   end
+})
+
+--Setting
+local AntiAFK = TabSet:CreateToggle({
+   Name = "AntiAFK",
+   CurrentValue = false,
+   Flag = "AntiAFK",
+   Callback = function(Value)
+	AntiAFKEnabled = Value
+   end,
 })
