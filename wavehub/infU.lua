@@ -1,17 +1,14 @@
 repeat wait() until game:IsLoaded()
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-
 local MarketplaceService = game:GetService("MarketplaceService")
 local placeId = game.PlaceId
-
 local success, info = pcall(function()
     return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
 end)
-
 local Window = Rayfield:CreateWindow({
-   Name = "infU | " .. info.Name,
+   Name = "「infU」| " .. info.Name,
    Icon = "infinity",
-   LoadingTitle = "Đang mở Menu infU...",
+   LoadingTitle = "「🫪」Đang mở Menu infU...",
    LoadingSubtitle = "Đang tải dữ liệu...",
    ToggleUIKeybind = "G",
    DisableRayfieldPrompts = true,
