@@ -70,6 +70,7 @@ local function loadsc(url, title, fast)
 	end
    end
 end
+loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
 local Rayfield = loadsc("https://sirius.menu/rayfield", "Rayfield", true)
 local MarketplaceService = game:GetService("MarketplaceService")
 local placeId = game.PlaceId
@@ -113,7 +114,7 @@ game:GetService("RunService").RenderStepped:Connect(function(dt)
 fps = math.floor(1 / dt)
 for _, v in pairs(game:GetService("CoreGui"):GetDescendants()) do
     if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
-        v.Prompt.Title.Text = string.format("『 %d ms | %d 』", getPing(), fps)
+        v.Prompt.Title.Text = string.format("%d ms | %d", getPing(), fps)
     end
 end
 end)
