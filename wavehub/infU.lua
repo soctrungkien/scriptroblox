@@ -377,7 +377,7 @@ local BaDRender = TabSet:CreateToggle({
    CurrentValue = true,
    Flag = "BaDRender",
    Callback = function(Value)
-	RunService:Set3dRenderingEnabled(Value)
+	game:GetService("RunService"):Set3dRenderingEnabled(Value)
    end,
 })
 local AntiAFK = TabSet:CreateToggle({
