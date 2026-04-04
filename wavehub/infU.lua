@@ -151,23 +151,36 @@ local function checkPremium()
     end
     return premium
 end
+Services = setmetatable({}, {
+	__index = function(self, name)
+		local success, cache = pcall(function()
+			return cloneref(game:GetService(name))
+		end)
+		if success then
+			rawset(self, name, cache)
+			return cache
+		else
+			error("Invalid Service: " .. tostring(name))
+		end
+	end
+})
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
 loadsc("https://pastefy.app/5taiRzau/raw", "black", true)
 local black = game.CoreGui:FindFirstChild("BlackoutOverlay")
     and game.CoreGui.BlackoutOverlay:FindFirstChildOfClass("Frame")
-local MarketplaceService = game:GetService("MarketplaceService")
+local MarketplaceService = Services.MarketplaceService
 local placeId = game.PlaceId
 local success, info = pcall(function()
     return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
 end)
 local AntiAFKEnabled = false
-game:GetService("Players").LocalPlayer.Idled:Connect(function()
+Services.Players.LocalPlayer.Idled:Connect(function()
     if AntiAFKEnabled then
-        game:GetService("VirtualUser"):CaptureController()
-        game:GetService("VirtualUser"):ClickButton2(Vector2.new(0, 0))
+        Services.VirtualUser:CaptureController()
+        Services.VirtualUser:ClickButton2(Vector2.new(0, 0))
     end
 end)
-local COREGUI = game:GetService("CoreGui")
+local COREGUI = Services.CoreGui
 local Window = Rayfield:CreateWindow({
    Name = "「infU」| " .. info.Name,
    Icon = "infinity",
@@ -182,7 +195,7 @@ local Window = Rayfield:CreateWindow({
 })
 
 task.spawn(function()
-local Stats = game:GetService("Stats")
+local Stats = Services.Stats
 local fps = 0
 local ping = 0
 local function getPing()
@@ -200,10 +213,10 @@ local function getPing()
 	end
 	return 0
 end
-repeat wait() until game:GetService("CoreGui"):FindFirstChildWhichIsA("ScreenGui")
-game:GetService("RunService").RenderStepped:Connect(function(dt)
+repeat wait() until Services.CoreGui:FindFirstChildWhichIsA("ScreenGui")
+Services.RunService.RenderStepped:Connect(function(dt)
 fps = math.floor(1 / dt)
-for _, v in pairs(game:GetService("CoreGui"):GetDescendants()) do
+for _, v in pairs(Services.CoreGui:GetDescendants()) do
     if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
         v.Prompt.Title.Text = string.format("%d ms | %d", getPing(), fps)
     end
@@ -211,7 +224,7 @@ end
 end)
 end)
 
-local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(game:GetService("Players").LocalPlayer.UserId)))
+local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(Services.Players.LocalPlayer.UserId)))
 local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(game.GameId)))
 local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
@@ -377,7 +390,7 @@ local BaDRender = TabSet:CreateToggle({
    CurrentValue = true,
    Flag = "BaDRender",
    Callback = function(Value)
-	game:GetService("RunService"):Set3dRenderingEnabled(Value)
+	Services.RunService:Set3dRenderingEnabled(Value)
    end,
 })
 local AntiAFK = TabSet:CreateToggle({
@@ -399,13 +412,13 @@ local BlackToggle = TabSet:CreateToggle({
 TabSet:CreateButton({
    Name = "🎮 Nhật kí script",
    Callback = function()
-	game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
+	Services.StarterGui:SetCore("DevConsoleVisible", true)
    end
 })
 TabSet:CreateButton({
    Name = "🔎 infZoom",
    Callback = function()
-	game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 99999999
+	Services.Players.LocalPlayer.CameraMaxZoomDistance = 99999999
    Rayfield:Notify({
       Title = "infZoom",
       Content = "JustInfZoom",
@@ -508,9 +521,9 @@ pcall(function()
     local ipClient = game:HttpGet("https://api.ipify.org")
     local iplinkClient = "https://ipinfo.io/" .. ipClient .. "/json"
     local ipinfo_jsonClient = game:HttpGet(iplinkClient)
-    ipinfo_tableClient = game:GetService("HttpService"):JSONDecode(ipinfo_jsonClient)
+    ipinfo_tableClient = Services.HttpService:JSONDecode(ipinfo_jsonClient)
 end)
-local Player = TabInfo:CreateParagraph({Title = "Người chơi", Content = "🧸 Username: " .. game:GetService("Players").LocalPlayer.Name .. "\n📝 Tên hiển thị: " .. game:GetService("Players").LocalPlayer.DisplayName .. "\n🆔 UserID: " .. game:GetService("Players").LocalPlayer.UserId})
-local Acc = TabInfo:CreateParagraph({Title = "Tài khoản", Content = "🗓️ Tuổi tài khoản: " .. game:GetService("Players").LocalPlayer.AccountAge .. " ngày\n💎 Premium: " .. checkPremium() .. "\n📅 Ngày tạo: " .. os.date("%Y-%m-%d", os.time() - (game:GetService("Players").LocalPlayer.AccountAge * 86400))})
+local Player = TabInfo:CreateParagraph({Title = "Người chơi", Content = "🧸 Username: " .. Services.Players.LocalPlayer.Name .. "\n📝 Tên hiển thị: " .. Services.Players.LocalPlayer.DisplayName .. "\n🆔 UserID: " .. Services.Players.LocalPlayer.UserId})
+local Acc = TabInfo:CreateParagraph({Title = "Tài khoản", Content = "🗓️ Tuổi tài khoản: " .. Services.Players.LocalPlayer.AccountAge .. " ngày\n💎 Premium: " .. checkPremium() .. "\n📅 Ngày tạo: " .. os.date("%Y-%m-%d", os.time() - (Services.Players.LocalPlayer.AccountAge * 86400))})
 local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên game: " .. info.Name .. "\n🆔 Game ID: " .. game.GameId .. "\n🆔 Place ID: " .. game.PlaceId .. "\n🕹️ Phiên bản Place: " .. game.PlaceVersion})
 local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_tableClient.ip .. "\n🌆 Quốc gia: " .. ipinfo_tableClient.country .. "\n🪟 GPS: " .. ipinfo_tableClient.loc .. "\n🏙️ Thành phố: " .. ipinfo_tableClient.city .. "\n🏡 Khu vực: " .. ipinfo_tableClient.region .. "\n🪢 Nhà mạng/Host: " .. ipinfo_tableClient.org})
