@@ -205,6 +205,18 @@ TabScriptAny:CreateButton({
 loadsc("https://raw.githubusercontent.com/Windows81/Personal-Roblox-Client-Scripts/refs/heads/main/f3x.lua", "f3x", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Con sóc và cái lọ",
+   Callback = function()
+loadsc("https://pastefy.app/U6g6GPiR", "soclo", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "ShiftlockMobile",
+   Callback = function()
+loadsc("https://pastefy.app/88nd9iSy", "ShiftlockMobile", true)
+   end
+})
 
 --Setting
 local AntiAFK = TabSet:CreateToggle({
