@@ -208,7 +208,7 @@ loadsc("https://raw.githubusercontent.com/Windows81/Personal-Roblox-Client-Scrip
 TabScriptAny:CreateButton({
    Name = "Con sóc và cái lọ",
    Callback = function()
-loadsc("https://pastefy.app/U6g6GPiR", "soclo", true)
+loadsc("https://pastefy.app/U6g6GPiR", "lo", true)
    end
 })
 TabScriptAny:CreateButton({
