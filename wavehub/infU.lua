@@ -241,6 +241,18 @@ TabScriptAny:CreateButton({
 loadsc("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/back.json", "pshade", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Octo~Spy",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/InfernusScripts/Octo-Spy/refs/heads/main/Main.lua", "octospy", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Ketamine",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/InfernusScripts/Ketamine/refs/heads/main/Ketamine.lua", "ketamine", true)
+   end
+})
 
 --Setting
 local AntiAFK = TabSet:CreateToggle({
