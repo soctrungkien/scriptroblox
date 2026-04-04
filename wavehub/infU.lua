@@ -17,9 +17,20 @@ local function loadsc(url, title, fast)
       end
    end
 
-   local function getOnline()
-      return game:HttpGet(url)
-   end
+	local function getOnline()
+	    while true do
+	        local success, result = pcall(function()
+	            return game:HttpGet(url)
+	        end)
+	
+	        if success and result then
+	            return result
+	        end
+	
+	        warn("[infU] Lỗi lấy file ".. title .. ", đang retry...")
+	        task.wait(0.2)
+	    end
+	end
 
 	local ok, err = pcall(function()
 	   if isfile(fileName) then
