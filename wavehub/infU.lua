@@ -194,7 +194,7 @@ loadsc("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes
    end
 })
 TabScriptAny:CreateButton({
-   Name = "FPS/PING Popup",
+   Name = "FPS/PING Window",
    Callback = function()
 loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua", "fpsping", true)
    end
@@ -208,7 +208,7 @@ loadsc("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt", "f
 TabScriptAny:CreateButton({
    Name = "Tp Tool",
    Callback = function()
-loadsc("https://raw.githubusercontent.com/retpirato/Roblox-Scripts/refs/heads/master/Click%20TP%20Tool.lua", "tptool", true)
+loadsc("https://pastefy.app/z0ZyOjK3/raw", "tptool", true)
    end
 })
 TabScriptAny:CreateButton({
