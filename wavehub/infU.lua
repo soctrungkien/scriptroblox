@@ -309,7 +309,7 @@ TabSet:CreateButton({
          ApplyFFlag()
       end)
 
-      if success then
+      
          if Rayfield then
             Rayfield:Notify({
                Title = "AntiLag",
@@ -319,17 +319,9 @@ TabSet:CreateButton({
             })
          end
          print("[infU] Fixlag OK")
-      else
-         if Rayfield then
-            Rayfield:Notify({
-               Title = "AntiLag",
-               Content = "Fixlag thất bại",
-               Duration = 3,
-               Image = "x"
-            })
-         end
-         warn("[infU] Lỗi: " .. tostring(err))
-      end
+      
+         
+      
    end
 })
 TabSet:CreateButton({
