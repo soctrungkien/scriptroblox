@@ -9,7 +9,7 @@ local function loadsc(url, title, fast)
       Title = title,
       Content = "Đang tải script",
       Duration = 3,
-      Image = "file-code-corner"
+      Image = "code"
    })
 	end
    local function run(code)
