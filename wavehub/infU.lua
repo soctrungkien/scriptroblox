@@ -180,7 +180,6 @@ black.BackgroundTransparency = 1
 black.ZIndex = 999901
 black.Parent = screenGuiblack
 repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
-fps = math.floor(1 / dt)
 for _, v in pairs(COREGUI:GetDescendants()) do
     if v.Name == "Rayfield" then
         v.ZIndex = 999902
