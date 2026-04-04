@@ -208,13 +208,19 @@ loadsc("https://raw.githubusercontent.com/Windows81/Personal-Roblox-Client-Scrip
 TabScriptAny:CreateButton({
    Name = "Con sóc và cái lọ",
    Callback = function()
-loadsc("https://pastefy.app/U6g6GPiR", "lo", true)
+loadsc("https://pastefy.app/U6g6GPiR/raw", "lo", true)
    end
 })
 TabScriptAny:CreateButton({
    Name = "ShiftlockMobile",
    Callback = function()
-loadsc("https://pastefy.app/88nd9iSy", "ShiftlockMobile", true)
+loadsc("https://pastefy.app/88nd9iSy/raw", "ShiftlockMobile", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Spin GUI",
+   Callback = function()
+loadsc("https://pastefy.app/QvVfsI02/raw", "spin", true)
    end
 })
 
