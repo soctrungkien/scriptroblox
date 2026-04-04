@@ -469,7 +469,7 @@ TabSet:CreateButton({
    end
 })
 TabSet:CreateButton({
-   Name = "🗑️ Dọn rác infU",
+   Name = "🗑️ Dọn cache infU",
    Callback = function()
 local folder = ""
 
