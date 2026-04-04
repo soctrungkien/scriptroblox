@@ -84,6 +84,7 @@ game:GetService("Players").LocalPlayer.Idled:Connect(function()
         game:GetService("VirtualUser"):ClickButton2(Vector2.new(0, 0))
     end
 end)
+local COREGUI = game:GetService("CoreGui")
 local Window = Rayfield:CreateWindow({
    Name = "「infU」| " .. info.Name,
    Icon = "infinity",
@@ -207,22 +208,42 @@ loadsc("https://raw.githubusercontent.com/Windows81/Personal-Roblox-Client-Scrip
 
 --Setting
 local AntiAFK = TabSet:CreateToggle({
-   Name = "AntiAFK",
+   Name = "🕹️ AntiAFK",
    CurrentValue = false,
    Flag = "AntiAFK",
    Callback = function(Value)
-AntiAFKEnabled = Value
+	AntiAFKEnabled = Value
    end,
 })
 TabSet:CreateButton({
-   Name = "Console",
+   Name = "🎮 Console",
    Callback = function()
-StarterGui:SetCore("DevConsoleVisible", true)
+	StarterGui:SetCore("DevConsoleVisible", true)
    end
 })
 TabSet:CreateButton({
-   Name = "infZoom",
+   Name = "🔎 infZoom",
    Callback = function()
-game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 99999999
+	game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 99999999
+   end
+})
+TabSet:CreateButton({
+   Name = "▶️ Anti Game Pause",
+   Callback = function()
+    pcall(function() networkPaused:Disconnect() end)
+    networkPaused = COREGUI.RobloxGui.ChildAdded:Connect(function(obj)
+        if obj.Name == "CoreScripts/NetworkPause" then
+            obj:Destroy()
+        end
+    end)
+    COREGUI.RobloxGui["CoreScripts/NetworkPause"]:Destroy()
+   end
+})
+TabSet:CreateButton({
+   Name = "🔧 AntiLag",
+   Callback = function()
+	FPSBoost_IYCORE()
+	FPSBoost_ON()
+	ApplyFFlag()
    end
 })
