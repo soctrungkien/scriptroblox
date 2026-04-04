@@ -245,12 +245,6 @@ TabScriptAny:CreateButton({
    end
 })
 TabScriptAny:CreateButton({
-   Name = "[Server Hop] Rise Hub" .. " for " .. info.Name,
-   Callback = function()
-		loadsc("https://rise-evo.xyz/apiv3/ServerFinder.lua", "RiseHop", false)
-   end
-})
-TabScriptAny:CreateButton({
    Name = "[PVP] Hermanos Hub" .. " for " .. info.Name,
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua", "HermanosHub", false)
