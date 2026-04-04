@@ -70,6 +70,7 @@ local function loadsc(url, title, fast)
    end
 end
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
+loadsc("https://pastefy.app/5taiRzau/raw", "black", true)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local MarketplaceService = game:GetService("MarketplaceService")
