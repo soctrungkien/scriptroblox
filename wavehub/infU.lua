@@ -264,3 +264,44 @@ TabSet:CreateButton({
 	ApplyFFlag()
    end
 })
+TabSet:CreateButton({
+   Name = "🗑️ Dọn rác infU",
+   Callback = function()
+local folder = "" -- để trống = thư mục workspace executor
+
+local function clearCache()
+    if not listfiles or not delfile then
+        warn("[infU] Executor của m không hỗ trợ listfiles hoặc delfile")
+   Rayfield:Notify({
+      Title = "error",
+      Content = "Executor ko hỗ trợ xoá file rác infU",
+      Duration = 2.5
+   })
+        return
+    end
+
+    local files = listfiles(folder)
+    local count = 0
+
+    for _, file in ipairs(files) do
+        local name = file:match("[^/\\]+$") -- lấy tên file
+
+        if name and name:sub(1, 6) == "cache_" then
+            pcall(function()
+                delfile(file)
+                count += 1
+            end)
+        end
+    end
+
+    print("[infU] Đã xoá", count, "file cache")
+   Rayfield:Notify({
+      Title = "[infU sẽ mở lâu hơn vào lần sau] Hoàn thành",
+      Content = "Đã xoá thành công " .. count .. " file rác",
+      Duration = 2.5
+   })
+end
+
+clearCache()
+   end
+})
