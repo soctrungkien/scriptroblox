@@ -161,9 +161,15 @@ Rayfield:Notify({
 --Script
 if game.GameId == 994732206 then
 TabScriptAny:CreateButton({
-   Name = "Quantum Onyx" .. " for " .. info.Name,
+   Name = "[Auto Farm] Quantum Onyx" .. " for " .. info.Name,
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua", "QuantumOnyx", false)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "[Server Hop] Rise Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://rise-evo.xyz/apiv3/ServerFinder.lua", "RiseHop", false)
    end
 })
 end
