@@ -88,8 +88,8 @@ local function loadsc(url, title, fast)
 	end
    end
 end
-local function loadImageFromURL(url, filename)
-    local file = filename or ("cache_img_" .. tostring(url) .. ".png")
+local function loadImageFromURL(url)
+    local file = ("cache_img_" .. tostring(url) .. ".png")
 
     if not isfile(file) then
         local success, data = pcall(function()
@@ -115,6 +115,20 @@ local function loadImageFromURL(url, filename)
         warn("[infU] Executor không hỗ trợ asset local ")
         return nil
     end
+end
+local function getAvatar(id)
+    local data = game:HttpGet("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds="
+        .. id .. "&size=420x420&format=Png&isCircular=false")
+
+    local json = HttpService:JSONDecode(data)
+    return json.data[1].imageUrl
+end
+local function getGameIcon(id)
+    local data = game:HttpGet("https://thumbnails.roblox.com/v1/games/icons?universeIds=
+        .. id .. "&size=512x512&format=Png&isCircular=false")
+
+    local json = HttpService:JSONDecode(data)
+    return json.data[1].imageUrl
 end
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
 loadsc("https://pastefy.app/5taiRzau/raw", "black", true)
@@ -174,8 +188,8 @@ end
 end)
 end)
 
-local TabInfo = Window:CreateTab("Thông tin", "info")
-local TabScriptAny = Window:CreateTab("Script", "user")
+local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(game:GetService("Players").LocalPlayer.UserId)))
+local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(game.GameId)))
 local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 
