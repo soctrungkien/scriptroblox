@@ -235,7 +235,7 @@ local AntiAFK = TabSet:CreateToggle({
 TabSet:CreateButton({
    Name = "🎮 Console",
    Callback = function()
-	StarterGui:SetCore("DevConsoleVisible", true)
+	game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
    end
 })
 TabSet:CreateButton({
