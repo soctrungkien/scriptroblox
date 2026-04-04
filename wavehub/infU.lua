@@ -182,7 +182,7 @@ black.Parent = screenGuiblack
 repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
 for _, v in pairs(COREGUI:GetDescendants()) do
     if v.Name == "Rayfield" then
-        v.ZIndex = 999902
+        v.DisplayOrder = 999902
     end
 end
 local MarketplaceService = Services.MarketplaceService
