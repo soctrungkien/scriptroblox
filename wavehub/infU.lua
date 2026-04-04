@@ -351,7 +351,7 @@ local function clearCache()
 
     print("[infU] Đã xoá", count, "file cache")
    Rayfield:Notify({
-      Title = "[infU sẽ mở lâu hơn vào lần sau] Hoàn thành",
+      Title = "[infU] sẽ mở lâu hơn vào lần sau] Hoàn thành",
       Content = "Đã xoá thành công " .. count .. " file rác",
       Duration = 2.5
    })
