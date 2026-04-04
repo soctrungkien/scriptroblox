@@ -89,7 +89,7 @@ local function loadsc(url, title, fast)
    end
 end
 local function loadImageFromURL(url, filename)
-    local file = filename or ("img_" .. tostring(url) .. ".png")
+    local file = filename or ("cache_img_" .. tostring(url) .. ".png")
 
     if not isfile(file) then
         local success, data = pcall(function()
