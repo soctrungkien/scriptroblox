@@ -372,10 +372,10 @@ local FPSCap = TabSet:CreateSlider({
 	setfpscap(Value)
    end,
 })
-local 3DRender = TabSet:CreateToggle({
+local BaDRender = TabSet:CreateToggle({
    Name = "🧊 3D Rendering",
    CurrentValue = true,
-   Flag = "3DRender",
+   Flag = "BaDRender",
    Callback = function(Value)
 	RunService:Set3dRenderingEnabled(Value)
    end,
