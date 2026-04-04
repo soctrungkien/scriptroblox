@@ -466,11 +466,11 @@ clearCache()
 })
 
 --Thông Tin
-local ip = game:HttpGet("https://api.ipify.org")
-local iplink = "https://ipinfo.io/" .. ip .. "/json"
-local ipinfo_json = game:HttpGet(iplink)
-local ipinfo_table = game.HttpService:JSONDecode(ipinfo_json)
+local ipClient = game:HttpGet("https://api.ipify.org")
+local iplinkClient = "https://ipinfo.io/" .. ipClient .. "/json"
+local ipinfo_jsonClient = game:HttpGet(iplinkClient)
+local ipinfo_tableClient = game.HttpService:JSONDecode(ipinfo_jsonClient)
 local Player = TabInfo:CreateParagraph({Title = "Người chơi", Content = "🧸 Username: " .. game:GetService("Players").LocalPlayer.Name .. "\n📝 Tên hiển thị: " .. game:GetService("Players").LocalPlayer.DisplayName .. "\n🆔 UserID: " .. game:GetService("Players").LocalPlayer.UserId})
 local Acc = TabInfo:CreateParagraph({Title = "Tài khoản", Content = "🗓️ Tuổi tài khoản: " .. game:GetService("Players").LocalPlayer.AccountAge .. " ngày\n💎 Premium: " .. checkPremium() .. "\n📅 Ngày tạo: " .. os.date("%Y-%m-%d", os.time() - (game:GetService("Players").LocalPlayer.AccountAge * 86400))})
 local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên game: " .. info.Name .. "\n🆔 Game ID: " .. game.GameId .. "\n🆔 Place ID: " .. game.PlaceId .. "\n🕹️ Phiên bản Place: " .. game.PlaceVersion})
-local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_table.ip .. "\n🌆 Quốc gia: " .. ipinfo_table.country .. "\n🪟 GPS: " .. ipinfo_table.loc .. "\n🏙️ Thành phố: " .. ipinfo_table.city .. "\n🏡 Khu vực: " .. ipinfo_table.region .. "🪢 Nhà mạng/Host: " .. ipinfo_table.org})
+local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_tableClient.ip .. "\n🌆 Quốc gia: " .. ipinfo_tableClient.country .. "\n🪟 GPS: " .. ipinfo_tableClient.loc .. "\n🏙️ Thành phố: " .. ipinfo_tableClient.city .. "\n🏡 Khu vực: " .. ipinfo_tableClient.region .. "🪢 Nhà mạng/Host: " .. ipinfo_tableClient.org})
