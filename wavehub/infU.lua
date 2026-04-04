@@ -311,7 +311,7 @@ TabSet:CreateButton({
     Rayfield:Notify({
       Title = "AntiLag",
       Content = "Đã fixlag thành công",
-      Duration = 2.5
+      Duration = 2.5,
 	  Image = "cog"	
     })
 	print("[infU] Fixlag")
