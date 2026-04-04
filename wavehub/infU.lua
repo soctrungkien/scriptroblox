@@ -48,7 +48,7 @@ local function loadsc(url, title, fast)
 	end)
 
    if ok then
-	print("[infU] Đã tải thành công" .. title)
+	print("[infU] Đã tải thành công " .. title)
 	if Rayfield then
       Rayfield:Notify({
          Title = "Done",
@@ -70,6 +70,7 @@ local function loadsc(url, title, fast)
    end
 end
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
+getgenv().RAYFIELD_ASSET_ID = 10804731440
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local MarketplaceService = game:GetService("MarketplaceService")
 local placeId = game.PlaceId
@@ -230,6 +231,7 @@ local AntiAFK = TabSet:CreateToggle({
    Flag = "AntiAFK",
    Callback = function(Value)
 	AntiAFKEnabled = Value
+	print("[infU] AntiAFK đã đc " .. Value)
    end,
 })
 TabSet:CreateButton({
@@ -242,6 +244,11 @@ TabSet:CreateButton({
    Name = "🔎 infZoom",
    Callback = function()
 	game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 99999999
+   Rayfield:Notify({
+      Title = "infZoom",
+      Content = "Bạn đã có thể zoom vô hạn",
+      Duration = 2.5
+   })
    end
 })
 TabSet:CreateButton({
@@ -254,14 +261,28 @@ TabSet:CreateButton({
         end
     end)
     COREGUI.RobloxGui["CoreScripts/NetworkPause"]:Destroy()
+	Rayfield:Notify({
+      Title = "Đã chặn tạm dừng game",
+      Content = "Ngăn thông báo Game Pause",
+      Duration = 2.5
+    })
+	print("[infU] Anti Game Pause đã bật")
    end
 })
 TabSet:CreateButton({
    Name = "🔧 AntiLag",
    Callback = function()
+	local success, err = pcall(function()
 	FPSBoost_IYCORE()
 	FPSBoost_ON()
 	ApplyFFlag()
+	end)
+    Rayfield:Notify({
+      Title = "AntiLag",
+      Content = "Đã fixlag thành công",
+      Duration = 2.5
+    })
+	print("[infU] Fixlag")
    end
 })
 TabSet:CreateButton({
