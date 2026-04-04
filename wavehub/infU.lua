@@ -1,4 +1,6 @@
 repeat wait() until game:IsLoaded()
+getgenv().RAYFIELD_ASSET_ID = 10804731440
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local function loadsc(url, title, fast)
    local fileName = "cache_" .. tostring(title):gsub("%W+", "") .. ".txt"
 	print("[infU] Đang tải " .. title)
@@ -82,8 +84,6 @@ local function loadsc(url, title, fast)
 end
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
 loadsc("https://pastefy.app/5taiRzau/raw", "black", true)
-getgenv().RAYFIELD_ASSET_ID = 10804731440
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local MarketplaceService = game:GetService("MarketplaceService")
 local placeId = game.PlaceId
 local success, info = pcall(function()
@@ -308,8 +308,6 @@ TabSet:CreateButton({
          FPSBoost_ON()
          ApplyFFlag()
       end)
-
-      
          if Rayfield then
             Rayfield:Notify({
                Title = "AntiLag",
@@ -319,15 +317,12 @@ TabSet:CreateButton({
             })
          end
          print("[infU] Fixlag OK")
-      
-         
-      
    end
 })
 TabSet:CreateButton({
    Name = "🗑️ Dọn rác infU",
    Callback = function()
-local folder = "" -- để trống = thư mục workspace executor
+local folder = ""
 
 local function clearCache()
     if not listfiles or not delfile then
@@ -344,7 +339,7 @@ local function clearCache()
     local count = 0
 
     for _, file in ipairs(files) do
-        local name = file:match("[^/\\]+$") -- lấy tên file
+        local name = file:match("[^/\\]+$")
 
         if name and name:sub(1, 6) == "cache_" then
             pcall(function()
