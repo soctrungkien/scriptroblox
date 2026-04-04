@@ -100,7 +100,7 @@ local COREGUI = game:GetService("CoreGui")
 local Window = Rayfield:CreateWindow({
    Name = "「infU」| " .. info.Name,
    Icon = "infinity",
-   LoadingTitle = "「゘」Đang mở Menu infU...",
+   LoadingTitle = "「\u{E002}」Đang mở Menu infU...",
    LoadingSubtitle = "Đang tải dữ liệu...",
    ToggleUIKeybind = "G",
    DisableRayfieldPrompts = true,
@@ -264,7 +264,7 @@ TabSet:CreateButton({
    Rayfield:Notify({
       Title = "infZoom",
       Content = "JustInfZoom",
-      Duration = 2.5
+      Duration = 2.5,
 	  Image = "zoom-in"
    })
    end
@@ -282,7 +282,8 @@ TabSet:CreateButton({
 	Rayfield:Notify({
       Title = "Đã chặn tạm dừng game",
       Content = "Ngăn thông báo Game Pause",
-      Duration = 2.5
+      Duration = 2.5,
+	  Image = "play"
     })
 	print("[infU] Anti Game Pause")
    end
@@ -299,6 +300,7 @@ TabSet:CreateButton({
       Title = "AntiLag",
       Content = "Đã fixlag thành công",
       Duration = 2.5
+	  Image = "cog"	
     })
 	print("[infU] Fixlag")
    end
