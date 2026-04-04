@@ -35,29 +35,41 @@ local function loadsc(url, title, fast)
 	end
 
 	local ok, err = pcall(function()
-	   if isfile(fileName) then
-	      local localData = readfile(fileName)
+	if isfile(fileName) then
+	   local localData = readfile(fileName)
 	
-	      if fast then
-	         task.spawn(function()
-	            run(localData)
-	         end)
+	   if fast then
+	      task.spawn(function()
+	         run(localData)
+	      end)
 	
-	         task.spawn(function()
-	            local onlineData = getOnline()
-	            if onlineData and onlineData ~= localData then
-	               writefile(fileName, onlineData)
-	            end
-	         end)
-	      else
+	      task.spawn(function()
 	         local onlineData = getOnline()
-	         run(onlineData)
-	      end
-	
+	         if onlineData and onlineData ~= localData then
+	            writefile(fileName, onlineData)
+	         end
+	      end)
 	   else
-	      local data = getOnline()
-	      run(data)
+	      local onlineData = getOnline()
+	      run(onlineData)
+
+		   if fast then
+		      pcall(function()
+		         writefile(fileName, data)
+		      end)
+		   end
 	   end
+	
+	else
+	   local data = getOnline()
+	   run(data)
+	
+	   if fast then
+	      pcall(function()
+	         writefile(fileName, data)
+	      end)
+	   end
+	end
 	end)
 
    if ok then
