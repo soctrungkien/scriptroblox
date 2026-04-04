@@ -89,7 +89,7 @@ local function loadsc(url, title, fast)
    end
 end
 local function loadImageFromURL(url)
-    local file = ("cache_img_" .. tostring(url) .. ".png"):gsub("[^%w_]+", "")
+    local file = ("cache_img_" .. tostring(url):gsub("[^%w_]+", "") .. ".png")
 
     if not isfile(file) then
         local success, data = pcall(function()
