@@ -184,7 +184,7 @@ loadsc("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes
 TabScriptAny:CreateButton({
    Name = "FPS/PING Popup",
    Callback = function()
-loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua", "fpsping", false)
+loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua", "fpsping", true)
    end
 })
 TabScriptAny:CreateButton({
@@ -223,6 +223,12 @@ TabScriptAny:CreateButton({
 loadsc("https://pastefy.app/QvVfsI02/raw", "spin", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "PShade",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/randomstring0/pshade-ultimate/refs/heads/main/src/back.json", "pshade", true)
+   end
+})
 
 --Setting
 local AntiAFK = TabSet:CreateToggle({
@@ -231,7 +237,6 @@ local AntiAFK = TabSet:CreateToggle({
    Flag = "AntiAFK",
    Callback = function(Value)
 	AntiAFKEnabled = Value
-	print("[infU] AntiAFK đã đc " .. Value)
    end,
 })
 TabSet:CreateButton({
@@ -246,8 +251,9 @@ TabSet:CreateButton({
 	game:GetService("Players").LocalPlayer.CameraMaxZoomDistance = 99999999
    Rayfield:Notify({
       Title = "infZoom",
-      Content = "Bạn đã có thể zoom vô hạn",
+      Content = "JustInfZoom",
       Duration = 2.5
+	  Image = "zoom-in"
    })
    end
 })
@@ -266,7 +272,7 @@ TabSet:CreateButton({
       Content = "Ngăn thông báo Game Pause",
       Duration = 2.5
     })
-	print("[infU] Anti Game Pause đã bật")
+	print("[infU] Anti Game Pause")
    end
 })
 TabSet:CreateButton({
