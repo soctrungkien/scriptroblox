@@ -153,6 +153,8 @@ local function checkPremium()
 end
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
 loadsc("https://pastefy.app/5taiRzau/raw", "black", true)
+local black = game.CoreGui:FindFirstChild("BlackoutOverlay")
+    and game.CoreGui.BlackoutOverlay:FindFirstChildOfClass("Frame")
 local MarketplaceService = game:GetService("MarketplaceService")
 local placeId = game.PlaceId
 local success, info = pcall(function()
@@ -361,7 +363,7 @@ loadsc("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main
 
 --Setting
 local FPSCap = TabSet:CreateSlider({
-   Name = "🖥️ FPSCap",
+   Name = "🖥️ Giới hạn FPS",
    Range = {10, 240},
    Increment = 1,
    CurrentValue = 240,
@@ -386,8 +388,16 @@ local AntiAFK = TabSet:CreateToggle({
 	AntiAFKEnabled = Value
    end,
 })
+local BlackToggle = TabSet:CreateToggle({
+   Name = "⚫ Màn hình đen",
+   CurrentValue = false,
+   Flag = "BlackToggle",
+   Callback = function(Value)
+	black.BackgroundTransparency = Value and 0 or 1
+   end,
+})
 TabSet:CreateButton({
-   Name = "🎮 Console",
+   Name = "🎮 Nhật kí script",
    Callback = function()
 	game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
    end
