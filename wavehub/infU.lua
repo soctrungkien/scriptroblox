@@ -177,12 +177,12 @@ black.Size = UDim2.new(100, 0, 100, 0)
 black.Position = UDim2.new(0, 0, 0, 0)
 black.BackgroundColor3 = Color3.new(0, 0, 0)
 black.BackgroundTransparency = 1
-black.ZIndex = 999901
+black.ZIndex = 999999
 black.Parent = screenGuiblack
 repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
 for _, v in pairs(COREGUI:GetDescendants()) do
     if v.Name == "Rayfield" then
-        v.DisplayOrder = 999902
+        v.DisplayOrder = 99999999
     end
 end
 local MarketplaceService = Services.MarketplaceService
