@@ -331,6 +331,12 @@ TabScriptAny:CreateButton({
 loadsc("https://pastefy.app/HZNALPbO/raw", "anilog", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "VirtualKeyboard",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main/VirtualKeyboard.lua", "VirtualKeyboard", true)
+   end
+})
 
 --Setting
 local AntiAFK = TabSet:CreateToggle({
