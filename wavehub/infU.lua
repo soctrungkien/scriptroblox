@@ -21,32 +21,32 @@ local function loadsc(url, title, fast)
       return game:HttpGet(url)
    end
 
-   local ok, err = pcall(function()
-      if isfile(fileName) then
-         local localData = readfile(fileName)
-
-         if fast then
-            task.spawn(function()
-               run(localData)
-            end)
-
-            task.spawn(function()
-               local onlineData = getOnline()
-               if onlineData and onlineData ~= localData then
-                  writefile(fileName, onlineData)
-               end
-            end)
-         else
-            local onlineData = getOnline()
-            run(onlineData)
-            end
-         end
-      else
-         local data = getOnline()
-         writefile(fileName, data)
-         run(data)
-      end
-   end)
+	local ok, err = pcall(function()
+	   if isfile(fileName) then
+	      local localData = readfile(fileName)
+	
+	      if fast then
+	         task.spawn(function()
+	            run(localData)
+	         end)
+	
+	         task.spawn(function()
+	            local onlineData = getOnline()
+	            if onlineData and onlineData ~= localData then
+	               writefile(fileName, onlineData)
+	            end
+	         end)
+	      else
+	         local onlineData = getOnline()
+	         run(onlineData)
+	      end
+	
+	   else
+	      local data = getOnline()
+	      writefile(fileName, data)
+	      run(data)
+	   end
+	end)
 
    if ok then
 	print("[infU] Đã tải thành công" .. title)
