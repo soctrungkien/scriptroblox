@@ -43,7 +43,6 @@ local function loadsc(url, title, fast)
 	
 	   else
 	      local data = getOnline()
-	      writefile(fileName, data)
 	      run(data)
 	   end
 	end)
@@ -71,7 +70,7 @@ local function loadsc(url, title, fast)
    end
 end
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
-local Rayfield = loadsc("https://sirius.menu/rayfield", "Rayfield", true)
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local MarketplaceService = game:GetService("MarketplaceService")
 local placeId = game.PlaceId
 local success, info = pcall(function()
