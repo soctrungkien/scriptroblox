@@ -259,6 +259,12 @@ TabScriptAny:CreateButton({
 loadsc("https://raw.githubusercontent.com/InfernusScripts/Ketamine/refs/heads/main/Ketamine.lua", "ketamine", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "K1LAS1K-UltimateFlingGUI",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/K1LAS1K/Ultimate-Fling-GUI/main/flingscript.lua", "K1LAS1K-UltimateFlingGUI", true)
+   end
+})
 
 --Setting
 local AntiAFK = TabSet:CreateToggle({
