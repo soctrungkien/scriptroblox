@@ -2,7 +2,7 @@ repeat wait() until game:IsLoaded()
 getgenv().RAYFIELD_ASSET_ID = 10804731440
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local function loadsc(url, title, fast)
-   local fileName = "cache_" .. tostring(title):gsub("%W+", "") .. ".txt"
+   local fileName = "cache_" .. tostring(title):gsub("[^%w_]+", "") .. ".txt"
 	print("[infU] Đang tải " .. title)
 	if Rayfield then
    Rayfield:Notify({
@@ -89,7 +89,7 @@ local function loadsc(url, title, fast)
    end
 end
 local function loadImageFromURL(url)
-    local file = ("cache_img_" .. tostring(url) .. ".png")
+    local file = ("cache_img_" .. tostring(url) .. ".png"):gsub("[^%w_]+", "")
 
     if not isfile(file) then
         local success, data = pcall(function()
@@ -120,15 +120,35 @@ local function getAvatar(id)
     local data = game:HttpGet("https://thumbnails.roblox.com/v1/users/avatar-headshot?userIds="
         .. id .. "&size=420x420&format=Png&isCircular=false")
 
-    local json = HttpService:JSONDecode(data)
+    local json = game:GetService("HttpService"):JSONDecode(data)
+	print("[infU] " .. data)
     return json.data[1].imageUrl
 end
 local function getGameIcon(id)
-    local data = game:HttpGet("https://thumbnails.roblox.com/v1/games/icons?universeIds=
+    local data = game:HttpGet("https://thumbnails.roblox.com/v1/games/icons?universeIds="
         .. id .. "&size=512x512&format=Png&isCircular=false")
 
-    local json = HttpService:JSONDecode(data)
+    local json = game:GetService("HttpService"):JSONDecode(data)
+	print("[infU] " .. data)
     return json.data[1].imageUrl
+end
+local function checkPremium()
+    local premium = "false"
+    local success, response =
+        pcall(function()
+            return game:GetService("Players").LocalPlayer.MembershipType
+        end)
+
+    if success then
+        if response == Enum.MembershipType.None then
+            premium = "false"
+        else
+            premium = "true"
+        end
+    else
+        premium = "Không thể lấy trạng thái Membership"
+    end
+    return premium
 end
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
 loadsc("https://pastefy.app/5taiRzau/raw", "black", true)
@@ -444,3 +464,13 @@ end
 clearCache()
    end
 })
+
+--Thông Tin
+local ip = game:HttpGet("https://api.ipify.org")
+local iplink = "https://ipinfo.io/" .. ip .. "/json"
+local ipinfo_json = game:HttpGet(iplink)
+local ipinfo_table = game.HttpService:JSONDecode(ipinfo_json)
+local Player = TabInfo:CreateParagraph({Title = "Người chơi", Content = "🧸 Username: " .. game:GetService("Players").LocalPlayer.Name .. "\n📝 Tên hiển thị: " .. game:GetService("Players").LocalPlayer.DisplayName .. "\n🆔 UserID: " .. game:GetService("Players").LocalPlayer.UserId})
+local Acc = TabInfo:CreateParagraph({Title = "Tài khoản", Content = "🗓️ Tuổi tài khoản: " .. game:GetService("Players").LocalPlayer.AccountAge .. " ngày\n💎 Premium: " .. checkPremium() .. "\n📅 Ngày tạo: " .. os.date("%Y-%m-%d", os.time() - (game:GetService("Players").LocalPlayer.AccountAge * 86400))})
+local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên game: " .. info.Name .. "\n🆔 Game ID: " .. game.GameId .. "\n🆔 Place ID: " .. game.PlaceId .. "\n🕹️ Phiên bản Place: " .. game.PlaceVersion})
+local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_table.ip .. "\n🌆 Quốc gia: " .. ipinfo_table.country .. "\n🪟 GPS: " .. ipinfo_table.loc .. "\n🏙️ Thành phố: " .. ipinfo_table.city .. "\n🏡 Khu vực: " .. ipinfo_table.region .. "🪢 Nhà mạng/Host: " .. ipinfo_table.org})
