@@ -303,18 +303,33 @@ TabSet:CreateButton({
 TabSet:CreateButton({
    Name = "🔧 AntiLag",
    Callback = function()
-	local success, err = pcall(function()
-	FPSBoost_IYCORE()
-	FPSBoost_ON()
-	ApplyFFlag()
-	end)
-    Rayfield:Notify({
-      Title = "AntiLag",
-      Content = "Đã fixlag thành công",
-      Duration = 2.5,
-	  Image = "cog"	
-    })
-	print("[infU] Fixlag")
+      local success, err = pcall(function()
+         FPSBoost_IYCORE()
+         FPSBoost_ON()
+         ApplyFFlag()
+      end)
+
+      if success then
+         if Rayfield then
+            Rayfield:Notify({
+               Title = "AntiLag",
+               Content = "Đã fixlag thành công",
+               Duration = 2.5,
+               Image = "cog"
+            })
+         end
+         print("[infU] Fixlag OK")
+      else
+         if Rayfield then
+            Rayfield:Notify({
+               Title = "AntiLag",
+               Content = "Fixlag thất bại",
+               Duration = 3,
+               Image = "x"
+            })
+         end
+         warn("[infU] Lỗi: " .. tostring(err))
+      end
    end
 })
 TabSet:CreateButton({
