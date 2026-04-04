@@ -184,7 +184,7 @@ loadsc("https://raw.githubusercontent.com/7yd7/Hub/refs/heads/Branch/GUIS/Emotes
 TabScriptAny:CreateButton({
    Name = "FPS/PING Popup",
    Callback = function()
-loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua", "fpsping" false)
+loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/Ping_FPS.lua", "fpsping", false)
    end
 })
 TabScriptAny:CreateButton({
