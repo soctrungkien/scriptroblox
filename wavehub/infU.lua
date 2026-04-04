@@ -1,4 +1,5 @@
 repeat wait() until game:IsLoaded()
+setfpscap(240)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 local function loadsc(url, title, fast)
@@ -359,6 +360,24 @@ loadsc("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main
 })
 
 --Setting
+local FPSCap = TabSet:CreateSlider({
+   Name = "🖥️ FPSCap",
+   Range = {10, 240},
+   Increment = 1,
+   CurrentValue = 240,
+   Flag = "FPSCap",
+   Callback = function(Value)
+	setfpscap(Value)
+   end,
+})
+local 3DRender = TabSet:CreateToggle({
+   Name = "🧊 3D Rendering",
+   CurrentValue = true,
+   Flag = "3DRender",
+   Callback = function(Value)
+	RunService:Set3dRenderingEnabled(Value)
+   end,
+})
 local AntiAFK = TabSet:CreateToggle({
    Name = "🕹️ AntiAFK",
    CurrentValue = false,
