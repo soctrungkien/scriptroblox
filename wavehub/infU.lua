@@ -164,10 +164,22 @@ Services = setmetatable({}, {
 		end
 	end
 })
-loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
-loadsc("https://pastefy.app/5taiRzau/raw", "black", true)
-local black = game.CoreGui:FindFirstChild("BlackoutOverlay")
-    and game.CoreGui.BlackoutOverlay:FindFirstChildOfClass("Frame")
+loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
+local COREGUI = Services.CoreGui
+local screenGuiblack = Instance.new("ScreenGui")
+screenGuiblack.Name = "BlackoutOverlay"
+screenGuiblack.ResetOnSpawn = false
+screenGuiblack.IgnoreGuiInset = true
+screenGuiblack.DisplayOrder = 999999
+screenGuiblack.Parent = COREGUI
+
+local black = Instance.new("Frame")
+black.Size = UDim2.new(100, 0, 100, 0)
+black.Position = UDim2.new(0, 0, 0, 0)
+black.BackgroundColor3 = Color3.new(0, 0, 0)
+black.BackgroundTransparency = 1
+black.ZIndex = 999999
+black.Parent = screenGui
 local MarketplaceService = Services.MarketplaceService
 local placeId = game.PlaceId
 local success, info = pcall(function()
@@ -180,7 +192,6 @@ Services.Players.LocalPlayer.Idled:Connect(function()
         Services.VirtualUser:ClickButton2(Vector2.new(0, 0))
     end
 end)
-local COREGUI = Services.CoreGui
 local Window = Rayfield:CreateWindow({
    Name = "「infU」| " .. info.Name,
    Icon = "infinity",
