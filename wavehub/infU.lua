@@ -172,14 +172,20 @@ screenGuiblack.ResetOnSpawn = false
 screenGuiblack.IgnoreGuiInset = true
 screenGuiblack.DisplayOrder = 999999
 screenGuiblack.Parent = COREGUI
-
 local black = Instance.new("Frame")
 black.Size = UDim2.new(100, 0, 100, 0)
 black.Position = UDim2.new(0, 0, 0, 0)
 black.BackgroundColor3 = Color3.new(0, 0, 0)
 black.BackgroundTransparency = 1
-black.ZIndex = 999999
-black.Parent = screenGui
+black.ZIndex = 999901
+black.Parent = screenGuiblack
+repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
+fps = math.floor(1 / dt)
+for _, v in pairs(COREGUI:GetDescendants()) do
+    if v.Name == "Rayfield" then
+        v.ZIndex = 999902
+    end
+end
 local MarketplaceService = Services.MarketplaceService
 local placeId = game.PlaceId
 local success, info = pcall(function()
@@ -224,10 +230,10 @@ local function getPing()
 	end
 	return 0
 end
-repeat wait() until Services.CoreGui:FindFirstChildWhichIsA("ScreenGui")
+repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
 Services.RunService.RenderStepped:Connect(function(dt)
 fps = math.floor(1 / dt)
-for _, v in pairs(Services.CoreGui:GetDescendants()) do
+for _, v in pairs(COREGUI:GetDescendants()) do
     if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
         v.Prompt.Title.Text = string.format("%d ms | %d", getPing(), fps)
     end
@@ -390,14 +396,6 @@ local FPSCap = TabSet:CreateSlider({
 	setfpscap(Value)
    end,
 })
-local BaDRender = TabSet:CreateToggle({
-   Name = "🧊 3D Rendering",
-   CurrentValue = true,
-   Flag = "BaDRender",
-   Callback = function(Value)
-	Services.RunService:Set3dRenderingEnabled(Value)
-   end,
-})
 local AntiAFK = TabSet:CreateToggle({
    Name = "🕹️ AntiAFK",
    CurrentValue = false,
@@ -412,6 +410,7 @@ local BlackToggle = TabSet:CreateToggle({
    Flag = "BlackToggle",
    Callback = function(Value)
 	black.BackgroundTransparency = Value and 0 or 1
+	Services.RunService:Set3dRenderingEnabled(not Value)
    end,
 })
 TabSet:CreateButton({
