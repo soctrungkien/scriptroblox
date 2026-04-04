@@ -160,7 +160,7 @@ Services = setmetatable({}, {
 			rawset(self, name, cache)
 			return cache
 		else
-			error("Invalid Service: " .. tostring(name))
+			error("[infU] Invalid Service: " .. tostring(name))
 		end
 	end
 })
