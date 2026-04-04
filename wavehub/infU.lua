@@ -88,6 +88,34 @@ local function loadsc(url, title, fast)
 	end
    end
 end
+local function loadImageFromURL(url, filename)
+    local file = filename or ("img_" .. tostring(url) .. ".png")
+
+    if not isfile(file) then
+        local success, data = pcall(function()
+            return game:HttpGet(url)
+        end)
+
+        if success and data then
+            writefile(file, data)
+            print("[infU] [OK] Đã tải: ", file)
+        else
+            warn("[infU] [FAIL] Không tải được: ", url)
+            return nil
+        end
+    else
+        print("[infU] [CACHE] Đã có sẵn: ", file)
+    end
+
+    if getcustomasset then
+        return getcustomasset(file)
+    elseif getsynasset then
+        return getsynasset(file)
+    else
+        warn("[infU] Executor không hỗ trợ asset local ")
+        return nil
+    end
+end
 loadsc("https://pastefy.app/bIsOY8bK/raw", "fixlag", true)
 loadsc("https://pastefy.app/5taiRzau/raw", "black", true)
 local MarketplaceService = game:GetService("MarketplaceService")
@@ -146,10 +174,10 @@ end
 end)
 end)
 
-local TabScriptAny = Window:CreateTab("Chung", "user")
+local TabInfo = Window:CreateTab("Thông tin", "info")
+local TabScriptAny = Window:CreateTab("Script", "user")
 local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
-local TabInfo = Window:CreateTab("Thông tin", "info")
 
 Rayfield:Notify({
    Title = "infU",
@@ -281,6 +309,12 @@ TabScriptAny:CreateButton({
    Name = "K1LAS1K-UltimateFlingGUI",
    Callback = function()
 loadsc("https://raw.githubusercontent.com/K1LAS1K/Ultimate-Fling-GUI/main/flingscript.lua", "K1LAS1K-UltimateFlingGUI", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Animation logger",
+   Callback = function()
+loadsc("https://pastefy.app/HZNALPbO/raw", "anilog", true)
    end
 })
 
