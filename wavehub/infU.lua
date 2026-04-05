@@ -58,7 +58,7 @@ function xor(data, key)
     return table.concat(result)
 end
 local function loadsc(url, title, fast)
-   local fileName = "cache_" .. b64_encode(tostring(title):gsub("[^%w_]+", "")) .. ".txt"
+   local fileName = "cache_" .. b64_encode(xor(tostring(title):gsub("[^%w_]+", ""), url)) .. ".txt"
 	print("[infU] Đang tải " .. title)
 	if Rayfield then
    Rayfield:Notify({
@@ -96,11 +96,11 @@ local function loadsc(url, title, fast)
 		
 		   if fast then
 		      task.spawn(function()
-		         run(localData)
+		         run(xor(b64_decode(localData), url))
 		      end)
 		
 		      task.spawn(function()
-		         local onlineData = getOnline()
+		         local onlineData = b64_encode(xor(getOnline(), url))
 		         if onlineData and onlineData ~= localData then
 		            writefile(fileName, onlineData)
 		         end
@@ -116,7 +116,7 @@ local function loadsc(url, title, fast)
 		
 		   if fast then
 		      pcall(function()
-		         writefile(fileName, data)
+		         writefile(fileName, b64_encode(xor(data, url)))
 		      end)
 		   end
 		end
@@ -145,7 +145,7 @@ local function loadsc(url, title, fast)
    end
 end
 local function loadImageFromURL(url)
-    local file = ("cache_img_" .. tostring(url):gsub("[^%w_]+", "") .. ".png")
+    local file = ("cache_img_" .. b64_encode(xor(tostring(url):gsub("[^%w_]+", ""), S0VZX2t1NWktbGYwNC00Y291)) .. ".png")
 
     if not isfile(file) then
         local success, data = pcall(function()
@@ -235,20 +235,27 @@ Services = setmetatable({}, {
 (getgenv or getrenv)().loadername = "infU"
 getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
-AntiKickScriptCore = hookmetamethod(game, "__namecall", function(self, ...)
-        if self == Services.Players.LocalPlayer and getnamecallmethod():lower() == "kick" and getgenv().AntiKickScriptCore then
-            return warn("[infU] [ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
-        end
-        return AntiKickScriptCore(self, ...)
-end)
 getgenv().AntiTeleportScriptCore = true
+TeleportService = Services.TeleportService
 local TeleportService = TeleportService
 local AntiKickTeleportCore
-AntiKickTeleportCore = hookmetamethod(game, "__namecall", function(self, ...)
-        if self == TeleportService and getnamecallmethod():lower() == "teleport" or getnamecallmethod() == "TeleportToPlaceInstance" and getgenv().AntiTeleportScriptCore then
-            return warn("[infU] [ANTI-TELEPORT] Nah")
-        end
-        return AntiKickTeleportCore(self, ...)
+local old
+old = hookmetamethod(game, "__namecall", function(self, ...)
+    local method = getnamecallmethod()
+
+    if self == Services.Players.LocalPlayer 
+    and method:lower() == "kick" 
+    and getgenv().AntiKickScriptCore then
+        return warn("[infU] [ANTI-KICK]")
+    end
+
+    if self == Services.TeleportService 
+    and (method:lower() == "teleport" or method == "TeleportToPlaceInstance")
+    and getgenv().AntiTeleportScriptCore then
+        return warn("[infU] [ANTI-TELEPORT]")
+    end
+
+    return old(self, ...)
 end)
 loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 local COREGUI = Services.CoreGui
