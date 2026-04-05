@@ -1,9 +1,64 @@
+print("[infU] Loading")
+
 repeat wait() until game:IsLoaded()
 setfpscap(240)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+function b64_encode(data)
+    local encoded = ((data:gsub('.', function(x)
+        local r, bits = '', x:byte()
+        for i = 8, 1, -1 do
+            r = r .. (bits % 2^i - bits % 2^(i-1) > 0 and '1' or '0')
+        end
+        return r
+    end)..'0000'):gsub('%d%d%d?%d?%d?%d?', function(x)
+        if #x < 6 then return '' end
+        local c = 0
+        for i = 1, 6 do
+            c = c + (x:sub(i,i) == '1' and 2^(6-i) or 0)
+        end
+        return b:sub(c+1, c+1)
+    end)..({ '', '==', '=' })[#data%3+1])
+
+    return encoded:gsub("=", "")
+end
+
+function b64_decode(data)
+    local pad = #data % 4
+    if pad > 0 then
+        data = data .. string.rep("=", 4 - pad)
+    end
+
+    data = data:gsub('[^'..b..'=]', '')
+
+    return (data:gsub('.', function(x)
+        if x == '=' then return '' end
+        local r, f = '', (b:find(x) - 1)
+        for i = 6, 1, -1 do
+            r = r .. (f % 2^i - f % 2^(i-1) > 0 and '1' or '0')
+        end
+        return r
+    end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x)
+        if #x ~= 8 then return '' end
+        local c = 0
+        for i = 1, 8 do
+            c = c + (x:sub(i,i) == '1' and 2^(8-i) or 0)
+        end
+        return string.char(c)
+    end))
+end
+function xor(data, key)
+    local result = {}
+    for i = 1, #data do
+        local k = key:byte((i - 1) % #key + 1)
+        local d = data:byte(i)
+        result[i] = string.char(bit32.bxor(d, k))
+    end
+    return table.concat(result)
+end
 local function loadsc(url, title, fast)
-   local fileName = "cache_" .. tostring(title):gsub("[^%w_]+", "") .. ".txt"
+   local fileName = "cache_" .. b64_encode(tostring(title):gsub("[^%w_]+", "")) .. ".txt"
 	print("[infU] Đang tải " .. title)
 	if Rayfield then
    Rayfield:Notify({
@@ -492,7 +547,7 @@ TabSet:CreateButton({
                Title = "Fixlag",
                Content = "Đã fixlag thành công",
                Duration = 2.5,
-               Image = "cog"
+               Image = loadImageFromURL("https://ibb.co/nNFHLDwT")
             })
          end
          print("[infU] Fixlag OK")
