@@ -664,6 +664,7 @@ clearCache()
 })
 
 --Thông Tin
+task.spawn(function()
 local ipinfo_tableClient = {
     ip = "N/A",
     country = "N/A",
@@ -693,7 +694,8 @@ TabInfo:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đã copy thành công",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "clipboard"
 	   })
    end
 })
@@ -704,7 +706,8 @@ TabInfo:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đã copy thành công",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "clipboard"
 	   })
    end
 })
@@ -715,7 +718,8 @@ TabInfo:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đã copy thành công",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "clipboard"
 	   })
    end
 })
@@ -726,7 +730,8 @@ TabInfo:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đã copy thành công",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "clipboard"
 	   })
    end
 })
@@ -737,7 +742,8 @@ TabInfo:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đã copy thành công",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "clipboard"
 	   })
    end
 })
@@ -748,7 +754,8 @@ TabInfo:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đã copy thành công",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "clipboard"
 	   })
    end
 })
@@ -763,6 +770,7 @@ position =
     Services.Players.LocalPlayer.Character.HumanoidRootPart.Position or "Không rõ"
 live:Set({Title = "Thông tin khác", Content = "❤️ Máu: " .. health .. "/" .. maxHealth .. "\n👥 Người chơi: " .. #Services.Players:GetPlayers() .. " / " .. Services.Players.MaxPlayers .. "\n🕒 Giờ server: " .. os.date("%H:%M:%S") .. "\n📺 Độ phân giải: " .. math.floor(workspace.CurrentCamera.ViewportSize.X) .. "x" .. math.floor(workspace.CurrentCamera.ViewportSize.Y) .. "\n🔍 RAM sử dụng: " .. Services.Stats:GetTotalMemoryUsageMb() .. "\n📍Vị trí nhân vật" .. tostring(position)})
 task.wait(0.1)
+end)
 end)
 end)
 
