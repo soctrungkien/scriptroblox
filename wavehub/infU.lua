@@ -362,6 +362,7 @@ for _, v in pairs(COREGUI:GetDescendants()) do
 end
 end
 end)
+end)
 
 local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(Services.Players.LocalPlayer.UserId)))
 local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(game.GameId)))
