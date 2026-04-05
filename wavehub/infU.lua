@@ -149,7 +149,7 @@ local function loadsc(url, title, fast)
    end
 end
 local function loadImageFromURL(url)
-    local file = ("cache_img_" .. b64_encode(xor(tostring(url):gsub("[^%w_]+", ""), S0VZX2t1NWktbGYwNC00Y291)) .. ".png")
+    local file = ("cache_img_" .. b64_encode(xor(tostring(url):gsub("[^%w_]+", ""), "S0VZX2t1NWktbGYwNC00Y291")) .. ".png")
 
     if not isfile(file) then
         local success, data = pcall(function()
