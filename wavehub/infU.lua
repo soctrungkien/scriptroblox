@@ -147,7 +147,7 @@ local function getGameIcon(id)
     return json.data[1].imageUrl
 end
 local function checkPremium()
-    local premium = "false"
+    local premium = "Không rõ"
     local success, response =
         pcall(function()
             return game:GetService("Players").LocalPlayer.MembershipType
@@ -155,9 +155,9 @@ local function checkPremium()
 
     if success then
         if response == Enum.MembershipType.None then
-            premium = "false"
+            premium = "Không"
         else
-            premium = "true"
+            premium = "Có"
         end
     else
         premium = "Không thể lấy trạng thái Membership"
