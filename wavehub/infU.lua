@@ -248,10 +248,8 @@ getgenv().loadername = ""
 getrenv().loadername = ""
 getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
-getgenv().AntiTeleportScriptCore = true
 TeleportService = Services.TeleportService
 local TeleportService = TeleportService
-local AntiKickTeleportCore
 local Players = Services.Players
 local LocalPlayer = Players.LocalPlayer
 local old
@@ -263,16 +261,6 @@ old = hookmetamethod(game, "__namecall", function(self, ...)
 			print("\n[infU] ===== KICK DETECTED =====")
 	        print("[infU] Target:", self)
             return warn("[infU] [ANTI-KICK]")
-        end
-    end
-
-    if getgenv().AntiTeleportScriptCore and self == TeleportService then
-        if method == "Teleport"
-        or method == "TeleportToPlaceInstance"
-        or method == "TeleportAsync" then
-			print("\n[infU] ===== TELEPORT DETECTED =====")
-            print("[infU] Method:", method)
-            return warn("[infU] [ANTI-TELEPORT]")
         end
     end
 
@@ -324,6 +312,7 @@ local Window = Rayfield:CreateWindow({
    }
 })
 
+local updatefpspingtime = 100
 task.spawn(function()
 local Stats = Services.Stats
 local fps = 0
@@ -343,16 +332,15 @@ local function getPing()
 	end
 	return 0
 end
-local updatefpspingtime = 100
 local lastUpdate = tick()
 repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
 Services.RunService.RenderStepped:Connect(function(dt)
 fps = math.floor(1 / dt)
-if tick() - lastUpdate >= updatefpspingtime / 100 then
+if tick() - lastUpdate >= updatefpspingtime / 1000 then
 lastUpdate = tick()
 for _, v in pairs(COREGUI:GetDescendants()) do
     if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
-        v.Prompt.Title.Text = string.format("%d ms | %d", getPing(), fps)
+        v.Prompt.Title.Text = string.format("%d ms | %d FPS", getPing(), fps)
     end
 end
 end
@@ -539,14 +527,6 @@ local AntiKickClient = TabSet:CreateToggle({
 	getgenv().AntiKickScriptCore = Value
    end,
 })
-local AntiTeleport = TabSet:CreateToggle({
-   Name = "🚧 Chặn script khác chuyển game, server",
-   CurrentValue = false,
-   Flag = "AntiTeleport",
-   Callback = function(Value)
-	getgenv().AntiTeleportScriptCore = Value
-   end,
-})
 local BlackToggle = TabSet:CreateToggle({
    Name = "⚫ Màn hình đen",
    CurrentValue = false,
@@ -561,6 +541,7 @@ local AntiGamePause = TabSet:CreateToggle({
    CurrentValue = false,
    Flag = "AntiGamePause",
    Callback = function(Value)
+	pcall(function()
 	if Value then
 	    pcall(function() networkPaused:Disconnect() end)
 	    networkPaused = COREGUI.RobloxGui.ChildAdded:Connect(function(obj)
@@ -572,6 +553,7 @@ local AntiGamePause = TabSet:CreateToggle({
 	else
 	    networkPaused:Disconnect()
    	end
+	end)
    end,
 })
 TabSet:CreateButton({
@@ -595,7 +577,7 @@ TabSet:CreateButton({
 TabSet:CreateButton({
    Name = "🔧 Fixlag",
    Callback = function()
-      local success, err = pcall(function()
+      pcall(function()
          FPSBoost_IYCORE()
          FPSBoost_ON()
          ApplyFFlag()
