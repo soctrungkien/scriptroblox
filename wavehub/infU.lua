@@ -781,7 +781,8 @@ TabServer:CreateButton({
 	   Rayfield:Notify({
 	      Title = "Đang vào server:",
 	      Content = game.JobId,
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "server"
 	   })
 		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, Services.Players.LocalPlayer)
    end
@@ -792,7 +793,8 @@ TabServer:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đang vào server theo cài đặt game",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "server"
 	   })
 		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, Services.Players.LocalPlayer)
    end
@@ -839,7 +841,8 @@ TabServer:CreateButton({
 	   Rayfield:Notify({
 	      Title = "Đang vào server:",
 	      Content = target.id,
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "server"
 	   })
       TeleportService:TeleportToPlaceInstance(PlaceId, target.id, Players.LocalPlayer)
    end
@@ -890,7 +893,8 @@ TabServer:CreateButton({
 	   Rayfield:Notify({
 	      Title = "Đang vào server:",
 	      Content = target.id,
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "server"
 	   })
       TeleportService:TeleportToPlaceInstance(PlaceId, target.id, Players.LocalPlayer)
    end
@@ -902,7 +906,8 @@ TabServer:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đã copy thành công",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "clipboard"
 	   })
    end
 })
@@ -916,7 +921,8 @@ local JoinJobId = TabServer:CreateInput({
 	   Rayfield:Notify({
 	      Title = "Đang vào server:",
 	      Content = Text,
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "server"
 	   })
 		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, Text, Services.Players.LocalPlayer)
    end,
@@ -928,7 +934,8 @@ TabServer:CreateButton({
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đã copy script vào server thành công",
-	      Duration = 2.5
+	      Duration = 2.5,
+		  Image = "clipboard"
 	   })
    end
 })
