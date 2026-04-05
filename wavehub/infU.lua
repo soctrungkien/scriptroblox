@@ -106,6 +106,19 @@ local function loadImageFromURL(url)
         end
     else
         print("[infU] [CACHE] Đã có sẵn: ", file)
+		task.spawn(function()
+			local success, data = pcall(function()
+	            return game:HttpGet(url)
+	        end)
+	
+	        if success and data then
+	            writefile(file, data)
+	            print("[infU] [OK] Đã tải: ", file)
+	        else
+	            warn("[infU] [FAIL] Không tải được: ", url)
+	            return nil
+	        end
+		end)
     end
 
     if getcustomasset then
@@ -431,7 +444,7 @@ local BlackToggle = TabSet:CreateToggle({
    end,
 })
 local AntiGamePause = TabSet:CreateToggle({
-   Name = "▶️ Anti Game Pause",
+   Name = "▶️ Chặn tự động dừng game",
    CurrentValue = false,
    Flag = "AntiGamePause",
    Callback = function(Value)
@@ -455,7 +468,7 @@ TabSet:CreateButton({
    end
 })
 TabSet:CreateButton({
-   Name = "🔎 infZoom",
+   Name = "🔎 Zoom vô hạn",
    Callback = function()
 	Services.Players.LocalPlayer.CameraMaxZoomDistance = 99999999
    Rayfield:Notify({
@@ -467,7 +480,7 @@ TabSet:CreateButton({
    end
 })
 TabSet:CreateButton({
-   Name = "🔧 AntiLag",
+   Name = "🔧 Fixlag",
    Callback = function()
       local success, err = pcall(function()
          FPSBoost_IYCORE()
@@ -476,7 +489,7 @@ TabSet:CreateButton({
       end)
          if Rayfield then
             Rayfield:Notify({
-               Title = "AntiLag",
+               Title = "Fixlag",
                Content = "Đã fixlag thành công",
                Duration = 2.5,
                Image = "cog"
