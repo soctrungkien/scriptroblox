@@ -223,7 +223,6 @@ local function checkPremium()
     end
     return premium
 end
-loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 Services = setmetatable({}, {
 	__index = function(self, name)
 		local success, cache = pcall(function()
@@ -573,7 +572,7 @@ local AntiGamePause = TabSet:CreateToggle({
 	            obj:Destroy()
 	        end
 	    end)
-	    COREGUI.RobloxGui["CoreScripts/NetworkPause"]:Destroy()
+	    COREGUI.RobloxGui["CoreScripts/NetworkPauscripts/NetworkPause"]:Destroy()
 	else
 	    networkPaused:Disconnect()
    	end
@@ -600,6 +599,7 @@ TabSet:CreateButton({
 TabSet:CreateButton({
    Name = "🔧 Fixlag",
    Callback = function()
+	  if FPSBoost_ON() and FPSBoost_IYCORE() and ApplyFFlag() and FPSBoost_OFF() then
       local success, err = pcall(function()
          FPSBoost_IYCORE()
          FPSBoost_ON()
@@ -614,6 +614,9 @@ TabSet:CreateButton({
             })
          end
          print("[infU] Fixlag OK")
+	  else
+		 loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
+	  end	
    end
 })
 TabSet:CreateButton({
