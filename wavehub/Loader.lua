@@ -17,6 +17,7 @@ scripts = {
     [85896571713843] = "wavehub/BubbleGumSimulator", -- BubbleGumSimulator
     [87067157937644] = "wavehub/blocc", --blocc (idk)
     [124398083342642] = "wavehub/rideacartdownaslide", --rideacartdownaslide
+    [124398083342] = "wavehub/crosstheroad", --crosstheroad
 }
 
 if scriptName == "wavehub/Loader" then
