@@ -491,6 +491,26 @@ loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/m
 })
 
 --Setting
+local Theme = TabSet:CreateDropdown({
+   Name = "🏞️ Chọn giao diện",
+   Options = {
+        "Default",
+        "AmberGlow",
+        "Amethyst",
+        "Bloom",
+        "DarkBlue",
+        "Green",
+        "Light",
+        "Ocean",
+        "Serenity"
+    },
+   CurrentOption = {"Default"},
+   MultipleOptions = false,
+   Flag = "Theme",
+   Callback = function(Options)
+	Window.ModifyTheme(Options)
+   end,
+})
 local FPSCap = TabSet:CreateSlider({
    Name = "🖥️ Giới hạn FPS",
    Range = {10, 240},
@@ -892,6 +912,17 @@ local JoinJobId = TabServer:CreateInput({
 	   })
 		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, Text, Services.Players.LocalPlayer)
    end,
+})
+TabServer:CreateButton({
+   Name = "Lấy script vào server",
+   Callback = function()
+		setclipboard("game:GetService('TeleportService'):TeleportToPlaceInstance(" .. game.PlaceId .. ", '" .. game.JobId .. "', game.Players.LocalPlayer)")
+	   Rayfield:Notify({
+	      Title = "infU",
+	      Content = "Đã copy script vào server thành công",
+	      Duration = 2.5
+	   })
+   end
 })
 
 --Noti Load
