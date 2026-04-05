@@ -767,7 +767,7 @@ end)
 end)
 
 --Server
-TabInfo:CreateButton({
+TabServer:CreateButton({
    Name = "Vào lại server",
    Callback = function()
 	   Rayfield:Notify({
@@ -778,7 +778,7 @@ TabInfo:CreateButton({
 		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, Services.Players.LocalPlayer)
    end
 })
-TabInfo:CreateButton({
+TabServer:CreateButton({
    Name = "Server Hop (theo cài đặt game)",
    Callback = function()
 	   Rayfield:Notify({
