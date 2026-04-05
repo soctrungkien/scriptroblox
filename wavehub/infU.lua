@@ -262,10 +262,6 @@ old = hookmetamethod(game, "__namecall", function(self, ...)
         if method == "Kick" then
 			print("\n[infU] ===== KICK DETECTED =====")
 	        print("[infU] Target:", self)
-	
-	        for i, v in ipairs(args) do
-	            print("[infU] Arg " .. i .. ":", v)
-	        end
             return warn("[infU] [ANTI-KICK]")
         end
     end
@@ -276,10 +272,6 @@ old = hookmetamethod(game, "__namecall", function(self, ...)
         or method == "TeleportAsync" then
 			print("\n[infU] ===== TELEPORT DETECTED =====")
             print("[infU] Method:", method)
-
-            for i, v in ipairs(args) do
-                print("[infU] Arg " .. i .. ":", v)
-            end
             return warn("[infU] [ANTI-TELEPORT]")
         end
     end
