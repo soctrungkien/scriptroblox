@@ -559,7 +559,7 @@ local AntiGamePause = TabSet:CreateToggle({
 	            obj:Destroy()
 	        end
 	    end)
-	    COREGUI.RobloxGui["CoreScripts/NetworkPauscripts/NetworkPause"]:Destroy()
+	    COREGUI.RobloxGui["CoreScripts/NetworkPause"]:Destroy()
 	else
 	    networkPaused:Disconnect()
    	end
