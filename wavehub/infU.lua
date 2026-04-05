@@ -412,6 +412,24 @@ local BlackToggle = TabSet:CreateToggle({
 	Services.RunService:Set3dRenderingEnabled(not Value)
    end,
 })
+local AntiGamePause = TabSet:CreateToggle({
+   Name = "▶️ Anti Game Pause",
+   CurrentValue = false,
+   Flag = "AntiGamePause",
+   Callback = function(Value)
+	if Value then
+	    pcall(function() networkPaused:Disconnect() end)
+	    networkPaused = COREGUI.RobloxGui.ChildAdded:Connect(function(obj)
+	        if obj.Name == "CoreScripts/NetworkPause" then
+	            obj:Destroy()
+	        end
+	    end)
+	    COREGUI.RobloxGui["CoreScripts/NetworkPause"]:Destroy()
+	else
+	    networkPaused:Disconnect()
+   	end
+   end,
+})
 TabSet:CreateButton({
    Name = "🎮 Nhật kí script",
    Callback = function()
@@ -428,25 +446,6 @@ TabSet:CreateButton({
       Duration = 2.5,
 	  Image = "zoom-in"
    })
-   end
-})
-TabSet:CreateButton({
-   Name = "▶️ Anti Game Pause",
-   Callback = function()
-    pcall(function() networkPaused:Disconnect() end)
-    networkPaused = COREGUI.RobloxGui.ChildAdded:Connect(function(obj)
-        if obj.Name == "CoreScripts/NetworkPause" then
-            obj:Destroy()
-        end
-    end)
-    COREGUI.RobloxGui["CoreScripts/NetworkPause"]:Destroy()
-	Rayfield:Notify({
-      Title = "Đã chặn tạm dừng game",
-      Content = "Ngăn thông báo Game Pause",
-      Duration = 2.5,
-	  Image = "play"
-    })
-	print("[infU] Anti Game Pause")
    end
 })
 TabSet:CreateButton({
