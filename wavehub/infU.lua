@@ -499,6 +499,12 @@ TabScriptAny:CreateButton({
 loadsc("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main/VirtualKeyboard.lua", "VirtualKeyboard", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Teleport to player",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/TP.lua", "plytpgui", true)
+   end
+})
 
 --Setting
 local FPSCap = TabSet:CreateSlider({
