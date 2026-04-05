@@ -236,7 +236,8 @@ Services = setmetatable({}, {
 		end
 	end
 })
-(getgenv or getrenv)().loadername = "infU"
+getgenv().loadername = ""
+getrenv().loadername = ""
 getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
 getgenv().AntiTeleportScriptCore = true
