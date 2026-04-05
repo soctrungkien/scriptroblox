@@ -493,6 +493,22 @@ local AntiAFK = TabSet:CreateToggle({
 	AntiAFKEnabled = Value
    end,
 })
+local AntiKickClient = TabSet:CreateToggle({
+   Name = "🔥 Chặn kick từ script khác",
+   CurrentValue = false,
+   Flag = "AntiKickClient",
+   Callback = function(Value)
+	getgenv().AntiKickScriptCore = Value
+   end,
+})
+local AntiTeleport = TabSet:CreateToggle({
+   Name = "🚧 Chặn script khác chuyển game, server",
+   CurrentValue = false,
+   Flag = "AntiTeleport",
+   Callback = function(Value)
+	getgenv().AntiTeleportScriptCore = Value
+   end,
+})
 local BlackToggle = TabSet:CreateToggle({
    Name = "⚫ Màn hình đen",
    CurrentValue = false,
