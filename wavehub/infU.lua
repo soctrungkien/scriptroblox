@@ -1,5 +1,9 @@
 print("[infU] Loading")
-
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "infU",
+    Text = "Loading",
+    Duration = 1
+})
 repeat wait() until game:IsLoaded()
 setfpscap(240)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
@@ -338,13 +342,6 @@ local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(gam
 local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 
-Rayfield:Notify({
-   Title = "infU",
-   Content = "🎉 Chào mừng bạn đến với infU",
-   Duration = 4,
-   Image = "infinity"
-})
-
 --Script
 if game.GameId == 994732206 then
 TabScriptAny:CreateButton({
@@ -576,6 +573,13 @@ local function clearCache()
         return
     end
 
+   Rayfield:Notify({
+      Title = "infU 🗑️",
+      Content = "Bắt đầu xoá cache của infU",
+      Duration = 2.5,
+	  Image = loadImageFromURL("https://ibb.co/fYLYf3ZN")
+   })
+	
     local files = listfiles(folder)
     local count = 0
 
@@ -594,7 +598,8 @@ local function clearCache()
    Rayfield:Notify({
       Title = "[infU] sẽ mở lâu hơn vào lần sau] Hoàn thành",
       Content = "Đã xoá thành công " .. count .. " file rác",
-      Duration = 2.5
+      Duration = 2.5,
+	  Image = loadImageFromURL("https://ibb.co/nNFHLDwT")
    })
 end
 
@@ -622,3 +627,12 @@ local Player = TabInfo:CreateParagraph({Title = "Người chơi", Content = "�
 local Acc = TabInfo:CreateParagraph({Title = "Tài khoản", Content = "🗓️ Tuổi tài khoản: " .. Services.Players.LocalPlayer.AccountAge .. " ngày\n💎 Premium: " .. checkPremium() .. "\n📅 Ngày tạo: " .. os.date("%Y-%m-%d", os.time() - (Services.Players.LocalPlayer.AccountAge * 86400))})
 local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên game: " .. info.Name .. "\n🆔 Game ID: " .. game.GameId .. "\n🆔 Place ID: " .. game.PlaceId .. "\n🕹️ Phiên bản Place: " .. game.PlaceVersion})
 local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_tableClient.ip .. "\n🌆 Quốc gia: " .. ipinfo_tableClient.country .. "\n🪟 GPS: " .. ipinfo_tableClient.loc .. "\n🏙️ Thành phố: " .. ipinfo_tableClient.city .. "\n🏡 Khu vực: " .. ipinfo_tableClient.region .. "\n🪢 Nhà mạng/Host: " .. ipinfo_tableClient.org})
+
+--Noti Load
+Rayfield:Notify({
+   Title = "infU",
+   Content = "🎉 Chào mừng bạn đến với infU",
+   Duration = 4,
+   Image = "infinity"
+})
+print("[infU] Đã tải toàn bộ script")
