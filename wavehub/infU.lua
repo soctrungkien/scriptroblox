@@ -652,7 +652,6 @@ local ipinfo_tableClient = {
     region = "N/A",
     org = "N/A"
 }
-
 pcall(function()
     local ipClient = game:HttpGet("https://api.ipify.org")
     local iplinkClient = "https://ipinfo.io/" .. ipClient .. "/json"
@@ -664,9 +663,45 @@ local maxHealth
 local position
 local Player = TabInfo:CreateParagraph({Title = "Người chơi", Content = "🧸 Username: " .. Services.Players.LocalPlayer.Name .. "\n📝 Tên hiển thị: " .. Services.Players.LocalPlayer.DisplayName .. "\n🆔 UserID: " .. Services.Players.LocalPlayer.UserId})
 local Acc = TabInfo:CreateParagraph({Title = "Tài khoản", Content = "🗓️ Tuổi tài khoản: " .. Services.Players.LocalPlayer.AccountAge .. " ngày\n💎 Premium: " .. checkPremium() .. "\n📅 Ngày tạo: " .. os.date("%Y-%m-%d", os.time() - (Services.Players.LocalPlayer.AccountAge * 86400))})
-local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên game: " .. info.Name .. "\n🆔 Game ID: " .. game.GameId .. "\n🆔 Place ID: " .. game.PlaceId .. "\n🕹️ Phiên bản Place: " .. game.PlaceVersion})
+local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên game: " .. info.Name .. "\n🆔 Game ID: " .. game.GameId .. "\n🆔 Place ID: " .. game.PlaceId .. "\n🕹️ Phiên bản Place: " .. game.PlaceVersion .. "\n🪧 JobId" .. tostring(game.JobId)})
 local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_tableClient.ip .. "\n🌆 Quốc gia: " .. ipinfo_tableClient.country .. "\n🪟 GPS: " .. ipinfo_tableClient.loc .. "\n🏙️ Thành phố: " .. ipinfo_tableClient.city .. "\n🏡 Khu vực: " .. ipinfo_tableClient.region .. "\n🪢 Nhà mạng/Host: " .. ipinfo_tableClient.org})
 local live = TabInfo:CreateParagraph({Title = "Thông tin khác", Content = "Không rõ"})
+TabInfo:CreateButton({
+   Name = "Copy PlaceId",
+   Callback = function()
+		setclipboard(game.PlaceId)
+   end
+})
+TabInfo:CreateButton({
+   Name = "Copy GameId",
+   Callback = function()
+		setclipboard(game.GameId)
+   end
+})
+TabInfo:CreateButton({
+   Name = "Copy JobId",
+   Callback = function()
+		setclipboard(game.JobId)
+   end
+})
+TabInfo:CreateButton({
+   Name = "Copy UserId",
+   Callback = function()
+		setclipboard(Services.Players.LocalPlayer.UserId)
+   end
+})
+TabInfo:CreateButton({
+   Name = "Copy IP",
+   Callback = function()
+		setclipboard(ipinfo_tableClient.ip)
+   end
+})
+TabInfo:CreateButton({
+   Name = "Copy vị trí người chơi",
+   Callback = function()
+		setclipboard(tostring(position))
+   end
+})
 task.spawn(function()
 Services.RunService.RenderStepped:Connect(function()
 health =
