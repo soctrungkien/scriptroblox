@@ -867,6 +867,32 @@ TabServer:CreateButton({
       TeleportService:TeleportToPlaceInstance(PlaceId, target.id, Players.LocalPlayer)
    end
 })
+TabServer:CreateButton({
+   Name = "JobId: " .. game.JobId,
+   Callback = function()
+		setclipboard(game.JobId)
+	   Rayfield:Notify({
+	      Title = "infU",
+	      Content = "Đã copy thành công",
+	      Duration = 2.5
+	   })
+   end
+})
+local JoinJobId = TabServer:CreateInput({
+   Name = "Vào server bằng JobId",
+   CurrentValue = "",
+   PlaceholderText = "Dán JobId vào đây",
+   RemoveTextAfterFocusLost = false,
+   Flag = "JoinJobId",
+   Callback = function(Text)
+	   Rayfield:Notify({
+	      Title = "Đang vào server:",
+	      Content = Text,
+	      Duration = 2.5
+	   })
+		game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, Text, Services.Players.LocalPlayer)
+   end,
+})
 
 --Noti Load
 Rayfield:Notify({
