@@ -81,7 +81,7 @@ local function loadsc(url, title, fast)
 	print("[infU] " .. title .. "Lỗi: " .. err)
 	if Rayfield then
       Rayfield:Notify({
-         Title = title .. "ERROR",
+         Title = title .. " ERROR",
          Content = err,
          Duration = 3,
          Image = 6646234362
