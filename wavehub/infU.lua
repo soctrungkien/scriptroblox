@@ -223,6 +223,7 @@ local function checkPremium()
     end
     return premium
 end
+loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 Services = setmetatable({}, {
 	__index = function(self, name)
 		local success, cache = pcall(function()
@@ -235,6 +236,27 @@ Services = setmetatable({}, {
 			error("[infU] Invalid Service: " .. tostring(name))
 		end
 	end
+})
+local Services = {}
+local serviceCache = {}
+setmetatable(Services, {
+    __index = function(self, name)
+        if serviceCache[name] then return serviceCache[name] end
+        
+        local success, service = pcall(function()
+            return cloneref(game:GetService(name))
+        end)
+        
+        if success and service then
+            serviceCache[name] = service
+            return service
+        else
+            warn("[infU] Service fail: " .. tostring(name))
+            local realService = game:GetService(name) 
+            serviceCache[name] = realService
+            return realService
+        end
+    end
 })
 getgenv().loadername = ""
 getrenv().loadername = ""
@@ -262,7 +284,6 @@ old = hookmetamethod(game, "__namecall", function(self, ...)
 
     return old(self, ...)
 end)
-loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 local COREGUI = Services.CoreGui
 local screenGuiblack = Instance.new("ScreenGui")
 screenGuiblack.Name = "BlackoutOverlay"
