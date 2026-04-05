@@ -165,13 +165,22 @@ Services = setmetatable({}, {
 	end
 })
 (getgenv or getrenv)().loadername = "infU"
-getgenv().AntiKickScriptCore = true -- Re-Execute if you change it
+getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
 AntiKickScriptCore = hookmetamethod(game, "__namecall", function(self, ...)
         if self == Services.Players.LocalPlayer and getnamecallmethod():lower() == "kick" and getgenv().AntiKickScriptCore then
             return warn("[infU] [ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
         end
         return AntiKickScriptCore(self, ...)
+end)
+getgenv().AntiTeleportScriptCore = true
+local TeleportService = TeleportService
+local AntiKickTeleportCore
+AntiKickTeleportCore = hookmetamethod(game, "__namecall", function(self, ...)
+        if self == TeleportService and getnamecallmethod():lower() == "teleport" or getnamecallmethod() == "TeleportToPlaceInstance" and getgenv().AntiTeleportScriptCore then
+            return warn("[infU] [ANTI-TELEPORT] Nah")
+        end
+        return AntiKickTeleportCore(self, ...)
 end)
 loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 local COREGUI = Services.CoreGui
