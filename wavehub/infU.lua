@@ -348,15 +348,19 @@ local function getPing()
 	end
 	return 0
 end
+local updatefpspingtime = 100
+local lastUpdate = tick()
 repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
 Services.RunService.RenderStepped:Connect(function(dt)
 fps = math.floor(1 / dt)
+if tick() - lastUpdate >= updatefpspingtime / 100 then
+lastUpdate = tick()
 for _, v in pairs(COREGUI:GetDescendants()) do
     if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
         v.Prompt.Title.Text = string.format("%d ms | %d", getPing(), fps)
     end
 end
-end)
+end
 end)
 
 local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(Services.Players.LocalPlayer.UserId)))
@@ -505,6 +509,16 @@ local FPSCap = TabSet:CreateSlider({
    Flag = "FPSCap",
    Callback = function(Value)
 	setfpscap(Value)
+   end,
+})
+local updatefpspingtimems = TabSet:CreateSlider({
+   Name = "📺 Delay cập nhập Ping và FPS",
+   Range = {1, 1000},
+   Increment = 1,
+   CurrentValue = 100,
+   Flag = "updatefpspingtimems",
+   Callback = function(Value)
+	updatefpspingtime = Value
    end,
 })
 local AntiAFK = TabSet:CreateToggle({
