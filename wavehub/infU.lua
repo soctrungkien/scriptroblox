@@ -164,6 +164,15 @@ Services = setmetatable({}, {
 		end
 	end
 })
+(getgenv or getrenv)().loadername = "infU"
+getgenv().AntiKickScriptCore = true -- Re-Execute if you change it
+local AntiKickScriptCore
+AntiKickScriptCore = hookmetamethod(game, "__namecall", function(self, ...)
+        if self == Services.Players.LocalPlayer and getnamecallmethod():lower() == "kick" and getgenv().AntiKickScriptCore then
+            return warn("[infU] [ANTI-KICK] Client Tried To Call Kick Function On LocalPlayer")
+        end
+        return AntiKickScriptCore(self, ...)
+end)
 loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 local COREGUI = Services.CoreGui
 local screenGuiblack = Instance.new("ScreenGui")
