@@ -252,20 +252,36 @@ getgenv().AntiTeleportScriptCore = true
 TeleportService = Services.TeleportService
 local TeleportService = TeleportService
 local AntiKickTeleportCore
+local Players = Services.Players
+local LocalPlayer = Players.LocalPlayer
 local old
 old = hookmetamethod(game, "__namecall", function(self, ...)
     local method = getnamecallmethod()
 
-    if self == Services.Players.LocalPlayer 
-    and method:lower() == "kick" 
-    and getgenv().AntiKickScriptCore then
-        return warn("[infU] [ANTI-KICK]")
+    if getgenv().AntiKickScriptCore and self == LocalPlayer then
+        if method == "Kick" then
+			print("\n[infU] ===== KICK DETECTED =====")
+	        print("[infU] Target:", self)
+	
+	        for i, v in ipairs(args) do
+	            print("[infU] Arg " .. i .. ":", v)
+	        end
+            return warn("[infU] [ANTI-KICK]")
+        end
     end
 
-    if self == Services.TeleportService 
-    and (method:lower() == "teleport" or method == "TeleportToPlaceInstance")
-    and getgenv().AntiTeleportScriptCore then
-        return warn("[infU] [ANTI-TELEPORT]")
+    if getgenv().AntiTeleportScriptCore and self == TeleportService then
+        if method == "Teleport"
+        or method == "TeleportToPlaceInstance"
+        or method == "TeleportAsync" then
+			print("\n[infU] ===== TELEPORT DETECTED =====")
+            print("[infU] Method:", method)
+
+            for i, v in ipairs(args) do
+                print("[infU] Arg " .. i .. ":", v)
+            end
+            return warn("[infU] [ANTI-TELEPORT]")
+        end
     end
 
     return old(self, ...)
@@ -302,6 +318,7 @@ Services.Players.LocalPlayer.Idled:Connect(function()
         Services.VirtualUser:ClickButton2(Vector2.new(0, 0))
     end
 end)
+loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 local Window = Rayfield:CreateWindow({
    Name = "「infU」| " .. info.Name,
    Icon = "infinity",
@@ -586,7 +603,6 @@ TabSet:CreateButton({
 TabSet:CreateButton({
    Name = "🔧 Fixlag",
    Callback = function()
-	  if FPSBoost_ON() and FPSBoost_IYCORE() and ApplyFFlag() and FPSBoost_OFF() then
       local success, err = pcall(function()
          FPSBoost_IYCORE()
          FPSBoost_ON()
@@ -601,9 +617,6 @@ TabSet:CreateButton({
             })
          end
          print("[infU] Fixlag OK")
-	  else
-		 loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
-	  end	
    end
 })
 TabSet:CreateButton({
