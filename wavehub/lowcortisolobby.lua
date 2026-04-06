@@ -26,10 +26,10 @@ local v_u_4 = game:GetService("SoundService"):WaitForChild("Checkpoint")
 local v5 = v1.LocalPlayer:WaitForChild("leaderstats")
 local v6 = v5:WaitForChild("Stage")
 local player = game:GetService("Players").LocalPlayer
-local ReGui = loadstring(game:HttpGet('https://github.com/depthso/Roblox-ImGUI/raw/main/ImGui.lua'))()
-local Window = ReGui:Window({
-	Title = "Wave Hub",
-	Size = UDim2.fromOffset(maxWidth, maxHeight)
+local Starlight = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/starlight"))()  
+local Window = Starlight:CreateWindow({
+	Name = "Wave Hub",
+--	Size = UDim2.fromOffset(maxWidth, maxHeight)
 })
 local function tp()
 	if not player.Character then
@@ -46,17 +46,17 @@ local function tp()
 end
 local auto1 = false
 local auto2 = false
-Window:Checkbox({
-	Value = false,
-	Label = "Auto Stage",
-	Callback = function(self, Value: boolean)
+Groupbox:CreateToggle({
+	CurrentValue = false,
+	Name = "Auto Stage",
+	Callback = function(Value)
 		auto1 = Value
 	end
 })
-Window:Checkbox({
-	Value = false,
-	Label = "Auto2",
-	Callback = function(self, Value: boolean)
+Groupbox:CreateToggle({
+	CurrentValue = false,
+	Name = "Auto2",
+	Callback = function(Value)
 		auto2 = Value
 	end
 })
