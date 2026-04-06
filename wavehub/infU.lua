@@ -8,6 +8,14 @@ repeat wait() until game:IsLoaded()
 setfpscap(240)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+if not Rayfield then
+	print("[infU] Rayfield no load")
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+	    Title = "infU",
+	    Text = "Rayfield trong quá trình tải đã bị lỗi",
+	    Duration = 1
+	})
+end
 local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function b64_encode(data)
     local encoded = ((data:gsub('.', function(x)
@@ -370,6 +378,34 @@ TabScriptAny:CreateButton({
    Name = "[Auto Nhặt Rương] LongHihiAutoChest" .. " for " .. info.Name,
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/longhihilonghihi-hub/Auto-Chest/refs/heads/main/MainV1.Luau", "LongHihiAutoChest", false)
+   end
+})
+elseif game.PlaceId == 10260193230 then
+TabScriptAny:CreateButton({
+   Name = "[Auto Farm] Redz Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/tlredz/Scripts/refs/heads/main/main.luau", "Redz", false)
+   end
+})
+elseif game.PlaceId == 70743305607680 then
+TabScriptAny:CreateButton({
+   Name = "Wave Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/BuildBlox.lua", "WaveHubBB", false)
+   end
+})
+elseif game.PlaceId == 85896571713843 then
+TabScriptAny:CreateButton({
+   Name = "Wave Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/BubbleGumSimulator.lua", "WaveHubBGS", false)
+   end
+})
+elseif game.PlaceId == 87067157937644 then
+TabScriptAny:CreateButton({
+   Name = "Wave Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/blocc.lua", "WaveHubblocc", false)
    end
 })
 end
