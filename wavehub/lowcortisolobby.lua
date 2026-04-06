@@ -26,7 +26,13 @@ local v_u_4 = game:GetService("SoundService"):WaitForChild("Checkpoint")
 local v5 = v1.LocalPlayer:WaitForChild("leaderstats")
 local v6 = v5:WaitForChild("Stage")
 local player = game:GetService("Players").LocalPlayer
-local Iris = loadstring(game:HttpGet("https://raw.githubusercontent.com/x0581/Iris-Exploit-Bundle/main/bundle.lua"))().Init(game.CoreGui)
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/deividcomsono/Obsidian/refs/heads/main/Library.lua"))()
+local Window = Library:CreateWindow({
+	TItle = "Wave Hub",
+	Size = UDim2.fromOffset(maxWidth, maxHeight),
+	ToggleKeybind = Enum.KeyCode.G,
+	Resizable = false
+})
 local function tp()
 	if not player.Character then
 		player.CharacterAdded:Wait()
@@ -42,19 +48,20 @@ local function tp()
 end
 local auto1 = false
 local auto2 = false
-Iris:Connect(function()
-	Iris:Window({"Wave Hub"})
-
-		if Iris:Checkbox({"Auto Stage"}).checked() then
-			auto1 = not auto1
-		end
-
-		if Iris:Checkbox({"Auto2"}).checked() then
-			auto2 = not auto2
-		end
-
-	Iris:End()
-end)
+Groupbox:AddCheckbox({
+	Default = false,
+	Text = "Auto Stage",
+	Callback = function(Value)
+		auto1 = Value
+	end
+})
+Groupbox:AddCheckbox({
+	Default = false,
+	Text = "Auto2",
+	Callback = function(Value)
+		auto2 = Value
+	end
+})
 task.spawn(function()
 RunService.RenderStepped:Connect(function()
 	if not auto1 then return end
