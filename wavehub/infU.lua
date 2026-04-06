@@ -408,6 +408,20 @@ TabScriptAny:CreateButton({
 		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/blocc.lua", "WaveHubblocc", false)
    end
 })
+elseif game.PlaceId == 108180976346281 then
+TabScriptAny:CreateButton({
+   Name = "Wave Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/crosstheroad.lua", "WaveHubctr", false)
+   end
+})
+elseif game.PlaceId == 112555408629538 then
+TabScriptAny:CreateButton({
+   Name = "Wave Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/lowcortisolobby.lua", "WaveHublcl", false)
+   end
+})
 end
 
 --Script Chung
