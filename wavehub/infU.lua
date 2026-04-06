@@ -508,7 +508,7 @@ local Theme = TabSet:CreateDropdown({
    MultipleOptions = false,
    Flag = "Theme",
    Callback = function(Options)
-	Window.ModifyTheme(Options)
+	Window.ModifyTheme(Options[1])
    end,
 })
 local FPSCap = TabSet:CreateSlider({
