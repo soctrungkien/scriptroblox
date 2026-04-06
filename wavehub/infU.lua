@@ -313,10 +313,9 @@ local Window = Rayfield:CreateWindow({
 })
 
 local updatefpspingtime = 100
-task.spawn(function()
-local Stats = Services.Stats
 local fps = 0
 local ping = 0
+local Stats = Services.Stats
 local function getPing()
 	local network = Stats:FindFirstChild("Network")
 	if not network then return 0 end
@@ -332,6 +331,7 @@ local function getPing()
 	end
 	return 0
 end
+task.spawn(function()
 local lastUpdate = tick()
 repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
 Services.RunService.RenderStepped:Connect(function(dt)
@@ -632,8 +632,7 @@ local function clearCache()
    Rayfield:Notify({
       Title = "infU 🗑️",
       Content = "Bắt đầu xoá cache của infU",
-      Duration = 2.5,
-	  Image = loadImageFromURL("https://ibb.co/fYLYf3ZN")
+      Duration = 2.5
    })
 	
     local files = listfiles(folder)
@@ -654,8 +653,7 @@ local function clearCache()
    Rayfield:Notify({
       Title = "[infU] sẽ mở lâu hơn vào lần sau] Hoàn thành",
       Content = "Đã xoá thành công " .. count .. " file rác",
-      Duration = 2.5,
-	  Image = loadImageFromURL("https://ibb.co/nNFHLDwT")
+      Duration = 2.5
    })
 end
 
@@ -692,7 +690,7 @@ TabInfo:CreateButton({
    Callback = function()
 		setclipboard(game.PlaceId)
 	   Rayfield:Notify({
-	      Title = "infU",
+	      Title = game.PlaceId,
 	      Content = "Đã copy thành công",
 	      Duration = 2.5,
 		  Image = "clipboard"
@@ -704,7 +702,7 @@ TabInfo:CreateButton({
    Callback = function()
 		setclipboard(game.GameId)
 	   Rayfield:Notify({
-	      Title = "infU",
+	      Title = game.GameId,
 	      Content = "Đã copy thành công",
 	      Duration = 2.5,
 		  Image = "clipboard"
@@ -716,7 +714,7 @@ TabInfo:CreateButton({
    Callback = function()
 		setclipboard(game.JobId)
 	   Rayfield:Notify({
-	      Title = "infU",
+	      Title = game.JobId,
 	      Content = "Đã copy thành công",
 	      Duration = 2.5,
 		  Image = "clipboard"
@@ -728,7 +726,7 @@ TabInfo:CreateButton({
    Callback = function()
 		setclipboard(Services.Players.LocalPlayer.UserId)
 	   Rayfield:Notify({
-	      Title = "infU",
+	      Title = Services.Players.LocalPlayer.UserId,
 	      Content = "Đã copy thành công",
 	      Duration = 2.5,
 		  Image = "clipboard"
@@ -740,7 +738,7 @@ TabInfo:CreateButton({
    Callback = function()
 		setclipboard(ipinfo_tableClient.ip)
 	   Rayfield:Notify({
-	      Title = "infU",
+	      Title = ipinfo_tableClient.ip,
 	      Content = "Đã copy thành công",
 	      Duration = 2.5,
 		  Image = "clipboard"
@@ -752,7 +750,7 @@ TabInfo:CreateButton({
    Callback = function()
 		setclipboard(tostring(position))
 	   Rayfield:Notify({
-	      Title = "infU",
+	      Title = tostring(position),
 	      Content = "Đã copy thành công",
 	      Duration = 2.5,
 		  Image = "clipboard"
@@ -768,7 +766,7 @@ maxHealth =
 position =
     Services.Players.LocalPlayer.Character and Services.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and
     Services.Players.LocalPlayer.Character.HumanoidRootPart.Position or "Không rõ"
-live:Set({Title = "Thông tin khác", Content = "❤️ Máu: " .. health .. "/" .. maxHealth .. "\n👥 Người chơi: " .. #Services.Players:GetPlayers() .. " / " .. Services.Players.MaxPlayers .. "\n🕒 Giờ server: " .. os.date("%H:%M:%S") .. "\n📺 Độ phân giải: " .. math.floor(workspace.CurrentCamera.ViewportSize.X) .. "x" .. math.floor(workspace.CurrentCamera.ViewportSize.Y) .. "\n🔍 RAM sử dụng: " .. Services.Stats:GetTotalMemoryUsageMb() .. "\n📍Vị trí nhân vật" .. tostring(position)})
+live:Set({Title = "Thông tin khác", Content = "❤️ Máu: " .. health .. "/" .. maxHealth .. "\n👥 Người chơi: " .. #Services.Players:GetPlayers() .. " / " .. Services.Players.MaxPlayers .. "\n🕒 Giờ server: " .. os.date("%H:%M:%S") .. "\n📺 Độ phân giải: " .. math.floor(workspace.CurrentCamera.ViewportSize.X) .. "x" .. math.floor(workspace.CurrentCamera.ViewportSize.Y) .. "\n🔍 RAM sử dụng: " .. Services.Stats:GetTotalMemoryUsageMb() .. "\n📍Vị trí nhân vật" .. tostring(position) .. "\n📶 Ping: " .. getPing() .. "\n📺 FPS: " .. fps})
 task.wait(0.1)
 end)
 end)
@@ -802,6 +800,12 @@ TabServer:CreateButton({
 TabServer:CreateButton({
    Name = "Server random",
    Callback = function()
+	   Rayfield:Notify({
+	      Title = "infU",
+	      Content = "Đang tìm server",
+	      Duration = 2.5,
+		  Image = loadImageFromURL("https://ibb.co/fYLYf3ZN")
+	   })
       local HttpService = Services.HttpService
       local TeleportService = Services.TeleportService
       local Players = Services.Players
@@ -850,6 +854,12 @@ TabServer:CreateButton({
 TabServer:CreateButton({
    Name = "Server ít người",
    Callback = function()
+	   Rayfield:Notify({
+	      Title = "infU",
+	      Content = "Đang tìm server",
+	      Duration = 2.5,
+		  Image = loadImageFromURL("https://ibb.co/fYLYf3ZN")
+	   })
       local HttpService = Services.HttpService
       local TeleportService = Services.TeleportService
       local Players = Services.Players
@@ -904,7 +914,7 @@ TabServer:CreateButton({
    Callback = function()
 		setclipboard(game.JobId)
 	   Rayfield:Notify({
-	      Title = "infU",
+	      Title = game.JobId,
 	      Content = "Đã copy thành công",
 	      Duration = 2.5,
 		  Image = "clipboard"
@@ -930,9 +940,10 @@ local JoinJobId = TabServer:CreateInput({
 TabServer:CreateButton({
    Name = "Lấy script vào server",
    Callback = function()
-		setclipboard("game:GetService('TeleportService'):TeleportToPlaceInstance(" .. game.PlaceId .. ", '" .. game.JobId .. "', game.Players.LocalPlayer)")
+		local scriptjoinserver = "game:GetService('TeleportService'):TeleportToPlaceInstance(" .. game.PlaceId .. ", '" .. game.JobId .. "', game.Players.LocalPlayer)"
+		setclipboard(scriptjoinserver)
 	   Rayfield:Notify({
-	      Title = "infU",
+	      Title = scriptjoinserver,
 	      Content = "Đã copy script vào server thành công",
 	      Duration = 2.5,
 		  Image = "clipboard"
