@@ -39,7 +39,7 @@ local function tp()
 	local char = player.Character
 	local root = char:WaitForChild("HumanoidRootPart")
 
-	local target = workspace:FindFirstChild("Checkpoints"):FindFirstChild(tostring(v6))
+	local target = workspace:FindFirstChild("Checkpoints"):FindFirstChild(tostring(v6.Value + 1))
 	if not target then return end
 
 	root.CFrame = target.CFrame + Vector3.new(0, 3, 0)
@@ -61,14 +61,26 @@ Window:Checkbox({
 	end
 })
 task.spawn(function()
-while true do
-if auto1 then
-tp()
-end
-end)
-task.spawn(function()
-while true do
-if auto2 then
+RunService.RenderStepped:Connect(function()
+	if not auto1 then return end
 
-end
+	local char = player.Character
+	if not char then return end
+
+	local root = char:FindFirstChild("HumanoidRootPart")
+	if not root then return end
+
+	local checkpoints = workspace:FindFirstChild("Checkpoints")
+	if not checkpoints then return end
+
+	local target = checkpoints:FindFirstChild(tostring(v6.Value + 1))
+	if not target then return end
+
+	if (root.Position - target.Position).Magnitude > 5 then
+		root.CFrame = target.CFrame + Vector3.new(0, 3, 0)
+	end
+	if auto2 then
+	
+	end
+end)
 end)
