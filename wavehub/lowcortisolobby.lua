@@ -3,64 +3,113 @@ if loadername == nil then
 	return
 end
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
-local UserInputService = game:GetService("UserInputService")
-local VirtualUser = game:GetService("VirtualUser")
-local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
-local LocalPlayer = Players.LocalPlayer
-local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
-local Backpack = LocalPlayer:WaitForChild("Backpack")
-local camera = workspace.CurrentCamera
-local screenSize = camera.ViewportSize
-local desiredWidth = 200
-local desiredHeight = 130
-local maxWidth = math.min(desiredWidth, screenSize.X * 0.9)
-local maxHeight = math.min(desiredHeight, screenSize.Y * 0.9)
-local v1 = game:GetService("Players")
-local v_u_2 = game:GetService("TweenService")
-local v_u_3 = game:GetService("Debris")
-local v_u_4 = game:GetService("SoundService"):WaitForChild("Checkpoint")
-local v5 = v1.LocalPlayer:WaitForChild("leaderstats")
-local v6 = v5:WaitForChild("Stage")
-local player = game:GetService("Players").LocalPlayer
-local Starlight = loadstring(game:HttpGet("https://raw.nebulasoftworks.xyz/starlight"))()  
-local Window = Starlight:CreateWindow({
-	Name = "Wave Hub",
---	Size = UDim2.fromOffset(maxWidth, maxHeight)
-})
-local function tp()
-	if not player.Character then
-		player.CharacterAdded:Wait()
-	end
+local UIS = game:GetService("UserInputService")
 
-	local char = player.Character
-	local root = char:WaitForChild("HumanoidRootPart")
+local player = Players.LocalPlayer
+local v6 = player:WaitForChild("leaderstats"):WaitForChild("Stage")
 
-	local target = workspace:FindFirstChild("Checkpoints"):FindFirstChild(tostring(v6.Value + 1))
-	if not target then return end
-
-	root.CFrame = target.CFrame + Vector3.new(0, 3, 0)
-end
+-- trạng thái
 local auto1 = false
 local auto2 = false
-Groupbox:CreateToggle({
-	CurrentValue = false,
-	Name = "Auto Stage",
-	Callback = function(Value)
-		auto1 = Value
+
+-- UI Drawing
+local ui = {}
+ui.Frame = Drawing.new("Square")
+ui.Frame.Size = Vector2.new(200,130)
+ui.Frame.Position = Vector2.new(300,200)
+ui.Frame.Color = Color3.fromRGB(30,30,30)
+ui.Frame.Filled = true
+
+ui.Title = Drawing.new("Text")
+ui.Title.Text = "Wave Hub"
+ui.Title.Size = 18
+ui.Title.Position = ui.Frame.Position + Vector2.new(10,5)
+ui.Title.Color = Color3.new(1,1,1)
+
+local function createToggle(name, yOffset, callback)
+	local t = {}
+
+	t.Box = Drawing.new("Square")
+	t.Box.Size = Vector2.new(12,12)
+	t.Box.Position = ui.Frame.Position + Vector2.new(10, yOffset)
+	t.Box.Color = Color3.fromRGB(80,80,80)
+	t.Box.Filled = true
+
+	t.Label = Drawing.new("Text")
+	t.Label.Text = name
+	t.Label.Size = 14
+	t.Label.Position = ui.Frame.Position + Vector2.new(30, yOffset-2)
+	t.Label.Color = Color3.new(1,1,1)
+
+	t.Value = false
+
+	function t:Toggle()
+		self.Value = not self.Value
+		t.Box.Color = self.Value and Color3.fromRGB(0,170,255) or Color3.fromRGB(80,80,80)
+		callback(self.Value)
 	end
-})
-Groupbox:CreateToggle({
-	CurrentValue = false,
-	Name = "Auto2",
-	Callback = function(Value)
-		auto2 = Value
+
+	return t
+end
+
+local toggle1 = createToggle("Auto Stage", 40, function(v)
+	auto1 = v
+end)
+
+local toggle2 = createToggle("Auto2", 70, function(v)
+	auto2 = v
+end)
+
+-- drag UI
+local dragging = false
+local dragOffset = Vector2.new()
+
+UIS.InputBegan:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		local mouse = UIS:GetMouseLocation()
+		if mouse.X > ui.Frame.Position.X and mouse.X < ui.Frame.Position.X + ui.Frame.Size.X
+		and mouse.Y > ui.Frame.Position.Y and mouse.Y < ui.Frame.Position.Y + 25 then
+			dragging = true
+			dragOffset = mouse - ui.Frame.Position
+		end
+
+		-- click toggle
+		local function checkClick(t)
+			if mouse.X > t.Box.Position.X and mouse.X < t.Box.Position.X + t.Box.Size.X
+			and mouse.Y > t.Box.Position.Y and mouse.Y < t.Box.Position.Y + t.Box.Size.Y then
+				t:Toggle()
+			end
+		end
+
+		checkClick(toggle1)
+		checkClick(toggle2)
 	end
-})
-task.spawn(function()
+end)
+
+UIS.InputEnded:Connect(function(input)
+	if input.UserInputType == Enum.UserInputType.MouseButton1 then
+		dragging = false
+	end
+end)
+
+UIS.InputChanged:Connect(function(input)
+	if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+		local mouse = UIS:GetMouseLocation()
+		ui.Frame.Position = mouse - dragOffset
+
+		ui.Title.Position = ui.Frame.Position + Vector2.new(10,5)
+
+		toggle1.Box.Position = ui.Frame.Position + Vector2.new(10,40)
+		toggle1.Label.Position = ui.Frame.Position + Vector2.new(30,38)
+
+		toggle2.Box.Position = ui.Frame.Position + Vector2.new(10,70)
+		toggle2.Label.Position = ui.Frame.Position + Vector2.new(30,68)
+	end
+end)
+
+-- logic cũ của mày
 RunService.RenderStepped:Connect(function()
 	if not auto1 then return end
 
@@ -79,8 +128,4 @@ RunService.RenderStepped:Connect(function()
 	if (root.Position - target.Position).Magnitude > 5 then
 		root.CFrame = target.CFrame + Vector3.new(0, 3, 0)
 	end
-	if auto2 then
-	
-	end
-end)
 end)
