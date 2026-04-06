@@ -18,6 +18,7 @@ scripts = {
     [87067157937644] = "wavehub/blocc", --blocc (idk)
     [124398083342642] = "wavehub/rideacartdownaslide", --rideacartdownaslide
     [108180976346281] = "wavehub/crosstheroad", --crosstheroad
+    [112555408629538] = "wavehub/lowcortisolobby", --lowcortisolobby
 }
 
 if scriptName == "wavehub/Loader" then
