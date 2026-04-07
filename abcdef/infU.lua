@@ -391,35 +391,35 @@ elseif game.PlaceId == 70743305607680 then
 TabScriptAny:CreateButton({
    Name = "Wave Hub" .. " for " .. info.Name,
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/BuildBlox.lua", "WaveHubBB", false)
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/BuildBlox.lua", "WaveHubBB", false)
    end
 })
 elseif game.PlaceId == 85896571713843 then
 TabScriptAny:CreateButton({
    Name = "Wave Hub" .. " for " .. info.Name,
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/BubbleGumSimulator.lua", "WaveHubBGS", false)
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/BubbleGumSimulator.lua", "WaveHubBGS", false)
    end
 })
 elseif game.PlaceId == 87067157937644 then
 TabScriptAny:CreateButton({
    Name = "Wave Hub" .. " for " .. info.Name,
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/blocc.lua", "WaveHubblocc", false)
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/blocc.lua", "WaveHubblocc", false)
    end
 })
 elseif game.PlaceId == 108180976346281 then
 TabScriptAny:CreateButton({
    Name = "Wave Hub" .. " for " .. info.Name,
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/crosstheroad.lua", "WaveHubctr", false)
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/crosstheroad.lua", "WaveHubctr", false)
    end
 })
 elseif game.PlaceId == 112555408629538 then
 TabScriptAny:CreateButton({
    Name = "Wave Hub" .. " for " .. info.Name,
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/wavehub/lowcortisolobby.lua", "WaveHublcl", false)
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/lowcortisolobby.lua", "WaveHublcl", false)
    end
 })
 end
