@@ -33,6 +33,7 @@ local Window = Library:CreateWindow({
 	ToggleKeybind = Enum.KeyCode.G,
 	Resizable = false
 })
+local Tabs = Window:AddTab("Main")
 local function tp()
 	if not player.Character then
 		player.CharacterAdded:Wait()
