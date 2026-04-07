@@ -48,14 +48,16 @@ local function tp()
 end
 local auto1 = false
 local auto2 = false
-Groupbox:AddCheckbox({
+local LeftGroupBox = Tab:AddLeftGroupbox("Left Groupbox", "wrench")
+local RightGroupBox = Tab:AddRightGroupbox("Right Groupbox")
+LeftGroupBox:AddCheckbox("1", {
 	Default = false,
 	Text = "Auto Stage",
 	Callback = function(Value)
 		auto1 = Value
 	end
 })
-Groupbox:AddCheckbox({
+RightGroupBox:AddCheckbox("2", {
 	Default = false,
 	Text = "Auto2",
 	Callback = function(Value)
