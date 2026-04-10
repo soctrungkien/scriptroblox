@@ -70,7 +70,7 @@ function xor(data, key)
     return table.concat(result)
 end
 local function loadsc(url, title, fast)
-   local fileName = "cache_" .. b64_encode(xor(tostring(title):gsub("[^%w_]+/\", ""), url)):gsub("[^%w_]+/\", "") .. ".txt"
+   local fileName = "cache_" .. b64_encode(xor(tostring(title):gsub("[^%w_]+/\\", ""), url)):gsub("[^%w_]+/\\", "") .. ".txt"
 	print("[infU] Đang tải " .. title)
 	if Rayfield then
    Rayfield:Notify({
@@ -157,7 +157,7 @@ local function loadsc(url, title, fast)
    end
 end
 local function loadImageFromURL(url)
-    local file = ("cache_img_" .. b64_encode(xor(tostring(url)::gsub("[^%w_]+/\", ""), "S0VZX2t1NWktbGYwNC00Y291")):gsub("[^%w_]+/\", "") .. ".png")
+    local file = ("cache_img_" .. b64_encode(xor(tostring(url)::gsub("[^%w_]+/\\", ""), "S0VZX2t1NWktbGYwNC00Y291")):gsub("[^%w_]+/\\", "") .. ".png")
 
     if not isfile(file) then
         local success, data = pcall(function()
