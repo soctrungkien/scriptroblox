@@ -391,6 +391,15 @@ task.spawn(function()
 		end
 	end)
 end)
+game.DescendantAdded:Connect(function(instance)
+	for _, instance in next, game:GetDescendants() do
+		if instance:IsA("TextLabel") or instance:IsA("TextButton") then
+			if not table.find(cachedText, instance) then
+				table.insert(cachedText, instance)
+			end
+		end
+	end
+end
 getgenv().bridge_Notify = function(Title, Content, Duration, Image)
     Rayfield:Notify({
         Title = Title,
