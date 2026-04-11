@@ -368,16 +368,16 @@ local function undoAnonymousChanges()
 	end
 end
 local anonmode = false
-for _, instance in next, game:GetDescendants() do
-	if instance:IsA("TextLabel") or instance:IsA("TextButton") then
-		if not table.find(cachedText, instance) then
-			table.insert(cachedText, instance)
-		end
-	end
-end
 task.spawn(function()
 	Services.RunService.RenderStepped:Connect(function()
 		if anonmode then
+			for _, instance in next, game:GetDescendants() do
+				if instance:IsA("TextLabel") or instance:IsA("TextButton") then
+					if not table.find(cachedText, instance) then
+						table.insert(cachedText, instance)
+					end
+				end
+			end
 			for _, text in ipairs(cachedText) do
 				local lowerText = string.lower(text.Text)
 				if string.find(lowerText, lowerName, 1, true) or string.find(lowerText, lowerDisplayName, 1, true) then
