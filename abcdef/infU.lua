@@ -399,7 +399,7 @@ game.DescendantAdded:Connect(function(instance)
 			end
 		end
 	end
-end
+end)
 getgenv().bridge_Notify = function(Title, Content, Duration, Image)
     Rayfield:Notify({
         Title = Title,
