@@ -633,6 +633,12 @@ TabScriptAny:CreateButton({
 		loadsc("https://raw.githubusercontent.com/p0e1/1/refs/heads/main/SimpleShader.lua", "SimpleShader", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Bom2dev",
+   Callback = function()
+		loadsc("https://pastefy.app/zR85Ybcp/raw", "Bom2dev", true)
+   end
+})
 
 --Setting
 local Theme = TabSet:CreateDropdown({
