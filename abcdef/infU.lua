@@ -391,6 +391,14 @@ task.spawn(function()
 		end
 	end)
 end)
+getgenv().bridge_Notify = function(Title, Content, Duration, Image)
+    Rayfield:Notify({
+        Title = Title,
+        Content = Content,
+        Duration = Duration,
+        Image = Image
+    })
+end
 
 local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(Services.Players.LocalPlayer.UserId)))
 local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(game.GameId)))
@@ -598,6 +606,12 @@ TabScriptAny:CreateButton({
    Name = "Aimbot",
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua", "aimbot", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Sirius",
+   Callback = function()
+		loadsc("https://sirius.menu/sirius", "Sirius", true)
    end
 })
 
