@@ -522,7 +522,7 @@ loadsc("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt", "f
 TabScriptAny:CreateButton({
    Name = "Tp Tool",
    Callback = function()
-loadsc("https://pastefy.app/z0ZyOjK3/raw", "tptool", true)
+loadsc("https://pastefy.app/z0ZyOjK3/raw", "tp_tool", true)
    end
 })
 TabScriptAny:CreateButton({
