@@ -392,11 +392,9 @@ task.spawn(function()
 	end)
 end)
 game.DescendantAdded:Connect(function(instance)
-	for _, instance in next, game:GetDescendants() do
-		if instance:IsA("TextLabel") or instance:IsA("TextButton") then
-			if not table.find(cachedText, instance) then
-				table.insert(cachedText, instance)
-			end
+	if instance:IsA("TextLabel") or instance:IsA("TextButton") then
+		if not table.find(cachedText, instance) then
+			table.insert(cachedText, instance)
 		end
 	end
 end)
