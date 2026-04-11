@@ -551,6 +551,18 @@ TabScriptAny:CreateButton({
 		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/Universal.lua", "WaveHubUniversal", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Edge's Audio Logger",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/EdgeIY/audiologger/refs/heads/main/source", "audiologger", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Aimbot",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/Exunys/AirHub/main/AirHub.lua", "aimbot", true)
+   end
+})
 
 --Setting
 local Theme = TabSet:CreateDropdown({
