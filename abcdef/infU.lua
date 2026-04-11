@@ -354,6 +354,43 @@ end
 end
 end)
 end)
+local lowerName = Services.Players.LocalPlayer.Name:lower()
+local lowerDisplayName = Services.Players.LocalPlayer.DisplayName:lower()
+local originalTextValues = {}
+local cachedText = {}
+local randomUsername = "infU" .. math.random(100, 3999)
+local function storeOriginalText(element)
+	originalTextValues[element] = element.Text
+end
+local function undoAnonymousChanges()
+	for element, originalText in pairs(originalTextValues) do
+		element.Text = originalText
+	end
+end
+local anonmode = false
+for _, instance in next, game:GetDescendants() do
+	if instance:IsA("TextLabel") or instance:IsA("TextButton") then
+		if not table.find(cachedText, instance) then
+			table.insert(cachedText, instance)
+		end
+	end
+end
+task.spawn(function()
+	Services.RunService.RenderStepped:Connect(function()
+		if anonmode then
+			for _, text in ipairs(cachedText) do
+				local lowerText = string.lower(text.Text)
+				if string.find(lowerText, lowerName, 1, true) or string.find(lowerText, lowerDisplayName, 1, true) then
+					storeOriginalText(text)
+					local newText = string.gsub(string.gsub(lowerText, lowerName, randomUsername), lowerDisplayName, randomUsername)
+					text.Text = string.gsub(newText, "^%l", string.upper)
+				end
+			end
+		else
+			undoAnonymousChanges()
+		end
+	end)
+end)
 
 local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(Services.Players.LocalPlayer.UserId)))
 local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(game.GameId)))
@@ -648,6 +685,14 @@ local AntiGamePause = TabSet:CreateToggle({
 	    networkPaused:Disconnect()
    	end
 	end)
+   end,
+})
+local anonmodetoggle = TabSet:CreateToggle({
+   Name = "🧌 Ẩn tên người chơi khỏi UI",
+   CurrentValue = false,
+   Flag = "anonmodetoggle",
+   Callback = function(Value)
+	anonmode = Value
    end,
 })
 TabSet:CreateButton({
