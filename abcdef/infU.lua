@@ -657,7 +657,7 @@ TabSet:CreateButton({
                Title = "Fixlag",
                Content = "Đã fixlag thành công",
                Duration = 2.5,
-               Image = loadImageFromURL("https://ibb.co/nNFHLDwT")
+               Image = 137920786996005
             })
          end
          print("[infU] Fixlag OK")
@@ -823,6 +823,15 @@ end)
 end)
 
 --Server
+local function notinoserver()
+	warn("[infU] Không có server")
+		Rayfield:Notify({
+	      Title = "infU",
+	      Content = "Không tìm đc server",
+	      Duration = 2.5,
+		  Image = "x"
+	   })
+end
 TabServer:CreateButton({
    Name = "Vào lại server",
    Callback = function()
@@ -854,7 +863,7 @@ TabServer:CreateButton({
 	      Title = "infU",
 	      Content = "Đang tìm server",
 	      Duration = 2.5,
-		  Image = loadImageFromURL("https://ibb.co/fYLYf3ZN")
+		  Image = 120793987758737
 	   })
       local HttpService = Services.HttpService
       local TeleportService = Services.TeleportService
@@ -887,7 +896,7 @@ TabServer:CreateButton({
          if not cursor then break end
       end
 
-      if #servers == 0 then return warn("[infU] Không có server") end
+      if #servers == 0 then return notinoserver() end
 
       local target = servers[math.random(1, #servers)]
 
@@ -908,7 +917,7 @@ TabServer:CreateButton({
 	      Title = "infU",
 	      Content = "Đang tìm server",
 	      Duration = 2.5,
-		  Image = loadImageFromURL("https://ibb.co/fYLYf3ZN")
+		  Image = 120793987758737
 	   })
       local HttpService = Services.HttpService
       local TeleportService = Services.TeleportService
@@ -941,7 +950,7 @@ TabServer:CreateButton({
          if not cursor then break end
       end
 
-      if #servers == 0 then return warn("[infU] Không có server") end
+      if #servers == 0 then return notinoserver() end
 
       table.sort(servers, function(a, b)
          return a.playing < b.playing
