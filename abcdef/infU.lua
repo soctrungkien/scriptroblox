@@ -621,6 +621,18 @@ TabScriptAny:CreateButton({
 		loadsc("https://sirius.menu/sirius", "Sirius", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Place Finder",
+   Callback = function()
+		loadsc("https://pastefy.app/caPvwBGb/raw", "placefinder", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Simple Shader",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/p0e1/1/refs/heads/main/SimpleShader.lua", "SimpleShader", true)
+   end
+})
 
 --Setting
 local Theme = TabSet:CreateDropdown({
