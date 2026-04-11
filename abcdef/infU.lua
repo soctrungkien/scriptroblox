@@ -539,6 +539,18 @@ TabScriptAny:CreateButton({
 loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/TP.lua", "plytpgui", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Dragon Hub",
+   Callback = function()
+loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Menu.lua", "dragonhub", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Wave Hub Universal",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/Universal.lua", "WaveHubUniversal", true)
+   end
+})
 
 --Setting
 local Theme = TabSet:CreateDropdown({
