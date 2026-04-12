@@ -860,6 +860,12 @@ local noclipfas = TabSet:CreateToggle({
    end,
 })
 TabSet:CreateButton({
+   Name = "☠️ Respawn",
+   Callback = function()
+	Services.Players.LocalPlayer.Character:FindFirstChildWhichIsA'Humanoid'.Health = 0
+   end
+})
+TabSet:CreateButton({
    Name = "🎮 Nhật kí script",
    Callback = function()
 	Services.StarterGui:SetCore("DevConsoleVisible", true)
