@@ -252,8 +252,7 @@ setmetatable(Services, {
         end
     end
 })
-getgenv().loadername = ""
-getrenv().loadername = ""
+(getgenv or getrenv)().loadername = "infU"
 getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
 TeleportService = Services.TeleportService
@@ -433,9 +432,7 @@ game:GetService("RunService").Stepped:Connect(function()
         end
     end
 end)
-if _G._WRDClickTeleport_Initialized ~= true then
-    _G._WRDClickTeleport_Initialized = true
-
+if _G._WRDClickTeleport_Initialized then
     local player = Services.Players.LocalPlayer
     local UserInputService = Services.UserInputService
     local mouse = player:GetMouse()
@@ -824,6 +821,30 @@ local anonmodetoggle = TabSet:CreateToggle({
    Flag = "anonmodetoggle",
    Callback = function(Value)
 	anonmode = Value
+   end,
+})
+local ClickTeleport = TabSet:CreateToggle({
+   Name = "🫪 Control click tp",
+   CurrentValue = false,
+   Flag = "ClickTeleport",
+   Callback = function(Value)
+	_G._WRDClickTeleport_Initialized = Value
+   end,
+})
+local infinJum = TabSet:CreateToggle({
+   Name = "💃 Nhảy trên không",
+   CurrentValue = false,
+   Flag = "infinJum",
+   Callback = function(Value)
+	infinJumpEnabled = Value
+   end,
+})
+local noclipfas = TabSet:CreateToggle({
+   Name = "🍃 Đi xuyên tường",
+   CurrentValue = false,
+   Flag = "noclipfas",
+   Callback = function(Value)
+	noclipfasttoggle = Value
    end,
 })
 TabSet:CreateButton({
