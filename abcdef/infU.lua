@@ -252,7 +252,7 @@ setmetatable(Services, {
         end
     end
 })
-(getgenv or getrenv)().loadername = "infU";
+(getgenv or getrenv)().loadername = "infU"
 getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
 TeleportService = Services.TeleportService
@@ -862,7 +862,7 @@ local noclipfas = TabSet:CreateToggle({
 TabSet:CreateButton({
    Name = "☠️ Respawn",
    Callback = function()
-	Services.Players.LocalPlayer.Character:FindFirstChildWhichIsA'Humanoid'.Health = 0
+	game.Players.LocalPlayer.Character:FindFirstChildWhichIsA'Humanoid'.Health = 0
    end
 })
 TabSet:CreateButton({
