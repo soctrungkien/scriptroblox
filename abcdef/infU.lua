@@ -444,7 +444,7 @@ if _G._WRDClickTeleport_Initialized then
             if _G.WRDClickTeleport and UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
                   local char = player.Character
                   if char and char:FindFirstChild("HumanoidRootPart") then
-                      char:MoveTo(Vector3.new(mouse.Hit.x, mouse.Hit.y, mouse.Hit.z)) 
+                      char:MoveTo(Vector3.new(mouse.Hit.x, mouse.Hit.y + 3, mouse.Hit.z)) 
                   end
               end
           end
@@ -726,6 +726,18 @@ TabScriptAny:CreateButton({
    Name = "Executor (by dnezero)",
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/executor.lua", "executor", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "GodMode",
+   Callback = function()
+		loadsc("https://pastefy.app/OVyrDaSW/raw", "GodMode", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Gom người chơi",
+   Callback = function()
+		loadsc("https://pastefy.app/N7pg66LZ/raw", "BringPlayer", true)
    end
 })
 
