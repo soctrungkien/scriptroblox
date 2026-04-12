@@ -474,6 +474,27 @@ TabScriptAny:CreateButton({
 		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/lowcortisolobby.lua", "WaveHublcl", false)
    end
 })
+elseif game.PlaceId == 103854444055060 then
+TabScriptAny:CreateButton({
+   Name = "Script auto kill, esp" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/waidaito/Silent-Assassin-/refs/heads/main/satthuthamlangbanvn.lua", "satthuthamlangbanvn", false)
+   end
+})
+elseif game.PlaceId == 114640202062357 then
+TabScriptAny:CreateButton({
+   Name = "Sulfur Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://api.luarmor.net/files/v4/loaders/abb6f778df552245e3e937c9e79b01d4.lua", "SulfurHub", false)
+   end
+})
+elseif game.PlaceId == 124473577469410 then
+TabScriptAny:CreateButton({
+   Name = "SFG Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://gist.githubusercontent.com/ScriptsForDays/bfb7bfcb45832f7fcd81e50b9c149190/raw/829bdb8e30d8a060a61878eedf19e2f644e49e24/SFG-OP-BLAB-v1.0.35", "SFGHub", false)
+   end
+})
 end
 
 --Script Chung
@@ -649,12 +670,6 @@ TabScriptAny:CreateButton({
    Name = "Script đá ng chơi",
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/platinww/CrustyMain/refs/heads/main/universal/DropKick.lua", "ScriptDropKick", true)
-   end
-})
-TabScriptAny:CreateButton({
-   Name = "Global TAS",
-   Callback = function()
-		loadsc("https://raw.githubusercontent.com/ImMejor35/Global-TAS/main/lua", "Global-TAS", true)
    end
 })
 
