@@ -406,6 +406,53 @@ getgenv().bridge_Notify = function(Title, Content, Duration, Image)
         Image = Image
     })
 end
+local infinJumpEnabled = false
+UserInputService.JumpRequest:Connect(function()
+local Players = Services.Players
+local UserInputService = Services.UserInputService
+local player = Players.LocalPlayer
+  if infinJumpEnabled then
+      local humanoid = player.Character and player.Character:FindFirstChildOfClass("Humanoid")
+      if humanoid then
+          humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+          task.wait()
+          humanoid:ChangeState(Enum.HumanoidStateType.Seated)
+      end
+  end
+end)
+local noclipfasttoggle = false
+game:GetService("RunService").Stepped:Connect(function()
+    if noclipfasttoggle then
+        local char = Services.Players.LocalPlayer
+        if char then
+            for _, v in pairs(char:GetDescendants()) do
+                if v:IsA("BasePart") and v.CanCollide then
+                    v.CanCollide = false
+                end
+            end
+        end
+    end
+end)
+if _G._WRDClickTeleport_Initialized ~= true then
+    _G._WRDClickTeleport_Initialized = true
+
+    local player = Services.Players.LocalPlayer
+    local UserInputService = Services.UserInputService
+    local mouse = player:GetMouse()
+
+    repeat wait() until mouse
+
+    UserInputService.InputBegan:Connect(function(input, gameProcessed)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            if _G.WRDClickTeleport and UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
+                  local char = player.Character
+                  if char and char:FindFirstChild("HumanoidRootPart") then
+                      char:MoveTo(Vector3.new(mouse.Hit.x, mouse.Hit.y, mouse.Hit.z)) 
+                  end
+              end
+          end
+      end)
+end
 
 local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(Services.Players.LocalPlayer.UserId)))
 local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(game.GameId)))
