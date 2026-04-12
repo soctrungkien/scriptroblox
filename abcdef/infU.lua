@@ -862,7 +862,13 @@ local noclipfas = TabSet:CreateToggle({
 TabSet:CreateButton({
    Name = "☠️ Respawn",
    Callback = function()
-	game.Players.LocalPlayer.Character:FindFirstChildWhichIsA'Humanoid'.Health = 0
+       local char = game.Players.LocalPlayer.Character
+       if not char then return end
+       
+       local hum = char:FindFirstChildWhichIsA("Humanoid")
+       if hum then
+           hum.Health = 0
+       end
    end
 })
 TabSet:CreateButton({
