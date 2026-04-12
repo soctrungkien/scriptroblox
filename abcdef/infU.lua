@@ -252,7 +252,7 @@ setmetatable(Services, {
         end
     end
 })
-(getgenv or getrenv)().loadername = "infU"
+(getgenv or getrenv)().loadername = "infU";
 getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
 TeleportService = Services.TeleportService
