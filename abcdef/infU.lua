@@ -634,9 +634,27 @@ TabScriptAny:CreateButton({
    end
 })
 TabScriptAny:CreateButton({
-   Name = "Bom2dev",
+   Name = "Auto Piano",
    Callback = function()
-		loadsc("https://pastefy.app/zR85Ybcp/raw", "Bom2dev", true)
+		loadsc("https://gist.githubusercontent.com/vukhanhtoan2907-lab/705658996e60d919a22cdc5dc0ce90d9/raw/gistfile1.txt", "AutoPiano", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Auto Di chuyển",
+   Callback = function()
+		loadsc("https://gist.githubusercontent.com/vukhanhtoan2907-lab/f62c00375072d144835c0976e944d29f/raw/gistfile1.txt", "AutoDiChuyen", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Script đá ng chơi",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/platinww/CrustyMain/refs/heads/main/universal/DropKick.lua", "ScriptDropKick", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Global TAS",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/ImMejor35/Global-TAS/main/lua", "Global-TAS", true)
    end
 })
 
