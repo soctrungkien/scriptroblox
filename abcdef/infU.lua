@@ -549,7 +549,7 @@ loadsc("https://pastefy.app/hkdcsUJe/raw", "infu_tp_tool", true)
 TabScriptAny:CreateButton({
    Name = "F3X",
    Callback = function()
-loadsc("https://raw.githubusercontent.com/Windows81/Personal-Roblox-Client-Scripts/refs/heads/main/f3x.lua", "f3x", true)
+loadsc("https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/f3x.lua", "f3x", true)
    end
 })
 TabScriptAny:CreateButton({
@@ -670,6 +670,18 @@ TabScriptAny:CreateButton({
    Name = "Script đá ng chơi",
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/platinww/CrustyMain/refs/heads/main/universal/DropKick.lua", "ScriptDropKick", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Chạy trên tường",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/infyiff/backup/main/wallwalker.lua", "wallwalk", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Executor (by dnezero)",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/executor.lua", "executor", true)
    end
 })
 
