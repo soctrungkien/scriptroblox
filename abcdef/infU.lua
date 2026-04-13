@@ -1046,6 +1046,14 @@ local noclipfas = TabSet:CreateToggle({
 	noclipfasttoggle = Value
    end,
 })
+local noclipfas = TabSet:CreateToggle({
+   Name = "⚰️ Mở khoá respawn trong menu",
+   CurrentValue = false,
+   Flag = "noclipfas",
+   Callback = function(Value)
+	game.Players.LocalPlayer:SetAttribute("CanRespawn", Value)
+   end,
+})
 local clicktotouchm = TabSet:CreateToggle({
    Name = "🐭 Click + alt = chạm",
    CurrentValue = false,
