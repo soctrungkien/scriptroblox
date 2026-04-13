@@ -451,6 +451,19 @@ if _G._WRDClickTeleport_Initialized then
           end
       end)
 end
+Services.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
+	if clicktotouch and Services.UserInputService:IsKeyDown(Enum.KeyCode.LeftAlt) then
+	    local target = Services.Players.LocalPlayer:GetMouse().Target
+	    if target and target:IsA("BasePart") then
+	        local char = Services.Players.LocalPlayer.Character or Services.Players.LocalPlayer.CharacterAdded:Wait()
+	        local hrp = char:WaitForChild("HumanoidRootPart")
+	
+	        firetouchinterest(hrp, target, 0)
+	        task.wait(0.05)
+	        firetouchinterest(hrp, target, 1)
+	    end
+	end
+end)
 
 local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(Services.Players.LocalPlayer.UserId)))
 local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(game.GameId)))
@@ -589,6 +602,12 @@ TabScriptAny:CreateButton({
    Name = "Tp Tool",
    Callback = function()
 loadsc("https://pastefy.app/hkdcsUJe/raw", "infu_tp_tool", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Click to touch Tool",
+   Callback = function()
+loadsc("https://pastefy.app/EJ18alOo/raw", "clicktotouchtool", true)
    end
 })
 TabScriptAny:CreateButton({
@@ -860,6 +879,14 @@ local noclipfas = TabSet:CreateToggle({
 	noclipfasttoggle = Value
    end,
 })
+local clicktotouchm = TabSet:CreateToggle({
+   Name = "🐭 Click + alt = chạm",
+   CurrentValue = false,
+   Flag = "clicktotouchm",
+   Callback = function(Value)
+	clicktotouch = Value
+   end,
+})
 TabSet:CreateButton({
    Name = "☠️ Respawn",
    Callback = function()
@@ -981,6 +1008,7 @@ local live = TabInfo:CreateParagraph({Title = "Thông tin khác", Content = "Kh�
 TabInfo:CreateButton({
    Name = "Copy PlaceId",
    Callback = function()
+		print("[infU] Đã copy: " .. game.PlaceId)
 		setclipboard(game.PlaceId)
 	   Rayfield:Notify({
 	      Title = game.PlaceId,
@@ -993,6 +1021,7 @@ TabInfo:CreateButton({
 TabInfo:CreateButton({
    Name = "Copy GameId",
    Callback = function()
+		print("[infU] Đã copy: " .. game.GameId)
 		setclipboard(game.GameId)
 	   Rayfield:Notify({
 	      Title = game.GameId,
@@ -1005,6 +1034,7 @@ TabInfo:CreateButton({
 TabInfo:CreateButton({
    Name = "Copy JobId",
    Callback = function()
+		print("[infU] Đã copy: " .. game.JobId)
 		setclipboard(game.JobId)
 	   Rayfield:Notify({
 	      Title = game.JobId,
@@ -1017,6 +1047,7 @@ TabInfo:CreateButton({
 TabInfo:CreateButton({
    Name = "Copy UserId",
    Callback = function()
+		print("[infU] Đã copy: " .. Services.Players.LocalPlayer.UserId)
 		setclipboard(Services.Players.LocalPlayer.UserId)
 	   Rayfield:Notify({
 	      Title = Services.Players.LocalPlayer.UserId,
@@ -1029,6 +1060,7 @@ TabInfo:CreateButton({
 TabInfo:CreateButton({
    Name = "Copy IP",
    Callback = function()
+		print("[infU] Đã copy: " .. ipinfo_tableClient.ip)
 		setclipboard(ipinfo_tableClient.ip)
 	   Rayfield:Notify({
 	      Title = ipinfo_tableClient.ip,
@@ -1041,6 +1073,7 @@ TabInfo:CreateButton({
 TabInfo:CreateButton({
    Name = "Copy vị trí người chơi",
    Callback = function()
+		print("[infU] Đã copy: " .. tostring(position))
 		setclipboard(tostring(position))
 	   Rayfield:Notify({
 	      Title = tostring(position),
@@ -1078,6 +1111,7 @@ end
 TabServer:CreateButton({
    Name = "Vào lại server",
    Callback = function()
+		print("[infU] Đang vào lại server: " .. game.JobId)
 	   Rayfield:Notify({
 	      Title = "Đang vào server:",
 	      Content = game.JobId,
@@ -1090,6 +1124,7 @@ TabServer:CreateButton({
 TabServer:CreateButton({
    Name = "Server Hop (theo cài đặt game)",
    Callback = function()
+		print("[infU] Vào server theo game")
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đang vào server theo cài đặt game",
@@ -1102,6 +1137,7 @@ TabServer:CreateButton({
 TabServer:CreateButton({
    Name = "Server random",
    Callback = function()
+		print("[infU] Đang tìm server")
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đang tìm server",
@@ -1156,6 +1192,7 @@ TabServer:CreateButton({
 TabServer:CreateButton({
    Name = "Server ít người",
    Callback = function()
+		print("[infU] Đang tìm server")
 	   Rayfield:Notify({
 	      Title = "infU",
 	      Content = "Đang tìm server",
@@ -1214,6 +1251,7 @@ TabServer:CreateButton({
 TabServer:CreateButton({
    Name = "JobId: " .. game.JobId,
    Callback = function()
+		print("[infU] JobId: " .. game.JobId)
 		setclipboard(game.JobId)
 	   Rayfield:Notify({
 	      Title = game.JobId,
@@ -1230,6 +1268,7 @@ local JoinJobId = TabServer:CreateInput({
    RemoveTextAfterFocusLost = false,
    Flag = "JoinJobId",
    Callback = function(Text)
+		print("[infU] JobId join: " .. Text)
 	   Rayfield:Notify({
 	      Title = "Đang vào server:",
 	      Content = Text,
@@ -1243,6 +1282,8 @@ TabServer:CreateButton({
    Name = "Lấy script vào server",
    Callback = function()
 		local scriptjoinserver = "game:GetService('TeleportService'):TeleportToPlaceInstance(" .. game.PlaceId .. ", '" .. game.JobId .. "', game.Players.LocalPlayer)"
+		print("[infU] Script join server")
+		print(scriptjoinserver)
 		setclipboard(scriptjoinserver)
 	   Rayfield:Notify({
 	      Title = scriptjoinserver,
