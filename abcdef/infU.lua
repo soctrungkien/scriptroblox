@@ -855,6 +855,54 @@ TabScriptAny:CreateButton({
 		loadsc("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main/UNC%20test", "UNCTest", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Vứt hết đồ trong túi đồ",
+   Callback = function()
+		loadsc("https://pastefy.app/pNlepHPp/raw", "dropallitem", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Hitbox",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/TIG0Z/mRXScripts/refs/heads/main/hitbox-1.txt", "hitbox", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Tốc độ",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/TIG0Z/mRXScripts/refs/heads/main/speed-1.txt", "speed", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Fake Lag",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/Biem6ondo/FAKELAG/refs/heads/main/Fakelag", "FAKELAG", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Free cam",
+   Callback = function()
+		loadsc("https://pastefy.app/mzHiFNDi/raw", "FreeCam", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Sức nhảy",
+   Callback = function()
+		loadsc("https://pastefy.app/KPI6Sfld/raw", "JumpPowerChanger", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Instant Proximity Prompts",
+   Callback = function()
+		loadsc("https://pastefy.app/a6xGAx3Z/raw", "InstantProximityPrompts", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Cầm tất cả đồ trong balo",
+   Callback = function()
+		loadsc("https://pastefy.app/25Lxeh1G/raw", "Equipalltool", true)
+   end
+})
 
 --Setting
 local Theme = TabSet:CreateDropdown({
@@ -1035,6 +1083,12 @@ TabSet:CreateButton({
    end
 })
 TabSet:CreateButton({
+   Name = "🌬️ FPSBoost UI",
+   Callback = function()
+		FPSBoost_UI()
+   end
+})
+TabSet:CreateButton({
    Name = "🗑️ Dọn cache infU",
    Callback = function()
 local folder = ""
@@ -1194,7 +1248,7 @@ position =
     Services.Players.LocalPlayer.Character and Services.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and
     Services.Players.LocalPlayer.Character.HumanoidRootPart.Position or "Không rõ"
 live:Set({Title = "Thông tin khác", Content = "❤️ Máu: " .. health .. "/" .. maxHealth .. "\n👥 Người chơi: " .. #Services.Players:GetPlayers() .. " / " .. Services.Players.MaxPlayers .. "\n🕒 Giờ server: " .. os.date("%H:%M:%S") .. "\n📺 Độ phân giải: " .. math.floor(workspace.CurrentCamera.ViewportSize.X) .. "x" .. math.floor(workspace.CurrentCamera.ViewportSize.Y) .. "\n🔍 RAM sử dụng: " .. Services.Stats:GetTotalMemoryUsageMb() .. "\n📍Vị trí nhân vật" .. tostring(position) .. "\n📶 Ping: " .. getPing() .. "\n📺 FPS: " .. fps})
-task.wait(0.1)
+task.wait(updatefpspingtime / 1000)
 end)
 end)
 end)
