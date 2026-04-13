@@ -486,12 +486,12 @@ Services.RunService.RenderStepped:Connect(function()
 
 			-- FONT APPLY TO ALL
 			if not text:IsDescendantOf(game:GetService("CoreGui")) then
-	if currentThemeFont then
-		text.Font = currentThemeFont
-	else
-		text.Font = originalFontValues[text]
-	end
-				if
+				if currentThemeFont then
+					text.Font = currentThemeFont
+				else
+					text.Font = originalFontValues[text]
+				end
+			end
 		end
 	end
 end)
