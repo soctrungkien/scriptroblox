@@ -509,17 +509,20 @@ local player = Players.LocalPlayer
   end
 end)
 local noclipfasttoggle = false
-game:GetService("RunService").Stepped:Connect(function()
+task.spawn(function()
+Services.RunService.Stepped:Connect(function()
     if noclipfasttoggle then
-        local char = Services.Players.LocalPlayer
+        local player = Services.Players.LocalPlayer
+        local char = player.Character
         if char then
             for _, v in pairs(char:GetDescendants()) do
-                if v:IsA("BasePart") and v.CanCollide then
+                if v:IsA("BasePart") then
                     v.CanCollide = false
                 end
             end
         end
     end
+end)
 end)
 local WRDClickTeleport = false
 task.spawn(function()
