@@ -591,8 +591,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/vertex-peak/vertex/re
                 Tabs.Main:AddButton({
      Title = "Teleport",
     Callback = function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/TP'
-local Tele = loadstring(game:HttpGet('https://pastefy.app/kSf34EFE'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/Script/TP"))()
   end
   })
 
