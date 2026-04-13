@@ -261,6 +261,9 @@ local TeleportService = TeleportService
 local Players = Services.Players
 local LocalPlayer = Players.LocalPlayer
 local old
+local isnamecallhook = false
+local function hookantikick()
+isnamecallhook = true
 old = hookmetamethod(game, "__namecall", function(self, ...)
     local method = getnamecallmethod()
 
@@ -274,6 +277,7 @@ old = hookmetamethod(game, "__namecall", function(self, ...)
 
     return old(self, ...)
 end)
+end
 local COREGUI = Services.CoreGui
 local screenGuiblack = Instance.new("ScreenGui")
 screenGuiblack.Name = "BlackoutOverlay"
@@ -837,10 +841,13 @@ local AntiAFK = TabSet:CreateToggle({
    end,
 })
 local AntiKickClient = TabSet:CreateToggle({
-   Name = "🔥 Chặn kick từ script khác",
+   Name = "🔥 Chặn kick từ script khác (hook namecall)",
    CurrentValue = false,
    Flag = "AntiKickClient",
    Callback = function(Value)
+	if isnamecallhook = false then
+		hookantikick()
+	end
 	getgenv().AntiKickScriptCore = Value
    end,
 })
