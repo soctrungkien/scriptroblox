@@ -538,6 +538,8 @@ Services.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
 	    end
 	end
 end)
+Services.StarterPlayer.EnableMouseLockOption = true
+game.Players.LocalPlayer:SetAttribute("CanRespawn", true)
 
 local TabInfo = Window:CreateTab("Thông tin", loadImageFromURL(getAvatar(Services.Players.LocalPlayer.UserId)))
 local TabScriptAny = Window:CreateTab("Script", loadImageFromURL(getGameIcon(game.GameId)))
@@ -1044,14 +1046,6 @@ local noclipfas = TabSet:CreateToggle({
    Flag = "noclipfas",
    Callback = function(Value)
 	noclipfasttoggle = Value
-   end,
-})
-local noclipfas = TabSet:CreateToggle({
-   Name = "⚰️ Mở khoá respawn trong menu",
-   CurrentValue = false,
-   Flag = "noclipfas",
-   Callback = function(Value)
-	game.Players.LocalPlayer:SetAttribute("CanRespawn", Value)
    end,
 })
 local clicktotouchm = TabSet:CreateToggle({
