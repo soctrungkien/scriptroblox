@@ -252,7 +252,8 @@ setmetatable(Services, {
         end
     end
 })
-(getgenv or getrenv)().loadername = "infU"
+getgenv().loadername = ""
+getrenv().loadername = ""
 getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
 TeleportService = Services.TeleportService
@@ -406,7 +407,7 @@ getgenv().bridge_Notify = function(Title, Content, Duration, Image)
     })
 end
 local infinJumpEnabled = false
-UserInputService.JumpRequest:Connect(function()
+Services.UserInputService.JumpRequest:Connect(function()
 local Players = Services.Players
 local UserInputService = Services.UserInputService
 local player = Players.LocalPlayer
@@ -858,6 +859,15 @@ local noclipfas = TabSet:CreateToggle({
    Callback = function(Value)
 	noclipfasttoggle = Value
    end,
+})
+TabSet:CreateButton({
+   Name = "☠️ Respawn",
+   Callback = function()
+       local plr = game.Players.LocalPlayer
+       if plr then
+           plr:LoadCharacter()
+       end
+   end
 })
 TabSet:CreateButton({
    Name = "🎮 Nhật kí script",
