@@ -996,7 +996,7 @@ local volume = TabSet:CreateSlider({
    CurrentValue = 100,
    Flag = "volume",
    Callback = function(Value)
-	UserSettings():GetService("UserGameSettings").MasterVolume = args[1]/10 = Value
+	UserSettings():GetService("UserGameSettings").MasterVolume = Value / 10
    end,
 })
 local AntiAFK = TabSet:CreateToggle({
