@@ -425,12 +425,15 @@ end)
 end)
 local lowerName = Services.Players.LocalPlayer.Name:lower()
 local lowerDisplayName = Services.Players.LocalPlayer.DisplayName:lower()
+
 local originalTextValues = {}
-local cachedText = {}
 local originalFontValues = {}
+local cachedText = {}
+
 local currentThemeFont = nil
 local randomUsername = "infU_" .. math.random(100, 3999)
-local function storeOriginalText(element)
+
+local function storeOriginal(element)
 	if not originalTextValues[element] then
 		originalTextValues[element] = element.Text
 	end
@@ -438,10 +441,11 @@ local function storeOriginalText(element)
 		originalFontValues[element] = element.Font
 	end
 end
-local function undoAnonymousChanges()
-	for element, originalText in pairs(originalTextValues) do
+
+local function restoreAll()
+	for element, text in pairs(originalTextValues) do
 		if element then
-			element.Text = originalText
+			element.Text = text
 		end
 	end
 
@@ -451,39 +455,50 @@ local function undoAnonymousChanges()
 		end
 	end
 end
+
 local anonmode = false
-for _, instance in next, game:GetDescendants() do
-	if instance:IsA("TextLabel") or instance:IsA("TextButton") then
-		if not table.find(cachedText, instance) then
-			table.insert(cachedText, instance)
-		end
+
+-- cache text objects
+for _, v in ipairs(game:GetDescendants()) do
+	if v:IsA("TextLabel") or v:IsA("TextButton") then
+		table.insert(cachedText, v)
 	end
 end
-task.spawn(function()
-	Services.RunService.RenderStepped:Connect(function()
-		if anonmode then
-			for _, text in ipairs(cachedText) do
-				local lowerText = string.lower(text.Text)
+
+-- main loop
+Services.RunService.RenderStepped:Connect(function()
+	for _, text in ipairs(cachedText) do
+		if text and text:IsDescendantOf(game) then
+			storeOriginal(text)
+
+			-- ANON TEXT
+			if anonmode then
+				local lowerText = text.Text:lower()
+
 				if string.find(lowerText, lowerName, 1, true) or string.find(lowerText, lowerDisplayName, 1, true) then
-					storeOriginalText(text)
 					local newText = string.gsub(string.gsub(lowerText, lowerName, randomUsername), lowerDisplayName, randomUsername)
 					text.Text = string.gsub(newText, "^%l", string.upper)
-					
-					if currentThemeFont then
-						text.Font = currentThemeFont
-					end
 				end
+			else
+				-- revert text ngay lập tức
+				text.Text = originalTextValues[text]
 			end
-		else
-			undoAnonymousChanges()
+
+			-- FONT APPLY TO ALL
+			if currentThemeFont then
+				text.Font = currentThemeFont
+			else
+				-- revert font ngay lập tức
+				text.Font = originalFontValues[text]
+			end
 		end
-	end)
+	end
 end)
-game.DescendantAdded:Connect(function(instance)
-	if instance:IsA("TextLabel") or instance:IsA("TextButton") then
-		if not table.find(cachedText, instance) then
-			table.insert(cachedText, instance)
-		end
+
+-- detect new UI
+game.DescendantAdded:Connect(function(v)
+	if v:IsA("TextLabel") or v:IsA("TextButton") then
+		table.insert(cachedText, v)
 	end
 end)
 getgenv().bridge_Notify = function(Title, Content, Duration, Image)
