@@ -5,6 +5,60 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
     Duration = 1
 })
 repeat wait() until game:IsLoaded()
+local identity = getthreadidentity()
+pcall(function()
+local getinfo = getinfo or debug.getinfo
+local DEBUG = true
+local Hooked = {}
+local Detected, Kill
+setthreadidentity(2)
+for i, v in getgc(true) do
+    if typeof(v) == "table" then
+        local DetectFunc = rawget(v, "Detected")
+        local KillFunc = rawget(v, "Kill")
+        if typeof(DetectFunc) == "function" and not Detected then
+            Detected = DetectFunc
+            local Old; Old = hookfunction(Detected, function(Action, Info, NoCrash)
+                if Action ~= "_" then
+                    if DEBUG then
+                        warn(`Adonis AntiCheat flagged\nMethod: {Action}\nInfo: {Info}`)
+                    end
+                end
+                return true
+            end)
+            table.insert(Hooked, Detected)
+        end
+        if rawget(v, "Variables") and rawget(v, "Process") and typeof(KillFunc) == "function" and not Kill then
+            Kill = KillFunc
+            local Old; Old = hookfunction(Kill, function(Info)
+                if DEBUG then
+                    warn(`Adonis AntiCheat tried to kill (fallback): {Info}`)
+                end
+            end)
+            table.insert(Hooked, Kill)
+        end
+    end
+end
+local Old; Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
+    local LevelOrFunc, Info = ...
+
+    if Detected and LevelOrFunc == Detected then
+        if DEBUG then
+            warn(`Adonis AntiCheat sanity check detected and broken`)
+        end
+
+        return coroutine.yield(coroutine.running())
+    end
+    
+    return Old(...)
+end))
+end)
+setthreadidentity(9)
+setthreadidentity(7)
+setthreadidentity(9)
+setthreadidentity(10)
+setthreadidentity(identity)
+setfpscap(999999)
 setfpscap(240)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
