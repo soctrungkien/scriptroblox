@@ -1118,6 +1118,12 @@ TabSet:CreateButton({
    end
 })
 TabSet:CreateButton({
+   Name = "🌫️ Toàn màn hình",
+   Callback = function()
+	return return Services.GuiService:ToggleFullscreen()
+   end
+})
+TabSet:CreateButton({
    Name = "🔎 Zoom vô hạn",
    Callback = function()
 	Services.Players.LocalPlayer.CameraMaxZoomDistance = 99999999
