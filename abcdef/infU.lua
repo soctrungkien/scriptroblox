@@ -974,14 +974,6 @@ local AntiAFK = TabSet:CreateToggle({
 	AntiAFKEnabled = Value
    end,
 })
-local AntiAFK = TabSet:CreateToggle({
-   Name = "🤖 Khoá vị trí người chơi",
-   CurrentValue = false,
-   Flag = "AntiAFK",
-   Callback = function(Value)
-	game.Players.LocalPlayer:FindFirstChild("HumanoidRootPart").Anchored = Value
-   end,
-})
 local AntiKickClient = TabSet:CreateToggle({
    Name = "🔥 Chặn kick từ script khác (hook namecall)",
    CurrentValue = false,
@@ -1081,18 +1073,6 @@ TabSet:CreateButton({
    end
 })
 TabSet:CreateButton({
-   Name = "🎞️ Quay màn hình",
-   Callback = function()
-	return COREGUI:ToggleRecording()
-   end
-})
-TabSet:CreateButton({
-   Name = "📷 Chụp ảnh",
-   Callback = function()
-	return COREGUI:TakeScreenshot()
-   end
-})
-TabSet:CreateButton({
    Name = "🌫️ Toàn màn hình",
    Callback = function()
 	return Services.GuiService:ToggleFullscreen()
@@ -1100,12 +1080,6 @@ TabSet:CreateButton({
 })
 TabSet:CreateButton({
    Name = "🩻 Thoát game",
-   Callback = function()
-	game:Shutdown()
-   end
-})
-TabSet:CreateButton({
-   Name = "💣 Creeper",
    Callback = function()
 	game:Shutdown()
    end
