@@ -989,6 +989,16 @@ local updatefpspingtimems = TabSet:CreateSlider({
 	updatefpspingtime = Value
    end,
 })
+local volume = TabSet:CreateSlider({
+   Name = "🔊 Âm lượng",
+   Range = {1, 10},
+   Increment = 1,
+   CurrentValue = 100,
+   Flag = "volume",
+   Callback = function(Value)
+	UserSettings():GetService("UserGameSettings").MasterVolume = args[1]/10 = Value
+   end,
+})
 local AntiAFK = TabSet:CreateToggle({
    Name = "🕹️ AntiAFK",
    CurrentValue = false,
@@ -1093,6 +1103,18 @@ TabSet:CreateButton({
    Name = "🎮 Nhật kí script",
    Callback = function()
 	Services.StarterGui:SetCore("DevConsoleVisible", true)
+   end
+})
+TabSet:CreateButton({
+   Name = "🎞️ Quay màn hình",
+   Callback = function()
+	return COREGUI:ToggleRecording()
+   end
+})
+TabSet:CreateButton({
+   Name = "📷 Chụp ảnh",
+   Callback = function()
+	return COREGUI:TakeScreenshot()
    end
 })
 TabSet:CreateButton({
