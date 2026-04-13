@@ -908,6 +908,12 @@ TabScriptAny:CreateButton({
 		loadsc("https://pastefy.app/25Lxeh1G/raw", "Equipalltool", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Chạm vào tất cả part",
+   Callback = function()
+		loadsc("https://pastefy.app/2jUtPDuo/raw", "TouchAllPartUI", true)
+   end
+})
 
 --Setting
 local Theme = TabSet:CreateDropdown({
