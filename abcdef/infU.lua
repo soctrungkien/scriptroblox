@@ -845,7 +845,7 @@ local AntiKickClient = TabSet:CreateToggle({
    CurrentValue = false,
    Flag = "AntiKickClient",
    Callback = function(Value)
-	if isnamecallhook = false then
+	if isnamecallhook == false then
 		hookantikick()
 	end
 	getgenv().AntiKickScriptCore = Value
