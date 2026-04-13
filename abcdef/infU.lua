@@ -433,7 +433,8 @@ game:GetService("RunService").Stepped:Connect(function()
         end
     end
 end)
-if _G._WRDClickTeleport_Initialized then
+local WRDClickTeleport = false
+task.spawn(function()
     local player = Services.Players.LocalPlayer
     local UserInputService = Services.UserInputService
     local mouse = player:GetMouse()
@@ -442,7 +443,7 @@ if _G._WRDClickTeleport_Initialized then
 
     UserInputService.InputBegan:Connect(function(input, gameProcessed)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            if _G.WRDClickTeleport and UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
+            if WRDClickTeleport and UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
                   local char = player.Character
                   if char and char:FindFirstChild("HumanoidRootPart") then
                       char:MoveTo(Vector3.new(mouse.Hit.x, mouse.Hit.y + 3, mouse.Hit.z)) 
@@ -450,7 +451,8 @@ if _G._WRDClickTeleport_Initialized then
               end
           end
       end)
-end
+end)
+local clicktotouch = false
 Services.Players.LocalPlayer:GetMouse().Button1Down:Connect(function()
 	if clicktotouch and Services.UserInputService:IsKeyDown(Enum.KeyCode.LeftAlt) then
 	    local target = Services.Players.LocalPlayer:GetMouse().Target
@@ -760,6 +762,30 @@ TabScriptAny:CreateButton({
 		loadsc("https://pastefy.app/N7pg66LZ/raw", "BringPlayer", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Project Vel0r",
+   Callback = function()
+		loadsc("https://cdn.pastebdn.workers.dev/raw/db6813ba", "ProjectVel0rKeyless", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Wisl Universal",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/WislUniversal/script/refs/heads/main/Universal.lua", "WislUniversal", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Wisl Universal Aimbot",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/WislUniversal/script/refs/heads/main/UniversalAimbot.lua", "WislUniversalAimbot", true)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "UNC Test",
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/ltseverydayyou/uuuuuuu/refs/heads/main/UNC%20test", "UNCTest", true)
+   end
+})
 
 --Setting
 local Theme = TabSet:CreateDropdown({
@@ -860,7 +886,7 @@ local ClickTeleport = TabSet:CreateToggle({
    CurrentValue = false,
    Flag = "ClickTeleport",
    Callback = function(Value)
-	_G._WRDClickTeleport_Initialized = Value
+	WRDClickTeleport = Value
    end,
 })
 local infinJum = TabSet:CreateToggle({
@@ -890,9 +916,12 @@ local clicktotouchm = TabSet:CreateToggle({
 TabSet:CreateButton({
    Name = "☠️ Respawn",
    Callback = function()
-       local plr = game.Players.LocalPlayer
-       if plr then
-           plr:LoadCharacter()
+       local char = game.Players.LocalPlayer.Character
+       if not char then return end
+       
+       local hum = char:FindFirstChildWhichIsA("Humanoid")
+       if hum then
+           hum.Health = 0
        end
    end
 })
