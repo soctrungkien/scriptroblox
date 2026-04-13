@@ -1007,6 +1007,14 @@ local AntiAFK = TabSet:CreateToggle({
 	AntiAFKEnabled = Value
    end,
 })
+local AntiAFK = TabSet:CreateToggle({
+   Name = "🤖 Khoá vị trí người chơi",
+   CurrentValue = false,
+   Flag = "AntiAFK",
+   Callback = function(Value)
+	game.Players.LocalPlayer:FindFirstChild("HumanoidRootPart").Anchored = Value
+   end,
+})
 local AntiKickClient = TabSet:CreateToggle({
    Name = "🔥 Chặn kick từ script khác (hook namecall)",
    CurrentValue = false,
@@ -1120,7 +1128,56 @@ TabSet:CreateButton({
 TabSet:CreateButton({
    Name = "🌫️ Toàn màn hình",
    Callback = function()
-	return return Services.GuiService:ToggleFullscreen()
+	return Services.GuiService:ToggleFullscreen()
+   end
+})
+TabSet:CreateButton({
+   Name = "🩻 Thoát game",
+   Callback = function()
+	game:Shutdown()
+   end
+})
+TabSet:CreateButton({
+   Name = "💣 Creeper",
+   Callback = function()
+	game:Shutdown()
+   end
+})
+TabSet:CreateButton({
+   Name = "📟 Bong bóng chat màu đen",
+   Callback = function()
+		local TextChatService = Services.TextChatService
+		
+		local BCC = TextChatService:FindFirstChildOfClass("BubbleChatConfiguration")
+		local CWC = TextChatService:FindFirstChildOfClass("ChatWindowConfiguration")
+		local CIBC = TextChatService:FindFirstChildOfClass("ChatInputBarConfiguration")
+		
+		if BCC then
+		    BCC.Enabled = true
+		    BCC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		    BCC.BackgroundTransparency = 0.3
+		    BCC.TailVisible = true
+		    BCC.TextColor3 = Color3.fromRGB(255, 255, 255)
+		end
+		
+		if CWC then
+		    CWC.Enabled = true
+		    CWC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		    CWC.BackgroundTransparency = 0.3
+		    CWC.TextColor3 = Color3.fromRGB(255, 255, 255)
+		    CWC.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+		    CWC.TextStrokeTransparency = 0.5
+		end
+		
+		if CIBC then
+		    CIBC.Enabled = true
+		    CIBC.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+		    CIBC.BackgroundTransparency = 0.5
+		    CIBC.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+		    CIBC.TextColor3 = Color3.fromRGB(255, 255, 255)
+		    CIBC.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+		    CIBC.TextStrokeTransparency = 0.5
+		end
    end
 })
 TabSet:CreateButton({
