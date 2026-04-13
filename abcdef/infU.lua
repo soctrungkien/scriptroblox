@@ -427,13 +427,28 @@ local lowerName = Services.Players.LocalPlayer.Name:lower()
 local lowerDisplayName = Services.Players.LocalPlayer.DisplayName:lower()
 local originalTextValues = {}
 local cachedText = {}
+local originalFontValues = {}
+local currentThemeFont = nil
 local randomUsername = "infU_" .. math.random(100, 3999)
 local function storeOriginalText(element)
-	originalTextValues[element] = element.Text
+	if not originalTextValues[element] then
+		originalTextValues[element] = element.Text
+	end
+	if not originalFontValues[element] then
+		originalFontValues[element] = element.Font
+	end
 end
 local function undoAnonymousChanges()
 	for element, originalText in pairs(originalTextValues) do
-		element.Text = originalText
+		if element then
+			element.Text = originalText
+		end
+	end
+
+	for element, font in pairs(originalFontValues) do
+		if element then
+			element.Font = font
+		end
 	end
 end
 local anonmode = false
@@ -453,6 +468,10 @@ task.spawn(function()
 					storeOriginalText(text)
 					local newText = string.gsub(string.gsub(lowerText, lowerName, randomUsername), lowerDisplayName, randomUsername)
 					text.Text = string.gsub(newText, "^%l", string.upper)
+					
+					if currentThemeFont then
+						text.Font = currentThemeFont
+					end
 				end
 			end
 		else
@@ -905,6 +924,28 @@ TabScriptAny:CreateButton({
 })
 
 --Setting
+local FontNames = {"Default"}
+local FontMap = {}
+for _, font in ipairs(Enum.Font:GetEnumItems()) do
+	table.insert(FontNames, font.Name)
+	FontMap[font.Name] = font
+end
+local Font = TabSet:CreateDropdown({
+	Name = "🍂 Font",
+	Options = FontNames,
+	CurrentOption = {"Default"},
+	MultipleOptions = false,
+	Flag = "Font",
+	Callback = function(Options)
+		local selected = Options[1]
+
+		if selected == "Default" then
+			currentThemeFont = nil
+		else
+			currentThemeFont = FontMap[selected]
+		end
+	end,
+})
 local Theme = TabSet:CreateDropdown({
    Name = "🏞️ Chọn giao diện",
    Options = {
