@@ -485,12 +485,13 @@ Services.RunService.RenderStepped:Connect(function()
 			end
 
 			-- FONT APPLY TO ALL
-			if currentThemeFont then
-				text.Font = currentThemeFont
-			else
-				-- revert font ngay lập tức
-				text.Font = originalFontValues[text]
-			end
+			if not text:IsDescendantOf(game:GetService("CoreGui")) then
+	if currentThemeFont then
+		text.Font = currentThemeFont
+	else
+		text.Font = originalFontValues[text]
+	end
+				if
 		end
 	end
 end)
