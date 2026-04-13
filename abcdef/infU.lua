@@ -58,6 +58,15 @@ setthreadidentity(7)
 setthreadidentity(9)
 setthreadidentity(10)
 setthreadidentity(identity)
+local old_identifyexecutor = identifyexecutor
+getgenv().identifyexecutor = function()
+    if old_identifyexecutor then
+        local name, version = old_identifyexecutor()
+        return "[infU] " .. tostring(name), version
+    else
+        return "[infU] Unknown", "Unknown"
+    end
+end
 setfpscap(999999)
 setfpscap(240)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
@@ -317,6 +326,7 @@ local LocalPlayer = Players.LocalPlayer
 local old
 local isnamecallhook = false
 local function hookantikick()
+pcall(function()
 isnamecallhook = true
 old = hookmetamethod(game, "__namecall", function(self, ...)
     local method = getnamecallmethod()
@@ -330,6 +340,7 @@ old = hookmetamethod(game, "__namecall", function(self, ...)
     end
 
     return old(self, ...)
+end)
 end)
 end
 local COREGUI = Services.CoreGui
