@@ -425,81 +425,46 @@ end)
 end)
 local lowerName = Services.Players.LocalPlayer.Name:lower()
 local lowerDisplayName = Services.Players.LocalPlayer.DisplayName:lower()
-
 local originalTextValues = {}
-local originalFontValues = {}
 local cachedText = {}
-
-local currentThemeFont = nil
 local randomUsername = "infU_" .. math.random(100, 3999)
-
-local function storeOriginal(element)
-	if not originalTextValues[element] then
-		originalTextValues[element] = element.Text
-	end
-	if not originalFontValues[element] then
-		originalFontValues[element] = element.Font
+local function storeOriginalText(element)
+	originalTextValues[element] = element.Text
+end
+local function undoAnonymousChanges()
+	for element, originalText in pairs(originalTextValues) do
+		element.Text = originalText
 	end
 end
-
-local function restoreAll()
-	for element, text in pairs(originalTextValues) do
-		if element then
-			element.Text = text
-		end
-	end
-
-	for element, font in pairs(originalFontValues) do
-		if element then
-			element.Font = font
-		end
-	end
-end
-
 local anonmode = false
-
--- cache text objects
-for _, v in ipairs(game:GetDescendants()) do
-	if v:IsA("TextLabel") or v:IsA("TextButton") then
-		table.insert(cachedText, v)
+for _, instance in next, game:GetDescendants() do
+	if instance:IsA("TextLabel") or instance:IsA("TextButton") then
+		if not table.find(cachedText, instance) then
+			table.insert(cachedText, instance)
+		end
 	end
 end
-
--- main loop
-Services.RunService.RenderStepped:Connect(function()
-	for _, text in ipairs(cachedText) do
-		if text and text:IsDescendantOf(game) then
-			storeOriginal(text)
-
-			-- ANON TEXT
-			if anonmode then
-				local lowerText = text.Text:lower()
-
+task.spawn(function()
+	Services.RunService.RenderStepped:Connect(function()
+		if anonmode then
+			for _, text in ipairs(cachedText) do
+				local lowerText = string.lower(text.Text)
 				if string.find(lowerText, lowerName, 1, true) or string.find(lowerText, lowerDisplayName, 1, true) then
+					storeOriginalText(text)
 					local newText = string.gsub(string.gsub(lowerText, lowerName, randomUsername), lowerDisplayName, randomUsername)
 					text.Text = string.gsub(newText, "^%l", string.upper)
 				end
-			else
-				-- revert text ngay lập tức
-				text.Text = originalTextValues[text]
 			end
-
-			-- FONT APPLY TO ALL
-			if not text:IsDescendantOf(game:GetService("CoreGui")) then
-				if currentThemeFont then
-					text.Font = currentThemeFont
-				else
-					text.Font = originalFontValues[text]
-				end
-			end
+		else
+			undoAnonymousChanges()
 		end
-	end
+	end)
 end)
-
--- detect new UI
-game.DescendantAdded:Connect(function(v)
-	if v:IsA("TextLabel") or v:IsA("TextButton") then
-		table.insert(cachedText, v)
+game.DescendantAdded:Connect(function(instance)
+	if instance:IsA("TextLabel") or instance:IsA("TextButton") then
+		if not table.find(cachedText, instance) then
+			table.insert(cachedText, instance)
+		end
 	end
 end)
 getgenv().bridge_Notify = function(Title, Content, Duration, Image)
@@ -943,28 +908,6 @@ TabScriptAny:CreateButton({
 })
 
 --Setting
-local FontNames = {"Default"}
-local FontMap = {}
-for _, font in ipairs(Enum.Font:GetEnumItems()) do
-	table.insert(FontNames, font.Name)
-	FontMap[font.Name] = font
-end
-local Font = TabSet:CreateDropdown({
-	Name = "🍂 Font",
-	Options = FontNames,
-	CurrentOption = {"Default"},
-	MultipleOptions = false,
-	Flag = "Font",
-	Callback = function(Options)
-		local selected = Options[1]
-
-		if selected == "Default" then
-			currentThemeFont = nil
-		else
-			currentThemeFont = FontMap[selected]
-		end
-	end,
-})
 local Theme = TabSet:CreateDropdown({
    Name = "🏞️ Chọn giao diện",
    Options = {
