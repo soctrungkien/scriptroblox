@@ -840,12 +840,6 @@ TabScriptAny:CreateButton({
    end
 })
 TabScriptAny:CreateButton({
-   Name = "Project Vel0r",
-   Callback = function()
-		loadsc("https://cdn.pastebdn.workers.dev/raw/db6813ba", "ProjectVel0rKeyless", true)
-   end
-})
-TabScriptAny:CreateButton({
    Name = "Wisl Universal",
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/WislUniversal/script/refs/heads/main/Universal.lua", "WislUniversal", true)
