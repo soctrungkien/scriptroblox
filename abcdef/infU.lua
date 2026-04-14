@@ -1122,6 +1122,12 @@ TabSet:CreateButton({
 		    CIBC.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 		    CIBC.TextStrokeTransparency = 0.5
 		end
+		Rayfield:Notify({
+           Title = "infU",
+           Content = "Bong bóng chat màu đen",
+           Duration = 2.5,
+    	   Image = "message-circle"
+        })
    end
 })
 TabSet:CreateButton({
@@ -1159,6 +1165,12 @@ TabSet:CreateButton({
    Name = "🌬️ FPSBoost UI",
    Callback = function()
 		FPSBoost_UI()
+	Rayfield:Notify({
+      Title = "FPSBOOST",
+      Content = "Đã mở FPSBoost_UI",
+      Duration = 2.5,
+	  Image = 137920786996005
+   })
    end
 })
 TabSet:CreateButton({
@@ -1312,7 +1324,7 @@ TabInfo:CreateButton({
    end
 })
 task.spawn(function()
-Services.RunService.RenderStepped:Connect(function()
+while true do
 health =
     Services.Players.LocalPlayer.Character and Services.Players.LocalPlayer.Character:FindFirstChild("Humanoid") and Services.Players.LocalPlayer.Character.Humanoid.Health or "Không rõ"
 maxHealth =
@@ -1322,7 +1334,7 @@ position =
     Services.Players.LocalPlayer.Character.HumanoidRootPart.Position or "Không rõ"
 live:Set({Title = "Thông tin khác", Content = "❤️ Máu: " .. health .. "/" .. maxHealth .. "\n👥 Người chơi: " .. #Services.Players:GetPlayers() .. " / " .. Services.Players.MaxPlayers .. "\n🕒 Giờ server: " .. os.date("%H:%M:%S") .. "\n📺 Độ phân giải: " .. math.floor(workspace.CurrentCamera.ViewportSize.X) .. "x" .. math.floor(workspace.CurrentCamera.ViewportSize.Y) .. "\n🔍 RAM sử dụng: " .. Services.Stats:GetTotalMemoryUsageMb() .. "\n📍Vị trí nhân vật" .. tostring(position) .. "\n📶 Ping: " .. getPing() .. "\n📺 FPS: " .. fps})
 task.wait(updatefpspingtime / 1000)
-end)
+end
 end)
 end)
 
