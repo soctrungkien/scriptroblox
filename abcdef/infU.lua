@@ -59,13 +59,16 @@ setthreadidentity(9)
 setthreadidentity(10)
 setthreadidentity(identity)
 local old_identifyexecutor = identifyexecutor
+if not _G.hooknameexec then
+_G.hooknameexec = true
 getgenv().identifyexecutor = function()
     if old_identifyexecutor then
         local name, version = old_identifyexecutor()
-        return "[infU] " .. tostring(name), version
+        return "[infU] " .. tostring(name),"[infU] " .. version
     else
-        return "[infU] Unknown", "Unknown"
+        return "[infU] Unknown", "[infU] Unknown"
     end
+end
 end
 setfpscap(999999)
 setfpscap(240)
