@@ -869,13 +869,13 @@ TabScriptAny:CreateButton({
 TabScriptAny:CreateButton({
    Name = "Hitbox",
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/TIG0Z/mRXScripts/refs/heads/main/hitbox-1.txt", "hitbox", true)
+		loadsc("https://pastefy.app/tWY411OP/raw?part=2.lua", "hitbox", true)
    end
 })
 TabScriptAny:CreateButton({
    Name = "Tốc độ",
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/TIG0Z/mRXScripts/refs/heads/main/speed-1.txt", "speed", true)
+		loadsc("https://pastefy.app/tWY411OP/raw?part=1.lua", "speed", true)
    end
 })
 TabScriptAny:CreateButton({
