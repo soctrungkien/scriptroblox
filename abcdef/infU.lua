@@ -32,7 +32,7 @@ for i, v in getgc(true) do
             Kill = KillFunc
             local Old; Old = hookfunction(Kill, function(Info)
                 if DEBUG then
-                    warn(`Adonis AntiCheat tried to kill (fallback): {Info}`)
+                    warn(string.format("[infU] Adonis AntiCheat tried to kill (fallback): %s", Info))
                 end
             end)
             table.insert(Hooked, Kill)
