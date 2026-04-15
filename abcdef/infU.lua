@@ -21,7 +21,7 @@ for i, v in getgc(true) do
             local Old; Old = hookfunction(Detected, function(Action, Info, NoCrash)
                 if Action ~= "_" then
                     if DEBUG then
-                        warn(string.format("Adonis AntiCheat flagged\nMethod: %s\nInfo: %s", Action, Info))
+                        warn(string.format("[infU] Adonis AntiCheat flagged\nMethod: %s\nInfo: %s", Action, Info))
                     end
                 end
                 return true
@@ -44,7 +44,7 @@ local Old; Old = hookfunction(getrenv().debug.info, newcclosure(function(...)
 
     if Detected and LevelOrFunc == Detected then
         if DEBUG then
-            warn(`Adonis AntiCheat sanity check detected and broken`)
+            warn("[infU] Adonis AntiCheat sanity check detected and broken")
         end
 
         return coroutine.yield(coroutine.running())
