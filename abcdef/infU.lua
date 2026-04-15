@@ -1,3 +1,4 @@
+--skid làm chó
 print("[infU] Loading")
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "infU",
