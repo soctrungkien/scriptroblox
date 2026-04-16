@@ -912,6 +912,12 @@ TabScriptAny:CreateButton({
 		loadsc("https://pastefy.app/2jUtPDuo/raw", "TouchAllPartUI", true)
    end
 })
+TabScriptAny:CreateButton({
+   Name = "Kiểm tra infU",
+   Callback = function()
+		loadsc("https://pastefy.app/FS9umJP2/raw", "TestInfU", true)
+   end
+})
 
 --Setting
 local Theme = TabSet:CreateDropdown({
