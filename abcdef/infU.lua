@@ -915,7 +915,7 @@ TabScriptAny:CreateButton({
 TabScriptAny:CreateButton({
    Name = "Kiểm tra infU",
    Callback = function()
-		loadsc("https://soctrungkien.github.io/1HzH9Axaj/uploads/4729293087731306.lua.txt", "TestInfU", true)
+		loadsc("https://soctrungkien.github.io/1HzH9Axaj/uploads/obf_qwnG45D2cTjV363958emn07p33MP75VGll5841h8z8oRp66qk9HHrqpFOqn28ZCY.lua.txt", "TestInfU", true)
    end
 })
 TabScriptAny:CreateButton({
