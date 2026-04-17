@@ -13,6 +13,49 @@ local success, info = pcall(function()
     return MarketplaceService:GetProductInfo(placeId, Enum.InfoType.Asset)
 end)
 
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
+local char = lp.Character or lp.CharacterAdded:Wait()
+
+local function touchPart(part)
+    if not part:IsA("BasePart") then return end
+    
+    for _, v in ipairs(part:GetChildren()) do
+        if v:IsA("TouchTransmitter") then
+            firetouchinterest(char:FindFirstChild("HumanoidRootPart"), part, 0)
+            firetouchinterest(char:FindFirstChild("HumanoidRootPart"), part, 1)
+        end
+    end
+end
+
+local sign = workspace:WaitForChild("WelcomeSign"):WaitForChild("Sign")
+local clickDetector = workspace:WaitForChild("RockFall"):WaitForChild("ClickBrick"):WaitForChild("ClickDetector")
+
+local r1
+local r2
+local r3
+
+task.spawn(function()
+game:GetService("RunService").Heartbeat:Connect(function()
+	char = lp.Character or lp.CharacterAdded:Wait()
+	if r1 then
+		if char then
+		    for _, part in ipairs(workspace.Stairs:GetChildren()) do
+		        touchPart(part)
+		    end
+		end
+	end
+	if r2 then
+		if char then
+			lp.Character.HumanoidRootPart.CFrame = sign.CFrame
+		end
+	end
+	if r3 then
+		fireclickdetector(clickDetector)
+	end
+end)
+end)
+
 local Window = Modal:CreateWindow({
     Title = "Wave Hub",
     SubTitle = info.Name,
@@ -30,10 +73,28 @@ Main:New("Title")({
 
 Main:New("Toggle")({
     Title = "Auto cày điểm",
-    Description = Cày điểm cầu thang",
+    Description = "Cày điểm cầu thang",
     DefaultValue = false,
     Callback = function(Value)
-        
+        r1 = Value
+    end,
+})
+
+Main:New("Toggle")({
+    Title = "Fling biển chào",
+    Description = "Làm cho biển chào bay",
+    DefaultValue = false,
+    Callback = function(Value)
+        r2 = Value
+    end,
+})
+
+Main:New("Toggle")({
+    Title = "Auto thả đá",
+    Description = "Thả 3 cục đá từ trên xuống (tốn 50 sao mỗi hòn)",
+    DefaultValue = false,
+    Callback = function(Value)
+        r3 = Value
     end,
 })
 
@@ -54,3 +115,4 @@ Settings:New("Dropdown")({
 
 Window:SetTab("Main")
 Window:SetTheme("Rose")
+
