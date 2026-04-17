@@ -1496,6 +1496,65 @@ TabServer:CreateButton({
    end
 })
 TabServer:CreateButton({
+   Name = "Server nhiều người",
+   Callback = function()
+		print("[infU] Đang tìm server")
+	   Rayfield:Notify({
+	      Title = "infU",
+	      Content = "Đang tìm server",
+	      Duration = 2.5,
+		  Image = 120793987758737
+	   })
+      local HttpService = Services.HttpService
+      local TeleportService = Services.TeleportService
+      local Players = Services.Players
+
+      local PlaceId = game.PlaceId
+      local JobId = game.JobId
+
+      local function getServers(cursor)
+         local url = "https://games.roblox.com/v1/games/"..PlaceId.."/servers/Public?sortOrder=Asc&limit=100"
+         if cursor then
+            url = url .. "&cursor=" .. cursor
+         end
+         return HttpService:JSONDecode(game:HttpGet(url))
+      end
+
+      local servers = {}
+      local cursor = nil
+
+      for i = 1, 5 do
+         local data = getServers(cursor)
+         if data and data.data then
+            for _, s in pairs(data.data) do
+               if s.playing < s.maxPlayers and s.id ~= JobId then
+                  table.insert(servers, s)
+               end
+            end
+         end
+         cursor = data.nextPageCursor
+         if not cursor then break end
+      end
+
+      if #servers == 0 then return notinoserver() end
+
+      table.sort(servers, function(a, b)
+         return a.playing > b.playing
+      end)
+
+      local target = servers[1] -- nhiều nhất
+
+      print("[infU] Join nhiều người:", target.playing)
+	   Rayfield:Notify({
+	      Title = "Đang vào server:",
+	      Content = target.id,
+	      Duration = 2.5,
+		  Image = "server"
+	   })
+      TeleportService:TeleportToPlaceInstance(PlaceId, target.id, Players.LocalPlayer)
+   end
+})
+TabServer:CreateButton({
    Name = "JobId: " .. game.JobId,
    Callback = function()
 		print("[infU] JobId: " .. game.JobId)
