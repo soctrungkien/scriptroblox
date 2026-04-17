@@ -614,7 +614,7 @@ TabScriptAny:CreateButton({
 })
 elseif game.PlaceId == 103854444055060 then
 TabScriptAny:CreateButton({
-   Name = "Script auto kill, esp" .. " for " .. info.Name,
+   Name = "[Dành cho IP VN] Script auto kill, esp" .. " for " .. info.Name,
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/waidaito/Silent-Assassin-/refs/heads/main/satthuthamlangbanvn.lua", "satthuthamlangbanvn", false)
    end
