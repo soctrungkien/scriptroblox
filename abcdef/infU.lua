@@ -435,7 +435,6 @@ for _, v in pairs(COREGUI:GetDescendants()) do
         v.Prompt.Visible = true
     end
 end
-end
 end)
 end)
 local lowerName = Services.Players.LocalPlayer.Name:lower()
