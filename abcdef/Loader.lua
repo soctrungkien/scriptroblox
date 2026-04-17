@@ -19,6 +19,7 @@ scripts = {
     [124398083342642] = "abcdef/rideacartdownaslide", --rideacartdownaslide
     [108180976346281] = "abcdef/crosstheroad", --crosstheroad
     [112555408629538] = "abcdef/lowcortisolobby", --lowcortisolobby
+    [5702593762] = "abcdef/climb1000stairs", --Climb 1.000 Stairs
 }
 
 if scriptName == "abcdef/Loader" then
