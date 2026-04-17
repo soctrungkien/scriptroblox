@@ -427,6 +427,17 @@ end
 end
 end)
 end)
+task.spawn(function()
+repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
+Services.RunService.RenderStepped:Connect(function(dt)
+for _, v in pairs(COREGUI:GetDescendants()) do
+    if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
+        v.Prompt.Visible = true
+    end
+end
+end
+end)
+end)
 local lowerName = Services.Players.LocalPlayer.Name:lower()
 local lowerDisplayName = Services.Players.LocalPlayer.DisplayName:lower()
 local originalTextValues = {}
