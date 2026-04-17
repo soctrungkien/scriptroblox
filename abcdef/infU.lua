@@ -1598,7 +1598,7 @@ local JoinJobId = TabServer:CreateInput({
    Name = "Vào server bằng JobId",
    CurrentValue = "",
    PlaceholderText = "Dán JobId vào đây",
-   RemoveTextAfterFocusLost = false,
+   RemoveTextAfterFocusLost = true,
    Flag = "JoinJobId",
    Callback = function(Text)
 		print("[infU] JobId join: " .. Text)
