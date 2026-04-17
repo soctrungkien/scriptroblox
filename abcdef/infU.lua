@@ -633,6 +633,33 @@ TabScriptAny:CreateButton({
 		loadsc("https://gist.githubusercontent.com/ScriptsForDays/bfb7bfcb45832f7fcd81e50b9c149190/raw/829bdb8e30d8a060a61878eedf19e2f644e49e24/SFG-OP-BLAB-v1.0.35", "SFGHub", false)
    end
 })
+elseif game.PlaceId == 5702593762 then
+TabScriptAny:CreateButton({
+   Name = "Wave Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/soctrungkien/scriptroblox/refs/heads/main/abcdef/climb1000stairs.lua", "WaveHublcl1000st", false)
+   end
+})
+elseif game.PlaceId == 87618338850399 then
+TabScriptAny:CreateButton({
+   Name = "HARDCORE" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://pastefy.app/7Cozdy7v/raw", "HARCORD__________AngryBlockbutbad", false)
+   end
+})
+elseif game.GameId == 7198930744 then
+TabScriptAny:CreateButton({
+   Name = "Tạo Bóng Bay" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://pastefy.app/KTGZKjKK/raw", "7198930744_s1", false)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Lên Vũ trụ" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://pastefy.app/o3FyQ5Xc/raw", "7198930744_s2", false)
+   end
+})
 end
 
 --Script Chung
