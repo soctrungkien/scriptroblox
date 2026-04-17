@@ -1542,6 +1542,7 @@ TabServer:CreateButton({
 })
 
 --Noti Load
+local s=Instance.new("Sound",game.Players.LocalPlayer:WaitForChild("PlayerGui"));s.SoundId="rbxassetid://123324188310290";s:Play()
 Rayfield:Notify({
    Title = "infU",
    Content = "🎉 Chào mừng bạn đến với infU",
