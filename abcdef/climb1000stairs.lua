@@ -49,6 +49,13 @@ if r2 then
 	if char and lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
 		local root = lp.Character.HumanoidRootPart
 		
+		-- lưu lại trạng thái ban đầu (chỉ lưu 1 lần)
+		if not oldVel then
+			oldVel = root.Velocity
+			oldRot = root.RotVelocity
+		end
+		
+		-- teleport + fling
 		root.CFrame = sign.CFrame
 		root.Velocity = Vector3.new(5000, 5000, 5000)
 		root.RotVelocity = Vector3.new(5000, 5000, 5000)
@@ -57,10 +64,16 @@ else
 	if lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
 		local root = lp.Character.HumanoidRootPart
 		
-		-- reset lực thôi
-		root.Velocity = Vector3.new(0, 0, 0)
-		root.RotVelocity = Vector3.new(0, 0, 0)
+		-- trả lại như cũ
+		if oldVel then
+			root.Velocity = oldVel
+			root.RotVelocity = oldRot
+		end
+		
+		oldVel = nil
+		oldRot = nil
 	end
+				end
 				end
 	if r3 then
 		fireclickdetector(clickDetector)
