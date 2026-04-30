@@ -437,11 +437,18 @@ for _, v in pairs(COREGUI:GetDescendants()) do
 end
 end)
 end)
+local function random_n(length)
+	local min = 10^(length - 1)
+	local max = (10^length) - 1
+	return math.random(min, max)
+end
 local lowerName = Services.Players.LocalPlayer.Name:lower()
 local lowerDisplayName = Services.Players.LocalPlayer.DisplayName:lower()
+local hideuid = tostring(Services.Players.LocalPlayer.UserId)
 local originalTextValues = {}
 local cachedText = {}
-local randomUsername = "infU_" .. math.random(100, 3999)
+local randomuid = tostring(random_n(4))
+local randomUsername = "infU_" .. randomuid
 local function storeOriginalText(element)
 	originalTextValues[element] = element.Text
 end
@@ -463,9 +470,11 @@ task.spawn(function()
 		if anonmode then
 			for _, text in ipairs(cachedText) do
 				local lowerText = string.lower(text.Text)
-				if string.find(lowerText, lowerName, 1, true) or string.find(lowerText, lowerDisplayName, 1, true) then
+				if string.find(lowerText, lowerName, 1, true) or string.find(lowerText, lowerDisplayName, 1, true) or string.find(lowerText, hideuid, 1, true) then
 					storeOriginalText(text)
-					local newText = string.gsub(string.gsub(lowerText, lowerName, randomUsername), lowerDisplayName, randomUsername)
+					local newText = lowerText:gsub(lowerName, randomUsername)
+                         :gsub(lowerDisplayName, randomUsername)
+                         :gsub(hideuid, randomuid)
 					text.Text = string.gsub(newText, "^%l", string.upper)
 				end
 			end
@@ -1638,7 +1647,7 @@ TabServer:CreateButton({
 })
 
 --Noti Load
-local s=Instance.new("Sound",game.Players.LocalPlayer:WaitForChild("PlayerGui"));s.SoundId="rbxassetid://123324188310290";s:Play()
+local s=Instance.new("Sound",game.Players.LocalPlayer:WaitForChild("PlayerGui"));s.Volume = 2;s.SoundId="rbxassetid://123324188310290";s:Play()
 Rayfield:Notify({
    Title = "infU",
    Content = "🎉 Chào mừng bạn đến với infU",
