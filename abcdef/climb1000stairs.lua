@@ -45,11 +45,23 @@ game:GetService("RunService").Heartbeat:Connect(function()
 		    end
 		end
 	end
-	if r2 then
-		if char then
-			lp.Character.HumanoidRootPart.CFrame = sign.CFrame
-		end
+if r2 then
+	if char and lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
+		local root = lp.Character.HumanoidRootPart
+		
+		root.CFrame = sign.CFrame
+		root.Velocity = Vector3.new(5000, 5000, 5000)
+		root.RotVelocity = Vector3.new(5000, 5000, 5000)
 	end
+else
+	if lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
+		local root = lp.Character.HumanoidRootPart
+		
+		-- reset lực thôi
+		root.Velocity = Vector3.new(0, 0, 0)
+		root.RotVelocity = Vector3.new(0, 0, 0)
+	end
+				end
 	if r3 then
 		fireclickdetector(clickDetector)
 	end
