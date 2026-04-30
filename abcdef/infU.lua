@@ -433,6 +433,8 @@ Services.RunService.RenderStepped:Connect(function(dt)
 for _, v in pairs(COREGUI:GetDescendants()) do
     if v.Name == "Rayfield" and v:FindFirstChild("Prompt") then
         v.Prompt.Visible = true
+		v.Prompt.Position = UDim2.new(0.5, 0, 0, 20)
+        v.Prompt.Size = UDim2.new(0, 120, 0, 30)
     end
 end
 end)
