@@ -1,4 +1,4 @@
---skid làm chó
+--nooo có 1 con dog đang skid
 print("[infU] Loading")
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "infU",
