@@ -681,6 +681,13 @@ TabScriptAny:CreateButton({
 		loadsc("https://pastefy.app/o3FyQ5Xc/raw", "7198930744_s2", false)
    end
 })
+elseif game.PlaceId == 120717993717909 then
+TabScriptAny:CreateButton({
+   Name = "Auto thối tiền" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://pastefy.app/forLmSMz/raw", "forLmSMz", false)
+   end
+})
 end
 
 --Script Chung
