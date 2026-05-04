@@ -830,12 +830,6 @@ TabScriptAny:CreateButton({
    end
 })
 TabScriptAny:CreateButton({
-   Name = "AirHub",
-   Callback = function()
-		loadsc("https://raw.githubusercontent.com/Exunys/AirHub-V2/main/src/Main.lua", "airhub", true)
-   end
-})
-TabScriptAny:CreateButton({
    Name = "Sirius",
    Callback = function()
 		loadsc("https://sirius.menu/sirius", "Sirius", true)
@@ -878,12 +872,6 @@ TabScriptAny:CreateButton({
    end
 })
 TabScriptAny:CreateButton({
-   Name = "Executor (by dnezero)",
-   Callback = function()
-		loadsc("https://raw.githubusercontent.com/infyiff/backup/refs/heads/main/executor.lua", "executor", true)
-   end
-})
-TabScriptAny:CreateButton({
    Name = "GodMode",
    Callback = function()
 		loadsc("https://pastefy.app/OVyrDaSW/raw", "GodMode", true)
@@ -899,12 +887,6 @@ TabScriptAny:CreateButton({
    Name = "Wisl Universal",
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/WislUniversal/script/refs/heads/main/Universal.lua", "WislUniversal", true)
-   end
-})
-TabScriptAny:CreateButton({
-   Name = "Wisl Universal Aimbot",
-   Callback = function()
-		loadsc("https://raw.githubusercontent.com/WislUniversal/script/refs/heads/main/UniversalAimbot.lua", "WislUniversalAimbot", true)
    end
 })
 TabScriptAny:CreateButton({
