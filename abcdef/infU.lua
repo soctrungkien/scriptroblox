@@ -79,12 +79,7 @@ _G.old_setclipboard = setclipboard
 if not _G.setclipboard then
 _G.setclipboard = true
 getgenv().setclipboard = function(a)
-	   Rayfield:Notify({
-	      Title = a,
-	      Content = "Đã copy thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
+bridge_Notify(a, "Đã copy thành công", 2.5, "clipboard")
 _G.old_setclipboard(a)
 end
 end
