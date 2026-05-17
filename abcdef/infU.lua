@@ -597,6 +597,18 @@ TabScriptAny:CreateButton({
    end
 })
 TabScriptAny:CreateButton({
+   Name = "[Auto Farm] Gravity Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/Dev-GravityHub/BloxFruit/refs/heads/main/Main.lua", "GravityHub", false)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "[Auto Farm] Speed Hub X" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/AhmadV99/Speed-Hub-X/main/Speed%20Hub%20X.lua", "SpeedHubX", false)
+   end
+})
+TabScriptAny:CreateButton({
    Name = "[PVP] Hermanos Hub" .. " for " .. info.Name,
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/Loader.lua", "HermanosHub", false)
