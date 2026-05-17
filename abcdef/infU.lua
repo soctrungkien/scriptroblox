@@ -712,6 +712,31 @@ TabScriptAny:CreateButton({
 		loadsc("https://pastefy.app/forLmSMz/raw", "forLmSMz", false)
    end
 })
+elseif game.PlaceId == 89469502395769 then
+TabScriptAny:CreateButton({
+   Name = "ToraIsMe" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/gumanba/Scripts/main/KickaLuckyBlock", "ToraIsMe", false)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Cyraa Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/LynX99-9/komtolmmek2/refs/heads/main/kick%20a%20lucky%20block", "CyraaHub", false)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "Stree Hub" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/create-stree/STREE-HUB/refs/heads/main/Loader/Main.lua", "StreeHub", false)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "MoveTrain_NNe0.lua" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://pastefy.app/uSXPmYcP/raw", "MoveTrainNNe0lua", false)
+   end
+})
 end
 
 --Script Chung
