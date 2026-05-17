@@ -71,6 +71,23 @@ getgenv().identifyexecutor = function()
     end
 end
 end
+if _G.setclipboard then
+_G.setclipboard = nil
+getgenv().setclipboard = _G.old_setclipboard
+end
+_G.old_setclipboard = setclipboard
+if not _G.setclipboard then
+_G.setclipboard = true
+getgenv().setclipboard = function(a)
+	   Rayfield:Notify({
+	      Title = a,
+	      Content = "Đã copy thành công",
+	      Duration = 2.5,
+		  Image = "clipboard"
+	   })
+_G.old_setclipboard(a)
+end
+end
 setfpscap(999999)
 setfpscap(240)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
@@ -1378,7 +1395,7 @@ maxHealth =
 position =
     Services.Players.LocalPlayer.Character and Services.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and
     Services.Players.LocalPlayer.Character.HumanoidRootPart.Position or "Không rõ"
-live:Set({Title = "Thông tin khác", Content = "❤️ Máu: " .. health .. "/" .. maxHealth .. "\n👥 Người chơi: " .. #Services.Players:GetPlayers() .. " / " .. Services.Players.MaxPlayers .. "\n🕒 Giờ server: " .. os.date("%H:%M:%S") .. "\n📺 Độ phân giải: " .. math.floor(workspace.CurrentCamera.ViewportSize.X) .. "x" .. math.floor(workspace.CurrentCamera.ViewportSize.Y) .. "\n🔍 RAM sử dụng: " .. Services.Stats:GetTotalMemoryUsageMb() .. "\n📍Vị trí nhân vật" .. tostring(position) .. "\n📶 Ping: " .. getPing() .. "\n📺 FPS: " .. fps})
+live:Set({Title = "Thông tin khác", Content = "❤️ Máu: " .. health .. "/" .. maxHealth .. "\n👥 Người chơi: " .. #Services.Players:GetPlayers() .. " / " .. Services.Players.MaxPlayers .. "\n🕒 Thời gian: " .. os.date("%H:%M:%S") .. "\n📺 Độ phân giải: " .. math.floor(workspace.CurrentCamera.ViewportSize.X) .. "x" .. math.floor(workspace.CurrentCamera.ViewportSize.Y) .. "\n🔍 RAM sử dụng: " .. Services.Stats:GetTotalMemoryUsageMb() .. "\n📍Vị trí nhân vật: " .. tostring(position) .. "\n📶 Ping: " .. getPing() .. "\n📺 FPS: " .. fps})
 task.wait(updatefpspingtime / 1000)
 end
 end)
