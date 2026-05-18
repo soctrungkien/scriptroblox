@@ -331,8 +331,8 @@ setmetatable(Services, {
         end
     end
 })
-getgenv().loadername = ""
-getrenv().loadername = ""
+getgenv().loadername = "🐿️🫙🪝🦋"
+getrenv().loadername = "🐿️🫙🪝🦋"
 getgenv().AntiKickScriptCore = true
 local AntiKickScriptCore
 TeleportService = Services.TeleportService
@@ -1351,17 +1351,12 @@ local Acc = TabInfo:CreateParagraph({Title = "Tài khoản", Content = "🗓️ 
 local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên game: " .. info.Name .. "\n🆔 Game ID: " .. game.GameId .. "\n🆔 Place ID: " .. game.PlaceId .. "\n🕹️ Phiên bản Place: " .. game.PlaceVersion .. "\n🪧 JobId: " .. tostring(game.JobId)})
 local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_tableClient.ip .. "\n🌆 Quốc gia: " .. ipinfo_tableClient.country .. "\n🪟 GPS: " .. ipinfo_tableClient.loc .. "\n🏙️ Thành phố: " .. ipinfo_tableClient.city .. "\n🏡 Khu vực: " .. ipinfo_tableClient.region .. "\n🪢 Nhà mạng/Host: " .. ipinfo_tableClient.org})
 local live = TabInfo:CreateParagraph({Title = "Thông tin khác", Content = "Không rõ"})
+TabInfo:CreateDivider()
 TabInfo:CreateButton({
    Name = "Copy PlaceId",
    Callback = function()
 		print("[infU] Đã copy: " .. game.PlaceId)
 		setclipboard(game.PlaceId)
-	   Rayfield:Notify({
-	      Title = game.PlaceId,
-	      Content = "Đã copy thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
    end
 })
 TabInfo:CreateButton({
@@ -1369,12 +1364,6 @@ TabInfo:CreateButton({
    Callback = function()
 		print("[infU] Đã copy: " .. game.GameId)
 		setclipboard(game.GameId)
-	   Rayfield:Notify({
-	      Title = game.GameId,
-	      Content = "Đã copy thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
    end
 })
 TabInfo:CreateButton({
@@ -1382,12 +1371,6 @@ TabInfo:CreateButton({
    Callback = function()
 		print("[infU] Đã copy: " .. game.JobId)
 		setclipboard(game.JobId)
-	   Rayfield:Notify({
-	      Title = game.JobId,
-	      Content = "Đã copy thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
    end
 })
 TabInfo:CreateButton({
@@ -1395,12 +1378,6 @@ TabInfo:CreateButton({
    Callback = function()
 		print("[infU] Đã copy: " .. Services.Players.LocalPlayer.UserId)
 		setclipboard(Services.Players.LocalPlayer.UserId)
-	   Rayfield:Notify({
-	      Title = Services.Players.LocalPlayer.UserId,
-	      Content = "Đã copy thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
    end
 })
 TabInfo:CreateButton({
@@ -1408,12 +1385,6 @@ TabInfo:CreateButton({
    Callback = function()
 		print("[infU] Đã copy: " .. ipinfo_tableClient.ip)
 		setclipboard(ipinfo_tableClient.ip)
-	   Rayfield:Notify({
-	      Title = ipinfo_tableClient.ip,
-	      Content = "Đã copy thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
    end
 })
 TabInfo:CreateButton({
@@ -1421,12 +1392,6 @@ TabInfo:CreateButton({
    Callback = function()
 		print("[infU] Đã copy: " .. tostring(position))
 		setclipboard(tostring(position))
-	   Rayfield:Notify({
-	      Title = tostring(position),
-	      Content = "Đã copy thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
    end
 })
 task.spawn(function()
@@ -1658,12 +1623,6 @@ TabServer:CreateButton({
    Callback = function()
 		print("[infU] JobId: " .. game.JobId)
 		setclipboard(game.JobId)
-	   Rayfield:Notify({
-	      Title = game.JobId,
-	      Content = "Đã copy thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
    end
 })
 local JoinJobId = TabServer:CreateInput({
@@ -1690,12 +1649,6 @@ TabServer:CreateButton({
 		print("[infU] Script join server")
 		print(scriptjoinserver)
 		setclipboard(scriptjoinserver)
-	   Rayfield:Notify({
-	      Title = scriptjoinserver,
-	      Content = "Đã copy script vào server thành công",
-	      Duration = 2.5,
-		  Image = "clipboard"
-	   })
    end
 })
 
