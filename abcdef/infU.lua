@@ -584,6 +584,7 @@ local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 
 --Script
+local LabelScript = TabScriptAny:CreateLabel("Script for " .. info.Name)
 if game.GameId == 994732206 then
 TabScriptAny:CreateButton({
    Name = "[Auto Farm] Quantum Onyx" .. " for " .. info.Name,
@@ -743,9 +744,13 @@ TabScriptAny:CreateButton({
 		loadsc("https://pastefy.app/uSXPmYcP/raw", "MoveTrainNNe0lua", false)
    end
 })
+else
+local NoSGame1 = TabScriptAny:CreateParagraph({Title = "🚫 Không Có Script Riêng Cho Game Này", Content = "Hiện tại game này chưa có script riêng. Người chơi có thể sử dụng các script universal dùng chung cho nhiều game để trải nghiệm một số tính năng cơ bản."})
 end
 
 --Script Chung
+TabScriptAny:CreateDivider()
+local LabelScriptChung = TabScriptAny:CreateLabel("Universal")
 TabScriptAny:CreateButton({
    Name = "Infinite Yield",
    Callback = function()
