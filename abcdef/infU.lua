@@ -395,7 +395,7 @@ loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 local Window = Rayfield:CreateWindow({
    Name = "「infU」| " .. info.Name,
    Icon = "infinity",
-   LoadingTitle = "「\u{E002}」Đang mở Menu infU...",
+   LoadingTitle = "「」Đang mở Menu infU...",
    LoadingSubtitle = "Đang tải dữ liệu...",
    ToggleUIKeybind = "G",
    DisableRayfieldPrompts = true,
