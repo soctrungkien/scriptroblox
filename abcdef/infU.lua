@@ -610,6 +610,12 @@ TabScriptAny:CreateButton({
    end
 })
 TabScriptAny:CreateButton({
+   Name = "[PVP] Onion" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/onion132005-bit/esponion.lua/refs/heads/main/onion13v9.lua", "Onion", false)
+   end
+})
+TabScriptAny:CreateButton({
    Name = "[Auto Nhặt Rương] LongHihiAutoChest" .. " for " .. info.Name,
    Callback = function()
 		loadsc("https://raw.githubusercontent.com/longhihilonghihi-hub/Auto-Chest/refs/heads/main/MainV1.Luau", "LongHihiAutoChest", false)
