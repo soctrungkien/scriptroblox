@@ -680,9 +680,9 @@ TabScriptAny:CreateButton({
 })
 elseif game.PlaceId == 124473577469410 then
 TabScriptAny:CreateButton({
-   Name = "SFG Hub" .. " for " .. info.Name,
+   Name = "ToraIsMe" .. " for " .. info.Name,
    Callback = function()
-		loadsc("https://gist.githubusercontent.com/ScriptsForDays/bfb7bfcb45832f7fcd81e50b9c149190/raw/829bdb8e30d8a060a61878eedf19e2f644e49e24/SFG-OP-BLAB-v1.0.35", "SFGHub", false)
+		loadsc("https://raw.githubusercontent.com/gumanba/Scripts/main/BeaLuckyBlock", "ToraIsMe124473577469410", false)
    end
 })
 elseif game.PlaceId == 5702593762 then
