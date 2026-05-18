@@ -584,7 +584,7 @@ local TabSet = Window:CreateTab("Cài đặt", "settings")
 local TabServer = Window:CreateTab("Máy chủ", "server")
 
 --Script
-local ParagraphScript = TabScriptAny:CreateParagraph("Script for " .. info.Name)
+local SectionScript = TabScriptAny:CreateSection("Script for " .. info.Name)
 if game.GameId == 994732206 then
 TabScriptAny:CreateButton({
    Name = "[Auto Farm] Quantum Onyx" .. " for " .. info.Name,
@@ -758,11 +758,11 @@ TabScriptAny:CreateButton({
    end
 })
 else
-local NoSGame1 = TabScriptAny:CreateLable({Title = "🚫 Không Có Script Riêng Cho Game Này", Content = "Hiện tại game này chưa có script riêng. Người chơi có thể sử dụng các script universal dùng chung cho nhiều game để trải nghiệm một số tính năng cơ bản."})
+local NoSGame1 = TabScriptAny:CreateParagraph({Title = "🚫 Không Có Script Riêng Cho Game Này", Content = "Hiện tại game này chưa có script riêng. Người chơi có thể sử dụng các script universal dùng chung cho nhiều game để trải nghiệm một số tính năng cơ bản."})
 end
 
 --Script Chung
-local ParagraphScriptChung = TabScriptAny:CreateParagraph("Universal")
+local SectionScriptChung = TabScriptAny:CreateSection("Universal")
 TabScriptAny:CreateButton({
    Name = "Infinite Yield",
    Callback = function()
@@ -1363,7 +1363,7 @@ local Acc = TabInfo:CreateParagraph({Title = "Tài khoản", Content = "🗓️ 
 local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên game: " .. info.Name .. "\n🆔 Game ID: " .. game.GameId .. "\n🆔 Place ID: " .. game.PlaceId .. "\n🕹️ Phiên bản Place: " .. game.PlaceVersion .. "\n🪧 JobId: " .. tostring(game.JobId)})
 local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_tableClient.ip .. "\n🌆 Quốc gia: " .. ipinfo_tableClient.country .. "\n🪟 GPS: " .. ipinfo_tableClient.loc .. "\n🏙️ Thành phố: " .. ipinfo_tableClient.city .. "\n🏡 Khu vực: " .. ipinfo_tableClient.region .. "\n🪢 Nhà mạng/Host: " .. ipinfo_tableClient.org})
 local live = TabInfo:CreateParagraph({Title = "Thông tin khác", Content = "Không rõ"})
-TabInfo:CreateParagraph("Copy")
+TabInfo:CreateSection("Copy")
 TabInfo:CreateButton({
    Name = "PlaceId",
    Callback = function()
