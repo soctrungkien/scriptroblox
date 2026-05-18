@@ -1364,6 +1364,7 @@ local Game = TabInfo:CreateParagraph({Title = "Game", Content = "🏷️ Tên ga
 local Sys = TabInfo:CreateParagraph({Title = "Hệ thống Client", Content = "⚙️ Executor: " .. identifyexecutor() .. "\n👣 Địa chỉ IP: " .. ipinfo_tableClient.ip .. "\n🌆 Quốc gia: " .. ipinfo_tableClient.country .. "\n🪟 GPS: " .. ipinfo_tableClient.loc .. "\n🏙️ Thành phố: " .. ipinfo_tableClient.city .. "\n🏡 Khu vực: " .. ipinfo_tableClient.region .. "\n🪢 Nhà mạng/Host: " .. ipinfo_tableClient.org})
 local live = TabInfo:CreateParagraph({Title = "Thông tin khác", Content = "Không rõ"})
 TabInfo:CreateParagraph("Copy")
+TabInfo:CreateButton({
    Name = "PlaceId",
    Callback = function()
 		print("[infU] Đã copy: " .. game.PlaceId)
