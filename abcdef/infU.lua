@@ -723,7 +723,7 @@ elseif game.PlaceId == 89469502395769 then
 TabScriptAny:CreateButton({
    Name = "ToraIsMe" .. " for " .. info.Name,
    Callback = function()
-		loadsc("https://raw.githubusercontent.com/gumanba/Scripts/main/KickaLuckyBlock", "ToraIsMe", false)
+		loadsc("https://raw.githubusercontent.com/gumanba/Scripts/main/KickaLuckyBlock", "ToraIsMe89469502395769", false)
    end
 })
 TabScriptAny:CreateButton({
@@ -742,6 +742,19 @@ TabScriptAny:CreateButton({
    Name = "MoveTrain_NNe0.lua" .. " for " .. info.Name,
    Callback = function()
 		loadsc("https://pastefy.app/uSXPmYcP/raw", "MoveTrainNNe0lua", false)
+   end
+})
+elseif game.GameId == 9792947201 then
+TabScriptAny:CreateButton({
+   Name = "Echo" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://vss.pandadevelopment.net/virtual/file/475911550cec4d6d", "Echo", false)
+   end
+})
+TabScriptAny:CreateButton({
+   Name = "ToraIsMe" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://raw.githubusercontent.com/gumanba/Scripts/main/SlimeRNG", "ToraIsMe9792947201", false)
    end
 })
 else
