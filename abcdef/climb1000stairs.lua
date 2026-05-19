@@ -36,49 +36,48 @@ local r2
 local r3
 
 task.spawn(function()
-game:GetService("RunService").Heartbeat:Connect(function()
-	char = lp.Character or lp.CharacterAdded:Wait()
-	if r1 then
-		if char then
-		    for _, part in ipairs(workspace.Stairs:GetChildren()) do
-		        touchPart(part)
-		    end
-		end
-	end
-if r2 then
-	if char and lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
-		local root = lp.Character.HumanoidRootPart
-		
-		-- lưu lại trạng thái ban đầu (chỉ lưu 1 lần)
-		if not oldVel then
-			oldVel = root.Velocity
-			oldRot = root.RotVelocity
-		end
-		
-		-- teleport + fling
-		root.CFrame = sign.CFrame
-		root.Velocity = Vector3.new(5000, 5000, 5000)
-		root.RotVelocity = Vector3.new(5000, 5000, 5000)
-	end
-else
-	if lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
-		local root = lp.Character.HumanoidRootPart
-		
-		-- trả lại như cũ
-		if oldVel then
-			root.Velocity = oldVel
-			root.RotVelocity = oldRot
-		end
-		
-		oldVel = nil
-		oldRot = nil
-	end
+	game:GetService("RunService").Heartbeat:Connect(function()
+		char = lp.Character or lp.CharacterAdded:Wait()
+
+		if r1 then
+			if char then
+				for _, part in ipairs(workspace.Stairs:GetChildren()) do
+					touchPart(part)
 				end
+			end
+		end
+
+		if r2 then
+			if char and lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
+				local root = lp.Character.HumanoidRootPart
+
+				if not oldVel then
+					oldVel = root.Velocity
+					oldRot = root.RotVelocity
 				end
-	if r3 then
-		fireclickdetector(clickDetector)
-	end
-end)
+
+				root.CFrame = sign.CFrame
+				root.Velocity = Vector3.new(5000, 5000, 5000)
+				root.RotVelocity = Vector3.new(5000, 5000, 5000)
+			end
+		else
+			if lp.Character and lp.Character:FindFirstChild("HumanoidRootPart") then
+				local root = lp.Character.HumanoidRootPart
+
+				if oldVel then
+					root.Velocity = oldVel
+					root.RotVelocity = oldRot
+				end
+
+				oldVel = nil
+				oldRot = nil
+			end
+		end
+
+		if r3 then
+			fireclickdetector(clickDetector)
+		end
+	end)
 end)
 
 local Window = Modal:CreateWindow({
