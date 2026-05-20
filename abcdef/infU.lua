@@ -451,6 +451,12 @@ for _, v in pairs(COREGUI:GetDescendants()) do
 end
 end)
 end)
+repeat wait() until COREGUI:FindFirstChildWhichIsA("ScreenGui")
+for _, v in pairs(COREGUI:GetDescendants()) do
+    if v.Name == "Rayfield" and v:FindFirstChild("Notifications"):FindFirstChild("Template"):FindFirstChild("Interact") then
+        v.Notifications.Template.Interact.Active = false
+    end
+end
 local function random_n(length)
 	local min = 10^(length - 1)
 	local max = (10^length) - 1
