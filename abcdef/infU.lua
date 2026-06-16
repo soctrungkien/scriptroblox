@@ -763,6 +763,13 @@ TabScriptAny:CreateButton({
 		loadsc("https://raw.githubusercontent.com/gumanba/Scripts/main/SlimeRNG", "ToraIsMe9792947201", false)
    end
 })
+elseif game.GameId == 8834587397 then
+TabScriptAny:CreateButton({
+   Name = "AutoBrainrot" .. " for " .. info.Name,
+   Callback = function()
+		loadsc("https://pastefy.app/Z1ZUiKia/raw", "AutoBrainrot", false)
+   end
+})
 else
 local NoSGame1 = TabScriptAny:CreateParagraph({Title = "🚫 Không Có Script Riêng Cho Game Này", Content = "Hiện tại game này chưa có script riêng. Người chơi có thể sử dụng các script universal dùng chung cho nhiều game để trải nghiệm một số tính năng cơ bản."})
 end
