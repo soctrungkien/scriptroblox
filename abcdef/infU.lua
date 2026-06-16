@@ -5,6 +5,26 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
     Text = "Loading",
     Duration = 1
 })
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+if not Rayfield then
+	print("[infU] failed to load " + "Rayfield")
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+	    Title = "infU",
+	    Text = "Rayfield trong quá trình tải đã bị lỗi",
+	    Duration = 1
+	})
+	return
+end
+local FixlagModule = loadstring(game:HttpGet('https://pastefy.app/bIsOY8bK/raw'))()
+if not FixlagModule then
+	print("[infU] failed to load " + "FixlagModule")
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+	    Title = "infU",
+	    Text = "FixlagModule trong quá trình tải đã bị lỗi",
+	    Duration = 1
+	})
+	return
+end
 repeat wait() until game:IsLoaded()
 local identity = getthreadidentity()
 pcall(function()
@@ -86,15 +106,6 @@ end
 setfpscap(999999)
 setfpscap(240)
 getgenv().RAYFIELD_ASSET_ID = 10804731440
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-if not Rayfield then
-	print("[infU] Rayfield no load")
-	game:GetService("StarterGui"):SetCore("SendNotification", {
-	    Title = "infU",
-	    Text = "Rayfield trong quá trình tải đã bị lỗi",
-	    Duration = 1
-	})
-end
 local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 function b64_encode(data)
     local encoded = ((data:gsub('.', function(x)
@@ -391,7 +402,6 @@ Services.Players.LocalPlayer.Idled:Connect(function()
         Services.VirtualUser:ClickButton2(Vector2.new(0, 0))
     end
 end)
-loadsc("https://pastefy.app/bIsOY8bK/raw", "FixlagModule", true)
 local Window = Rayfield:CreateWindow({
    Name = "「infU」| " .. info.Name,
    Icon = "infinity",
