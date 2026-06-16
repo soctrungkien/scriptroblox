@@ -15,15 +15,6 @@ if not Rayfield then
 	return
 end
 local FixlagModule = loadstring(game:HttpGet('https://pastefy.app/bIsOY8bK/raw'))()
-if not FixlagModule then
-	print("[infU] failed to load " .. "FixlagModule")
-	game:GetService("StarterGui"):SetCore("SendNotification", {
-	    Title = "infU",
-	    Text = "FixlagModule" .. " trong quá trình tải đã bị lỗi",
-	    Duration = 1
-	})
-	return
-end
 repeat wait() until game:IsLoaded()
 local identity = getthreadidentity()
 pcall(function()
