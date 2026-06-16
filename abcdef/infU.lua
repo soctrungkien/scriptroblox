@@ -6,20 +6,20 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
 })
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 if not Rayfield then
-	print("[infU] failed to load " + "Rayfield")
+	print("[infU] failed to load " .. "Rayfield")
 	game:GetService("StarterGui"):SetCore("SendNotification", {
 	    Title = "infU",
-	    Text = "Rayfield" + " trong quá trình tải đã bị lỗi",
+	    Text = "Rayfield" .. " trong quá trình tải đã bị lỗi",
 	    Duration = 1
 	})
 	return
 end
 local FixlagModule = loadstring(game:HttpGet('https://pastefy.app/bIsOY8bK/raw'))()
 if not FixlagModule then
-	print("[infU] failed to load " + "FixlagModule")
+	print("[infU] failed to load " .. "FixlagModule")
 	game:GetService("StarterGui"):SetCore("SendNotification", {
 	    Title = "infU",
-	    Text = "FixlagModule" + " trong quá trình tải đã bị lỗi",
+	    Text = "FixlagModule" .. " trong quá trình tải đã bị lỗi",
 	    Duration = 1
 	})
 	return
