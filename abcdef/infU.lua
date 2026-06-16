@@ -1,4 +1,3 @@
---nooo có 1 con dog đang skid
 print("[infU] Loading")
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "infU",
@@ -10,7 +9,7 @@ if not Rayfield then
 	print("[infU] failed to load " + "Rayfield")
 	game:GetService("StarterGui"):SetCore("SendNotification", {
 	    Title = "infU",
-	    Text = "Rayfield trong quá trình tải đã bị lỗi",
+	    Text = "Rayfield" + " trong quá trình tải đã bị lỗi",
 	    Duration = 1
 	})
 	return
@@ -20,7 +19,7 @@ if not FixlagModule then
 	print("[infU] failed to load " + "FixlagModule")
 	game:GetService("StarterGui"):SetCore("SendNotification", {
 	    Title = "infU",
-	    Text = "FixlagModule trong quá trình tải đã bị lỗi",
+	    Text = "FixlagModule" + " trong quá trình tải đã bị lỗi",
 	    Duration = 1
 	})
 	return
